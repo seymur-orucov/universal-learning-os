@@ -1,5 +1,7 @@
 # Session Report Template
 
+Canonical session output reports are defined in `templates/session/SESSION_REPORT_TEMPLATE.md`. This learner template is a learner-state authoring aid and SHOULD remain aligned with the canonical session report shape.
+
 ## Session Summary
 
 `<session-summary>`
@@ -36,6 +38,8 @@
 
 - `<proposed-state-update>`
 
+Proposed state updates require evidence or explicit user instruction and SHOULD NOT be silently applied.
+
 ## Review Items
 
 - `<review-item>`
@@ -51,4 +55,3 @@
 ## OPEN QUESTION
 
 - `<open-question>`
-

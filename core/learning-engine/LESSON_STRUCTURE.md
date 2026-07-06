@@ -36,6 +36,7 @@ A lesson SHOULD include:
 
 ## Relationships
 
+- Lesson output templates are provided in `templates/session/LESSON_OUTPUT_TEMPLATE.md`.
 - Evidence requirements are defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
 - Next action categories are defined in `core/learning-engine/NEXT_ACTION_MODEL.md`.
 - State update rules are defined in `specification/STATE_SPEC.md`.

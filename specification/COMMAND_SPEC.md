@@ -65,6 +65,7 @@ Future commands MAY be organized into these categories:
 - Learner state contracts are defined in `specification/STATE_SPEC.md`.
 - Domain content contracts are defined in `specification/DOMAIN_PACK_SPEC.md`.
 - Localization behavior is defined in `specification/LOCALIZATION_SPEC.md`.
+- Reusable session output templates are defined in `templates/session/`.
 
 ## OPEN QUESTION
 
