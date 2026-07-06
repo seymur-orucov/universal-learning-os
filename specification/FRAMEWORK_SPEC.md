@@ -42,6 +42,8 @@ This specification covers framework roles, canonical boundaries, versioning expe
 
 ## Relationships
 
+- Domain-independent learning engine models are defined in `core/learning-engine/`.
+- Framework-level mastery models are defined in `core/mastery-model/`.
 - Learner progress rules are defined in `LEARNING_LIFECYCLE.md`.
 - Domain pack rules are defined in `DOMAIN_PACK_SPEC.md`.
 - Skill rules are defined in `SKILL_SPEC.md`.

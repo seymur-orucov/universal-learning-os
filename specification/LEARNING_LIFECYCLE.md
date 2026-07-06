@@ -55,6 +55,8 @@ The domain-independent learning loop is:
 
 ## Relationships
 
+- Session selection, lesson structure, practice, assessment, review, and next-action models are defined in `core/learning-engine/`.
+- Mastery levels and evidence requirements are defined in `core/mastery-model/`.
 - Learner state storage is defined in `STATE_SPEC.md`.
 - Domain-specific criteria belong to domain packs defined by `DOMAIN_PACK_SPEC.md`.
 - Framework-wide boundaries are defined in `FRAMEWORK_SPEC.md`.
