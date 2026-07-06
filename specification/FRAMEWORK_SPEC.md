@@ -21,7 +21,8 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Domain pack: reusable domain-specific material described by `DOMAIN_PACK_SPEC.md`.
 - Learner state: mutable learner-specific data described by `STATE_SPEC.md`.
 - Command: user-invoked workflow described by `COMMAND_SPEC.md`.
-- Skill: reusable agent capability described by `SKILL_SPEC.md`.
+- Agent skill: reusable agent capability described by `SKILL_SPEC.md`.
+- Learning skill: domain-specific learner competency described by a future domain skill graph.
 - Evidence: observed learner activity used to justify state changes.
 
 ## Normative Requirements
@@ -31,6 +32,12 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - A normative concept MUST have one canonical source of truth.
 - Documents SHOULD cross-reference canonical specifications instead of duplicating rules.
 - Framework contracts SHOULD be designed for explicit versioning and future migration.
+- Canonical source boundaries MUST be preserved when adding documents, examples, schemas, or tooling.
+- Execution surfaces MAY include ChatGPT Projects, OpenAI Codex, IDE-based agents, Markdown workflows, and future applications, but they MUST conform to the same framework contracts.
+- Surface-specific behavior SHOULD be isolated from domain-independent framework rules.
+- Reusable framework content and domain pack content MUST NOT contain learner-specific progress.
+- Learner progress MUST require evidence or explicit user instruction, as defined by `LEARNING_LIFECYCLE.md` and `STATE_SPEC.md`.
+- Versioned artifacts SHOULD declare the framework contract version they target once versioning exists.
 - Unresolved architectural or behavioral issues MUST be marked as `OPEN QUESTION`.
 
 ## Relationships
@@ -45,4 +52,3 @@ This specification covers framework roles, canonical boundaries, versioning expe
 
 - What is the first stable framework version identifier?
 - Which artifacts must declare framework compatibility?
-
