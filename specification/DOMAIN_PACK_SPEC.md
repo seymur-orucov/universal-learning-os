@@ -20,8 +20,9 @@ This specification covers expected responsibilities and boundaries for future do
 - Domain pack: reusable subject-specific content and metadata.
 - Domain concept: a subject-specific knowledge unit.
 - Learning skill: a subject-specific learner competency.
-- Prerequisite: a dependency between domain concepts or skills.
+- Prerequisite: a dependency between domain concepts or learning skills.
 - Assessment criteria: domain-specific expectations used to evaluate evidence.
+- Domain language policy: domain-specific guidance for terminology presentation, glossary mapping, and term preservation.
 
 ## Future Components
 
@@ -35,6 +36,8 @@ Future domain packs MAY contain these conceptual components:
 - `PROJECTS.md`: project-based learning opportunities.
 - `GLOSSARY.md`: domain-specific terminology.
 
+Domain packs MAY include glossary and terminology guidance for important domain terms, especially when instruction language and terminology language differ.
+
 ## Normative Requirements
 
 - Domain packs MUST NOT contain learner-specific progress.
@@ -42,13 +45,15 @@ Future domain packs MAY contain these conceptual components:
 - Domain packs MUST contain reusable subject-specific learning content, not execution-surface-specific instructions.
 - Domain packs SHOULD declare their compatibility with the framework version once versioning exists.
 - Domain packs SHOULD define assessment criteria separately from learner evidence.
-- Domain packs MUST NOT duplicate lifecycle rules from `LEARNING_LIFECYCLE.md`.
+- Domain packs SHOULD provide glossary guidance when important technical terms should be preserved in a terminology language.
+- Domain packs MUST NOT duplicate lifecycle rules from `specification/LEARNING_LIFECYCLE.md`.
 
 ## Relationships
 
-- Core framework boundaries are defined in `FRAMEWORK_SPEC.md`.
-- Learning lifecycle semantics are defined in `LEARNING_LIFECYCLE.md`.
-- Learner progress storage is defined in `STATE_SPEC.md`.
+- Core framework boundaries are defined in `specification/FRAMEWORK_SPEC.md`.
+- Learning lifecycle semantics are defined in `specification/LEARNING_LIFECYCLE.md`.
+- Learner progress storage is defined in `specification/STATE_SPEC.md`.
+- Localization behavior is defined in `specification/LOCALIZATION_SPEC.md`.
 
 ## OPEN QUESTION
 

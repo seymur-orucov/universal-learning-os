@@ -31,6 +31,7 @@ A lesson SHOULD include:
 - Lessons MUST NOT imply mastery from exposure alone.
 - Lessons SHOULD include at least one evidence-producing activity before recommending state updates.
 - Lesson examples MUST be supplied by a domain pack or user context, not by this core model.
+- Lesson explanations SHOULD follow the instruction language while preserving domain terminology according to `specification/LOCALIZATION_SPEC.md`.
 - Session reports SHOULD distinguish displayed content from learner-demonstrated evidence.
 
 ## Relationships
@@ -38,6 +39,7 @@ A lesson SHOULD include:
 - Evidence requirements are defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
 - Next action categories are defined in `core/learning-engine/NEXT_ACTION_MODEL.md`.
 - State update rules are defined in `specification/STATE_SPEC.md`.
+- Localization behavior is defined in `specification/LOCALIZATION_SPEC.md`.
 
 ## OPEN QUESTION
 

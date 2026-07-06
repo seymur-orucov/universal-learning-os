@@ -24,6 +24,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Agent skill: reusable agent capability described by `specification/SKILL_SPEC.md`.
 - Learning skill: domain-specific learner competency described by a future domain skill graph.
 - Evidence: observed learner activity used to justify state changes.
+- Localization preference: configurable instruction language and terminology language behavior described by `specification/LOCALIZATION_SPEC.md`.
 
 ## Normative Requirements
 
@@ -37,6 +38,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Surface-specific behavior SHOULD be isolated from domain-independent framework rules.
 - Reusable framework content and domain pack content MUST NOT contain learner-specific progress.
 - Learner progress MUST require evidence or explicit user instruction, as defined by `specification/LEARNING_LIFECYCLE.md` and `specification/STATE_SPEC.md`.
+- User-facing teaching behavior SHOULD respect localization preferences defined by `specification/LOCALIZATION_SPEC.md`.
 - Versioned artifacts SHOULD declare the framework contract version they target once versioning exists.
 - Unresolved architectural or behavioral issues MUST be marked as `OPEN QUESTION`.
 
@@ -49,6 +51,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Agent skill rules are defined in `specification/SKILL_SPEC.md`.
 - Command rules are defined in `specification/COMMAND_SPEC.md`.
 - Learner state rules are defined in `specification/STATE_SPEC.md`.
+- Localization rules are defined in `specification/LOCALIZATION_SPEC.md`.
 
 ## OPEN QUESTION
 

@@ -23,6 +23,7 @@ This specification covers future learner state responsibilities, evidence requir
 - Mastery record: a state entry claiming demonstrated competence.
 - State version: the version of the state contract used by a learner file.
 - Migration: a future process that moves learner state between versions.
+- Learner language preference: learner-specific instruction language, terminology language, or glossary behavior governed by `specification/LOCALIZATION_SPEC.md`.
 
 ## Conceptual Minimum State Model
 
@@ -37,6 +38,12 @@ Future learner state SHOULD include these conceptual sections:
 - `session_history`: summarizes completed sessions and their outcomes.
 - `next_actions`: records proposed follow-up actions derived from state, domain pack, and evidence.
 
+Future learner profile or learner state MAY include language preference fields such as:
+
+- `instruction_language`: preferred language for explanations, feedback, lesson flow, and user-facing teaching text.
+- `terminology_language`: preferred language for domain-specific technical terms.
+- `glossary_preference`: preferred glossary behavior for preserved terms, translations, or usage notes.
+
 ## Normative Requirements
 
 - Learner state MUST be learner-specific.
@@ -49,11 +56,13 @@ Future learner state SHOULD include these conceptual sections:
 - Mutable learner state SHOULD use YAML once a concrete schema is defined.
 - Machine-readable learner state SHOULD be validated by JSON Schema once schemas exist.
 - State files SHOULD include version information once a versioning scheme is defined.
+- Language preferences MAY influence presentation, but MUST NOT change evidence, mastery, or state semantics.
 
 ## Relationships
 
 - Evidence and mastery semantics are defined in `specification/LEARNING_LIFECYCLE.md`.
 - Domain pack content is defined in `specification/DOMAIN_PACK_SPEC.md`.
+- Localization behavior is defined in `specification/LOCALIZATION_SPEC.md`.
 - Future validation files belong under `schemas/`.
 
 ## OPEN QUESTION

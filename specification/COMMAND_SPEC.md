@@ -6,7 +6,7 @@ Define the contract for user-invoked workflows.
 
 ## Scope
 
-This specification covers the distinction between commands, skills, domain packs, and learner state.
+This specification covers the distinction between commands, agent skills, domain packs, and learner state.
 
 ## Non-Goals
 
@@ -51,18 +51,20 @@ Future commands MAY be organized into these categories:
 
 ## Normative Requirements
 
-- Commands MUST describe user-visible intent separately from reusable skills.
+- Commands MUST describe user-visible intent separately from reusable agent skills.
 - Commands MUST be user-invoked workflows, not reusable agent capabilities.
-- Commands MUST NOT silently modify learner state outside `STATE_SPEC.md` rules.
+- Commands MUST NOT silently modify learner state outside `specification/STATE_SPEC.md` rules.
 - Commands SHOULD declare expected effects once a concrete command format exists.
-- Commands SHOULD call or reference skills rather than duplicating reusable capability logic.
+- Commands SHOULD call or reference agent skills rather than duplicating reusable capability logic.
+- Commands that produce user-facing teaching output SHOULD respect localization preferences when available.
 - Commands MUST NOT embed complete domain pack content.
 
 ## Relationships
 
-- Reusable agent capabilities are defined in `SKILL_SPEC.md`.
-- Learner state contracts are defined in `STATE_SPEC.md`.
-- Domain content contracts are defined in `DOMAIN_PACK_SPEC.md`.
+- Reusable agent capabilities are defined in `specification/SKILL_SPEC.md`.
+- Learner state contracts are defined in `specification/STATE_SPEC.md`.
+- Domain content contracts are defined in `specification/DOMAIN_PACK_SPEC.md`.
+- Localization behavior is defined in `specification/LOCALIZATION_SPEC.md`.
 
 ## OPEN QUESTION
 
