@@ -37,13 +37,13 @@ The domain-independent learning loop is:
 7. Feedback: compare learner output against criteria and explain gaps.
 8. Assess: evaluate evidence against domain or framework criteria.
 9. State Update: propose or apply learner-state changes when justified.
-10. Review Scheduling: create review items for weak, stale, failed, or prerequisite skills.
+10. Review Scheduling: create review items for weak, stale, failed, or prerequisite learning skills.
 11. Next Action: select the next useful learning step.
 
 ## Normative Requirements
 
 - Learner progress MUST NOT be modified without evidence or explicit user instruction.
-- A skill or concept MUST NOT be marked mastered merely because content was displayed.
+- A learning skill or concept MUST NOT be marked mastered merely because content was displayed.
 - A learner MAY view a lesson without gaining mastery.
 - Assessment MUST be based on evidence.
 - State updates MUST be traceable to evidence unless explicitly directed by the user.
@@ -57,9 +57,9 @@ The domain-independent learning loop is:
 
 - Session selection, lesson structure, practice, assessment, review, and next-action models are defined in `core/learning-engine/`.
 - Mastery levels and evidence requirements are defined in `core/mastery-model/`.
-- Learner state storage is defined in `STATE_SPEC.md`.
-- Domain-specific criteria belong to domain packs defined by `DOMAIN_PACK_SPEC.md`.
-- Framework-wide boundaries are defined in `FRAMEWORK_SPEC.md`.
+- Learner state storage is defined in `specification/STATE_SPEC.md`.
+- Domain-specific criteria belong to domain packs defined by `specification/DOMAIN_PACK_SPEC.md`.
+- Framework-wide boundaries are defined in `specification/FRAMEWORK_SPEC.md`.
 
 ## OPEN QUESTION
 

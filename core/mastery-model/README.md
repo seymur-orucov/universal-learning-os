@@ -8,8 +8,8 @@ These documents define framework-level concepts only. Domain packs MAY map them 
 
 ## Documents
 
-- `MASTERY_LEVELS.md`: framework-level mastery scale.
-- `EVIDENCE_REQUIREMENTS.md`: acceptable evidence before mastery claims.
+- `core/mastery-model/MASTERY_LEVELS.md`: framework-level mastery scale.
+- `core/mastery-model/EVIDENCE_REQUIREMENTS.md`: acceptable evidence before mastery claims.
 
 ## Relationships
 
@@ -19,5 +19,4 @@ These documents define framework-level concepts only. Domain packs MAY map them 
 
 ## OPEN QUESTION
 
-- Should mastery levels be required in every learner state record or only in assessed skill records?
-
+- Should mastery levels be required in every learner state record or only in assessed learning skill records?

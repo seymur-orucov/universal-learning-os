@@ -13,7 +13,7 @@ This model defines action categories. It does not implement command routing, sch
 - Continue lesson: proceed within the current lesson or sequence.
 - Repeat concept: revisit the same concept with a different explanation or example.
 - Targeted practice: practice a specific weak learning skill or mistake.
-- Mixed review: review multiple related concepts or skills.
+- Mixed review: review multiple related concepts or learning skills.
 - Assessment: collect evidence against criteria.
 - Project work: continue or start a realistic artifact.
 - Interview simulation: practice interactive explanation or problem solving.
@@ -30,11 +30,10 @@ This model defines action categories. It does not implement command routing, sch
 
 ## Relationships
 
-- Session selection is defined in `SESSION_SELECTION.md`.
-- Review triggers are defined in `REVIEW_MODEL.md`.
+- Session selection is defined in `core/learning-engine/SESSION_SELECTION.md`.
+- Review triggers are defined in `core/learning-engine/REVIEW_MODEL.md`.
 - Learning lifecycle next-action behavior is defined in `specification/LEARNING_LIFECYCLE.md`.
 
 ## OPEN QUESTION
 
 - Should next actions support priority values before a concrete state schema exists?
-

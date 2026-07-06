@@ -33,7 +33,7 @@ Future learner state SHOULD include these conceptual sections:
 - `active_tracks`: records current domain packs, tracks, goals, or learning paths.
 - `skill_records`: stores learner-specific status for domain learning skills.
 - `evidence_log`: records observed learner activity used to justify assessments or updates.
-- `review_queue`: lists skills or concepts needing review.
+- `review_queue`: lists learning skills or concepts needing review.
 - `session_history`: summarizes completed sessions and their outcomes.
 - `next_actions`: records proposed follow-up actions derived from state, domain pack, and evidence.
 
@@ -45,15 +45,15 @@ Future learner state SHOULD include these conceptual sections:
 - Learner state MUST NOT be changed without evidence or explicit user instruction.
 - Mastery records MUST NOT be created solely because instructional content was shown.
 - Mastery records MUST reference evidence.
-- `review_queue` SHOULD be generated from weak skills, stale skills, failed assessments, or upcoming prerequisites.
+- `review_queue` SHOULD be generated from weak learning skills, stale learning skills, failed assessments, or upcoming prerequisites.
 - Mutable learner state SHOULD use YAML once a concrete schema is defined.
 - Machine-readable learner state SHOULD be validated by JSON Schema once schemas exist.
 - State files SHOULD include version information once a versioning scheme is defined.
 
 ## Relationships
 
-- Evidence and mastery semantics are defined in `LEARNING_LIFECYCLE.md`.
-- Domain pack content is defined in `DOMAIN_PACK_SPEC.md`.
+- Evidence and mastery semantics are defined in `specification/LEARNING_LIFECYCLE.md`.
+- Domain pack content is defined in `specification/DOMAIN_PACK_SPEC.md`.
 - Future validation files belong under `schemas/`.
 
 ## OPEN QUESTION

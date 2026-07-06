@@ -13,7 +13,7 @@ This model defines lesson sections. It does not define actual domain lessons, ex
 A lesson SHOULD include:
 
 - Objective: the learning skill or concept the session targets.
-- Prerequisite check: the minimum prior knowledge or skill needed.
+- Prerequisite check: the minimum prior knowledge or learning skill needed.
 - Mental model: the compact conceptual frame for understanding the topic.
 - Concept explanation: the main explanation of the target concept.
 - Minimal example: the smallest useful example that isolates the concept.
@@ -36,10 +36,9 @@ A lesson SHOULD include:
 ## Relationships
 
 - Evidence requirements are defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
-- Next action categories are defined in `NEXT_ACTION_MODEL.md`.
+- Next action categories are defined in `core/learning-engine/NEXT_ACTION_MODEL.md`.
 - State update rules are defined in `specification/STATE_SPEC.md`.
 
 ## OPEN QUESTION
 
 - Which lesson sections are mandatory for very short micro-lessons?
-

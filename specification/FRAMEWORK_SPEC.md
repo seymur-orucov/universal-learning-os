@@ -6,7 +6,7 @@ Define the domain-independent contracts for Universal Learning OS.
 
 ## Scope
 
-This specification covers framework roles, canonical boundaries, versioning expectations, and separation between core behavior, domain packs, learner state, commands, and skills.
+This specification covers framework roles, canonical boundaries, versioning expectations, and separation between core behavior, domain packs, learner state, commands, and agent skills.
 
 ## Non-Goals
 
@@ -18,10 +18,10 @@ This specification covers framework roles, canonical boundaries, versioning expe
 ## Core Concepts
 
 - Framework core: domain-independent rules and lifecycle contracts.
-- Domain pack: reusable domain-specific material described by `DOMAIN_PACK_SPEC.md`.
-- Learner state: mutable learner-specific data described by `STATE_SPEC.md`.
-- Command: user-invoked workflow described by `COMMAND_SPEC.md`.
-- Agent skill: reusable agent capability described by `SKILL_SPEC.md`.
+- Domain pack: reusable domain-specific material described by `specification/DOMAIN_PACK_SPEC.md`.
+- Learner state: mutable learner-specific data described by `specification/STATE_SPEC.md`.
+- Command: user-invoked workflow described by `specification/COMMAND_SPEC.md`.
+- Agent skill: reusable agent capability described by `specification/SKILL_SPEC.md`.
 - Learning skill: domain-specific learner competency described by a future domain skill graph.
 - Evidence: observed learner activity used to justify state changes.
 
@@ -36,7 +36,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Execution surfaces MAY include ChatGPT Projects, OpenAI Codex, IDE-based agents, Markdown workflows, and future applications, but they MUST conform to the same framework contracts.
 - Surface-specific behavior SHOULD be isolated from domain-independent framework rules.
 - Reusable framework content and domain pack content MUST NOT contain learner-specific progress.
-- Learner progress MUST require evidence or explicit user instruction, as defined by `LEARNING_LIFECYCLE.md` and `STATE_SPEC.md`.
+- Learner progress MUST require evidence or explicit user instruction, as defined by `specification/LEARNING_LIFECYCLE.md` and `specification/STATE_SPEC.md`.
 - Versioned artifacts SHOULD declare the framework contract version they target once versioning exists.
 - Unresolved architectural or behavioral issues MUST be marked as `OPEN QUESTION`.
 
@@ -44,11 +44,11 @@ This specification covers framework roles, canonical boundaries, versioning expe
 
 - Domain-independent learning engine models are defined in `core/learning-engine/`.
 - Framework-level mastery models are defined in `core/mastery-model/`.
-- Learner progress rules are defined in `LEARNING_LIFECYCLE.md`.
-- Domain pack rules are defined in `DOMAIN_PACK_SPEC.md`.
-- Skill rules are defined in `SKILL_SPEC.md`.
-- Command rules are defined in `COMMAND_SPEC.md`.
-- Learner state rules are defined in `STATE_SPEC.md`.
+- Learner progress rules are defined in `specification/LEARNING_LIFECYCLE.md`.
+- Domain pack rules are defined in `specification/DOMAIN_PACK_SPEC.md`.
+- Agent skill rules are defined in `specification/SKILL_SPEC.md`.
+- Command rules are defined in `specification/COMMAND_SPEC.md`.
+- Learner state rules are defined in `specification/STATE_SPEC.md`.
 
 ## OPEN QUESTION
 

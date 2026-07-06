@@ -30,11 +30,10 @@ Mastery claims SHOULD be based on one or more of:
 
 ## Relationships
 
-- Mastery levels are defined in `MASTERY_LEVELS.md`.
+- Mastery levels are defined in `core/mastery-model/MASTERY_LEVELS.md`.
 - State evidence storage is described by `specification/STATE_SPEC.md`.
 - Assessment dimensions are defined in `core/learning-engine/ASSESSMENT_MODEL.md`.
 
 ## OPEN QUESTION
 
 - What minimum evidence fields are required once a concrete state schema exists?
-
