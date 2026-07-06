@@ -1,15 +1,25 @@
-# Domains
+# Domain Packs
 
-This directory is reserved for future reusable domain packs.
+Domain packs are reusable subject-specific learning content and metadata.
 
-Domain packs are specified by `specification/DOMAIN_PACK_SPEC.md`.
+They are separate from learner state, learner progress, commands, and agent skills. A domain pack MAY define learning skills, which are learner competencies. Learning skills are not agent skills.
 
-## Current Status
+Domain packs may be used by commands and agent skills to select tracks, lessons, practice, assessments, reviews, projects, glossary guidance, and next actions.
 
-- No complete domain packs are implemented.
-- This directory MUST NOT contain learner-specific progress.
+## Structure
+
+- `domains/_template/` is a reference structure for future domain packs.
+- `domains/_template/` is not a real learning domain.
+- Future real domain packs SHOULD follow `specification/DOMAIN_PACK_SPEC.md`.
+
+## Boundaries
+
+- Domain packs MUST NOT contain learner-specific progress.
+- Domain packs MUST NOT contain learner mastery records.
+- Domain packs SHOULD keep reusable subject content separate from framework core behavior.
+- Domain packs SHOULD support localization guidance when terminology preservation matters.
 
 ## OPEN QUESTION
 
-- What minimal example domain pack, if any, should be created after the domain pack manifest is specified?
+- Should future domain packs include machine-readable manifests before JSON Schema validation exists?
 

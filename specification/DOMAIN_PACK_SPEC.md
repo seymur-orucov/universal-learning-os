@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Define the contract for reusable domain-specific learning material.
+Define the contract for reusable domain-specific learning material and metadata.
 
 ## Scope
 
-This specification covers expected responsibilities and boundaries for future domain packs such as SQL, programming languages, architecture, system design, English, and communication.
+This specification covers expected responsibilities and boundaries for future domain packs such as databases, programming languages, architecture, system design, professional communication, and other structured domains.
 
 ## Non-Goals
 
@@ -14,6 +14,7 @@ This specification covers expected responsibilities and boundaries for future do
 - It does not define a universal syllabus.
 - It does not define learner-specific progress.
 - It does not define exact file formats for future domain pack manifests.
+- It does not create real domain content.
 
 ## Core Concepts
 
@@ -41,11 +42,16 @@ Domain packs MAY include glossary and terminology guidance for important domain 
 ## Normative Requirements
 
 - Domain packs MUST NOT contain learner-specific progress.
+- Domain packs MUST NOT contain mastery records for a learner.
 - Domain packs MUST separate reusable content from framework core behavior.
 - Domain packs MUST contain reusable subject-specific learning content, not execution-surface-specific instructions.
+- Domain packs MAY define learning skills.
+- Domain packs SHOULD define prerequisites and learning skill relationships.
 - Domain packs SHOULD declare their compatibility with the framework version once versioning exists.
 - Domain packs SHOULD define assessment criteria separately from learner evidence.
 - Domain packs SHOULD provide glossary guidance when important technical terms should be preserved in a terminology language.
+- Domain packs MAY map core mastery levels to domain-specific rubrics but MUST NOT weaken evidence requirements from `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+- Domain packs SHOULD support the localization policy in `specification/LOCALIZATION_SPEC.md`.
 - Domain packs MUST NOT duplicate lifecycle rules from `specification/LEARNING_LIFECYCLE.md`.
 
 ## Relationships
@@ -54,6 +60,8 @@ Domain packs MAY include glossary and terminology guidance for important domain 
 - Learning lifecycle semantics are defined in `specification/LEARNING_LIFECYCLE.md`.
 - Learner progress storage is defined in `specification/STATE_SPEC.md`.
 - Localization behavior is defined in `specification/LOCALIZATION_SPEC.md`.
+- Mastery levels are defined in `core/mastery-model/MASTERY_LEVELS.md`.
+- Evidence requirements are defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
 
 ## OPEN QUESTION
 
