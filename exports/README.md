@@ -9,7 +9,7 @@ Generated Project Packs now live under `exports/generated/`.
 ## Contents
 
 - `exports/project-pack-spec/`: human-readable Project Pack Export Model.
-- `exports/generated/`: derived Project Packs assembled from canonical repository files.
+- `exports/generated/`: derived Project Packs, upload guides, usage guides, and validation reports assembled from canonical repository files.
 
 ## Boundaries
 

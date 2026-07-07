@@ -9,6 +9,13 @@ Generated packs MAY be committed while the framework is manually developed becau
 ## Packs
 
 - `exports/generated/sql-postgresql-standard/`: SQL/PostgreSQL Standard Project Pack for ChatGPT Projects.
+- `exports/generated/english-standard/`: English Standard Project Pack for ChatGPT Projects.
+
+## Guides and Reports
+
+- `exports/generated/PROJECT_PACK_UPLOAD_GUIDE.md`: how to upload generated packs into ChatGPT Projects.
+- `exports/generated/PROJECT_PACK_USAGE_GUIDE.md`: day-to-day usage commands, continuation flow, and evidence handling.
+- `exports/generated/PROJECT_PACK_VALIDATION_REPORT.md`: Stage 10.3 validation report for generated packs.
 
 ## OPEN QUESTION
 
