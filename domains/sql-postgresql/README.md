@@ -17,12 +17,13 @@ Important SQL/PostgreSQL technical terms SHOULD remain in English unless domain 
 ## Files
 
 - `domains/sql-postgresql/DOMAIN.md`: domain identity and boundaries.
-- `domains/sql-postgresql/SYLLABUS.md`: draft high-level syllabus skeleton.
-- `domains/sql-postgresql/SKILL_GRAPH.md`: initial learning skill graph skeleton.
-- `domains/sql-postgresql/PRACTICE_RULES.md`: draft practice guidance.
-- `domains/sql-postgresql/ASSESSMENT_RULES.md`: draft assessment mapping.
-- `domains/sql-postgresql/PROJECTS.md`: project category placeholders.
-- `domains/sql-postgresql/GLOSSARY.md`: initial terminology guidance.
+- `domains/sql-postgresql/SYLLABUS.md`: structured main-track syllabus outline.
+- `domains/sql-postgresql/SKILL_GRAPH.md`: SQL/PostgreSQL learning skill graph.
+- `domains/sql-postgresql/PRACTICE_RULES.md`: practice guidance and evidence-producing practice rules.
+- `domains/sql-postgresql/ASSESSMENT_RULES.md`: assessment mapping and review trigger guidance.
+- `domains/sql-postgresql/PROJECTS.md`: project category guidance and project evidence rules.
+- `domains/sql-postgresql/GLOSSARY.md`: terminology guidance with Azerbaijani explanations for the initial project preference.
+- `domains/sql-postgresql/QUALITY_REVIEW.md`: domain pack quality checks for cross-reference integrity, evidence boundaries, and localization consistency.
 
 ## Relationships
 
@@ -33,4 +34,3 @@ Important SQL/PostgreSQL technical terms SHOULD remain in English unless domain 
 ## OPEN QUESTION
 
 - Which SQL/PostgreSQL subset should become the first fully authored lesson path?
-
