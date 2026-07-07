@@ -21,12 +21,13 @@ English examples, dialogues, phrases, vocabulary, and learner outputs SHOULD rem
 ## Files
 
 - `domains/english/DOMAIN.md`: domain identity and boundaries.
-- `domains/english/SYLLABUS.md`: draft high-level syllabus skeleton.
-- `domains/english/SKILL_GRAPH.md`: initial English communication learning skill graph skeleton.
-- `domains/english/PRACTICE_RULES.md`: draft practice guidance.
-- `domains/english/ASSESSMENT_RULES.md`: draft assessment mapping.
-- `domains/english/PROJECTS.md`: project category placeholders.
-- `domains/english/GLOSSARY.md`: initial terminology guidance.
+- `domains/english/SYLLABUS.md`: structured `english.main` syllabus outline.
+- `domains/english/SKILL_GRAPH.md`: English communication learning skill graph.
+- `domains/english/PRACTICE_RULES.md`: structured practice guidance and evidence-producing practice rules.
+- `domains/english/ASSESSMENT_RULES.md`: assessment mapping and review trigger guidance.
+- `domains/english/PROJECTS.md`: portfolio and project category guidance.
+- `domains/english/GLOSSARY.md`: terminology guidance with Azerbaijani explanations for the initial project preference.
+- `domains/english/QUALITY_REVIEW.md`: quality checks for cross-reference integrity, evidence boundaries, privacy boundaries, and localization consistency.
 
 ## Relationships
 
@@ -36,4 +37,4 @@ English examples, dialogues, phrases, vocabulary, and learner outputs SHOULD rem
 
 ## OPEN QUESTION
 
-- Which English track should receive the first expanded learning skill graph?
+- Which English portfolio category should become the first fully specified project?
