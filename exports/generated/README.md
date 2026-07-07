@@ -16,6 +16,7 @@ Generated packs MAY be committed while the framework is manually developed becau
 - `exports/generated/PROJECT_PACK_UPLOAD_GUIDE.md`: how to upload generated packs into ChatGPT Projects.
 - `exports/generated/PROJECT_PACK_USAGE_GUIDE.md`: day-to-day usage commands, continuation flow, and evidence handling.
 - `exports/generated/PROJECT_PACK_VALIDATION_REPORT.md`: Stage 10.3 validation report for generated packs.
+- `exports/generated/project-launch-kits/`: practical ChatGPT Project setup kits, upload lists, ready prompts, recovery guidance, and learner state handoff templates.
 
 ## OPEN QUESTION
 

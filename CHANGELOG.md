@@ -4,6 +4,10 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Added Stage 10.5 generic active learner starter state under `learners/active-learner/`.
+- Added ADR-0026 for active learner state bootstrap and privacy boundaries.
+- Added Stage 10.4 ChatGPT Project launch kits under `exports/generated/project-launch-kits/`.
+- Added ADR-0025 for launch kit location and generated pack file-count boundaries.
 - Added Stage 10.3 generated Project Pack validation report and ChatGPT Project upload/use guides.
 - Added missing English Standard Project Pack under `exports/generated/english-standard/` as a Stage 10.2 consistency fix.
 - Added ADR-0024 for generated pack validation and guide placement.
