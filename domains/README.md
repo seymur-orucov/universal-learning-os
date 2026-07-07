@@ -11,6 +11,7 @@ Domain packs may be used by commands and agent skills to select tracks, lessons,
 - `domains/_template/` is a reference structure for future domain packs.
 - `domains/_template/` is not a real learning domain.
 - `domains/sql-postgresql/` is the first pilot domain pack for SQL and PostgreSQL.
+- `domains/english/` is the second pilot domain pack for English for Software Engineers.
 - Future real domain packs SHOULD follow `specification/DOMAIN_PACK_SPEC.md`.
 
 ## Boundaries
