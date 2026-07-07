@@ -4,6 +4,10 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Added Stage 10.7 v0.1.0-rc1 release readiness documentation under `docs/releases/`.
+- Added ADR-0028 for release readiness documentation scope.
+- Added Stage 10.6 manual acceptance tests under `tests/manual-acceptance/`.
+- Added ADR-0027 for manual acceptance test scope and location.
 - Added Stage 10.5 generic active learner starter state under `learners/active-learner/`.
 - Added ADR-0026 for active learner state bootstrap and privacy boundaries.
 - Added Stage 10.4 ChatGPT Project launch kits under `exports/generated/project-launch-kits/`.

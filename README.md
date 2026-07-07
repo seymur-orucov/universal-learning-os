@@ -8,9 +8,15 @@ The repository currently implements:
 - Stage 2-4: core learning engine, command system, and reusable agent skill specifications.
 - Stage 5-7: domain pack standard, learner state model, and session templates.
 - Stage 8-9: quality-reviewed SQL/PostgreSQL and English pilot domain packs.
-- Stage 10.0-10.1: Project Pack Export Model skeleton and first SQL/PostgreSQL generated Project Pack.
+- Stage 10: Project Pack export model, generated SQL/PostgreSQL and English packs, launch kits, active learner starter state, manual acceptance tests, and v0.1.0-rc1 release readiness docs.
 
 It does not yet include generated lessons, learner applications, executable export tooling, schemas, or validation tooling.
+
+## Current Status
+
+v0.1.0-rc1 release readiness documentation is available in `docs/releases/`.
+
+The repository is ready for manual review and practical ChatGPT Project setup using generated Project Packs, but it is not a stable release and does not include executable automation.
 
 ## Repository Map
 
@@ -24,6 +30,7 @@ It does not yet include generated lessons, learner applications, executable expo
 - `learners/` contains learner state templates and is reserved for learner-specific state files.
 - `exports/` contains Project Pack export specifications for assembling project-ready bundles.
 - `tests/` is reserved for validation tests and contract checks.
+- `docs/releases/` contains release readiness documentation.
 
 ## Project Pack Exports
 
