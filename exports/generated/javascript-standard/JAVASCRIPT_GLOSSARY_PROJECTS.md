@@ -1,5 +1,7 @@
 # JavaScript Glossary and Projects
 
+Canonical sources: `domains/javascript/GLOSSARY.md` and `domains/javascript/PROJECTS.md`.
+
 ## Glossary Guidance
 
 - `scope`: dəyişənin haradan əlçatan olduğunu göstərən qayda.

@@ -1,5 +1,7 @@
 # JavaScript Practice and Assessment Rules
 
+Canonical sources: `domains/javascript/PRACTICE_RULES.md`, `domains/javascript/ASSESSMENT_RULES.md`, `domains/javascript/PRACTICE_MODEL.md`, `domains/javascript/ASSESSMENT_MODEL.md`, and `domains/javascript/MASTERY_EXPECTATIONS.md`.
+
 ## Practice
 
 - Use output prediction, bug repair, code writing, refactoring, testing, async tracing, performance reasoning, security review, and interview explanation.

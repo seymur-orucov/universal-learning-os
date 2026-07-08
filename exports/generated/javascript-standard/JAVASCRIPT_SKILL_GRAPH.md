@@ -1,5 +1,7 @@
 # JavaScript Skill Graph
 
+Canonical source: `domains/javascript/SKILL_GRAPH.md`.
+
 ## Core Competencies
 
 - `javascript.values-control-flow`

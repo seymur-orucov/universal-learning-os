@@ -28,8 +28,8 @@ Adding a new file requires removing or merging another file.
 | 18 | `SKILL_PRACTICE_COACH.md` | Agent skill | Supports practice. |
 | 19 | `SKILL_HOMEWORK_REVIEWER.md` | Agent skill | Reviews learner output. |
 | 20 | `SKILL_PROGRESS_MANAGER.md` | Agent skill | Summarizes progress. |
-| 21 | `JAVASCRIPT_DOMAIN_CONTEXT.md` | Domain | Defines JavaScript identity. |
-| 22 | `JAVASCRIPT_SKILL_GRAPH.md` | Domain | Lists learning competencies. |
-| 23 | `JAVASCRIPT_SYLLABUS.md` | Domain | Defines stage sequence. |
-| 24 | `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md` | Domain | Preserves practice and assessment rules. |
-| 25 | `JAVASCRIPT_GLOSSARY_PROJECTS.md` | Domain | Provides terms and project ideas. |
+| 21 | `JAVASCRIPT_DOMAIN_CONTEXT.md` | Domain | Summarizes `domains/javascript/DOMAIN.md`. |
+| 22 | `JAVASCRIPT_SKILL_GRAPH.md` | Domain | Summarizes `domains/javascript/SKILL_GRAPH.md`. |
+| 23 | `JAVASCRIPT_SYLLABUS.md` | Domain | Summarizes `domains/javascript/SYLLABUS.md`. |
+| 24 | `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md` | Domain | Summarizes `PRACTICE_RULES.md` and `ASSESSMENT_RULES.md`. |
+| 25 | `JAVASCRIPT_GLOSSARY_PROJECTS.md` | Domain | Summarizes `GLOSSARY.md` and `PROJECTS.md`. |

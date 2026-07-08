@@ -1,5 +1,7 @@
 # JavaScript Domain Context
 
+Canonical sources: `domains/javascript/DOMAIN.md` and `domains/javascript/DOMAIN_OVERVIEW.md`.
+
 ## Identity
 
 - Domain id: `javascript`

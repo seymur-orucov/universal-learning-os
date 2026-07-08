@@ -41,8 +41,17 @@
 
 - Framework and command context: `specification/`, `commands/`, and selected `skills/`.
 - Project Pack model: `exports/project-pack-spec/`.
-- JavaScript domain files: `domains/javascript/`.
+- JavaScript standard domain files: `domains/javascript/DOMAIN.md`, `SYLLABUS.md`, `SKILL_GRAPH.md`, `PRACTICE_RULES.md`, `ASSESSMENT_RULES.md`, `PROJECTS.md`, and `GLOSSARY.md`.
+- JavaScript supporting domain files: `domains/javascript/DOMAIN_OVERVIEW.md`, `MENTOR_BEHAVIOR.md`, `PRACTICE_MODEL.md`, `ASSESSMENT_MODEL.md`, `MASTERY_EXPECTATIONS.md`, and `PROJECT_PACK_SELECTION.md`.
 - Domain factory model: `docs/domain-pack-factory.md` and `docs/decisions/ADR-0031-new-domain-pack-factory.md`.
+
+## Generated Domain File Traceability
+
+- `JAVASCRIPT_DOMAIN_CONTEXT.md` derives from `domains/javascript/DOMAIN.md` and `DOMAIN_OVERVIEW.md`.
+- `JAVASCRIPT_SKILL_GRAPH.md` derives from `domains/javascript/SKILL_GRAPH.md`.
+- `JAVASCRIPT_SYLLABUS.md` derives from `domains/javascript/SYLLABUS.md`.
+- `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md` derives from `domains/javascript/PRACTICE_RULES.md`, `ASSESSMENT_RULES.md`, `PRACTICE_MODEL.md`, `ASSESSMENT_MODEL.md`, and `MASTERY_EXPECTATIONS.md`.
+- `JAVASCRIPT_GLOSSARY_PROJECTS.md` derives from `domains/javascript/GLOSSARY.md` and `PROJECTS.md`.
 
 ## Excluded Files
 

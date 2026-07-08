@@ -1,5 +1,7 @@
 # JavaScript Syllabus
 
+Canonical source: `domains/javascript/SYLLABUS.md`.
+
 ## Track: `javascript.main`
 
 1. Beginner foundations: `var`, `let`, `const`, primitive vs reference types, operators, expressions, conditionals, loops, functions, arrays, objects, basic DOM usage, DevTools, basic debugging.
