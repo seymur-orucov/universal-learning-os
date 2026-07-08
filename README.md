@@ -11,8 +11,9 @@ The repository currently implements:
 - Stage 10: Project Pack export model, generated SQL/PostgreSQL and English packs, launch kits, active learner starter state, manual acceptance tests, and v0.1.0-rc1 release readiness docs.
 - Stage 11: repeatable domain pack factory model and JavaScript pilot domain with generated Project Pack, launch kit, and manual acceptance tests.
 - Stage 12: TypeScript domain pack with standard and compact generated Project Packs.
+- Stage 13: minimal CLI/generator prototype for listing domains, validating generated pack file counts, and inspecting generated packs.
 
-It does not yet include generated lessons, learner applications, executable export tooling, schemas, or validation tooling.
+It does not yet include generated lessons, learner applications, schemas, or full export automation. A minimal CLI validation prototype exists under `tools/ulos-cli/`.
 
 ## Current Status
 
@@ -31,6 +32,7 @@ The repository is ready for manual review and practical ChatGPT Project setup us
 - `domains/` contains reusable domain packs and domain templates.
 - `learners/` contains learner state templates and is reserved for learner-specific state files.
 - `exports/` contains Project Pack export specifications for assembling project-ready bundles.
+- `tools/ulos-cli/` contains the early CLI prototype for generated pack inspection and validation.
 - `tests/` is reserved for validation tests and contract checks.
 - `docs/releases/` contains release readiness documentation.
 
@@ -50,6 +52,21 @@ Supported generated Project Packs:
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+
+## CLI Prototype
+
+The Stage 13 CLI lives in `tools/ulos-cli/`. It is a small Node.js tool with no external dependencies.
+
+Run from the repository root:
+
+```sh
+node tools/ulos-cli/src/index.js list-domains
+node tools/ulos-cli/src/index.js validate
+node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
+node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
+```
+
+The `generate` command is a placeholder for a future stage and does not synthesize packs yet.
 
 ## Current Constraints
 
