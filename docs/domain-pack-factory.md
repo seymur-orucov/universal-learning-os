@@ -32,7 +32,12 @@ Map the domain to the framework mastery model without weakening `core/mastery-mo
 
 ## 8. Define Generated Project Pack File Budget
 
-Generated Project Packs under `exports/generated/<domain-id>-standard/` must fit the active file budget, currently 25 files. Include instructions, manifest, budget, startup and continuation prompts, selected framework context, selected commands, selected agent skills, and selected summarized domain files.
+Generated Project Packs use two profiles:
+
+- `standard`: exactly 25 files for Plus/Go or higher Project usage. Include instructions, manifest, budget, startup and continuation prompts, selected framework context, selected commands, selected agent skills, and selected summarized domain files.
+- `compact`: maximum 5 files for Free Project usage or other low-file-budget environments. Use `PROJECT_INSTRUCTIONS.md`, `STARTUP_PROMPT.md`, `DOMAIN_CORE.md`, `COMMANDS_CORE.md`, and `MENTOR_SKILLS_CORE.md`.
+
+Compact packs must consolidate domain overview, syllabus, glossary essentials, practice/project contexts, command behavior, mentor skills, evidence/mastery guardrails, localization, learner-state boundaries, and Learner-Facing Mentor Mode without weakening canonical framework semantics.
 
 ## 9. Define Launch Kit Requirements
 
@@ -45,7 +50,8 @@ Add practical tests under `tests/manual-acceptance/<domain-id>/`. Cover startup,
 ## Repository Checklist
 
 - Canonical domain exists under `domains/<domain-id>/`.
-- Generated pack exists under `exports/generated/<domain-id>-standard/` and has exactly 25 files.
+- Standard generated pack exists under `exports/generated/<domain-id>-standard/` and has exactly 25 files.
+- Compact generated pack exists under `exports/generated/<domain-id>-compact/` and has no more than 5 files when the domain is supported for Free Project usage.
 - Launch kit files exist under `exports/generated/project-launch-kits/`.
 - Manual acceptance tests exist under `tests/manual-acceptance/<domain-id>/`.
 - Relevant README and index files list the new domain.

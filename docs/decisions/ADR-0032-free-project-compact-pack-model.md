@@ -31,6 +31,8 @@ The compact profile merges framework boundaries, evidence/mastery guardrails, lo
 - Compact packs necessarily summarize more aggressively and may omit detailed manifests, continuation prompt files, and expanded domain context.
 - Learner-Facing Mentor Mode remains mandatory in compact packs.
 - Manual acceptance tests must check both standard 25-file counts and compact max-5-file counts.
+- SQL/PostgreSQL, English, and JavaScript each receive a compact generated pack. Future domains SHOULD provide both standard and compact profiles when they are promoted to supported generated packs.
+- Compact packs trade breadth of source files for uploadability; domain essentials, command behavior, mentor skills, framework boundaries, evidence rules, localization, and learner-facing output rules are consolidated into merged core files.
 
 ## Boundaries
 

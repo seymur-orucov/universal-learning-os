@@ -8,14 +8,23 @@ Generated packs MAY be committed while the framework is manually developed becau
 
 ## Packs
 
-- `exports/generated/sql-postgresql-standard/`: SQL/PostgreSQL Standard Project Pack for ChatGPT Projects.
-- `exports/generated/english-standard/`: English Standard Project Pack for ChatGPT Projects.
+- `exports/generated/sql-postgresql-standard/`: SQL/PostgreSQL standard Project Pack, exactly 25 files.
+- `exports/generated/english-standard/`: English standard Project Pack, exactly 25 files.
+- `exports/generated/javascript-standard/`: JavaScript standard Project Pack, exactly 25 files.
+- `exports/generated/sql-postgresql-compact/`: SQL/PostgreSQL compact/free Project Pack, maximum 5 files.
+- `exports/generated/english-compact/`: English compact/free Project Pack, maximum 5 files.
+- `exports/generated/javascript-compact/`: JavaScript compact/free Project Pack, maximum 5 files.
+
+## Profiles
+
+- `standard`: exactly 25 files for Plus/Go or higher Project usage.
+- `compact`: maximum 5 files for Free Project usage or other low-file-budget usage.
 
 ## Guides and Reports
 
 - `exports/generated/PROJECT_PACK_UPLOAD_GUIDE.md`: how to upload generated packs into ChatGPT Projects.
 - `exports/generated/PROJECT_PACK_USAGE_GUIDE.md`: day-to-day usage commands, continuation flow, and evidence handling.
-- `exports/generated/PROJECT_PACK_VALIDATION_REPORT.md`: Stage 10.3 validation report for generated packs.
+- `exports/generated/PROJECT_PACK_VALIDATION_REPORT.md`: validation report for generated standard and compact packs.
 - `exports/generated/project-launch-kits/`: practical ChatGPT Project setup kits, upload lists, ready prompts, recovery guidance, and learner state handoff templates.
 
 ## OPEN QUESTION
