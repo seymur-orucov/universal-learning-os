@@ -44,6 +44,9 @@ Supported generated Project Packs:
 - `exports/generated/sql-postgresql-standard/`
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
+- `exports/generated/sql-postgresql-compact/`
+- `exports/generated/english-compact/`
+- `exports/generated/javascript-compact/`
 
 ## Current Constraints
 

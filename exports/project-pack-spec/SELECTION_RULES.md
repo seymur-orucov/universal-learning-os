@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Define how files are selected for a Project Pack under the 25-file limit.
+Define how files are selected for standard and compact Project Packs.
 
 ## Priority Order
 
@@ -27,6 +27,7 @@ Project Pack selection SHOULD use this priority order:
 - Do not include ADRs in runtime packs unless the pack is for framework development.
 - Do not include both broad and redundant summaries unless budget allows.
 - Avoid mixing multiple full domain packs in one 25-file pack.
+- For compact/free packs, merge related sources into `DOMAIN_CORE.md`, `COMMANDS_CORE.md`, and `MENTOR_SKILLS_CORE.md` instead of adding separate files.
 - For two domains, create separate Project Packs or a summarized multi-domain pack.
 - Include only command files that support the selected workflow.
 - Include only agent skill files needed by selected commands.
@@ -44,6 +45,18 @@ For domain-focused learning, exact domain files SHOULD usually include:
 
 Glossary or project guidance MAY replace another file when the pack is terminology-heavy or project-focused.
 
+## Compact/Free Selection Guidance
+
+Compact/free packs MUST prioritize runtime behavior over documentation breadth:
+
+1. Project instructions with Learner-Facing Mentor Mode.
+2. Startup prompt.
+3. Domain essentials in `DOMAIN_CORE.md`.
+4. Selected command behavior in `COMMANDS_CORE.md`.
+5. Mentor skill behavior in `MENTOR_SKILLS_CORE.md`.
+
+Compact/free packs SHOULD cite canonical sources inside merged core files because a separate manifest would exceed the 5-file budget.
+
 ## Exclusion Guidance
 
 Files SHOULD be excluded when they are unrelated to the selected domain, workflow, or runtime behavior. Exclusion MUST be documented when a user might reasonably expect the file to be present.
@@ -55,6 +68,7 @@ Files SHOULD be excluded when they are unrelated to the selected domain, workflo
 - Selection MUST preserve learner state separation.
 - Selection MUST NOT silently change domain pack meaning.
 - Summaries MUST cite or list their canonical source files.
+- Compact/free merged files MUST cite or list their canonical source files.
 
 ## OPEN QUESTION
 

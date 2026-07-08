@@ -11,6 +11,9 @@ Generated Project Packs now live under `exports/generated/`.
 - `exports/generated/sql-postgresql-standard/`
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
+- `exports/generated/sql-postgresql-compact/`
+- `exports/generated/english-compact/`
+- `exports/generated/javascript-compact/`
 
 ## Contents
 

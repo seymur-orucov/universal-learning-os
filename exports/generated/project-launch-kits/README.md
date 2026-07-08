@@ -11,6 +11,9 @@ Canonical source remains in `core/`, `specification/`, `commands/`, `skills/`, `
 - SQL/PostgreSQL Mentor OS
 - English Mentor OS
 - JavaScript Mentor OS
+- SQL/PostgreSQL Mentor OS Compact
+- English Mentor OS Compact
+- JavaScript Mentor OS Compact
 
 ## File Budget Boundary
 
@@ -19,6 +22,12 @@ Individual generated pack directories MUST remain exactly 25 files:
 - `exports/generated/sql-postgresql-standard/`
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
+
+Compact generated pack directories MUST remain no more than 5 files:
+
+- `exports/generated/sql-postgresql-compact/`
+- `exports/generated/english-compact/`
+- `exports/generated/javascript-compact/`
 
 Launch kit files live outside those pack directories so upload-ready file counts remain stable.
 

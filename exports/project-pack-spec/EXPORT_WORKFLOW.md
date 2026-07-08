@@ -19,7 +19,7 @@ This workflow is a human-readable process. It is not executable automation.
 7. Choose learner templates.
 8. Choose session templates.
 9. Create manifest.
-10. Check 25-file budget.
+10. Check the selected profile budget: 25 files for `standard`, max 5 files for `compact/free`.
 11. Document summarized files.
 12. Document excluded files.
 13. Prepare startup prompt.
@@ -37,7 +37,7 @@ This workflow is a human-readable process. It is not executable automation.
 - Confirm localization defaults are project-specific, not global framework defaults.
 - Confirm evidence requirements remain intact.
 - Confirm summarized files are declared in the manifest.
-- Confirm the pack does not exceed 25 source files.
+- Confirm the pack does not exceed its selected profile budget.
 
 ## Normative Requirements
 

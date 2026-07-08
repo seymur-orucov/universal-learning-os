@@ -2,11 +2,13 @@
 
 ## Purpose
 
-Define the 25-file budget model for Project Packs.
+Define standard and compact Project Pack file budget models.
 
 ## Hard Practical Budget
 
-For current Project Pack design, assume a hard practical source-file budget of 25 files per generated Project Pack unless a future target environment explicitly allows more.
+For standard Project Pack design, assume a hard practical source-file budget of 25 files per generated Project Pack unless a future target environment explicitly allows more.
+
+For compact/free Project Pack design, assume a hard source-file budget of 5 files for ChatGPT Projects on the Free plan.
 
 ## Why Budget Matters
 
@@ -24,6 +26,8 @@ Exceeding the budget risks incomplete uploads, duplicated context, inconsistent 
 
 ## Recommended Baseline Allocation
 
+### Standard Profile
+
 ```text
 1  PROJECT_INSTRUCTIONS.md
 1  PACK_MANIFEST.md
@@ -39,9 +43,22 @@ Exceeding the budget risks incomplete uploads, duplicated context, inconsistent 
 Total: 25
 ```
 
+### Compact/Free Profile
+
+```text
+1  PROJECT_INSTRUCTIONS.md
+1  STARTUP_PROMPT.md
+1  DOMAIN_CORE.md
+1  COMMANDS_CORE.md
+1  MENTOR_SKILLS_CORE.md
+Total: 5
+```
+
 ## Required/Core Files
 
 A Standard Pack SHOULD reserve files for project instructions, manifest, startup prompt, continuation prompt, evidence/mastery rules, localization rules, and learner state boundaries.
+
+A Compact/Free Pack SHOULD merge manifest-level traceability, evidence/mastery rules, localization rules, learner state boundaries, domain essentials, command behavior, and mentor skills into the 5 allowed files.
 
 ## Domain Files
 
@@ -98,8 +115,10 @@ Files SHOULD be excluded when:
 
 ## Pack Profiles
 
-- Minimal Pack: 12-15 files for one focused workflow or lesson track.
-- Standard Pack: 20-25 files for one domain and a normal learning workflow.
+- `standard`: exactly or up to 25 files for one domain and a normal learning workflow. Current generated standard packs use exactly 25 files.
+- `compact/free`: no more than 5 files for Free-plan ChatGPT Projects. It uses merged core files and must preserve learner-facing behavior and evidence guardrails.
+- Minimal Pack: 12-15 files for one focused workflow or lesson track when the target environment allows more than 5 files but less than the standard profile.
+- Standard Pack: legacy name for the `standard` profile.
 - Full Pack: not recommended unless the target environment allows more than 25 files.
 - Domain-Focused Pack: prioritizes domain skill graph, syllabus, practice, assessment, glossary, and project guidance.
 - Interview-Focused Pack: prioritizes interview command, interviewer agent skill, assessment model, domain interview content, and session reports.
@@ -114,10 +133,11 @@ Files SHOULD be excluded when:
 
 ## Normative Requirements
 
-- Project Packs MUST assume a maximum of 25 source files unless a future target environment says otherwise.
+- Standard Project Packs MUST assume a maximum of 25 source files unless a future target environment says otherwise.
+- Compact/free Project Packs MUST assume a maximum of 5 source files.
 - Project Packs MUST explain how files are counted.
 - Summaries and curated subsets MAY be used under budget pressure.
-- Summarized, merged, or excluded canonical files MUST be declared in the manifest.
+- Summarized, merged, or excluded canonical files MUST be declared in the manifest for standard packs, or in merged core files for compact/free packs that omit a manifest to stay within the 5-file budget.
 - File budget decisions MUST NOT weaken evidence, mastery, localization, learner state, or domain pack boundaries.
 
 ## OPEN QUESTION
