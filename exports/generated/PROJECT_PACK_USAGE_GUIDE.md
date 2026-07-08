@@ -77,6 +77,14 @@ Instruction language: Azerbaijani. Keep JavaScript technical terms in English.
 No learner state exists yet. Start with beginner-safe baseline checks and recommend the first lesson or practice.
 ```
 
+## TypeScript Startup Example
+
+```text
+Use the TypeScript Mentor OS pack. Start `typescript.main`.
+Instruction language: Azerbaijani. Keep TypeScript technical terms in English.
+No learner state exists yet. Start with beginner-safe baseline checks and recommend the first lesson or practice.
+```
+
 ## Compact Startup Example
 
 ```text

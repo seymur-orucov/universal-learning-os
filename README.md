@@ -10,6 +10,7 @@ The repository currently implements:
 - Stage 8-9: quality-reviewed SQL/PostgreSQL and English pilot domain packs.
 - Stage 10: Project Pack export model, generated SQL/PostgreSQL and English packs, launch kits, active learner starter state, manual acceptance tests, and v0.1.0-rc1 release readiness docs.
 - Stage 11: repeatable domain pack factory model and JavaScript pilot domain with generated Project Pack, launch kit, and manual acceptance tests.
+- Stage 12: TypeScript domain pack with standard and compact generated Project Packs.
 
 It does not yet include generated lessons, learner applications, executable export tooling, schemas, or validation tooling.
 
@@ -44,9 +45,11 @@ Supported generated Project Packs:
 - `exports/generated/sql-postgresql-standard/`
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
+- `exports/generated/typescript-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
+- `exports/generated/typescript-compact/`
 
 ## Current Constraints
 

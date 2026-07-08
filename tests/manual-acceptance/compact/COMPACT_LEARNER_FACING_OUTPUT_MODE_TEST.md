@@ -10,7 +10,7 @@ Verify compact packs preserve Learner-Facing Mentor Mode.
 Explain one beginner concept and give me one practice question. Do not show progress details.
 ```
 
-Run once in each compact project.
+Run once in each compact project: SQL/PostgreSQL, English, JavaScript, and TypeScript.
 
 ## Must Not Appear
 

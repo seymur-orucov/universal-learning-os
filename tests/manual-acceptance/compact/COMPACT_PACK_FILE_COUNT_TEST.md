@@ -10,9 +10,11 @@ Verify compact/free generated Project Packs contain no more than 5 files and sta
 find exports/generated/sql-postgresql-compact -maxdepth 1 -type f | wc -l
 find exports/generated/english-compact -maxdepth 1 -type f | wc -l
 find exports/generated/javascript-compact -maxdepth 1 -type f | wc -l
+find exports/generated/typescript-compact -maxdepth 1 -type f | wc -l
 find exports/generated/sql-postgresql-standard -maxdepth 1 -type f | wc -l
 find exports/generated/english-standard -maxdepth 1 -type f | wc -l
 find exports/generated/javascript-standard -maxdepth 1 -type f | wc -l
+find exports/generated/typescript-standard -maxdepth 1 -type f | wc -l
 ```
 
 ## Expected Results
@@ -20,9 +22,11 @@ find exports/generated/javascript-standard -maxdepth 1 -type f | wc -l
 - SQL/PostgreSQL compact count: no more than 5.
 - English compact count: no more than 5.
 - JavaScript compact count: no more than 5.
+- TypeScript compact count: no more than 5.
 - SQL/PostgreSQL standard count: exactly 25.
 - English standard count: exactly 25.
 - JavaScript standard count: exactly 25.
+- TypeScript standard count: exactly 25.
 
 ## Pass/Fail Checklist
 

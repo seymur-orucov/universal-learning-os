@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`repository-working-tree-stage-11.1`
+`repository-working-tree-stage-12.0`
 
 ## Scope
 
@@ -11,9 +11,11 @@ Validated generated Project Packs:
 - `exports/generated/sql-postgresql-standard/`
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
+- `exports/generated/typescript-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
+- `exports/generated/typescript-compact/`
 
 This report is a derived audit artifact. It is not canonical framework source and not learner state.
 
@@ -29,6 +31,7 @@ This report is a derived audit artifact. It is not canonical framework source an
 | `sql-postgresql-standard` | 25 | PASS | Existing standard pack preserved. |
 | `english-standard` | 25 | PASS | Existing standard pack preserved. |
 | `javascript-standard` | 25 | PASS | Standard JavaScript pack preserved. |
+| `typescript-standard` | 25 | PASS | TypeScript standard pack added. |
 
 ## Compact Profile Checks
 
@@ -37,6 +40,7 @@ This report is a derived audit artifact. It is not canonical framework source an
 | `sql-postgresql-compact` | max 5 | PASS | Contains the required 5 compact files. |
 | `english-compact` | max 5 | PASS | Contains the required 5 compact files. |
 | `javascript-compact` | max 5 | PASS | Contains the required 5 compact files. |
+| `typescript-compact` | max 5 | PASS | Contains the required 5 compact files. |
 
 ## Required Compact Files
 

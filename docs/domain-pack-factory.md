@@ -2,6 +2,8 @@
 
 This guide defines the standard manual process for adding a new learning domain to Universal Learning OS.
 
+Current supported generated domains include SQL/PostgreSQL, English, JavaScript, and TypeScript.
+
 ## 1. Define Domain Purpose
 
 Create `domains/<domain-id>/` and state the domain identity, audience, prerequisites, goals, non-goals, and localization policy. Keep this canonical and reusable. Do not include learner progress or Project setup instructions.

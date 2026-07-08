@@ -9,6 +9,7 @@ Verify compact packs can review learner practice without exposing hidden metadat
 - SQL/PostgreSQL compact.
 - English compact.
 - JavaScript compact.
+- TypeScript compact.
 
 ## Expected Behavior
 
@@ -21,3 +22,4 @@ Verify compact packs can review learner practice without exposing hidden metadat
 - [ ] SQL compact practice review is clean.
 - [ ] English compact practice review is clean.
 - [ ] JavaScript compact practice review is clean.
+- [ ] TypeScript compact practice review is clean.

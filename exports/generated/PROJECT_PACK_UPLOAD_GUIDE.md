@@ -60,6 +60,18 @@ Use `exports/generated/javascript-standard/`.
 
 Compact/free option: use `exports/generated/javascript-compact/` and upload only `PROJECT_INSTRUCTIONS.md`, `STARTUP_PROMPT.md`, `DOMAIN_CORE.md`, `COMMANDS_CORE.md`, and `MENTOR_SKILLS_CORE.md`.
 
+## TypeScript Mentor OS
+
+Use `exports/generated/typescript-standard/`.
+
+- Paste `PROJECT_INSTRUCTIONS.md` into Project Instructions.
+- Upload the other 24 files, or upload all 25 if the environment treats Project Instructions as a source file.
+- Start with `STARTUP_PROMPT.md`.
+- Use Azerbaijani instruction with TypeScript technical terms in English where natural.
+- Keep typed code attempts, type-error fixes, reviewed explanations, weak learning skills, and next actions in learner state or session summaries.
+
+Compact/free option: use `exports/generated/typescript-compact/` and upload only `PROJECT_INSTRUCTIONS.md`, `STARTUP_PROMPT.md`, `DOMAIN_CORE.md`, `COMMANDS_CORE.md`, and `MENTOR_SKILLS_CORE.md`.
+
 ## OPEN QUESTION
 
 - Should future generated packs provide a reduced 24-file upload profile for environments where Project Instructions are counted separately?

@@ -4,6 +4,8 @@
 
 Verify compact packs show progress metadata only when explicitly requested.
 
+Run these checks in SQL/PostgreSQL, English, JavaScript, and TypeScript compact projects.
+
 ## Test A: No Progress Request
 
 ### Input Prompt

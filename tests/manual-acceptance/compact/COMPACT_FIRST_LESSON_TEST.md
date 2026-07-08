@@ -10,7 +10,7 @@ Verify compact packs can deliver a first lesson using merged domain, command, an
 START_LESSON. Start from the beginning. Explain in Azerbaijani.
 ```
 
-Run once in each compact project: SQL/PostgreSQL, English, and JavaScript.
+Run once in each compact project: SQL/PostgreSQL, English, JavaScript, and TypeScript.
 
 ## Expected Behavior
 
