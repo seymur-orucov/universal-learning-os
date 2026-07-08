@@ -9,6 +9,7 @@ The repository currently implements:
 - Stage 5-7: domain pack standard, learner state model, and session templates.
 - Stage 8-9: quality-reviewed SQL/PostgreSQL and English pilot domain packs.
 - Stage 10: Project Pack export model, generated SQL/PostgreSQL and English packs, launch kits, active learner starter state, manual acceptance tests, and v0.1.0-rc1 release readiness docs.
+- Stage 11: repeatable domain pack factory model and JavaScript pilot domain with generated Project Pack, launch kit, and manual acceptance tests.
 
 It does not yet include generated lessons, learner applications, executable export tooling, schemas, or validation tooling.
 
@@ -20,7 +21,7 @@ The repository is ready for manual review and practical ChatGPT Project setup us
 
 ## Repository Map
 
-- `docs/` contains vision, architecture, terminology, and architectural decision records.
+- `docs/` contains vision, architecture, terminology, domain pack factory guidance, and architectural decision records.
 - `specification/` contains canonical framework contracts.
 - `schemas/` is reserved for future JSON Schema validation files.
 - `commands/` contains user-invoked command definitions.
@@ -37,6 +38,12 @@ The repository is ready for manual review and practical ChatGPT Project setup us
 Project Pack exports are curated, ChatGPT Project-ready subsets of repository content. Exported packs are derived artifacts, not canonical framework sources or learner state.
 
 The export model is defined in `exports/README.md` and assumes a practical 25-file source budget for generated Project Packs. Generated packs live under `exports/generated/`.
+
+Supported generated Project Packs:
+
+- `exports/generated/sql-postgresql-standard/`
+- `exports/generated/english-standard/`
+- `exports/generated/javascript-standard/`
 
 ## Current Constraints
 

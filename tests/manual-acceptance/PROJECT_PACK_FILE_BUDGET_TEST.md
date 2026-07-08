@@ -9,14 +9,17 @@ Verify generated Project Pack directories remain exactly 25 files.
 ```sh
 find exports/generated/sql-postgresql-standard -maxdepth 1 -type f | wc -l
 find exports/generated/english-standard -maxdepth 1 -type f | wc -l
+find exports/generated/javascript-standard -maxdepth 1 -type f | wc -l
 find exports/generated/sql-postgresql-standard -maxdepth 1 -type f | sort
 find exports/generated/english-standard -maxdepth 1 -type f | sort
+find exports/generated/javascript-standard -maxdepth 1 -type f | sort
 ```
 
 ## Expected Results
 
 - SQL/PostgreSQL pack count: 25.
 - English pack count: 25.
+- JavaScript pack count: 25.
 - No launch kit files inside individual pack directories.
 - No learner state files inside individual pack directories.
 - No unrelated domain files inside each pack.
@@ -25,7 +28,9 @@ find exports/generated/english-standard -maxdepth 1 -type f | sort
 
 - [ ] SQL/PostgreSQL count is 25.
 - [ ] English count is 25.
+- [ ] JavaScript count is 25.
 - [ ] SQL pack contains no English domain files.
 - [ ] English pack contains no SQL/PostgreSQL domain files.
+- [ ] JavaScript pack contains no SQL/PostgreSQL or English domain files.
 - [ ] Launch kits live under `exports/generated/project-launch-kits/`.
 - [ ] Learner state lives under `learners/active-learner/`.
