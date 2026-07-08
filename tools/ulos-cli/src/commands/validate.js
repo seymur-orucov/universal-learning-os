@@ -1,40 +1,34 @@
-const fs = require("fs");
-const { SUPPORTED_DOMAINS, SUPPORTED_PROFILES } = require("../lib/domains");
-const { getGeneratedPackPath } = require("../lib/paths");
-const { countFiles, expectedRule } = require("../lib/file-counts");
+const { DOMAIN_CONFIG, SUPPORTED_PROFILES } = require("../lib/domains");
+const { validatePack } = require("../lib/validation");
 
 function validate(repoRoot) {
-  let hasFailure = false;
+  const results = [];
 
-  console.log("Generated Project Pack Validation\n");
+  console.log("Universal Learning OS Pack Validation\n");
+  console.log(`Domains checked: ${DOMAIN_CONFIG.length}`);
+  console.log(`Packs checked: ${DOMAIN_CONFIG.length * SUPPORTED_PROFILES.length}\n`);
 
-  for (const domain of SUPPORTED_DOMAINS) {
+  for (const domain of DOMAIN_CONFIG.map((entry) => entry.id)) {
     for (const profile of SUPPORTED_PROFILES) {
-      const packPath = getGeneratedPackPath(repoRoot, domain, profile);
-      const exists = fs.existsSync(packPath);
-      const count = countFiles(packPath);
-      const rule = expectedRule(profile);
-      const passed = exists && rule.passes(count);
-      const status = passed ? "PASS" : "FAIL";
+      const result = validatePack(repoRoot, domain, profile);
+      results.push(result);
 
-      if (!passed) {
-        hasFailure = true;
+      console.log(`[${result.passed ? "PASS" : "FAIL"}] ${result.packName}`);
+      for (const check of result.checks) {
+        console.log(`  - ${check.label}: ${check.passed ? "ok" : "FAIL"}${check.detail ? ` (${check.detail})` : ""}`);
       }
-
-      console.log(`${status} ${domain}-${profile}`);
-      console.log(`  path: ${packPath}`);
-      console.log(`  exists: ${exists ? "yes" : "no"}`);
-      console.log(`  files: ${count}`);
-      console.log(`  rule: ${rule.label}\n`);
+      console.log("");
     }
   }
 
+  const hasFailure = results.some((result) => !result.passed);
+
   if (hasFailure) {
-    console.error("Validation failed.");
+    console.error("Result: FAIL");
     return 1;
   }
 
-  console.log("Validation passed.");
+  console.log("Result: PASS");
   return 0;
 }
 

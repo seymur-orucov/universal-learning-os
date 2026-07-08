@@ -12,6 +12,7 @@ The repository currently implements:
 - Stage 11: repeatable domain pack factory model and JavaScript pilot domain with generated Project Pack, launch kit, and manual acceptance tests.
 - Stage 12: TypeScript domain pack with standard and compact generated Project Packs.
 - Stage 13: minimal CLI/generator prototype for listing domains, validating generated pack file counts, and inspecting generated packs.
+- Stage 14: generated pack validation automation for required files, metadata guardrails, manifests, compact structure, and launch kits.
 
 It does not yet include generated lessons, learner applications, schemas, or full export automation. A minimal CLI validation prototype exists under `tools/ulos-cli/`.
 
@@ -55,7 +56,9 @@ Supported generated Project Packs:
 
 ## CLI Prototype
 
-The Stage 13 CLI lives in `tools/ulos-cli/`. It is a small Node.js tool with no external dependencies.
+The CLI lives in `tools/ulos-cli/`. It is a small Node.js tool with no external dependencies.
+
+`validate` is the preferred quick quality gate for generated pack checks.
 
 Run from the repository root:
 

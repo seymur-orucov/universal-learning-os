@@ -1,19 +1,5 @@
 const { isSupportedDomain, isSupportedProfile } = require("../lib/domains");
-const { getGeneratedPackPath } = require("../lib/paths");
-const {
-  listFiles,
-  expectedRule,
-  fileExists,
-  readFileIfExists,
-} = require("../lib/file-counts");
-
-function hasLearnerFacingMentorMode(projectInstructions) {
-  if (!projectInstructions) {
-    return false;
-  }
-
-  return projectInstructions.includes("Learner-Facing Mentor Mode");
-}
+const { validatePack } = require("../lib/validation");
 
 function inspectPack(repoRoot, options) {
   const { domain, profile } = options;
@@ -30,29 +16,24 @@ function inspectPack(repoRoot, options) {
     return 1;
   }
 
-  const packPath = getGeneratedPackPath(repoRoot, domain, profile);
-  const files = listFiles(packPath);
-  const rule = expectedRule(profile);
-  const projectInstructionsExists = fileExists(packPath, "PROJECT_INSTRUCTIONS.md");
-  const startupPromptExists = fileExists(packPath, "STARTUP_PROMPT.md");
-  const projectInstructions = readFileIfExists(packPath, "PROJECT_INSTRUCTIONS.md");
-  const learnerFacingMentorMode = hasLearnerFacingMentorMode(projectInstructions);
+  const result = validatePack(repoRoot, domain, profile);
 
   console.log(`Pack: ${domain}-${profile}`);
-  console.log(`Path: ${packPath}`);
+  console.log(`Path: ${result.packPath}`);
   console.log(`Profile: ${profile}`);
-  console.log(`File count: ${files.length}`);
-  console.log(`Expected rule: ${rule.label}`);
-  console.log(`Rule status: ${rule.passes(files.length) ? "PASS" : "FAIL"}`);
-  console.log(`PROJECT_INSTRUCTIONS.md: ${projectInstructionsExists ? "present" : "missing"}`);
-  console.log(`STARTUP_PROMPT.md: ${startupPromptExists ? "present" : "missing"}`);
-  console.log(`Learner-Facing Mentor Mode: ${learnerFacingMentorMode ? "present" : "missing"}`);
+  console.log(`File count: ${result.files.length}`);
+  console.log(`Expected rule: ${result.rule.label}`);
+  console.log(`Rule status: ${result.checks.find((check) => check.label === "file count").passed ? "PASS" : "FAIL"}`);
+  console.log("Checks:");
+  for (const check of result.checks) {
+    console.log(`- ${check.label}: ${check.passed ? "ok" : "FAIL"}${check.detail ? ` (${check.detail})` : ""}`);
+  }
   console.log("Files:");
-  for (const file of files) {
+  for (const file of result.files) {
     console.log(`- ${file}`);
   }
 
-  return rule.passes(files.length) && projectInstructionsExists && startupPromptExists ? 0 : 1;
+  return result.passed ? 0 : 1;
 }
 
 module.exports = {

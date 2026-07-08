@@ -2,9 +2,9 @@
 
 These are manual acceptance tests for Universal Learning OS.
 
-They validate generated Project Packs, launch kits, active learner state, and the Stage 13 CLI prototype. Most tests are manual; CLI file-count validation is executable through `tools/ulos-cli`.
+They validate generated Project Packs, launch kits, active learner state, and the CLI validation tool. Most tests are manual; generated pack quality-gate validation is executable through `tools/ulos-cli`.
 
-## Quick CLI Validation
+## Quick CLI Quality Gate
 
 Run from the repository root:
 

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Verify the Stage 13 `tools/ulos-cli` prototype can list domains, validate generated pack file counts, inspect packs, and report invalid input clearly.
+Verify the `tools/ulos-cli` validation tool can list domains, validate generated pack quality-gate checks, inspect packs, and report invalid input clearly.
 
 ## Preconditions
 
@@ -34,9 +34,15 @@ node tools/ulos-cli/src/index.js validate
 
 Expected:
 
-- Reports PASS for each standard and compact pack.
+- Reports PASS for all eight generated packs.
 - Standard packs have exactly 25 files.
 - Compact packs have no more than 5 files.
+- Checks required files for each profile.
+- Checks Learner-Facing Mentor Mode marker.
+- Checks metadata visibility guardrails.
+- Checks standard manifest basics.
+- Checks compact structure.
+- Checks launch kit presence.
 - Exits with code 0.
 
 ## Test 3: Inspect SQL Standard Pack
@@ -49,10 +55,13 @@ node tools/ulos-cli/src/index.js inspect-pack --domain sql-postgresql --profile 
 
 Expected:
 
-- Prints pack path, profile, file count, expected rule, and file list.
+- Prints pack path, profile, file count, expected rule, validation checks, and file list.
 - Reports `PROJECT_INSTRUCTIONS.md` present.
 - Reports `STARTUP_PROMPT.md` present.
-- Reports Learner-Facing Mentor Mode presence or absence honestly.
+- Reports Learner-Facing Mentor Mode status.
+- Reports metadata guardrail status.
+- Reports manifest status.
+- Reports launch kit status.
 - Exits with code 0 if file count and required files pass.
 
 ## Test 4: Inspect TypeScript Compact Pack
@@ -70,6 +79,9 @@ Expected:
 - Reports `PROJECT_INSTRUCTIONS.md` present.
 - Reports `STARTUP_PROMPT.md` present.
 - Reports Learner-Facing Mentor Mode present.
+- Reports metadata guardrail status.
+- Reports compact structure status.
+- Reports launch kit status.
 - Exits with code 0.
 
 ## Test 5: Invalid Domain Handling
@@ -114,8 +126,48 @@ Expected:
 - Does not create or modify pack files.
 - Exits with code 0.
 
-## Test 8: Validation Failure Behavior
+## Test 8: Missing Required File Behavior
 
-Manual destructive simulation is not required. To verify behavior safely, inspect `tools/ulos-cli/src/commands/validate.js` and confirm the command returns non-zero if any generated pack violates its count rule.
+Manual destructive simulation is not required in the shared worktree. In a temporary local copy only, remove or rename one required generated pack file such as `STARTUP_PROMPT.md`, then run:
+
+```sh
+node tools/ulos-cli/src/index.js validate
+```
+
+Expected:
+
+- Reports `[FAIL]` for the affected pack.
+- Lists the failed required-files check.
+- Exits non-zero.
+
+Restore the file immediately after the local experiment.
+
+## Test 9: Missing Learner-Facing Marker Behavior
+
+In a temporary local copy only, remove the phrase `Learner-Facing Mentor Mode` from one generated `PROJECT_INSTRUCTIONS.md`, then run validation.
+
+Expected:
+
+- Reports `[FAIL]` for the affected pack.
+- Lists the learner-facing mode check as failed.
+- Exits non-zero.
+
+Restore the file immediately after the local experiment.
+
+## Test 10: Missing Launch Kit Behavior
+
+In a temporary local copy only, rename one launch kit file such as `TYPESCRIPT_COMPACT_PROJECT_SETUP.md`, then run validation.
+
+Expected:
+
+- Reports `[FAIL]` for the affected pack/profile.
+- Lists the launch kit check as failed.
+- Exits non-zero.
+
+Restore the file immediately after the local experiment.
+
+## Test 11: Validation Failure Behavior
+
+Manual destructive simulation is not required. To verify behavior safely, inspect `tools/ulos-cli/src/lib/validation.js` and `tools/ulos-cli/src/commands/validate.js` and confirm the command returns non-zero if any generated pack violates its validation checks.
 
 Do not rename, delete, or temporarily move generated pack files in the shared worktree unless explicitly approved.
