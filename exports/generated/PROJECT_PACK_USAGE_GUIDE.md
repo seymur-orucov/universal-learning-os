@@ -9,6 +9,12 @@
 - `ASSESS`: evaluate competence from evidence.
 - `SHOW_PROGRESS`: summarize learner state without modifying it by default.
 
+## Pack Profiles
+
+- Use `standard` packs when the Project can support 25 files.
+- Use `compact` packs for Free Project usage or other max-5-file environments.
+- Compact packs have fewer files but preserve learner-facing output mode, evidence-based mastery, localization, and learner-state separation.
+
 ## Continuing Between Chats
 
 At the end of each session, keep a session summary with:
@@ -23,7 +29,7 @@ At the end of each session, keep a session summary with:
 - review items;
 - next action.
 
-Start the next chat with `CONTINUATION_PROMPT.md` and paste the previous session summary.
+For standard packs, start the next chat with `CONTINUATION_PROMPT.md` and paste the previous session summary. For compact packs, use the compact continuation prompt ready file from `exports/generated/project-launch-kits/`.
 
 ## Preserving Evidence
 
@@ -61,6 +67,30 @@ No learner state exists yet. Start with beginner-safe baseline checks and recomm
 Use the English Mentor OS pack. Start `english.main`.
 Instruction language: Azerbaijani. Target language: English.
 No learner state exists yet. Start with B1-safe baseline checks for speaking, grammar, vocabulary, listening, and workplace communication.
+```
+
+## JavaScript Startup Example
+
+```text
+Use the JavaScript Mentor OS pack. Start `javascript.main`.
+Instruction language: Azerbaijani. Keep JavaScript technical terms in English.
+No learner state exists yet. Start with beginner-safe baseline checks and recommend the first lesson or practice.
+```
+
+## TypeScript Startup Example
+
+```text
+Use the TypeScript Mentor OS pack. Start `typescript.main`.
+Instruction language: Azerbaijani. Keep TypeScript technical terms in English.
+No learner state exists yet. Start with beginner-safe baseline checks and recommend the first lesson or practice.
+```
+
+## Compact Startup Example
+
+```text
+Use <Domain> Mentor OS Compact.
+I am using the compact Free Project pack. Start in learner-facing mode.
+Do not show evidence/state/progress metadata unless I explicitly ask for it.
 ```
 
 ## Continuation Example

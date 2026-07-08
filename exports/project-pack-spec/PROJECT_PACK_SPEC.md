@@ -18,6 +18,7 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 ## Core Concepts
 
 - Project Pack: a curated set of files prepared for a target project environment.
+- Pack Profile: a target file-count and selection model such as `standard` or `compact/free`.
 - Project Pack Source: canonical repository files used to derive the pack.
 - Project Pack Manifest: a human-readable record of included, summarized, and excluded files.
 - File Budget: the maximum number of source files allowed for the target environment.
@@ -42,7 +43,9 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 - A Project Pack SHOULD include a manifest.
 - A Project Pack SHOULD define a file budget.
 - A Project Pack MAY include summarized files when file limits require it.
-- A Project Pack MUST declare when files are summarized, omitted, or merged.
+- A Project Pack MUST declare when files are summarized, omitted, or merged. Standard packs SHOULD use a manifest; compact/free packs MAY declare this in merged core files when a separate manifest would exceed the file budget.
+- A Project Pack MUST declare its pack profile and file budget.
+- A compact/free Project Pack MUST contain no more than 5 files.
 
 ## Relationships
 

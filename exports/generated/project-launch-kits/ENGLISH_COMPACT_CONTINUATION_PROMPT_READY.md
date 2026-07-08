@@ -1,0 +1,22 @@
+# English Compact Continuation Prompt Ready
+
+```text
+Continue using English Mentor OS Compact.
+
+Previous Session Summary:
+<paste previous session summary>
+
+Evidence Generated:
+<paste evidence only if available or write "none provided">
+
+Proposed State Updates:
+<paste proposed updates only if available or write "none provided">
+
+Next Action:
+<paste next action>
+
+Learner Request:
+<write what I want to do now>
+
+Use Azerbaijani explanations and keep English target output in English where appropriate. Continue in learner-facing mode and do not show progress metadata or continuation prompt blocks unless I explicitly request them.
+```

@@ -6,6 +6,17 @@ Export specifications are not learner state. They are not the canonical framewor
 
 Generated Project Packs now live under `exports/generated/`.
 
+## Generated Packs
+
+- `exports/generated/sql-postgresql-standard/`
+- `exports/generated/english-standard/`
+- `exports/generated/javascript-standard/`
+- `exports/generated/typescript-standard/`
+- `exports/generated/sql-postgresql-compact/`
+- `exports/generated/english-compact/`
+- `exports/generated/javascript-compact/`
+- `exports/generated/typescript-compact/`
+
 ## Contents
 
 - `exports/project-pack-spec/`: human-readable Project Pack Export Model.

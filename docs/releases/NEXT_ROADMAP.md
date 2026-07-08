@@ -3,9 +3,9 @@
 ## Candidate Next Stages
 
 - Stage 11.0: New Domain Pack Factory.
-- Stage 11.1: Go Domain Pack pilot.
-- Stage 11.2: Generated Go Project Pack.
-- Stage 12.0: Export automation planning.
+- Stage 11.1: Free Project Compact Pack Model.
+- Stage 12.0: TypeScript Domain Pack.
+- Stage 12.1: Export automation planning.
 - Stage 12.1: File budget validator.
 - Stage 12.2: Manifest validator.
 - Stage 12.3: Pack regeneration workflow.
@@ -15,11 +15,11 @@
 
 ## Recommended Priority
 
-1. Define New Domain Pack Factory before adding more domains.
-2. Add file budget and manifest validation before generating many packs.
+1. Keep standard and compact generated packs validated as supported domains grow.
+2. Add file budget and manifest validation before generating many more packs.
 3. Define learner state update workflow before real multi-session use expands.
 4. Add English audio/privacy policy before storing audio, transcripts, or pronunciation artifacts.
 
 ## OPEN QUESTION
 
-- Should Stage 11 focus on Go, System Design, or the domain factory first?
+- Should the next domain after TypeScript be Go, DSA, or System Design?
