@@ -2,7 +2,17 @@
 
 ## Validation Marker
 
-`repository-working-tree-stage-12.0`
+`repository-working-tree-stage-13.0`
+
+## Quick Validation
+
+Preferred quick check:
+
+```sh
+node tools/ulos-cli/src/index.js validate
+```
+
+The CLI validates standard and compact generated pack file counts and exits non-zero on failure.
 
 ## Scope
 
@@ -58,7 +68,7 @@ Compact packs preserve Learner-Facing Mentor Mode. Normal lessons, practice, rev
 
 ## Known Limitations
 
-- Validation is manual and human-readable; no automation exists yet.
+- Validation is still mostly human-readable, but `tools/ulos-cli` now provides a minimal file-count validation prototype.
 - Compact packs summarize aggressively to satisfy the Free Project 5-file limit.
 - Generated packs may drift from canonical sources until regeneration tooling exists.
 

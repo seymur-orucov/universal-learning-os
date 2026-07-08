@@ -2,7 +2,15 @@
 
 These are manual acceptance tests for Universal Learning OS.
 
-They validate generated Project Packs, launch kits, and active learner state. They are not executable automation yet.
+They validate generated Project Packs, launch kits, active learner state, and the Stage 13 CLI prototype. Most tests are manual; CLI file-count validation is executable through `tools/ulos-cli`.
+
+## Quick CLI Validation
+
+Run from the repository root:
+
+```sh
+node tools/ulos-cli/src/index.js validate
+```
 
 ## Artifacts Under Test
 
@@ -16,6 +24,7 @@ They validate generated Project Packs, launch kits, and active learner state. Th
 - `exports/generated/typescript-compact/`
 - `exports/generated/project-launch-kits/`
 - `learners/active-learner/`
+- `tools/ulos-cli/`
 
 ## File Budget Boundary
 
@@ -40,6 +49,7 @@ Manual tests MUST NOT add files inside individual generated pack directories.
 - JavaScript tests live under `tests/manual-acceptance/javascript/`.
 - TypeScript tests live under `tests/manual-acceptance/typescript/`.
 - Compact pack tests live under `tests/manual-acceptance/compact/`.
+- CLI validation test lives at `tests/manual-acceptance/CLI_VALIDATION_TEST.md`.
 
 ## OPEN QUESTION
 
