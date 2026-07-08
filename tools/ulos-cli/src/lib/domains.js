@@ -1,8 +1,32 @@
 const DOMAIN_CONFIG = [
-  { id: "sql-postgresql", launchPrefix: "SQL_POSTGRESQL" },
-  { id: "english", launchPrefix: "ENGLISH" },
-  { id: "javascript", launchPrefix: "JAVASCRIPT" },
-  { id: "typescript", launchPrefix: "TYPESCRIPT" },
+  {
+    id: "sql-postgresql",
+    launchPrefix: "SQL_POSTGRESQL",
+    title: "SQL/PostgreSQL",
+    purpose: "Teach SQL and PostgreSQL step by step from beginner to advanced practical database competence.",
+    terms: "SQL/PostgreSQL technical terms",
+  },
+  {
+    id: "english",
+    launchPrefix: "ENGLISH",
+    title: "English",
+    purpose: "Teach English for Software Engineers from B1 toward B2/C1 professional communication.",
+    terms: "English target-language examples and software communication terms",
+  },
+  {
+    id: "javascript",
+    launchPrefix: "JAVASCRIPT",
+    title: "JavaScript",
+    purpose: "Teach JavaScript from beginner foundations to advanced/professional runtime reasoning for frontend/backend engineering and interviews.",
+    terms: "JavaScript technical terms",
+  },
+  {
+    id: "typescript",
+    launchPrefix: "TYPESCRIPT",
+    title: "TypeScript",
+    purpose: "Teach TypeScript from foundations to advanced/professional fluency for frontend/backend engineering, React projects, API typing, large codebases, and interviews.",
+    terms: "TypeScript technical terms",
+  },
 ];
 
 const SUPPORTED_DOMAINS = DOMAIN_CONFIG.map((domain) => domain.id);

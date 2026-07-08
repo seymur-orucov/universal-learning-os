@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`repository-working-tree-stage-14.0`
+`repository-working-tree-stage-15.0`
 
 ## Quick Validation
 
@@ -13,6 +13,15 @@ node tools/ulos-cli/src/index.js validate
 ```
 
 The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure.
+
+Compact packs can be regenerated before validation:
+
+```sh
+node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
+node tools/ulos-cli/src/index.js validate
+```
+
+Standard pack generation remains future work.
 
 ## Scope
 
@@ -71,6 +80,7 @@ Compact packs preserve Learner-Facing Mentor Mode. Normal lessons, practice, rev
 - Validation is still partly human-readable, but `tools/ulos-cli` now provides the preferred quick generated-pack quality gate.
 - Compact packs summarize aggressively to satisfy the Free Project 5-file limit.
 - Generated packs may drift from canonical sources until regeneration tooling exists.
+- Compact packs now have generation tooling; standard packs remain manually maintained.
 
 ## OPEN QUESTION
 

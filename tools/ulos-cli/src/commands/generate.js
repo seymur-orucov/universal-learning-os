@@ -1,6 +1,7 @@
 const { isSupportedDomain, isSupportedProfile } = require("../lib/domains");
+const { generateCompactPack } = require("../lib/compact-generator");
 
-function generate(options) {
+function generate(repoRoot, options) {
   const { domain, profile } = options;
 
   if (!isSupportedDomain(domain)) {
@@ -15,10 +16,35 @@ function generate(options) {
     return 1;
   }
 
-  console.log("Generate command is planned for a future stage.");
-  console.log("Current generated packs are maintained as repository files.");
-  console.log(`Requested pack: ${domain}-${profile}`);
-  return 0;
+  if (profile !== "compact") {
+    console.log("Standard pack generation is planned for a future stage.");
+    console.log("Current standard packs remain manually maintained repository files.");
+    console.log(`Requested pack: ${domain}-${profile}`);
+    return 1;
+  }
+
+  try {
+    const result = generateCompactPack(repoRoot, domain, { dryRun: options.dryRun });
+
+    console.log(options.dryRun ? "Compact pack generation dry run" : "Generated compact pack");
+    console.log("");
+    console.log(`Domain: ${domain}`);
+    console.log("Profile: compact");
+    console.log(`Output: ${result.outputDir}`);
+    console.log(`Files ${options.dryRun ? "planned" : "written"}: ${result.filesWritten}`);
+    console.log("");
+    console.log("Files:");
+    for (const fileName of result.files) {
+      console.log(`- ${fileName}`);
+    }
+    console.log("");
+    console.log("Next:");
+    console.log("- run: node tools/ulos-cli/src/index.js validate");
+    return 0;
+  } catch (error) {
+    console.error(`Generation failed: ${error.message}`);
+    return 1;
+  }
 }
 
 module.exports = {

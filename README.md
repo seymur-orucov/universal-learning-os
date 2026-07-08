@@ -13,6 +13,7 @@ The repository currently implements:
 - Stage 12: TypeScript domain pack with standard and compact generated Project Packs.
 - Stage 13: minimal CLI/generator prototype for listing domains, validating generated pack file counts, and inspecting generated packs.
 - Stage 14: generated pack validation automation for required files, metadata guardrails, manifests, compact structure, and launch kits.
+- Stage 15: compact Project Pack generation for all supported domains.
 
 It does not yet include generated lessons, learner applications, schemas, or full export automation. A minimal CLI validation prototype exists under `tools/ulos-cli/`.
 
@@ -67,9 +68,10 @@ node tools/ulos-cli/src/index.js list-domains
 node tools/ulos-cli/src/index.js validate
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
+node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 ```
 
-The `generate` command is a placeholder for a future stage and does not synthesize packs yet.
+The `generate` command supports the `compact` profile. Standard 25-file generation remains future work. Run `node tools/ulos-cli/src/index.js validate` after generation.
 
 ## Current Constraints
 

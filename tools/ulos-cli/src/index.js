@@ -17,6 +17,8 @@ function parseOptions(args) {
     } else if (arg === "--profile") {
       options.profile = args[index + 1];
       index += 1;
+    } else if (arg === "--dry-run") {
+      options.dryRun = true;
     } else {
       options._unknown = options._unknown || [];
       options._unknown.push(arg);
@@ -33,7 +35,7 @@ Usage:
   ulos list-domains
   ulos validate
   ulos inspect-pack --domain <domain> --profile <profile>
-  ulos generate --domain <domain> --profile <profile>
+  ulos generate --domain <domain> --profile compact [--dry-run]
 
 Supported domains: sql-postgresql, english, javascript, typescript
 Supported profiles: standard, compact`);
@@ -69,7 +71,7 @@ function main() {
   }
 
   if (command === "generate") {
-    return generate(parseOptions(rest));
+    return generate(repoRoot, parseOptions(rest));
   }
 
   console.error(`Unknown command: ${command}`);

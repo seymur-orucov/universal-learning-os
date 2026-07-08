@@ -2,7 +2,7 @@
 
 `tools/ulos-cli` is a minimal Node.js CLI prototype for Universal Learning OS generated Project Packs.
 
-It validates and inspects existing repository files. It does not fully generate packs yet.
+It validates and inspects existing repository files and can regenerate compact packs. It does not generate standard 25-file packs yet.
 
 `validate` is the preferred quick quality gate for generated pack checks.
 
@@ -14,6 +14,7 @@ node tools/ulos-cli/src/index.js validate
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
+node tools/ulos-cli/src/index.js generate --domain typescript --profile compact --dry-run
 ```
 
 ## Optional Local Bin Usage
@@ -30,7 +31,33 @@ npx ulos list-domains
 - `list-domains`: prints supported domains and profiles.
 - `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, manifest basics, compact structure, and launch kit presence.
 - `inspect-pack`: prints path, profile, count rule, validation checks, and file list for one pack.
-- `generate`: placeholder for a future stage.
+- `generate`: regenerates compact packs from canonical domain files, selected command files, and selected skill files. Standard pack generation is planned for a future stage.
+
+## Compact Generation
+
+Generate a compact pack:
+
+```sh
+node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
+```
+
+Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`.
+
+Generated compact packs contain exactly:
+
+- `PROJECT_INSTRUCTIONS.md`
+- `STARTUP_PROMPT.md`
+- `DOMAIN_CORE.md`
+- `COMMANDS_CORE.md`
+- `MENTOR_SKILLS_CORE.md`
+
+Run validation after generation:
+
+```sh
+node tools/ulos-cli/src/index.js validate
+```
+
+Standard generation is intentionally rejected until a future stage.
 
 ## Validation Rules
 

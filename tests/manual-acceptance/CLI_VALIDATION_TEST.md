@@ -112,7 +112,7 @@ Expected:
 - Lists supported profiles.
 - Exits non-zero.
 
-## Test 7: Generate Placeholder
+## Test 7: Compact Generate
 
 Command:
 
@@ -122,9 +122,24 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 
 Expected:
 
-- Says generation is planned for a future stage.
-- Does not create or modify pack files.
+- Generates `exports/generated/typescript-compact/` from canonical domain, command, and skill files.
+- Writes exactly 5 compact files.
+- Recommends running validation.
 - Exits with code 0.
+
+## Test 7b: Standard Generate Rejection
+
+Command:
+
+```sh
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
+```
+
+Expected:
+
+- Says standard generation is planned for a future stage.
+- Does not modify standard pack files.
+- Exits non-zero.
 
 ## Test 8: Missing Required File Behavior
 

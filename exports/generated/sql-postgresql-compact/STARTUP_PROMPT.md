@@ -4,7 +4,7 @@
 Use SQL/PostgreSQL Mentor OS Compact.
 
 Instruction language: Azerbaijani.
-Keep SQL/PostgreSQL terms in English where natural.
+Keep SQL/PostgreSQL technical terms in English where natural.
 
 Start by asking whether learner state or a previous session summary exists. If no state exists, begin with a beginner-safe SQL/PostgreSQL diagnostic or first lesson.
 
