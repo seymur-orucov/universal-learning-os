@@ -132,3 +132,14 @@ Stage 18.2 adds optional learner snapshot documentation, a snapshot template, a 
 - Compact packs remain exactly 5 files.
 - Generated packs remain learner-neutral.
 - No CLI snapshot command is implemented in Stage 18.2.
+
+## Stage 19.0 CLI Learner Runtime Helpers Note
+
+Stage 19.0 adds lightweight optional CLI helpers for learner handoff and snapshot scaffolds plus learner artifact validation. These commands do not change generated pack contracts, generated pack file counts, Learner-Facing Mentor Mode, or generated pack validation requirements.
+
+- `create-handoff` creates optional user-requested handoff scaffolds.
+- `create-snapshot` creates optional periodic user-requested snapshot scaffolds.
+- `validate-learner` checks optional handoff/snapshot markdown for obvious forbidden internal-default metadata markers.
+- Existing `validate` remains the generated pack quality gate.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.

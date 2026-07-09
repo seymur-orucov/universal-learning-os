@@ -11,6 +11,7 @@ Run it from the repository root with Node.js 18 or newer. `validate` is the offi
 ```sh
 node tools/ulos-cli/src/index.js list-domains
 node tools/ulos-cli/src/index.js validate
+node tools/ulos-cli/src/index.js validate-learner
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
@@ -18,6 +19,8 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile compact 
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --dry-run
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --out-dir tmp/typescript-standard-test
+node tools/ulos-cli/src/index.js create-handoff --domain sql-postgresql
+node tools/ulos-cli/src/index.js create-snapshot --domain sql-postgresql --type milestone
 ```
 
 ## Optional Local Bin Usage
@@ -33,8 +36,11 @@ npx ulos list-domains
 
 - `list-domains`: prints supported domains and profiles.
 - `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, manifest basics, compact structure, and launch kit presence.
+- `validate-learner`: checks optional learner handoff/snapshot markdown files for obvious forbidden internal-default metadata markers.
 - `inspect-pack`: prints path, profile, count rule, validation checks, and file list for one pack.
 - `generate`: regenerates compact and standard packs from canonical domain files, selected command files, selected skill files, and framework context.
+- `create-handoff`: creates an optional learner handoff scaffold from `templates/learner-handoff/LEARNER_HANDOFF_TEMPLATE.md`.
+- `create-snapshot`: creates an optional learner snapshot scaffold from `templates/learner-snapshot/LEARNER_SNAPSHOT_TEMPLATE.md`.
 
 ## Supported Domains and Profiles
 
@@ -104,6 +110,52 @@ Planning docs and templates exist at:
 - `tools/ulos-cli/templates/standard-pack/`
 - `tools/ulos-cli/templates/standard-pack/MAPPING.md`
 
+## Optional Learner Runtime Helpers
+
+These commands are lightweight scaffold helpers. They do not parse full ChatGPT transcripts, infer mastery, generate YAML learner-state patches, or require repository updates after every lesson.
+
+Create a handoff scaffold:
+
+```sh
+node tools/ulos-cli/src/index.js create-handoff --domain sql-postgresql
+```
+
+Default output:
+
+```text
+learners/active-learner/handoffs/<domain>-handoff-YYYY-MM-DD.md
+```
+
+Create a snapshot scaffold:
+
+```sh
+node tools/ulos-cli/src/index.js create-snapshot --domain sql-postgresql --type milestone
+```
+
+Supported snapshot types: `milestone`, `monthly`, `assessment`, `progress`.
+
+Default output:
+
+```text
+learners/active-learner/snapshots/<domain>-<type>-YYYY-MM-DD.md
+```
+
+Both commands support a repository-local output override and existing-file overwrite protection:
+
+```sh
+node tools/ulos-cli/src/index.js create-handoff --domain sql-postgresql --out learners/active-learner/handoffs/example.md
+node tools/ulos-cli/src/index.js create-snapshot --domain sql-postgresql --type milestone --out learners/active-learner/snapshots/example.md
+node tools/ulos-cli/src/index.js create-snapshot --domain sql-postgresql --type milestone --out learners/active-learner/snapshots/example.md --force
+```
+
+Validate optional learner runtime artifacts:
+
+```sh
+node tools/ulos-cli/src/index.js validate-learner
+```
+
+`validate-learner` checks markdown files under `learners/active-learner/handoffs/` and `learners/active-learner/snapshots/`. It passes when those directories do not exist.
+
 ## Validation Rules
 
 - Standard packs must contain exactly 25 files.
@@ -117,7 +169,7 @@ Planning docs and templates exist at:
 ## Exit Codes
 
 - `0`: command completed successfully.
-- Non-zero: unsupported domain/profile, validation failure, missing source file, unsafe output path, or unexpected files in a standard output directory.
+- Non-zero: unsupported domain/profile/type, validation failure, missing source file/template, unsafe output path, existing output file without `--force`, learner artifact violation, or unexpected files in a standard output directory.
 
 ## Recommended Release Workflow
 
@@ -128,6 +180,7 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
 node tools/ulos-cli/src/index.js validate
+node tools/ulos-cli/src/index.js validate-learner
 ```
 
 Use `docs/releases/V0_2_0_RELEASE_CHECKLIST.md` before tagging or publishing release artifacts.

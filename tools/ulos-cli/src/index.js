@@ -5,6 +5,9 @@ const { listDomains } = require("./commands/list-domains");
 const { validate } = require("./commands/validate");
 const { inspectPack } = require("./commands/inspect-pack");
 const { generate } = require("./commands/generate");
+const { createHandoff } = require("./commands/create-handoff");
+const { createSnapshot } = require("./commands/create-snapshot");
+const { validateLearner } = require("./commands/validate-learner");
 
 function parseOptions(args) {
   const options = {};
@@ -22,6 +25,14 @@ function parseOptions(args) {
     } else if (arg === "--out-dir") {
       options.outDir = args[index + 1];
       index += 1;
+    } else if (arg === "--out") {
+      options.out = args[index + 1];
+      index += 1;
+    } else if (arg === "--type") {
+      options.type = args[index + 1];
+      index += 1;
+    } else if (arg === "--force") {
+      options.force = true;
     } else {
       options._unknown = options._unknown || [];
       options._unknown.push(arg);
@@ -37,8 +48,11 @@ function printHelp() {
 Usage:
   ulos list-domains
   ulos validate
+  ulos validate-learner
   ulos inspect-pack --domain <domain> --profile <profile>
   ulos generate --domain <domain> --profile <profile> [--dry-run] [--out-dir <path> for standard]
+  ulos create-handoff --domain <domain> [--out <path>] [--force]
+  ulos create-snapshot --domain <domain> --type <type> [--out <path>] [--force]
 
 Supported domains: sql-postgresql, english, javascript, typescript
 Supported profiles: standard, compact`);
@@ -69,12 +83,24 @@ function main() {
     return validate(repoRoot);
   }
 
+  if (command === "validate-learner") {
+    return validateLearner(repoRoot);
+  }
+
   if (command === "inspect-pack") {
     return inspectPack(repoRoot, parseOptions(rest));
   }
 
   if (command === "generate") {
     return generate(repoRoot, parseOptions(rest));
+  }
+
+  if (command === "create-handoff") {
+    return createHandoff(repoRoot, parseOptions(rest));
+  }
+
+  if (command === "create-snapshot") {
+    return createSnapshot(repoRoot, parseOptions(rest));
   }
 
   console.error(`Unknown command: ${command}`);

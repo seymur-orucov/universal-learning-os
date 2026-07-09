@@ -6,18 +6,19 @@
 - Stage 18.0: Runtime Learner State Strategy completed as documentation and templates.
 - Stage 18.1: Learner Handoff Export Model completed as documentation/templates/manual acceptance only.
 - Stage 18.2: Optional Learner Snapshot Format completed as documentation/templates/manual acceptance only.
-- Stage 19.0: Optional learner snapshot CLI command, handoff export CLI command, learner-state validation, import-from-handoff workflow, or progress summary generator.
-- Stage 20.0: App/dashboard concept.
-- Stage 21.0: Stronger automated tests and source drift checks.
-- Stage 22.0: Package distribution.
+- Stage 19.0: CLI Learner Runtime Commands completed as lightweight optional scaffold/validation helpers.
+- Stage 20.0: Optional import-from-handoff workflow, progress summary generator, or richer learner-state validation.
+- Stage 21.0: App/dashboard concept.
+- Stage 22.0: Stronger automated tests and source drift checks.
+- Stage 23.0: Package distribution.
 - Future domain stages: DSA, Go, System Design, or another explicitly selected domain.
 
 ## Recommended Priority
 
 1. Tag v0.2.0 only after validation passes and the working tree is clean.
 2. Keep Stage 18.0 as documentation-only unless a future stage explicitly adds optional learner-state tooling.
-3. Explore optional Stage 19.0 learner snapshot and handoff tooling without requiring daily repository updates.
-4. Consider optional progress summary generation before app/dashboard work.
+3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
+4. Consider optional import-from-handoff and progress summary generation before app/dashboard work.
 5. Explore app/dashboard concepts after release contracts are stable.
 
 ## OPEN QUESTION
