@@ -1,35 +1,41 @@
-# JavaScript Standard Project Pack File Budget
+# File Budget
 
-Maximum source files: 25
+## Profile
 
-Remaining capacity: 0
+- Domain id: `javascript`
+- Domain title: JavaScript
+- Profile: `standard`
+- Required file count: exactly 25 files
+- Actual file count: 25
 
-Adding a new file requires removing or merging another file.
+## Selection Reason
 
-| # | File | Category | Reason |
-| --- | --- | --- | --- |
-| 1 | `PROJECT_INSTRUCTIONS.md` | Instructions | ChatGPT Project behavior and learner-facing mentor mode. |
-| 2 | `PACK_MANIFEST.md` | Manifest | Declares scope, sources, omissions, and limits. |
-| 3 | `FILE_BUDGET.md` | Budget | Proves the pack fits 25 files. |
-| 4 | `STARTUP_PROMPT.md` | Prompt | Starts a new project conversation. |
-| 5 | `CONTINUATION_PROMPT.md` | Prompt | Continues after a session. |
-| 6 | `FRAMEWORK_CONTEXT.md` | Framework | Summarizes role boundaries. |
-| 7 | `LEARNING_ENGINE_CONTEXT.md` | Core | Summarizes session behavior. |
-| 8 | `EVIDENCE_MASTERY_CONTEXT.md` | Core | Preserves evidence rules. |
-| 9 | `LOCALIZATION_CONTEXT.md` | Core | Sets Azerbaijani instruction with English terms. |
-| 10 | `LEARNER_STATE_BOUNDARIES.md` | State | Keeps progress separate. |
-| 11 | `COMMAND_START_LESSON.md` | Command | Starts lessons. |
-| 12 | `COMMAND_CONTINUE_LESSON.md` | Command | Continues lessons. |
-| 13 | `COMMAND_PRACTICE.md` | Command | Runs practice. |
-| 14 | `COMMAND_REVIEW.md` | Command | Runs review. |
-| 15 | `COMMAND_ASSESS.md` | Command | Runs assessment. |
-| 16 | `COMMAND_SHOW_PROGRESS.md` | Command | Shows progress on request. |
-| 17 | `SKILL_LESSON_INSTRUCTOR.md` | Agent skill | Supports lesson delivery. |
-| 18 | `SKILL_PRACTICE_COACH.md` | Agent skill | Supports practice. |
-| 19 | `SKILL_HOMEWORK_REVIEWER.md` | Agent skill | Reviews learner output. |
-| 20 | `SKILL_PROGRESS_MANAGER.md` | Agent skill | Summarizes progress. |
-| 21 | `JAVASCRIPT_DOMAIN_CONTEXT.md` | Domain | Summarizes `domains/javascript/DOMAIN.md`. |
-| 22 | `JAVASCRIPT_SKILL_GRAPH.md` | Domain | Summarizes `domains/javascript/SKILL_GRAPH.md`. |
-| 23 | `JAVASCRIPT_SYLLABUS.md` | Domain | Summarizes `domains/javascript/SYLLABUS.md`. |
-| 24 | `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md` | Domain | Summarizes `PRACTICE_RULES.md` and `ASSESSMENT_RULES.md`. |
-| 25 | `JAVASCRIPT_GLOSSARY_PROJECTS.md` | Domain | Summarizes `GLOSSARY.md` and `PROJECTS.md`. |
+The standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command files, four agent skill files, and five domain files. This preserves inspectable runtime context while staying within the 25-file standard budget.
+
+## File List
+
+- `PROJECT_INSTRUCTIONS.md`
+- `PACK_MANIFEST.md`
+- `FILE_BUDGET.md`
+- `STARTUP_PROMPT.md`
+- `CONTINUATION_PROMPT.md`
+- `FRAMEWORK_CONTEXT.md`
+- `LEARNING_ENGINE_CONTEXT.md`
+- `EVIDENCE_MASTERY_CONTEXT.md`
+- `LEARNER_STATE_BOUNDARIES.md`
+- `LOCALIZATION_CONTEXT.md`
+- `COMMAND_START_LESSON.md`
+- `COMMAND_CONTINUE_LESSON.md`
+- `COMMAND_PRACTICE.md`
+- `COMMAND_REVIEW.md`
+- `COMMAND_ASSESS.md`
+- `COMMAND_SHOW_PROGRESS.md`
+- `SKILL_LESSON_INSTRUCTOR.md`
+- `SKILL_PRACTICE_COACH.md`
+- `SKILL_HOMEWORK_REVIEWER.md`
+- `SKILL_PROGRESS_MANAGER.md`
+- `JAVASCRIPT_DOMAIN_CONTEXT.md`
+- `JAVASCRIPT_SYLLABUS.md`
+- `JAVASCRIPT_SKILL_GRAPH.md`
+- `JAVASCRIPT_GLOSSARY_PROJECTS.md`
+- `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md`

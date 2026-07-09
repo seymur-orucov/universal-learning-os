@@ -13,9 +13,9 @@ This directory defines the human-readable model for assembling selected reposito
 
 ## Scope
 
-These documents define export architecture and generation planning. Compact generation is implemented in `tools/ulos-cli`; standard generation is planned for Stage 16.1 and remains planning-only in Stage 16.0.
+These documents define export architecture and generation contracts. Compact and standard generation are implemented in `tools/ulos-cli`.
 
-Stage 16.0 adds standard pack templates and source mapping under `tools/ulos-cli/templates/standard-pack/`. It does not overwrite existing standard generated packs.
+Standard pack templates and source mapping live under `tools/ulos-cli/templates/standard-pack/`. Use `--dry-run` and repository-local `--out-dir` for safer standard generation testing before overwriting default generated packs.
 
 ## OPEN QUESTION
 

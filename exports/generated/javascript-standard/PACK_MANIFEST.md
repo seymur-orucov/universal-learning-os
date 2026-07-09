@@ -1,65 +1,91 @@
-# JavaScript Standard Project Pack Manifest
+# Pack Manifest
 
 ## Pack Identity
 
-- Pack id: `javascript-standard`
-- Pack title: `JavaScript Mentor OS`
-- Pack version: `0.1.0-stage-11.0`
-- Source version: `repository-working-tree-stage-11.0`
-- Target environment: ChatGPT Projects
-- File budget: 25 files
+- Domain id: `javascript`
+- Domain title: JavaScript
+- Profile: standard
+- Generated pack path: `C:\Self-study\universal-learning-os\exports\generated\javascript-standard`
+- File count: 25
 
-## Included Files
+## Generated Files
 
-1. `PROJECT_INSTRUCTIONS.md`
-2. `PACK_MANIFEST.md`
-3. `FILE_BUDGET.md`
-4. `STARTUP_PROMPT.md`
-5. `CONTINUATION_PROMPT.md`
-6. `FRAMEWORK_CONTEXT.md`
-7. `LEARNING_ENGINE_CONTEXT.md`
-8. `EVIDENCE_MASTERY_CONTEXT.md`
-9. `LOCALIZATION_CONTEXT.md`
-10. `LEARNER_STATE_BOUNDARIES.md`
-11. `COMMAND_START_LESSON.md`
-12. `COMMAND_CONTINUE_LESSON.md`
-13. `COMMAND_PRACTICE.md`
-14. `COMMAND_REVIEW.md`
-15. `COMMAND_ASSESS.md`
-16. `COMMAND_SHOW_PROGRESS.md`
-17. `SKILL_LESSON_INSTRUCTOR.md`
-18. `SKILL_PRACTICE_COACH.md`
-19. `SKILL_HOMEWORK_REVIEWER.md`
-20. `SKILL_PROGRESS_MANAGER.md`
-21. `JAVASCRIPT_DOMAIN_CONTEXT.md`
-22. `JAVASCRIPT_SKILL_GRAPH.md`
-23. `JAVASCRIPT_SYLLABUS.md`
-24. `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md`
-25. `JAVASCRIPT_GLOSSARY_PROJECTS.md`
+- `PROJECT_INSTRUCTIONS.md`
+- `PACK_MANIFEST.md`
+- `FILE_BUDGET.md`
+- `STARTUP_PROMPT.md`
+- `CONTINUATION_PROMPT.md`
+- `FRAMEWORK_CONTEXT.md`
+- `LEARNING_ENGINE_CONTEXT.md`
+- `EVIDENCE_MASTERY_CONTEXT.md`
+- `LEARNER_STATE_BOUNDARIES.md`
+- `LOCALIZATION_CONTEXT.md`
+- `COMMAND_START_LESSON.md`
+- `COMMAND_CONTINUE_LESSON.md`
+- `COMMAND_PRACTICE.md`
+- `COMMAND_REVIEW.md`
+- `COMMAND_ASSESS.md`
+- `COMMAND_SHOW_PROGRESS.md`
+- `SKILL_LESSON_INSTRUCTOR.md`
+- `SKILL_PRACTICE_COACH.md`
+- `SKILL_HOMEWORK_REVIEWER.md`
+- `SKILL_PROGRESS_MANAGER.md`
+- `JAVASCRIPT_DOMAIN_CONTEXT.md`
+- `JAVASCRIPT_SYLLABUS.md`
+- `JAVASCRIPT_SKILL_GRAPH.md`
+- `JAVASCRIPT_GLOSSARY_PROJECTS.md`
+- `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md`
 
-## Canonical Sources Summarized
+## Source Summary
 
-- Framework and command context: `specification/`, `commands/`, and selected `skills/`.
-- Project Pack model: `exports/project-pack-spec/`.
-- JavaScript standard domain files: `domains/javascript/DOMAIN.md`, `SYLLABUS.md`, `SKILL_GRAPH.md`, `PRACTICE_RULES.md`, `ASSESSMENT_RULES.md`, `PROJECTS.md`, and `GLOSSARY.md`.
-- JavaScript supporting domain files: `domains/javascript/DOMAIN_OVERVIEW.md`, `MENTOR_BEHAVIOR.md`, `PRACTICE_MODEL.md`, `ASSESSMENT_MODEL.md`, `MASTERY_EXPECTATIONS.md`, and `PROJECT_PACK_SELECTION.md`.
-- Domain factory model: `docs/domain-pack-factory.md` and `docs/decisions/ADR-0031-new-domain-pack-factory.md`.
+This standard pack is generated from canonical framework, command, skill, project-pack, and domain files. It is reusable Project Pack content and not learner state.
 
-## Generated Domain File Traceability
+- `commands/ASSESS.md`
+- `commands/CONTINUE_LESSON.md`
+- `commands/PRACTICE.md`
+- `commands/REVIEW.md`
+- `commands/SHOW_PROGRESS.md`
+- `commands/START_LESSON.md`
+- `core/learning-engine/ASSESSMENT_MODEL.md`
+- `core/learning-engine/LESSON_STRUCTURE.md`
+- `core/learning-engine/NEXT_ACTION_MODEL.md`
+- `core/learning-engine/PRACTICE_MODEL.md`
+- `core/learning-engine/README.md`
+- `core/learning-engine/REVIEW_MODEL.md`
+- `core/learning-engine/SESSION_SELECTION.md`
+- `core/mastery-model/EVIDENCE_REQUIREMENTS.md`
+- `core/mastery-model/MASTERY_LEVELS.md`
+- `docs/ARCHITECTURE.md`
+- `docs/VISION.md`
+- `domains/javascript/ASSESSMENT_MODEL.md`
+- `domains/javascript/ASSESSMENT_RULES.md`
+- `domains/javascript/DOMAIN.md`
+- `domains/javascript/DOMAIN_OVERVIEW.md`
+- `domains/javascript/GLOSSARY.md`
+- `domains/javascript/MASTERY_EXPECTATIONS.md`
+- `domains/javascript/MENTOR_BEHAVIOR.md`
+- `domains/javascript/PRACTICE_MODEL.md`
+- `domains/javascript/PRACTICE_RULES.md`
+- `domains/javascript/PROJECTS.md`
+- `domains/javascript/PROJECT_PACK_SELECTION.md`
+- `domains/javascript/SKILL_GRAPH.md`
+- `domains/javascript/SYLLABUS.md`
+- `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`
+- `learners/README.md`
+- `learners/_template/README.md`
+- `learners/_template/STATE.md`
+- `skills/homework-reviewer/SKILL.md`
+- `skills/lesson-instructor/SKILL.md`
+- `skills/practice-coach/SKILL.md`
+- `skills/progress-manager/SKILL.md`
+- `specification/FRAMEWORK_SPEC.md`
+- `specification/LEARNING_LIFECYCLE.md`
+- `specification/LOCALIZATION_SPEC.md`
+- `specification/STATE_SPEC.md`
+- `tools/ulos-cli/templates/standard-pack/MAPPING.md`
 
-- `JAVASCRIPT_DOMAIN_CONTEXT.md` derives from `domains/javascript/DOMAIN.md` and `DOMAIN_OVERVIEW.md`.
-- `JAVASCRIPT_SKILL_GRAPH.md` derives from `domains/javascript/SKILL_GRAPH.md`.
-- `JAVASCRIPT_SYLLABUS.md` derives from `domains/javascript/SYLLABUS.md`.
-- `JAVASCRIPT_PRACTICE_ASSESSMENT_RULES.md` derives from `domains/javascript/PRACTICE_RULES.md`, `ASSESSMENT_RULES.md`, `PRACTICE_MODEL.md`, `ASSESSMENT_MODEL.md`, and `MASTERY_EXPECTATIONS.md`.
-- `JAVASCRIPT_GLOSSARY_PROJECTS.md` derives from `domains/javascript/GLOSSARY.md` and `PROJECTS.md`.
+## Generation Limitations
 
-## Excluded Files
-
-- SQL/PostgreSQL and English domain files are excluded because this pack is JavaScript-only.
-- Learner state is excluded.
-- ADR files are excluded from runtime context except summary references in this manifest.
-- Full canonical specs are summarized to preserve the file budget.
-
-## Boundary Statement
-
-This Project Pack is derived from canonical repository files and MUST NOT silently change framework semantics.
+- Markdown is copied or summarized without deep semantic parsing.
+- Validation remains the quality gate after generation.
+- Learner progress is not generated and must come from learner activity or explicit user instruction.

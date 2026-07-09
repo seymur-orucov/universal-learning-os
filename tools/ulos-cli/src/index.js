@@ -19,6 +19,9 @@ function parseOptions(args) {
       index += 1;
     } else if (arg === "--dry-run") {
       options.dryRun = true;
+    } else if (arg === "--out-dir") {
+      options.outDir = args[index + 1];
+      index += 1;
     } else {
       options._unknown = options._unknown || [];
       options._unknown.push(arg);
@@ -35,7 +38,7 @@ Usage:
   ulos list-domains
   ulos validate
   ulos inspect-pack --domain <domain> --profile <profile>
-  ulos generate --domain <domain> --profile compact [--dry-run]
+  ulos generate --domain <domain> --profile <profile> [--dry-run] [--out-dir <path> for standard]
 
 Supported domains: sql-postgresql, english, javascript, typescript
 Supported profiles: standard, compact`);

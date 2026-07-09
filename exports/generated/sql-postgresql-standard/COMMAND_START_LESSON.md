@@ -1,29 +1,71 @@
-# Command: START_LESSON
+# Start Lesson Command
+
+This generated standard pack file is derived from canonical repository sources. It is reusable project context and does not contain learner-specific progress.
+
+## Source: commands/START_LESSON.md
+
+# START_LESSON Command
 
 ## Purpose
 
-Start the next appropriate SQL/PostgreSQL lesson.
+Start the next appropriate lesson.
 
 ## When to Use
 
-Use when the learner asks to begin learning, continue the main track from a clear point, or start the next lesson after state review.
+Use this command when the learner asks to begin learning and an active track or target learning skill can be resolved.
 
-## Required Behavior
+## Required Context
 
-- Resolve learner goal, active track, learner state, review queue, and available evidence.
-- Use session selection from `LEARNING_ENGINE_CONTEXT.md`.
-- Check prerequisites before advancing.
-- Consider overdue review before a new topic.
-- Use `SQL_SYLLABUS.md` and `SQL_SKILL_GRAPH.md` for lesson choice.
+- `specification/COMMAND_SPEC.md`
+- `specification/LEARNING_LIFECYCLE.md`
+- `core/learning-engine/SESSION_SELECTION.md`
+- `core/learning-engine/LESSON_STRUCTURE.md`
+- `specification/LOCALIZATION_SPEC.md`
 
-## Output Expectations
+## Inputs
 
-Produce a localized lesson with objective, prerequisite check, mental model, examples, guided practice, independent practice, quick check, session report, and next action.
+- Active track and learner goal.
+- Current learner state, when available.
+- Relevant domain pack.
+- Review queue and available evidence.
+- Optional user-selected learning skill or concept.
 
-## Evidence and State Handling
+## Workflow
 
-Only learner activity can produce evidence. Lesson display MUST NOT create mastery. Propose state updates only when evidence exists.
+1. Resolve context from user command, active track, learner goal, and constraints.
+2. Load relevant specifications.
+3. Load the relevant domain pack.
+4. Load learner state when available.
+5. Use session selection to choose the lesson target, checking prerequisites and review queue.
+6. Produce a user-facing lesson using the standard lesson structure.
+7. Produce an optional session report when meaningful activity occurs.
+8. Propose state updates only when learner activity produces evidence.
 
-## Localization Expectations
+## User-Facing Output
 
-Use Azerbaijani explanations and preserve SQL/PostgreSQL technical terms in English where natural.
+The lesson SHOULD include objective, prerequisite check, explanation, examples, practice opportunity, quick check, session report, and next action as described in `core/learning-engine/LESSON_STRUCTURE.md`.
+
+Lesson explanations, examples, feedback, quick checks, homework, and next actions SHOULD follow localization preferences. When instruction language and terminology language differ, important domain terminology SHOULD be preserved and SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context. A project preference MAY request Azerbaijani instruction with English technical terms.
+
+## Evidence and State Rules
+
+- Displaying lesson content MUST NOT create mastery.
+- Evidence exists only if the learner performs an activity, answers a check, completes practice, or provides explicit state instruction.
+- Prerequisite gaps SHOULD influence the lesson plan or next action.
+
+## Failure Modes
+
+- No active track exists.
+- The relevant domain pack is missing.
+- Prerequisites are weak, unassessed, or contradicted by evidence.
+- The review queue indicates urgent review that should be addressed first.
+
+## Relationships
+
+- Session selection is defined in `core/learning-engine/SESSION_SELECTION.md`.
+- Lesson anatomy is defined in `core/learning-engine/LESSON_STRUCTURE.md`.
+- Evidence requirements are defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+
+## OPEN QUESTION
+
+- Should urgent review block lesson start by default or only warn the learner?

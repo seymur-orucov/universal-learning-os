@@ -127,7 +127,7 @@ Expected:
 - Recommends running validation.
 - Exits with code 0.
 
-## Test 7b: Standard Generate Rejection
+## Test 7b: Standard Generate
 
 Command:
 
@@ -137,9 +137,10 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 
 Expected:
 
-- Says standard generation is planned for a future stage.
-- Does not modify standard pack files.
-- Exits non-zero.
+- Generates `exports/generated/typescript-standard/` from canonical framework, domain, command, and skill files.
+- Writes exactly 25 standard files.
+- Recommends running validation.
+- Exits with code 0.
 
 ## Test 8: Missing Required File Behavior
 

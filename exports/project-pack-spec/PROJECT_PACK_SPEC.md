@@ -6,7 +6,7 @@ Define the contract for Project Packs: curated, ChatGPT Project-ready subsets of
 
 ## Scope
 
-This specification covers Project Pack concepts, boundaries, required metadata, file budget behavior, and runtime separation. Compact generation is implemented by `tools/ulos-cli`; standard generation remains planned and is documented separately.
+This specification covers Project Pack concepts, boundaries, required metadata, file budget behavior, and runtime separation. Compact and standard generation are implemented by `tools/ulos-cli`.
 
 ## Non-Goals
 
@@ -59,9 +59,9 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 ## Generation Status
 
 - Compact generation is implemented for supported domains and writes the 5-file compact profile.
-- Standard generation is not implemented yet.
-- Stage 16.0 defines the standard 25-file output contract, templates, source mapping, and safety plan only.
-- Stage 16.1 should implement the standard generator against `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`.
+- Standard generation is implemented for supported domains and writes the exact 25-file standard profile.
+- Use `--dry-run` and repository-local `--out-dir` for safer standard generation testing.
+- Standard generation follows `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`.
 
 ## OPEN QUESTION
 

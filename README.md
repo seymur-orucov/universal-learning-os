@@ -15,8 +15,9 @@ The repository currently implements:
 - Stage 14: generated pack validation automation for required files, metadata guardrails, manifests, compact structure, and launch kits.
 - Stage 15: compact Project Pack generation for all supported domains.
 - Stage 16.0: standard Project Pack generation plan, 25-file contract, templates, and source mapping.
+- Stage 16.1: standard Project Pack generation for all supported domains.
 
-It does not yet include generated lessons, learner applications, schemas, full export automation, or standard 25-file generation. A minimal CLI validation and compact generation prototype exists under `tools/ulos-cli/`.
+It does not yet include generated lessons, learner applications, schemas, or full export automation. A minimal CLI validation and pack generation prototype exists under `tools/ulos-cli/`.
 
 ## Current Status
 
@@ -45,7 +46,7 @@ Project Pack exports are curated, ChatGPT Project-ready subsets of repository co
 
 The export model is defined in `exports/README.md` and assumes a practical 25-file source budget for standard generated Project Packs. Generated packs live under `exports/generated/`.
 
-Compact generation is implemented. Standard generation is planned for Stage 16.1; Stage 16.0 documents the 25-file output contract in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md` and planning templates in `tools/ulos-cli/templates/standard-pack/`.
+Compact and standard generation are implemented. The standard 25-file output contract is documented in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`, with templates and source mapping in `tools/ulos-cli/templates/standard-pack/`.
 
 Supported generated Project Packs:
 
@@ -73,9 +74,11 @@ node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile stan
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --dry-run
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --out-dir tmp/typescript-standard-test
 ```
 
-The `generate` command supports the `compact` profile. The `standard` profile prints planning guidance and does not write files yet. Run `node tools/ulos-cli/src/index.js validate` after compact generation.
+The `generate` command supports `compact` and `standard` profiles. Use `--dry-run` and repository-local `--out-dir` for safer standard generation testing. Run `node tools/ulos-cli/src/index.js validate` after generation.
 
 ## Current Constraints
 

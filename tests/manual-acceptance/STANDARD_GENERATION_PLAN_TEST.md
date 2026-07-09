@@ -74,7 +74,7 @@ SKILL_PROGRESS_MANAGER.md
 <DOMAIN>_PRACTICE_ASSESSMENT_RULES.md
 ```
 
-## Test 5: Standard Generate Prints Planning Guidance
+## Test 5: Standard Generate Uses the Plan
 
 Run:
 
@@ -82,7 +82,7 @@ Run:
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 ```
 
-Expected: the command does not generate files, prints Stage 16.1 planning guidance, references `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`, references `tools/ulos-cli/templates/standard-pack/`, and exits non-zero consistently with the current unsupported-standard behavior.
+Expected: the command generates exactly 25 standard files from canonical sources, follows `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`, and exits 0.
 
 ## Test 6: Validation Still Passes
 

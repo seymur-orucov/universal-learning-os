@@ -10,16 +10,16 @@
 - Stage 15.0: Compact Pack Generator.
 - Stage 16.0: Standard pack generation plan and templates.
 - Stage 16.1: Standard pack generator implementation.
-- Stage 16.2: Manifest validator expansion.
+- Stage 16.2: Manifest validator and source drift expansion.
 - Stage 17.0: Learner state update workflow.
 - Stage 18.0: English speaking/audio privacy policy.
 - Stage 19.0: Executable acceptance tests.
 
 ## Recommended Priority
 
-1. Use the Stage 16.0 standard generation plan, templates, and mapping to implement low-risk standard generation in Stage 16.1.
-2. Keep compact generation working and add source traceability checks and drift reporting.
-3. Add manifest validator expansion after standard generation behavior is stable.
+1. Add manifest validator expansion and source drift reporting for standard and compact generated packs.
+2. Keep compact and standard generation working across all supported domains.
+3. Add source checksums or stronger traceability to generated manifests.
 4. Define learner state update workflow before real multi-session use expands.
 5. Add English audio/privacy policy before storing audio, transcripts, or pronunciation artifacts.
 

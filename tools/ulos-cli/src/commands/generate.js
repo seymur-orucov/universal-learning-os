@@ -1,5 +1,6 @@
 const { isSupportedDomain, isSupportedProfile } = require("../lib/domains");
 const { generateCompactPack } = require("../lib/compact-generator");
+const { generateStandardPack } = require("../lib/standard-generator");
 
 function generate(repoRoot, options) {
   const { domain, profile } = options;
@@ -16,36 +17,29 @@ function generate(repoRoot, options) {
     return 1;
   }
 
-  if (profile !== "compact") {
-    console.log("Standard pack generation is planned for Stage 16.1.");
-    console.log("");
-    console.log("For this repository, the standard pack output contract is documented at:");
-    console.log("exports/project-pack-spec/STANDARD_GENERATION_PLAN.md");
-    console.log("");
-    console.log("Templates are available at:");
-    console.log("tools/ulos-cli/templates/standard-pack/");
-    console.log("");
-    console.log("Current behavior:");
-    console.log("- compact generation is implemented");
-    console.log("- standard generation is planning-only");
-    console.log("");
-    console.log(`Requested pack: ${domain}-${profile}`);
-    return 1;
-  }
-
   try {
-    const result = generateCompactPack(repoRoot, domain, { dryRun: options.dryRun });
+    const result = profile === "compact"
+      ? generateCompactPack(repoRoot, domain, { dryRun: options.dryRun })
+      : generateStandardPack(repoRoot, domain, { dryRun: options.dryRun, outDir: options.outDir });
 
-    console.log(options.dryRun ? "Compact pack generation dry run" : "Generated compact pack");
+    const profileLabel = profile === "compact" ? "compact" : "standard";
+    console.log(options.dryRun ? `${profileLabel[0].toUpperCase()}${profileLabel.slice(1)} pack generation dry run` : `Generated ${profileLabel} pack`);
     console.log("");
     console.log(`Domain: ${domain}`);
-    console.log("Profile: compact");
+    console.log(`Profile: ${profile}`);
     console.log(`Output: ${result.outputDir}`);
     console.log(`Files ${options.dryRun ? "planned" : "written"}: ${result.filesWritten}`);
     console.log("");
     console.log("Files:");
     for (const fileName of result.files) {
       console.log(`- ${fileName}`);
+    }
+    if (options.dryRun && result.sources) {
+      console.log("");
+      console.log("Sources:");
+      for (const source of result.sources) {
+        console.log(`- ${source}`);
+      }
     }
     console.log("");
     console.log("Next:");

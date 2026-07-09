@@ -60,13 +60,13 @@ node tools/ulos-cli/src/index.js generate --domain rust --profile compact
 
 Expected: prints unsupported domain error and exits non-zero.
 
-## Test 7: Standard Profile Rejection
+## Test 7: Standard Profile Is Separate Generator
 
 ```sh
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 ```
 
-Expected: says standard generation is future work, does not modify standard packs, and exits non-zero.
+Expected: generates exactly 25 files under `exports/generated/typescript-standard/`, recommends validation, and exits 0.
 
 ## Test 8: Dry Run
 

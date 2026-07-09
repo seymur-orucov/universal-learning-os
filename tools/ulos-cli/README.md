@@ -2,7 +2,7 @@
 
 `tools/ulos-cli` is a minimal Node.js CLI prototype for Universal Learning OS generated Project Packs.
 
-It validates and inspects existing repository files and can regenerate compact packs. It does not generate standard 25-file packs yet; Stage 16.0 adds the standard generation plan, templates, and source mapping only.
+It validates and inspects existing repository files and can regenerate compact and standard packs.
 
 `validate` is the preferred quick quality gate for generated pack checks.
 
@@ -16,6 +16,8 @@ node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile comp
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact --dry-run
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --dry-run
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --out-dir tmp/typescript-standard-test
 ```
 
 ## Optional Local Bin Usage
@@ -32,7 +34,7 @@ npx ulos list-domains
 - `list-domains`: prints supported domains and profiles.
 - `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, manifest basics, compact structure, and launch kit presence.
 - `inspect-pack`: prints path, profile, count rule, validation checks, and file list for one pack.
-- `generate`: regenerates compact packs from canonical domain files, selected command files, and selected skill files. Standard pack generation is planned for Stage 16.1; the standard profile prints planning guidance in Stage 16.0.
+- `generate`: regenerates compact and standard packs from canonical domain files, selected command files, selected skill files, and framework context.
 
 ## Compact Generation
 
@@ -58,21 +60,33 @@ Run validation after generation:
 node tools/ulos-cli/src/index.js validate
 ```
 
-## Standard Generation Plan
+## Standard Generation
 
-Standard generation is intentionally rejected until Stage 16.1, preserving the existing non-zero unsupported-standard behavior.
+Generate a standard pack:
+
+```sh
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
+```
+
+Standard packs contain exactly 25 files. Run validation after generation.
+
+Use dry-run to preview files and sources without writing:
+
+```sh
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --dry-run
+```
+
+Use a safe repository-local output override to test without overwriting default packs:
+
+```sh
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --out-dir tmp/typescript-standard-test
+```
 
 Planning docs and templates exist at:
 
 - `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`
 - `tools/ulos-cli/templates/standard-pack/`
 - `tools/ulos-cli/templates/standard-pack/MAPPING.md`
-
-This command prints planning guidance and does not write standard pack files:
-
-```sh
-node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
-```
 
 ## Validation Rules
 

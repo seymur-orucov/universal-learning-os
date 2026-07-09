@@ -1,6 +1,6 @@
 # Standard Pack Source Mapping
 
-This Stage 16.0 mapping defines the intended source-to-output plan for future standard pack generation. It does not generate files.
+This mapping defines the source-to-output plan used by standard pack generation.
 
 ## Domain Prefix
 
