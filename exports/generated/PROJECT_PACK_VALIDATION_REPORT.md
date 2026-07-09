@@ -122,3 +122,13 @@ Stage 18.1 adds handoff export documentation, a SQL/PostgreSQL handoff example, 
 - Compact packs remain exactly 5 files.
 - Generated packs remain learner-neutral.
 - No CLI handoff export command is implemented in Stage 18.1.
+
+## Stage 18.2 Optional Learner Snapshot Note
+
+Stage 18.2 adds optional learner snapshot documentation, a snapshot template, a SQL/PostgreSQL snapshot example, and a manual acceptance test only. It does not change generated pack contracts, generated pack file counts, CLI runtime behavior, Learner-Facing Mentor Mode, or validation requirements.
+
+- Snapshot export is optional, periodic, and user-requested.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Generated packs remain learner-neutral.
+- No CLI snapshot command is implemented in Stage 18.2.
