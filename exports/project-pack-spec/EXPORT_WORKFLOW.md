@@ -6,7 +6,7 @@ Define the manual workflow for assembling a Project Pack.
 
 ## Scope
 
-This workflow is a human-readable process. It is not executable automation.
+This workflow is a human-readable process. Compact pack generation is now executable through `tools/ulos-cli`; standard pack generation remains planning-only until Stage 16.1.
 
 ## Workflow
 
@@ -29,6 +29,13 @@ This workflow is a human-readable process. It is not executable automation.
 17. Verify privacy constraints if the domain involves language, audio, transcripts, or workplace content.
 18. Final review.
 
+## Generation Status
+
+- Compact packs can be regenerated with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile compact`.
+- Standard packs must not be regenerated automatically in Stage 16.0.
+- The standard generation plan and templates are documented in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md` and `tools/ulos-cli/templates/standard-pack/`.
+- Stage 16.1 should implement standard generation after the mapping and safety plan are accepted.
+
 ## Manual Checks
 
 - Confirm project instructions do not override canonical framework semantics.
@@ -43,7 +50,7 @@ This workflow is a human-readable process. It is not executable automation.
 
 - Export workflow MUST NOT silently modify learner state.
 - Export workflow MUST NOT create mastery claims.
-- Export workflow MUST NOT generate actual project packs during this stage.
+- Export workflow MUST NOT generate standard project packs during Stage 16.0.
 - Export workflow SHOULD document limitations and open questions before use.
 - Privacy constraints SHOULD be reviewed before including learner-provided audio, transcripts, workplace examples, or sensitive profile details.
 

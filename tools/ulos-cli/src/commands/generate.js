@@ -17,8 +17,18 @@ function generate(repoRoot, options) {
   }
 
   if (profile !== "compact") {
-    console.log("Standard pack generation is planned for a future stage.");
-    console.log("Current standard packs remain manually maintained repository files.");
+    console.log("Standard pack generation is planned for Stage 16.1.");
+    console.log("");
+    console.log("For this repository, the standard pack output contract is documented at:");
+    console.log("exports/project-pack-spec/STANDARD_GENERATION_PLAN.md");
+    console.log("");
+    console.log("Templates are available at:");
+    console.log("tools/ulos-cli/templates/standard-pack/");
+    console.log("");
+    console.log("Current behavior:");
+    console.log("- compact generation is implemented");
+    console.log("- standard generation is planning-only");
+    console.log("");
     console.log(`Requested pack: ${domain}-${profile}`);
     return 1;
   }

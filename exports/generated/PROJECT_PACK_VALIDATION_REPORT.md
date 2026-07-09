@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`repository-working-tree-stage-15.0`
+`repository-working-tree-stage-16.0`
 
 ## Quick Validation
 
@@ -21,7 +21,7 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 node tools/ulos-cli/src/index.js validate
 ```
 
-Standard pack generation remains future work.
+Standard pack generation remains planning-only for Stage 16.0. The standard 25-file output contract is documented in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`, with planning templates and source mapping under `tools/ulos-cli/templates/standard-pack/`.
 
 ## Scope
 
@@ -42,6 +42,8 @@ This report is a derived audit artifact. It is not canonical framework source an
 
 - Standard profile: exactly 25 files.
 - Compact profile: maximum 5 files.
+
+Stage 16.0 does not overwrite existing standard packs. Stage 16.1 should implement standard generation against the documented output contract.
 
 ## Standard Profile Checks
 
@@ -80,7 +82,9 @@ Compact packs preserve Learner-Facing Mentor Mode. Normal lessons, practice, rev
 - Validation is still partly human-readable, but `tools/ulos-cli` now provides the preferred quick generated-pack quality gate.
 - Compact packs summarize aggressively to satisfy the Free Project 5-file limit.
 - Generated packs may drift from canonical sources until regeneration tooling exists.
-- Compact packs now have generation tooling; standard packs remain manually maintained.
+- Compact packs now have generation tooling.
+- Standard generation is planned, with templates and mapping added in Stage 16.0.
+- Standard packs remain existing generated artifacts until Stage 16.1 implements the generator.
 
 ## OPEN QUESTION
 
