@@ -76,6 +76,18 @@ The MVP allows only the commands listed in this document.
 
 The command bridge should use a fixed command registry instead of accepting arbitrary commands from the UI.
 
+Stage 22.0 implements this boundary in `apps/studio/server/cliBridge.js`. The bridge validates domain, profile, snapshot type, and repo-local output paths before spawning `tools/ulos-cli` with argument arrays and `shell: false`.
+
+Stage 22.1 keeps the fixed allowlist and adds a small smoke utility for the implemented bridge/server boundary:
+
+```sh
+cd apps/studio
+npm run smoke:bridge
+npm run smoke:health
+```
+
+The bridge smoke checks `list-domains`, unsupported domain rejection, and unsafe output path rejection. The health smoke starts an ephemeral local server, checks `/api/health`, and stops it. These checks do not create temporary artifacts.
+
 ## Commands Excluded from MVP
 
 The MVP excludes:
@@ -95,6 +107,10 @@ The MVP excludes:
 The CLI already owns domain listing, pack validation, pack inspection, generation/dry-run behavior, learner handoff scaffold creation, learner snapshot scaffold creation, learner artifact validation, path safety, and overwrite protection.
 
 Keeping this behavior in the CLI prevents duplicated rules and keeps app behavior aligned with existing repository contracts.
+
+Stage 22.0 preserves this source-of-truth boundary. Studio displays CLI output and exit codes; it does not become a generated-pack validator, learner-state engine, transcript importer, mastery inference system, or ChatGPT API runtime.
+
+Stage 22.1 does not expand the command surface. It clarifies bridge errors, documents the two-process local setup, and preserves the local-first, CLI-backed model without adding authentication, cloud storage, database storage, ChatGPT API integration, generated pack editing, or a daily lesson runtime.
 
 ## How App Avoids Duplicating Validation Logic
 

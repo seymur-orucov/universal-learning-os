@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the concrete implementation blueprint for a future Universal Learning OS Studio MVP. Stage 21.1 is planning only; it does not add app runtime code or dependencies.
+This document defines the concrete implementation blueprint for Universal Learning OS Studio. Stage 21.1 was planning only; Stage 22.0 implements the first local MVP.
 
 The future MVP remains:
 
@@ -10,28 +10,30 @@ The future MVP remains:
 
 Daily learning remains inside ChatGPT Projects. The app helps users inspect, validate, and prepare repository artifacts.
 
-## Recommended App Location in Repo
+## App Location in Repo
 
-When implementation begins, place the app under:
+Stage 22.0 places the app under:
 
 ```text
-tools/ulos-studio/
+apps/studio/
 ```
 
 Rationale:
 
-- The app is tooling, not framework specification.
+- The app is isolated from canonical specs, domain packs, generated packs, learner state, commands, and skills.
 - It depends on `tools/ulos-cli` as the source of operational behavior.
-- Keeping it under `tools/` avoids mixing UI implementation with canonical specs, domain packs, generated packs, or learner state.
+- Keeping it under `apps/` makes the application boundary explicit.
 
-Do not create this directory during Stage 21.1.
+The earlier Stage 21.1 recommendation of `tools/ulos-studio/` was superseded by the explicit Stage 22.0 implementation request.
 
 ## Recommended Initial Stack
 
-For Stage 22.0 implementation, use one of these local-only options:
+Stage 22.0 uses:
 
-- Preferred: local React/Vite UI with a small Node-backed command bridge.
-- Acceptable fallback: simple Node-backed local web UI with minimal client JavaScript.
+- Local React/Vite UI.
+- Small Node-backed command bridge.
+
+Stage 22.1 keeps the same stack and hardens the MVP with clearer local setup documentation, npm smoke scripts, bridge/server smoke coverage, consistent bridge rejection output, and UI copy that reinforces the CLI-backed boundary.
 
 The app should call existing CLI commands instead of reimplementing domain, pack, generation, validation, or learner artifact logic.
 
@@ -77,29 +79,28 @@ node tools/ulos-cli/src/index.js create-snapshot --domain <domain> --type <type>
 
 The app should also display the equivalent command before or after execution.
 
-## Expected File/Folder Structure
+## Implemented File/Folder Structure
 
-The future implementation should start with a small structure similar to:
+The MVP starts with:
 
 ```text
-tools/ulos-studio/
+apps/studio/
   README.md
   package.json
+  index.html
   src/
-    client/
-      App.*
-      screens/
-      components/
-    server/
-      commandBridge.*
-      pathSafety.*
-      cliCommands.*
-    shared/
-      commandTypes.*
-  test/
+    main.jsx
+    App.jsx
+    api/
+    components/
+    styles.css
+  server/
+    index.js
+    cliBridge.js
+    smoke.js
 ```
 
-This is an implementation target for Stage 22.0 or later. Stage 21.1 must not add these files.
+This structure is intentionally small and local to the app.
 
 ## App Startup Flow
 
@@ -129,6 +130,8 @@ Boundary rules:
 - Do not parse full generated packs to recreate CLI logic.
 
 If structured output becomes necessary, add it to the CLI in a future stage as a public CLI contract.
+
+Stage 22.1 preserves this boundary and adds smoke coverage for bridge health, `list-domains`, unsupported domain rejection, and unsafe output path rejection. No arbitrary shell execution, generated pack editing, non-dry-run pack generation UI, auth, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, or heavy learner-state runtime is added.
 
 ## Error Handling Model
 
@@ -191,16 +194,23 @@ The MVP must not include:
 
 ## Stage 22.0 Implementation Checklist
 
-Before Stage 22.0 implementation starts:
+- [x] Implement under `apps/studio/`.
+- [x] Use React/Vite with a local Node bridge.
+- [x] Add only minimal app dependencies needed for a local MVP.
+- [x] Implement a Node command bridge that calls `tools/ulos-cli`.
+- [x] Implement fixed command templates for allowed MVP commands.
+- [x] Implement MVP UI panels for dashboard, domains, validation, pack inspection, handoff, and snapshot.
+- [x] Display raw CLI output and exit codes.
+- [x] Keep handoff and snapshot creation explicit and user-requested.
+- [x] Keep generated pack contracts unchanged.
+- [ ] Add automated app tests in a future hardening stage.
 
-- [ ] Confirm `tools/ulos-studio/` as the implementation location.
-- [ ] Confirm whether Stage 22.0 uses React/Vite or a simpler Node-served UI.
-- [ ] Add only the minimal app dependencies needed for a local MVP.
-- [ ] Implement a Node command bridge that calls `tools/ulos-cli`.
-- [ ] Implement fixed command templates for allowed MVP commands.
-- [ ] Implement UI screens from `docs/app/APP_UI_FLOW.md`.
-- [ ] Display raw CLI output and exit codes.
-- [ ] Add write-command confirmations for handoff and snapshot creation.
-- [ ] Add app tests without weakening existing CLI tests.
-- [ ] Run existing validation and CLI automated tests.
-- [ ] Keep generated pack contracts unchanged.
+## Stage 22.1 Studio MVP Hardening Checklist
+
+- [x] Document practical local install, run, build, smoke, troubleshooting, and security-boundary usage.
+- [x] Add working Studio npm scripts for server, build, preview, bridge smoke, and health smoke.
+- [x] Add a small local smoke utility without long-running processes or temporary artifacts.
+- [x] Keep bridge actions allowlisted and CLI arguments array-based with `shell: false`.
+- [x] Surface bridge rejection output consistently.
+- [x] Clarify in UI copy that Studio is local, CLI-backed, and not the daily learning runtime.
+- [x] Keep generated pack contracts unchanged: standard remains exactly 25 files and compact remains exactly 5 files.

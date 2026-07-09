@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the initial UI screens and flows for the future Studio MVP. It is planning only and does not implement the app.
+This document defines the initial UI screens and flows for Studio. Stage 22.0 implemented the first local MVP, and Stage 22.1 hardens the MVP without adding major app features.
 
 ## Home / Dashboard
 
@@ -38,6 +38,7 @@ The dashboard shows command, exit code, stdout, stderr, and a clear failure stat
 - Must not infer learner progress.
 - Must not write learner artifacts on load.
 - Must not run app-only validation rules that conflict with the CLI.
+- Must continue to remind users that ChatGPT Projects remain the daily learning runtime.
 
 ## Domains
 
@@ -159,6 +160,7 @@ The screen reports fail status, exit code, stdout, and stderr.
 
 - Must not replace CLI validation.
 - Must not allow app-only validation to override CLI failure.
+- Must communicate that validation behavior comes from the CLI.
 
 ## Learner Handoff
 
@@ -192,6 +194,7 @@ The screen shows unsupported domain, unsafe path, existing-file protection, or o
 - Must not infer mastery.
 - Must not generate YAML learner-state patches.
 - Must not store sensitive personal data.
+- Must remain optional and user-requested.
 
 ## Learner Snapshot
 
@@ -226,6 +229,7 @@ The screen shows unsupported domain, unsupported type, unsafe path, existing-fil
 - Must not infer mastery.
 - Must not parse chat transcripts.
 - Must not create heavy runtime learner state.
+- Must remain optional and user-requested.
 
 ## CLI/Test Status
 
@@ -259,3 +263,7 @@ The screen shows command failure details and does not mark the repository ready.
 - Must not mutate generated packs.
 - Must not mutate learner artifacts.
 - Must not add app-specific readiness rules that contradict CLI results.
+
+## Stage 22.1 Hardening Notes
+
+Stage 22.1 keeps the UI as a local control panel. The implemented copy reinforces that validation and generation behavior comes from the CLI, handoff/snapshot scaffolds are optional and user-requested, and ChatGPT Projects remain the learner-facing daily runtime. No authentication, cloud sync, database storage, ChatGPT API integration, lesson runtime, generated pack editing, new domain, or generated pack contract change is added.

@@ -206,3 +206,31 @@ Stage 21.1 adds implementation planning documentation for a future local Univers
 - Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
 - Generated packs remain learner-neutral.
 - Learner-Facing Mentor Mode remains unchanged.
+
+## Stage 22.0 Studio MVP Implementation Note
+
+Stage 22.0 adds the first local Universal Learning OS Studio MVP under `apps/studio/`. This app is a local CLI-backed control panel and does not change generated pack contracts, generated pack file counts, compact file lists, Learner-Facing Mentor Mode, or generated pack validation requirements.
+
+- Studio calls the existing CLI instead of duplicating validation, generation, inspection, handoff, or snapshot logic.
+- ChatGPT Projects remain the daily learning runtime.
+- The CLI remains the source of truth for domain listing, pack validation, pack inspection, generation dry-runs, handoff scaffold creation, snapshot scaffold creation, and learner artifact validation.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
+- Generated packs remain learner-neutral.
+- Learner-Facing Mentor Mode remains unchanged.
+- Handoff and snapshot scaffolds remain optional and user-requested.
+
+## Stage 22.1 Studio MVP Hardening Note
+
+Stage 22.1 hardens the local Studio MVP documentation, npm scripts, smoke checks, bridge behavior clarity, and UI copy. It does not change generated pack contracts, generated pack file counts, compact file lists, Learner-Facing Mentor Mode, generated pack validation requirements, or learner-neutral generated pack behavior.
+
+- Studio remains local-first and CLI-backed.
+- ChatGPT Projects remain the daily learning runtime.
+- The CLI remains the source of truth for domain listing, pack validation, pack inspection, generation dry-runs, handoff scaffold creation, snapshot scaffold creation, and learner artifact validation.
+- Bridge actions remain allowlisted and use argument arrays with `shell: false`.
+- Handoff and snapshot scaffolds remain optional and user-requested.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
+- No domain, authentication, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, YAML learner-state patch generation, generated pack editing, or heavy runtime learner-state system is added.

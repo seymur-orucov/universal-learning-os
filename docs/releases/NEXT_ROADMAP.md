@@ -11,7 +11,8 @@
 - Stage 20.0: Automated CLI Tests completed for pack contracts, generation dry-runs, learner runtime helpers, path safety, overwrite protection, and forbidden marker validation.
 - Stage 21.0: App Architecture Plan completed as documentation/manual acceptance only.
 - Stage 21.1: App MVP Implementation Plan completed as documentation/manual acceptance only.
-- Stage 22.0: Studio MVP implementation or stronger automated tests and source drift checks.
+- Stage 22.0: Studio MVP implementation completed as a local React/Vite UI with a Node CLI bridge.
+- Stage 22.1: Studio MVP hardening completed with practical docs, smoke scripts, bridge/server smoke checks, bridge error clarity, and UI copy polish.
 - Stage 23.0: Package distribution.
 - Future domain stages: DSA, Go, System Design, or another explicitly selected domain.
 
@@ -22,6 +23,36 @@
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Use Stage 21.0 and Stage 21.1 app planning docs to guide any future local control panel implementation.
 5. Consider optional import-from-handoff and progress summary generation only after preserving learner-state guardrails.
+
+## Stage 22.0 Studio MVP Implementation
+
+Stage 22.0 implements the first local Universal Learning OS Studio MVP under `apps/studio/`.
+
+- Studio is a local React/Vite UI with a small Node command bridge.
+- The bridge allows only fixed CLI-backed actions for `list-domains`, `validate`, `validate-learner`, `inspect-pack`, `generate --dry-run`, `create-handoff`, and `create-snapshot`.
+- The bridge validates supported domains, profiles, snapshot types, and repo-local output paths, and invokes the CLI with argument arrays instead of shell command strings.
+- ChatGPT Projects remain the daily learning runtime.
+- The CLI remains the source of truth for domain listing, validation, pack inspection, generation dry-runs, handoff scaffolds, snapshot scaffolds, and learner artifact validation.
+- Handoff and snapshot workflows remain optional and user-requested.
+- No domain is added.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Compact pack file lists remain unchanged.
+- Generated packs remain learner-neutral.
+- Learner-Facing Mentor Mode remains unchanged.
+- No authentication, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, YAML learner-state patch generation, or heavy runtime learner-state system is introduced.
+
+## Stage 22.1 Studio MVP Hardening
+
+Stage 22.1 hardens the local Studio MVP before v0.3.0 release preparation.
+
+- Studio README now documents what Studio is and is not, prerequisites, install, two-process local running, build, smoke checks, troubleshooting, allowed CLI actions, and the security boundary.
+- Studio scripts include local server, Vite dev/build/preview, bridge smoke, and health smoke commands.
+- The bridge/server smoke utility checks `/api/health`, `list-domains`, unsupported domain rejection, and unsafe output path rejection without leaving temporary artifacts.
+- Bridge rejection output is surfaced consistently with command results while preserving allowlisted actions, argument arrays, and `shell: false`.
+- UI copy clarifies that Studio is a local CLI-backed control panel, ChatGPT Projects remain the daily learning runtime, handoff/snapshot are optional and user-requested, and validation/generation behavior comes from the CLI.
+- No generated pack contract changed: standard packs remain exactly 25 files and compact packs remain exactly 5 files.
+- No domain, authentication, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, YAML learner-state patch generation, or heavy runtime learner-state system is added.
 
 ## Stage 19.1 CLI Learner Runtime Hardening
 

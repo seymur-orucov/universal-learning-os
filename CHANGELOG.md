@@ -9,6 +9,11 @@ All notable repository-level changes SHOULD be recorded here.
 - Clarifies that Stage 21.0 does not change generated pack contracts, add app dependencies, add a domain, or replace ChatGPT Projects as the daily learning runtime.
 - Adds Stage 21.1 app MVP implementation planning docs, ADR-0045, and manual acceptance coverage without adding app runtime code or dependencies.
 - Clarifies that the future Studio MVP should call the existing CLI instead of duplicating domain, pack, validation, generation, or learner artifact logic.
+- Adds Stage 22.0 Universal Learning OS Studio MVP under `apps/studio/` with a React/Vite UI and local Node CLI bridge.
+- Adds ADR-0046 and manual acceptance coverage for the Stage 22.0 Studio MVP.
+- Clarifies that Stage 22.0 preserves generated pack contracts, ChatGPT Projects as the daily learning runtime, and CLI source-of-truth boundaries.
+- Hardens the Stage 22.1 Studio MVP with practical local usage docs, working smoke scripts, bridge/server smoke checks, consistent bridge rejection output, UI boundary copy, ADR-0047, and manual acceptance coverage.
+- Clarifies that Stage 22.1 does not change generated pack contracts, add a domain, replace ChatGPT Projects as the daily runtime, or add auth/cloud/database/ChatGPT API integration.
 
 ## v0.2.0
 
