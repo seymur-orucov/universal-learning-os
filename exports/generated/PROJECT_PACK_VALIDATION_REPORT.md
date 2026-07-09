@@ -103,3 +103,22 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Compact profile: exactly 5 files.
 - Validation command: `node tools/ulos-cli/src/index.js validate`.
 - Current status: PASS after validation.
+
+## Stage 18.0 Runtime Learner State Strategy Note
+
+Stage 18.0 adds documentation and a learner handoff template only. It does not change generated pack contracts, generated pack file counts, Learner-Facing Mentor Mode, or validation requirements.
+
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Generated packs remain reusable and learner-neutral.
+- Daily ChatGPT learning does not require repository learner-state updates after every lesson.
+
+## Stage 18.1 Learner Handoff Export Note
+
+Stage 18.1 adds handoff export documentation, a SQL/PostgreSQL handoff example, and a manual acceptance test only. It does not change generated pack contracts, generated pack file counts, CLI runtime behavior, Learner-Facing Mentor Mode, or validation requirements.
+
+- Handoff export is optional and user-requested.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Generated packs remain learner-neutral.
+- No CLI handoff export command is implemented in Stage 18.1.
