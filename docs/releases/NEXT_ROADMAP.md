@@ -2,21 +2,21 @@
 
 ## Candidate Next Stages
 
-- Stage 17.1: Manifest validator and source drift expansion.
-- Stage 17.2: Generated pack checksum or source traceability reports.
-- Stage 18.0: Learner state update workflow.
-- Stage 19.0: English speaking/audio privacy policy.
-- Stage 20.0: Executable acceptance tests.
-- Stage 21.0: App/dashboard/runtime state strategy.
+- v0.2.0: Release-candidate finalization complete after validation passes.
+- Stage 18.0: Runtime Learner State Strategy.
+- Stage 19.0: App/dashboard concept.
+- Stage 20.0: Stronger automated tests and source drift checks.
+- Stage 21.0: Package distribution.
+- Future domain stages: DSA, Go, System Design, or another explicitly selected domain.
 
 ## Recommended Priority
 
-1. Stabilize v0.2.0 with validation, release checklist, and generated-pack smoke testing.
-2. Add manifest validator expansion and source drift reporting for standard and compact generated packs.
-3. Add source checksums or stronger traceability to generated manifests.
-4. Define learner state update workflow before real multi-session use expands.
-5. Add English audio/privacy policy before storing audio, transcripts, or pronunciation artifacts.
+1. Tag v0.2.0 only after validation passes and the working tree is clean.
+2. Define Runtime Learner State Strategy without mixing learner progress into reusable packs.
+3. Explore app/dashboard concepts after release contracts are stable.
+4. Add stronger automated tests, source drift checks, and source traceability.
+5. Plan package distribution after CLI behavior is stable.
 
 ## OPEN QUESTION
 
-- Should the next domain after v0.2.0 be Go, DSA, or System Design?
+- Which future domain should be prioritized after v0.2.0: DSA, Go, System Design, or another domain?

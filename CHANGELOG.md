@@ -6,16 +6,16 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## v0.2.0
 
-- Added JavaScript and TypeScript domain packs alongside SQL/PostgreSQL and English.
-- Added compact/free Project Packs for all supported domains.
-- Added standard and compact generated Project Packs for all supported domains.
-- Added `tools/ulos-cli` support for `list-domains`, `validate`, `inspect-pack`, and `generate`.
-- Added validation automation for generated pack directories, file counts, required files, metadata guardrails, standard manifests, compact structure, and launch kits.
-- Added compact pack generation for all supported domains.
-- Added standard pack generation for all supported domains.
-- Added Learner-Facing Mentor Mode consistency across generated packs.
-- Added launch kits for standard and compact ChatGPT Project setup.
-- Added v0.2.0 release hardening docs, release checklist, and generated pack smoke test guidance.
+- Supports four domains: `sql-postgresql`, `english`, `javascript`, and `typescript`.
+- Provides standard generated Project Packs for all supported domains with exactly 25 files each.
+- Provides compact/free generated Project Packs for all supported domains with exactly 5 files each.
+- Adds CLI support for `list-domains`, `validate`, `inspect-pack`, and `generate`.
+- Adds standard and compact pack generation, including dry-run support.
+- Adds validation automation for generated pack directories, file counts, required files, metadata guardrails, standard manifests, compact structure, and launch kits.
+- Adds Learner-Facing Mentor Mode consistency across generated packs.
+- Adds launch kits for standard and compact ChatGPT Project setup.
+- Adds v0.2.0 release notes, release checklist, release-candidate status, tagging instructions, and generated pack smoke test guidance.
+- Marks the repository ready to tag as `v0.2.0` after `node tools/ulos-cli/src/index.js validate` passes on `main` with a clean working tree.
 
 ## v0.1.0-rc1
 

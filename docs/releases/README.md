@@ -8,7 +8,9 @@ Release files are documentation artifacts. They are not canonical framework spec
 
 - `CHANGELOG.md`
 - `docs/releases/v0.2.0.md`
+- `docs/releases/v0.2.0-rc-status.md`
 - `docs/releases/V0_2_0_RELEASE_CHECKLIST.md`
+- `docs/releases/TAGGING_AND_RELEASE.md`
 - `docs/decisions/`
 - `exports/generated/`
 - `tests/manual-acceptance/`
@@ -20,6 +22,7 @@ Release files are documentation artifacts. They are not canonical framework spec
 - Compact packs: exactly 5 files per supported domain.
 - Standard and compact generation are implemented in `tools/ulos-cli`.
 - `node tools/ulos-cli/src/index.js validate` is the official generated-pack quality gate.
+- `docs/releases/TAGGING_AND_RELEASE.md` defines the final tag workflow.
 - App/dashboard/runtime state strategy remains future work.
 
 ## Canonical Behavior

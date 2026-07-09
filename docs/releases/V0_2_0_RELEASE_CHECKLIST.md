@@ -39,7 +39,31 @@
 ## Release Docs
 
 - [ ] `docs/releases/v0.2.0.md` is current.
+- [ ] `docs/releases/v0.2.0-rc-status.md` is current.
+- [ ] `docs/releases/TAGGING_AND_RELEASE.md` is current.
 - [ ] `CHANGELOG.md` includes `v0.2.0`.
 - [ ] Root `README.md` is current.
 - [ ] `tools/ulos-cli/README.md` is current.
 - [ ] Project pack docs describe standard and compact generation.
+
+## Execution Notes
+
+Run these commands from the repository root before tagging:
+
+```sh
+node tools/ulos-cli/src/index.js validate
+node tools/ulos-cli/src/index.js list-domains
+node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
+node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --dry-run
+node tools/ulos-cli/src/index.js generate --domain typescript --profile compact --dry-run
+```
+
+Expected outcomes:
+
+- `validate` exits 0 and reports `Result: PASS`.
+- `list-domains` lists exactly `sql-postgresql`, `english`, `javascript`, and `typescript`.
+- Standard inspect reports exactly 25 files and passing checks.
+- Compact inspect reports exactly 5 files and passing checks.
+- Standard dry-run reports 25 planned files and source files without writing.
+- Compact dry-run reports 5 planned files without writing.

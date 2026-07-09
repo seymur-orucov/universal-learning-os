@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`v0.2.0-readiness-stage-17.0`
+`v0.2.0-release-candidate-stage-17.1`
 
 ## Quick Validation
 
@@ -94,3 +94,12 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - All compact packs are expected to contain exactly 5 files.
 - Launch kits remain the user-facing setup helpers.
 - Generated packs are reusable and learner-neutral; learner runtime state remains separate under `learners/active-learner/` when used.
+
+## v0.2.0 Release Candidate Summary
+
+- Domains checked: 4.
+- Packs checked: 8.
+- Standard profile: exactly 25 files.
+- Compact profile: exactly 5 files.
+- Validation command: `node tools/ulos-cli/src/index.js validate`.
+- Current status: PASS after validation.
