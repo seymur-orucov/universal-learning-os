@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { getDomainConfig } = require("./domains");
+const { SUPPORTED_DOMAINS, getDomainConfig } = require("./domains");
 
 const SNAPSHOT_TYPES = ["milestone", "monthly", "assessment", "progress"];
 
@@ -9,6 +9,8 @@ const FORBIDDEN_MARKERS = [
   "Proposed State Updates",
   "internal skill ID",
   "debug/audit metadata",
+  "Generated pack implementation details",
+  "Evidence Generated",
 ];
 
 function todayString() {
@@ -22,7 +24,7 @@ function resolveRepoLocalPath(repoRoot, outputPath) {
     : path.resolve(repoRoot, outputPath);
 
   if (resolvedOutputPath !== resolvedRepoRoot && !resolvedOutputPath.startsWith(resolvedRepoRoot + path.sep)) {
-    throw new Error(`Refusing to write outside repository root: ${resolvedOutputPath}`);
+    throw new Error(`Unsafe output path: ${resolvedOutputPath}. Output must stay inside the repository root.`);
   }
 
   return resolvedOutputPath;
@@ -57,7 +59,8 @@ This handoff is optional and user-requested. Daily learning progress remains cha
 - Domain id: \`${domainConfig.id}\`
 - Domain title: ${domainConfig.title}
 - Created: ${todayString()}
-- Privacy: do not add sensitive personal data, private full chat transcripts, or unnecessary personal details.
+- Privacy: do not add sensitive personal data, full chat transcripts, internal metadata, or unnecessary personal details.
+- Scope: safe learner-facing summary fields only; no YAML learner-state patch fields are included by default.
 
 ---
 
@@ -74,7 +77,8 @@ This snapshot is optional, periodic, and user-requested. Daily learning progress
 - Domain title: ${domainConfig.title}
 - Snapshot type: \`${snapshotType}\`
 - Created: ${todayString()}
-- Privacy: do not add sensitive personal data, private full chat transcripts, or unnecessary personal details.
+- Privacy: do not add sensitive personal data, full chat transcripts, internal metadata, or unnecessary personal details.
+- Scope: safe learner-facing summary fields only; no YAML learner-state patch fields are included by default.
 
 ---
 
@@ -98,31 +102,40 @@ function assertSupportedDomain(domain) {
   return domainConfig;
 }
 
-function listMarkdownFiles(directory) {
+function listArtifactFiles(directory) {
+  const markdownFiles = [];
+  const ignoredFiles = [];
+
   if (!fs.existsSync(directory)) {
-    return [];
+    return { markdownFiles, ignoredFiles };
   }
 
   const entries = fs.readdirSync(directory, { withFileTypes: true });
-  const files = [];
 
   for (const entry of entries) {
     const entryPath = path.join(directory, entry.name);
     if (entry.isDirectory()) {
-      files.push(...listMarkdownFiles(entryPath));
+      const nested = listArtifactFiles(entryPath);
+      markdownFiles.push(...nested.markdownFiles);
+      ignoredFiles.push(...nested.ignoredFiles);
     } else if (entry.isFile() && entry.name.endsWith(".md")) {
-      files.push(entryPath);
+      markdownFiles.push(entryPath);
+    } else if (entry.isFile()) {
+      ignoredFiles.push(entryPath);
     }
   }
 
-  return files;
+  return { markdownFiles, ignoredFiles };
 }
 
 function validateLearnerArtifacts(repoRoot) {
   const learnerRoot = path.join(repoRoot, "learners", "active-learner");
   const handoffDir = path.join(learnerRoot, "handoffs");
   const snapshotDir = path.join(learnerRoot, "snapshots");
-  const files = listMarkdownFiles(handoffDir).concat(listMarkdownFiles(snapshotDir));
+  const handoffs = listArtifactFiles(handoffDir);
+  const snapshots = listArtifactFiles(snapshotDir);
+  const files = handoffs.markdownFiles.concat(snapshots.markdownFiles);
+  const ignoredFiles = handoffs.ignoredFiles.concat(snapshots.ignoredFiles);
   const violations = [];
 
   for (const filePath of files) {
@@ -136,14 +149,22 @@ function validateLearnerArtifacts(repoRoot) {
 
   return {
     learnerRoot,
+    learnerArtifactsFound: fs.existsSync(learnerRoot),
+    handoffDirExists: fs.existsSync(handoffDir),
+    snapshotDirExists: fs.existsSync(snapshotDir),
+    handoffFiles: handoffs.markdownFiles,
+    snapshotFiles: snapshots.markdownFiles,
     files,
+    ignoredFiles,
     violations,
     passed: violations.length === 0,
   };
 }
 
 module.exports = {
+  FORBIDDEN_MARKERS,
   SNAPSHOT_TYPES,
+  SUPPORTED_DOMAINS,
   assertSupportedDomain,
   buildHandoffContent,
   buildSnapshotContent,

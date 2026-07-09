@@ -6,6 +6,8 @@ It validates and inspects existing repository files and can regenerate compact a
 
 Run it from the repository root with Node.js 18 or newer. `validate` is the official generated-pack quality gate for v0.2.0 release readiness.
 
+Stage 19.1 hardens the optional learner runtime helpers for predictable success/error output and lightweight validation reporting. It does not change generated pack contracts, generated pack file counts, supported domains, or Learner-Facing Mentor Mode.
+
 ## Run From Repository Root
 
 ```sh
@@ -36,7 +38,7 @@ npx ulos list-domains
 
 - `list-domains`: prints supported domains and profiles.
 - `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, manifest basics, compact structure, and launch kit presence.
-- `validate-learner`: checks optional learner handoff/snapshot markdown files for obvious forbidden internal-default metadata markers.
+- `validate-learner`: checks optional learner handoff/snapshot markdown files for obvious forbidden internal-default metadata markers and reports artifact presence, checked counts, ignored non-markdown files, violation counts, and pass/fail status.
 - `inspect-pack`: prints path, profile, count rule, validation checks, and file list for one pack.
 - `generate`: regenerates compact and standard packs from canonical domain files, selected command files, selected skill files, and framework context.
 - `create-handoff`: creates an optional learner handoff scaffold from `templates/learner-handoff/LEARNER_HANDOFF_TEMPLATE.md`.
@@ -155,6 +157,10 @@ node tools/ulos-cli/src/index.js validate-learner
 ```
 
 `validate-learner` checks markdown files under `learners/active-learner/handoffs/` and `learners/active-learner/snapshots/`. It passes when those directories do not exist.
+
+Non-markdown files under those directories are ignored and reported as warnings. Validation reports handoff and snapshot markdown counts separately and exits non-zero when forbidden internal-default markers are found.
+
+The generated handoff and snapshot scaffolds include domain, date, optional/user-requested notes, privacy guidance, and learner-facing placeholders. They do not include full transcript fields or YAML learner-state patch fields by default.
 
 ## Validation Rules
 

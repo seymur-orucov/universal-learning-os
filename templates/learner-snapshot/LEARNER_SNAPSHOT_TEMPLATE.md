@@ -1,6 +1,6 @@
 # Learner Snapshot Template
 
-Use this template only when the user explicitly requests a learner snapshot, assessment archive, milestone summary, or periodic progress export. Evidence/progress details are optional and should not be filled during normal learner-facing teaching unless explicitly requested.
+Use this template only when the user explicitly requests a learner snapshot, assessment archive, milestone summary, or periodic progress export. Keep the content learner-facing and summary-only by default.
 
 ## Snapshot Type
 
@@ -66,5 +66,7 @@ Fill only when the snapshot is based on an assessment.
 ## Privacy Check
 
 - Do not include sensitive personal data unless explicitly requested and necessary.
-- Do not include full private chat transcripts by default.
+- Do not include full chat transcripts by default.
+- Do not include YAML learner-state patch fields by default.
+- Do not include internal metadata by default.
 - Prefer concise summaries over raw conversation logs.

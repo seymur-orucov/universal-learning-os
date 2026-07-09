@@ -143,3 +143,14 @@ Stage 19.0 adds lightweight optional CLI helpers for learner handoff and snapsho
 - Existing `validate` remains the generated pack quality gate.
 - Standard packs remain exactly 25 files.
 - Compact packs remain exactly 5 files.
+
+## Stage 19.1 CLI Learner Runtime Hardening Note
+
+Stage 19.1 hardens the existing Stage 19.0 learner CLI helpers. It does not change generated pack contracts, generated pack file counts, compact file lists, Learner-Facing Mentor Mode, or generated pack validation requirements.
+
+- `create-handoff` success output identifies the command, domain, output path, and optional user-requested status.
+- `create-snapshot` success output identifies the command, domain, snapshot type, output path, and optional periodic user-requested status.
+- `validate-learner` reports whether learner runtime artifacts were found, handoff/snapshot markdown counts, ignored non-markdown files, violation count, and final pass/fail status.
+- Handoff and snapshot scaffolds remain learner-facing and omit full transcript fields, YAML learner-state patch fields, and internal metadata by default.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.

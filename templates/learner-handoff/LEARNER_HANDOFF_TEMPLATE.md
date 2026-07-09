@@ -1,6 +1,6 @@
 # Learner Handoff Template
 
-Use this template only when the user explicitly requests a handoff, continuation summary, progress export, or state snapshot. Do not show or fill evidence/state sections during normal learner-facing teaching unless explicitly requested.
+Use this template only when the user explicitly requests a handoff, continuation summary, progress export, or state snapshot. Keep the content learner-facing and summary-only by default.
 
 ## Domain
 
@@ -52,17 +52,17 @@ Fill this section only for explicit progress, handoff, assessment, or state-upda
 - Evidence not available: `<missing evidence>`
 - Assessment limitation: `<what cannot be concluded>`
 
-## Optional State Snapshot
+## Optional Learner-Facing Snapshot
 
-Fill this section only when the user explicitly requests a state snapshot or repository learner-state update.
+Fill this section only when the user explicitly requests a concise learner-facing snapshot. Do not include YAML learner-state patches or internal metadata.
 
 - Active track or goal: `<summary>`
 - Review queue candidates: `<summary>`
-- Proposed state updates: `<summary>`
 - Next snapshot date or trigger: `<optional>`
 
 ## Privacy Check
 
 - Remove sensitive personal data unless explicitly requested and necessary.
-- Do not include private full chat transcripts by default.
+- Do not include full chat transcripts by default.
+- Do not include YAML learner-state patch fields by default.
 - Prefer concise summaries over raw conversation logs.

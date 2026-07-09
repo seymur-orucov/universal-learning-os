@@ -7,7 +7,8 @@
 - Stage 18.1: Learner Handoff Export Model completed as documentation/templates/manual acceptance only.
 - Stage 18.2: Optional Learner Snapshot Format completed as documentation/templates/manual acceptance only.
 - Stage 19.0: CLI Learner Runtime Commands completed as lightweight optional scaffold/validation helpers.
-- Stage 20.0: Optional import-from-handoff workflow, progress summary generator, or richer learner-state validation.
+- Stage 19.1: CLI Learner Runtime Hardening completed as output, validation, scaffold, and manual acceptance hardening only.
+- Stage 20.0: Automated CLI/runtime regression tests, optional import-from-handoff workflow, progress summary generator, or richer learner-state validation.
 - Stage 21.0: App/dashboard concept.
 - Stage 22.0: Stronger automated tests and source drift checks.
 - Stage 23.0: Package distribution.
@@ -20,6 +21,32 @@
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Consider optional import-from-handoff and progress summary generation before app/dashboard work.
 5. Explore app/dashboard concepts after release contracts are stable.
+
+## Stage 19.1 CLI Learner Runtime Hardening
+
+Stage 19.1 hardens the existing Stage 19.0 learner CLI helpers without changing generated pack contracts.
+
+- `create-handoff` and `create-snapshot` report command name, domain, output path, and optional/user-requested status.
+- `create-snapshot` also reports snapshot type and periodic status.
+- `validate-learner` reports learner artifact presence, checked handoff/snapshot counts, ignored non-markdown files, violation count, and pass/fail status.
+- Generated handoff/snapshot scaffolds remain learner-facing and do not include full transcript or YAML learner-state patch fields by default.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Supported domains remain `sql-postgresql`, `english`, `javascript`, and `typescript`.
+
+## Stage 20.0 Test Readiness
+
+Likely automated tests for Stage 20.0:
+
+- `create-handoff` success path.
+- `create-handoff` invalid domain.
+- `create-handoff` unsafe path.
+- `create-handoff` existing file with and without `--force`.
+- `create-snapshot` success path.
+- `create-snapshot` invalid type.
+- `validate-learner` clean repo.
+- `validate-learner` forbidden marker.
+- Generated pack contract regression.
 
 ## OPEN QUESTION
 
