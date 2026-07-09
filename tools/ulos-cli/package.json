@@ -8,7 +8,8 @@
   },
   "scripts": {
     "list-domains": "node src/index.js list-domains",
-    "validate": "node src/index.js validate"
+    "validate": "node src/index.js validate",
+    "test": "node --test test/*.test.js"
   },
   "engines": {
     "node": ">=18"

@@ -6,7 +6,7 @@ It validates and inspects existing repository files and can regenerate compact a
 
 Run it from the repository root with Node.js 18 or newer. `validate` is the official generated-pack quality gate for v0.2.0 release readiness.
 
-Stage 19.1 hardens the optional learner runtime helpers for predictable success/error output and lightweight validation reporting. It does not change generated pack contracts, generated pack file counts, supported domains, or Learner-Facing Mentor Mode.
+Stage 20.0 adds automated CLI regression tests for pack contracts, generation dry-runs, learner runtime helpers, path safety, overwrite protection, and forbidden marker validation. It does not change generated pack contracts, generated pack file counts, supported domains, or Learner-Facing Mentor Mode.
 
 ## Run From Repository Root
 
@@ -33,6 +33,22 @@ From `tools/ulos-cli/`, npm can expose the `ulos` bin in environments that suppo
 npm install
 npx ulos list-domains
 ```
+
+## Automated Tests
+
+Run the CLI regression tests from the repository root:
+
+```sh
+node --test tools/ulos-cli/test/*.test.js
+```
+
+Or run the package script from `tools/ulos-cli/`:
+
+```sh
+npm test
+```
+
+The tests use Node's built-in test runner and temporary repo-local paths under `tmp/ulos-cli-tests/`. Learner runtime tests create temporary files under `learners/active-learner/handoffs/stage-20-cli-tests/` and `learners/active-learner/snapshots/stage-20-cli-tests/`, then remove them after the run.
 
 ## Commands
 
@@ -187,6 +203,7 @@ node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile stan
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
 node tools/ulos-cli/src/index.js validate
 node tools/ulos-cli/src/index.js validate-learner
+node --test tools/ulos-cli/test/*.test.js
 ```
 
 Use `docs/releases/V0_2_0_RELEASE_CHECKLIST.md` before tagging or publishing release artifacts.

@@ -14,6 +14,20 @@ node tools/ulos-cli/src/index.js validate
 
 The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure and is the official generated-pack quality gate for v0.2.0 readiness.
 
+Stage 20.0 also provides automated CLI regression tests:
+
+```sh
+node --test tools/ulos-cli/test/*.test.js
+```
+
+From `tools/ulos-cli/`, run the same suite with:
+
+```sh
+npm test
+```
+
+These tests cover domain listing, generated pack validation, TypeScript standard/compact inspection, generation dry-runs, invalid inputs, path safety, unexpected-file protection, learner handoff/snapshot scaffolds, overwrite protection, and learner forbidden-marker validation.
+
 Packs can be regenerated before validation:
 
 ```sh
@@ -154,3 +168,41 @@ Stage 19.1 hardens the existing Stage 19.0 learner CLI helpers. It does not chan
 - Handoff and snapshot scaffolds remain learner-facing and omit full transcript fields, YAML learner-state patch fields, and internal metadata by default.
 - Standard packs remain exactly 25 files.
 - Compact packs remain exactly 5 files.
+
+## Stage 20.0 Automated CLI Tests Note
+
+Stage 20.0 adds automated CLI tests only. It does not change generated pack contracts, generated pack file counts, compact file lists, Learner-Facing Mentor Mode, learner-neutral generated packs, or optional learner runtime behavior.
+
+- Test command: `node --test tools/ulos-cli/test/*.test.js`.
+- Package script: run `npm test` from `tools/ulos-cli/`.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
+- Learner runtime helper tests use temporary files and clean them up after execution.
+
+## Stage 21.0 App Architecture Plan Note
+
+Stage 21.0 adds app architecture planning documentation, an app architecture ADR, and a manual acceptance checklist only. It does not add an app implementation, app dependencies, a new domain, generated pack contract changes, or learner runtime expansion.
+
+- Universal Learning OS Studio is planned as a local-first, CLI-backed control panel.
+- ChatGPT Projects remain the daily learning runtime.
+- The CLI remains the source of truth for validation, generation, pack inspection, and optional learner handoff/snapshot scaffolds.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
+- Generated packs remain learner-neutral.
+- Learner-Facing Mentor Mode remains unchanged.
+
+## Stage 21.1 App MVP Implementation Plan Note
+
+Stage 21.1 adds implementation planning documentation for a future local Universal Learning OS Studio MVP, an app MVP implementation ADR, and a manual acceptance checklist only. It does not add app runtime code, app dependencies, a new domain, generated pack contract changes, or learner runtime expansion.
+
+- Studio remains planned as a local CLI-backed control panel.
+- The future app should call existing CLI commands instead of duplicating validation or generation logic.
+- ChatGPT Projects remain the daily learning runtime.
+- The CLI remains the source of truth for domain listing, pack validation, pack inspection, generation/dry-run, handoff scaffold creation, snapshot scaffold creation, and learner artifact validation.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
+- Generated packs remain learner-neutral.
+- Learner-Facing Mentor Mode remains unchanged.

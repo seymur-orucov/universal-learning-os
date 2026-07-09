@@ -1,0 +1,70 @@
+const assert = require("node:assert/strict");
+const { spawnSync } = require("node:child_process");
+const path = require("node:path");
+const test = require("node:test");
+
+const repoRoot = path.resolve(__dirname, "../../..");
+const cliPath = path.join(repoRoot, "tools/ulos-cli/src/index.js");
+
+function runCli(args) {
+  return spawnSync(process.execPath, [cliPath, ...args], {
+    cwd: repoRoot,
+    encoding: "utf8",
+  });
+}
+
+function output(result) {
+  return `${result.stdout}${result.stderr}`;
+}
+
+test("list-domains exits 0 and reports the exact supported domains", () => {
+  const result = runCli(["list-domains"]);
+  assert.equal(result.status, 0, output(result));
+
+  const domains = result.stdout
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith("- "))
+    .map((line) => line.slice(2).trim());
+
+  assert.deepEqual(domains, [
+    "sql-postgresql",
+    "english",
+    "javascript",
+    "typescript",
+  ]);
+});
+
+test("validate exits 0 for generated pack contracts", () => {
+  const result = runCli(["validate"]);
+  assert.equal(result.status, 0, output(result));
+});
+
+test("typescript standard inspect preserves the 25-file contract", () => {
+  const result = runCli(["inspect-pack", "--domain", "typescript", "--profile", "standard"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 25/);
+  assert.match(result.stdout, /Expected rule: exactly 25 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+});
+
+test("typescript compact inspect preserves the 5-file exact file list", () => {
+  const result = runCli(["inspect-pack", "--domain", "typescript", "--profile", "compact"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 5/);
+  assert.match(result.stdout, /Expected rule: exactly 5 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+
+  const files = result.stdout
+    .split(/\r?\n/)
+    .slice(result.stdout.split(/\r?\n/).findIndex((line) => line === "Files:") + 1)
+    .filter((line) => line.startsWith("- "))
+    .map((line) => line.slice(2).trim());
+
+  assert.deepEqual(files, [
+    "COMMANDS_CORE.md",
+    "DOMAIN_CORE.md",
+    "MENTOR_SKILLS_CORE.md",
+    "PROJECT_INSTRUCTIONS.md",
+    "STARTUP_PROMPT.md",
+  ]);
+});

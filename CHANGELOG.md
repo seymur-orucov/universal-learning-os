@@ -4,6 +4,12 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Adds Stage 21.0 app architecture planning docs for a future local-first, CLI-backed Universal Learning OS Studio control panel.
+- Adds ADR-0044 and manual acceptance coverage for Stage 21.0.
+- Clarifies that Stage 21.0 does not change generated pack contracts, add app dependencies, add a domain, or replace ChatGPT Projects as the daily learning runtime.
+- Adds Stage 21.1 app MVP implementation planning docs, ADR-0045, and manual acceptance coverage without adding app runtime code or dependencies.
+- Clarifies that the future Studio MVP should call the existing CLI instead of duplicating domain, pack, validation, generation, or learner artifact logic.
+
 ## v0.2.0
 
 - Supports four domains: `sql-postgresql`, `english`, `javascript`, and `typescript`.
