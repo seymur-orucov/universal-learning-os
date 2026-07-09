@@ -26,7 +26,7 @@ Individual generated pack directories MUST remain exactly 25 files:
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
 
-Compact generated pack directories MUST remain no more than 5 files:
+Compact generated pack directories MUST remain exactly 5 files:
 
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`

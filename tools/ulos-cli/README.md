@@ -1,10 +1,10 @@
 # ULOS CLI Prototype
 
-`tools/ulos-cli` is a minimal Node.js CLI prototype for Universal Learning OS generated Project Packs.
+`tools/ulos-cli` is a dependency-free Node.js CLI prototype for Universal Learning OS generated Project Packs.
 
 It validates and inspects existing repository files and can regenerate compact and standard packs.
 
-`validate` is the preferred quick quality gate for generated pack checks.
+Run it from the repository root with Node.js 18 or newer. `validate` is the official generated-pack quality gate for v0.2.0 release readiness.
 
 ## Run From Repository Root
 
@@ -35,6 +35,20 @@ npx ulos list-domains
 - `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, manifest basics, compact structure, and launch kit presence.
 - `inspect-pack`: prints path, profile, count rule, validation checks, and file list for one pack.
 - `generate`: regenerates compact and standard packs from canonical domain files, selected command files, selected skill files, and framework context.
+
+## Supported Domains and Profiles
+
+Domains:
+
+- `sql-postgresql`
+- `english`
+- `javascript`
+- `typescript`
+
+Profiles:
+
+- `standard`: exactly 25 files.
+- `compact`: exactly 5 files.
 
 ## Compact Generation
 
@@ -82,6 +96,8 @@ Use a safe repository-local output override to test without overwriting default 
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --out-dir tmp/typescript-standard-test
 ```
 
+`--out-dir` is supported for standard generation and must stay inside the repository root.
+
 Planning docs and templates exist at:
 
 - `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`
@@ -91,12 +107,30 @@ Planning docs and templates exist at:
 ## Validation Rules
 
 - Standard packs must contain exactly 25 files.
-- Compact packs must contain no more than 5 files.
+- Compact packs must contain exactly 5 files.
 - Every generated pack must include `PROJECT_INSTRUCTIONS.md` and `STARTUP_PROMPT.md`.
 - Standard packs must include `PACK_MANIFEST.md`, `FILE_BUDGET.md`, and `CONTINUATION_PROMPT.md`.
 - Compact packs must include exactly the compact core structure.
 - Every generated pack must include the `Learner-Facing Mentor Mode` marker and metadata visibility guardrails.
 - Launch kit files must exist for each supported domain/profile.
+
+## Exit Codes
+
+- `0`: command completed successfully.
+- Non-zero: unsupported domain/profile, validation failure, missing source file, unsafe output path, or unexpected files in a standard output directory.
+
+## Recommended Release Workflow
+
+```sh
+node tools/ulos-cli/src/index.js list-domains
+node tools/ulos-cli/src/index.js generate --domain typescript --profile compact --dry-run
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --dry-run
+node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
+node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
+node tools/ulos-cli/src/index.js validate
+```
+
+Use `docs/releases/V0_2_0_RELEASE_CHECKLIST.md` before tagging or publishing release artifacts.
 
 ## Supported Domains
 

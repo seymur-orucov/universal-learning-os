@@ -4,6 +4,21 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+## v0.2.0
+
+- Added JavaScript and TypeScript domain packs alongside SQL/PostgreSQL and English.
+- Added compact/free Project Packs for all supported domains.
+- Added standard and compact generated Project Packs for all supported domains.
+- Added `tools/ulos-cli` support for `list-domains`, `validate`, `inspect-pack`, and `generate`.
+- Added validation automation for generated pack directories, file counts, required files, metadata guardrails, standard manifests, compact structure, and launch kits.
+- Added compact pack generation for all supported domains.
+- Added standard pack generation for all supported domains.
+- Added Learner-Facing Mentor Mode consistency across generated packs.
+- Added launch kits for standard and compact ChatGPT Project setup.
+- Added v0.2.0 release hardening docs, release checklist, and generated pack smoke test guidance.
+
+## v0.1.0-rc1
+
 - Added Stage 10.7 v0.1.0-rc1 release readiness documentation under `docs/releases/`.
 - Added ADR-0028 for release readiness documentation scope.
 - Added Stage 10.6 manual acceptance tests under `tests/manual-acceptance/`.

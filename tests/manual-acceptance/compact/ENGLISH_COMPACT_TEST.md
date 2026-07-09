@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Verify English compact pack behavior in a max-5-file Free Project setup.
+Verify English compact pack behavior in a 5-file Free Project setup.
 
 ## Preconditions
 
-- `exports/generated/english-compact/` has no more than 5 files.
+- `exports/generated/english-compact/` has exactly 5 files.
 - Standard pack `exports/generated/english-standard/` still has exactly 25 files.
 
 ## Startup

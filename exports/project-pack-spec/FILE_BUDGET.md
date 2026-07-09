@@ -115,8 +115,8 @@ Files SHOULD be excluded when:
 
 ## Pack Profiles
 
-- `standard`: exactly or up to 25 files for one domain and a normal learning workflow. Current generated standard packs use exactly 25 files.
-- `compact/free`: no more than 5 files for Free-plan ChatGPT Projects. It uses merged core files and must preserve learner-facing behavior and evidence guardrails.
+- `standard`: exactly 25 files for one domain and a normal learning workflow in the current generated-pack contract.
+- `compact/free`: exactly 5 files for Free-plan ChatGPT Projects in the current generated-pack contract. It uses merged core files and must preserve learner-facing behavior and evidence guardrails.
 - Minimal Pack: 12-15 files for one focused workflow or lesson track when the target environment allows more than 5 files but less than the standard profile.
 - Standard Pack: legacy name for the `standard` profile.
 - Full Pack: not recommended unless the target environment allows more than 25 files.

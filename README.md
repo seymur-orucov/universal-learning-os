@@ -1,6 +1,6 @@
 # Universal Learning OS
 
-`universal-learning-os` is a domain-independent framework for structured learning workflows across subjects such as databases, programming, software architecture, communication, and other complex knowledge domains.
+`universal-learning-os` is a domain-independent framework for structured learning workflows. It packages reusable learning content, commands, mentor skills, and framework guardrails into ChatGPT Project-ready packs.
 
 The repository currently implements:
 
@@ -16,14 +16,22 @@ The repository currently implements:
 - Stage 15: compact Project Pack generation for all supported domains.
 - Stage 16.0: standard Project Pack generation plan, 25-file contract, templates, and source mapping.
 - Stage 16.1: standard Project Pack generation for all supported domains.
+- Stage 17.0: v0.2.0 release hardening and readiness documentation.
 
-It does not yet include generated lessons, learner applications, schemas, or full export automation. A minimal CLI validation and pack generation prototype exists under `tools/ulos-cli/`.
+It does not yet include generated lessons, learner applications, machine-readable schemas, or an app/dashboard runtime. CLI validation and pack generation live under `tools/ulos-cli/`.
 
 ## Current Status
 
-v0.1.0-rc1 release readiness documentation is available in `docs/releases/`.
+`v0.2.0` is the next release target. Release notes and checklists are available in `docs/releases/`.
 
-The repository is ready for manual review and practical ChatGPT Project setup using generated Project Packs, but it is not a stable release and does not include executable automation.
+The repository is ready for manual review and practical ChatGPT Project setup using generated Project Packs. `node tools/ulos-cli/src/index.js validate` is the official generated-pack quality gate.
+
+## Supported Domains
+
+- `sql-postgresql`
+- `english`
+- `javascript`
+- `typescript`
 
 ## Repository Map
 
@@ -47,6 +55,11 @@ Project Pack exports are curated, ChatGPT Project-ready subsets of repository co
 The export model is defined in `exports/README.md` and assumes a practical 25-file source budget for standard generated Project Packs. Generated packs live under `exports/generated/`.
 
 Compact and standard generation are implemented. The standard 25-file output contract is documented in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`, with templates and source mapping in `tools/ulos-cli/templates/standard-pack/`.
+
+Pack profiles:
+
+- `standard`: exactly 25 files per domain for normal ChatGPT Project usage.
+- `compact`: exactly 5 files per domain for Free Project or low-file-budget usage.
 
 Supported generated Project Packs:
 
@@ -79,6 +92,22 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 ```
 
 The `generate` command supports `compact` and `standard` profiles. Use `--dry-run` and repository-local `--out-dir` for safer standard generation testing. Run `node tools/ulos-cli/src/index.js validate` after generation.
+
+## ChatGPT Project Usage
+
+1. Choose a domain and profile.
+2. Open the matching launch kit under `exports/generated/project-launch-kits/`.
+3. Upload the files listed in the launch kit upload list.
+4. Paste the ready startup prompt.
+5. Use commands such as `START_LESSON`, `PRACTICE`, `REVIEW`, `ASSESS`, and `SHOW_PROGRESS`.
+
+Generated packs are reusable and learner-neutral. Runtime learner state lives separately under `learners/active-learner/` when used, and ChatGPT Project learning can happen without updating repository state after every lesson. Do not store sensitive personal data in generated packs or learner state.
+
+## Release Notes
+
+- Current target: `docs/releases/v0.2.0.md`
+- Release checklist: `docs/releases/V0_2_0_RELEASE_CHECKLIST.md`
+- Changelog: `CHANGELOG.md`
 
 ## Current Constraints
 

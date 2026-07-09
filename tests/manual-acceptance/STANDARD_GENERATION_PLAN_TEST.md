@@ -118,7 +118,7 @@ exports/generated/javascript-compact/
 exports/generated/typescript-compact/
 ```
 
-Expected: each directory contains no more than 5 files.
+Expected: each directory contains exactly 5 files.
 
 ## Test 9: Compact Generator Still Works
 

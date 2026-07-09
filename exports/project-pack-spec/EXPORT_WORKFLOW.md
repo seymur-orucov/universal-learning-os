@@ -19,7 +19,7 @@ This workflow is a human-readable process. Compact and standard pack generation 
 7. Choose learner templates.
 8. Choose session templates.
 9. Create manifest.
-10. Check the selected profile budget: 25 files for `standard`, max 5 files for `compact/free`.
+10. Check the selected profile budget: 25 files for `standard`, 5 files for `compact/free`.
 11. Document summarized files.
 12. Document excluded files.
 13. Prepare startup prompt.

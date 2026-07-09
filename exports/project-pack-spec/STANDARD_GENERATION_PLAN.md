@@ -116,7 +116,7 @@ Domain files MUST contain reusable domain content only. They MUST NOT contain le
 - Standard generation MUST preserve canonical source traceability in `PACK_MANIFEST.md`.
 - Standard generation MUST support dry-run output before writing.
 - Standard generation MUST NOT remove, rename, or break existing generated packs.
-- Compact generation MUST remain limited to maximum 5 files.
+- Compact generation MUST continue to produce the 5-file compact profile.
 
 ## Current Limitations
 
@@ -131,7 +131,7 @@ Domain files MUST contain reusable domain content only. They MUST NOT contain le
 
 - every existing standard pack directory exists;
 - standard packs contain exactly 25 files;
-- compact packs contain no more than 5 files;
+- compact packs contain exactly 5 files;
 - required standard and compact files exist;
 - learner-facing metadata guardrails exist;
 - standard manifests mention pack identity and budget;

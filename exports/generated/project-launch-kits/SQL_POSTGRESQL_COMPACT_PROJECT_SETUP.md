@@ -6,7 +6,7 @@ SQL/PostgreSQL Mentor OS Compact
 
 ## Project Purpose
 
-Teach SQL and PostgreSQL in a Free-plan ChatGPT Project using a max-5-file compact pack.
+Teach SQL and PostgreSQL in a Free-plan ChatGPT Project using a 5-file compact pack.
 
 ## Step 1: Create Project
 

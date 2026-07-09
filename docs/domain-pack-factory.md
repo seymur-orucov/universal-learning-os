@@ -37,7 +37,7 @@ Map the domain to the framework mastery model without weakening `core/mastery-mo
 Generated Project Packs use two profiles:
 
 - `standard`: exactly 25 files for Plus/Go or higher Project usage. Include instructions, manifest, budget, startup and continuation prompts, selected framework context, selected commands, selected agent skills, and selected summarized domain files.
-- `compact`: maximum 5 files for Free Project usage or other low-file-budget environments. Use `PROJECT_INSTRUCTIONS.md`, `STARTUP_PROMPT.md`, `DOMAIN_CORE.md`, `COMMANDS_CORE.md`, and `MENTOR_SKILLS_CORE.md`.
+- `compact`: exactly 5 files for Free Project usage or other low-file-budget environments. Use `PROJECT_INSTRUCTIONS.md`, `STARTUP_PROMPT.md`, `DOMAIN_CORE.md`, `COMMANDS_CORE.md`, and `MENTOR_SKILLS_CORE.md`.
 
 Compact packs must consolidate domain overview, syllabus, glossary essentials, practice/project contexts, command behavior, mentor skills, evidence/mastery guardrails, localization, learner-state boundaries, and Learner-Facing Mentor Mode without weakening canonical framework semantics.
 
@@ -53,8 +53,21 @@ Add practical tests under `tests/manual-acceptance/<domain-id>/`. Cover startup,
 
 - Canonical domain exists under `domains/<domain-id>/`.
 - Standard generated pack exists under `exports/generated/<domain-id>-standard/` and has exactly 25 files.
-- Compact generated pack exists under `exports/generated/<domain-id>-compact/` and has no more than 5 files when the domain is supported for Free Project usage.
+- Compact generated pack exists under `exports/generated/<domain-id>-compact/` and has exactly 5 files when the domain is supported for Free Project usage.
 - Launch kit files exist under `exports/generated/project-launch-kits/`.
 - Manual acceptance tests exist under `tests/manual-acceptance/<domain-id>/`.
 - Relevant README and index files list the new domain.
 - Existing generated packs keep their required file counts.
+
+## How to add a new domain after v0.2.0
+
+1. Create the canonical domain pack under `domains/<domain>/` with `DOMAIN.md`, `SYLLABUS.md`, `SKILL_GRAPH.md`, `GLOSSARY.md`, `PROJECTS.md`, `PRACTICE_RULES.md`, and `ASSESSMENT_RULES.md`.
+2. Add the domain config to `tools/ulos-cli/src/lib/domains.js`, including domain id, title, purpose, terminology guidance, and launch kit prefix.
+3. Add launch kit files under `exports/generated/project-launch-kits/` using the configured prefix for standard and compact profiles.
+4. Generate the compact pack with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile compact`.
+5. Generate the standard pack with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile standard`.
+6. Run `node tools/ulos-cli/src/index.js validate` and fix any file-count, required-file, guardrail, manifest, compact-structure, or launch-kit failures.
+7. Add or update manual acceptance tests under `tests/manual-acceptance/` for startup, lesson, practice, review, progress visibility, and continuation behavior.
+8. Update root docs, export docs, release notes, changelog, and any launch kit indexes to list the new domain.
+
+Do not include learner-specific progress in the domain pack or generated packs. Runtime learner state belongs under `learners/active-learner/` or future learner state storage, and sensitive personal data should not be stored by default.

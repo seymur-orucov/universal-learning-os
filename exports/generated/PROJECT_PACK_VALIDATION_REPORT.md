@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`repository-working-tree-stage-16.1`
+`v0.2.0-readiness-stage-17.0`
 
 ## Quick Validation
 
@@ -12,16 +12,17 @@ Preferred quick quality gate:
 node tools/ulos-cli/src/index.js validate
 ```
 
-The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure.
+The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure and is the official generated-pack quality gate for v0.2.0 readiness.
 
-Compact packs can be regenerated before validation:
+Packs can be regenerated before validation:
 
 ```sh
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
+node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 node tools/ulos-cli/src/index.js validate
 ```
 
-Standard pack generation is implemented for Stage 16.1. The standard 25-file output contract is documented in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`, with templates and source mapping under `tools/ulos-cli/templates/standard-pack/`.
+Standard and compact pack generation are implemented. The standard 25-file output contract is documented in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`, with templates and source mapping under `tools/ulos-cli/templates/standard-pack/`.
 
 ## Scope
 
@@ -41,27 +42,27 @@ This report is a derived audit artifact. It is not canonical framework source an
 ## Profile Rules
 
 - Standard profile: exactly 25 files.
-- Compact profile: maximum 5 files.
+- Compact profile: exactly 5 files.
 
-Standard generation writes exactly 25 files and should be followed by validation. Use `--dry-run` and `--out-dir` for safer testing before overwriting default generated packs.
+Standard generation writes exactly 25 files. Compact generation writes exactly 5 files. Use `--dry-run` and standard `--out-dir` for safer testing before overwriting default generated packs.
 
 ## Standard Profile Checks
 
 | Pack | Expected count | Status | Notes |
 | --- | --- | --- | --- |
-| `sql-postgresql-standard` | 25 | PASS | Existing standard pack preserved. |
-| `english-standard` | 25 | PASS | Existing standard pack preserved. |
-| `javascript-standard` | 25 | PASS | Standard JavaScript pack preserved. |
-| `typescript-standard` | 25 | PASS | TypeScript standard pack added. |
+| `sql-postgresql-standard` | exactly 25 | PASS | Generated standard pack. |
+| `english-standard` | exactly 25 | PASS | Generated standard pack. |
+| `javascript-standard` | exactly 25 | PASS | Generated standard pack. |
+| `typescript-standard` | exactly 25 | PASS | Generated standard pack. |
 
 ## Compact Profile Checks
 
 | Pack | Expected count | Status | Notes |
 | --- | --- | --- | --- |
-| `sql-postgresql-compact` | max 5 | PASS | Contains the required 5 compact files. |
-| `english-compact` | max 5 | PASS | Contains the required 5 compact files. |
-| `javascript-compact` | max 5 | PASS | Contains the required 5 compact files. |
-| `typescript-compact` | max 5 | PASS | Contains the required 5 compact files. |
+| `sql-postgresql-compact` | exactly 5 | PASS | Generated compact pack. |
+| `english-compact` | exactly 5 | PASS | Generated compact pack. |
+| `javascript-compact` | exactly 5 | PASS | Generated compact pack. |
+| `typescript-compact` | exactly 5 | PASS | Generated compact pack. |
 
 ## Required Compact Files
 
@@ -75,17 +76,21 @@ Each compact pack should contain:
 
 ## Learner-Facing Mentor Mode
 
-Compact packs preserve Learner-Facing Mentor Mode. Normal lessons, practice, review, and homework review should not show evidence/state/YAML/internal metadata unless explicitly requested through `SHOW_PROGRESS`, evidence summary, state update, proposed state updates, continuation prompt, learner handoff, progress report, or debug/audit output.
+Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, practice, review, and homework review should not show evidence/state/YAML/internal metadata unless explicitly requested through `SHOW_PROGRESS`, evidence summary, state update, proposed state updates, continuation prompt, learner handoff, progress report, or debug/audit output.
 
 ## Known Limitations
 
 - Validation is still partly human-readable, but `tools/ulos-cli` now provides the preferred quick generated-pack quality gate.
 - Compact packs summarize aggressively to satisfy the Free Project 5-file limit.
-- Generated packs may drift from canonical sources until regeneration tooling exists.
+- Generated packs may drift from canonical sources unless regenerated and validated after source changes.
 - Compact packs now have generation tooling.
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## OPEN QUESTION
+## v0.2.0 Readiness Summary
 
-- Which standard and compact validation checks should become executable first?
+- All four supported domains have standard and compact generated packs.
+- All standard packs are expected to contain exactly 25 files.
+- All compact packs are expected to contain exactly 5 files.
+- Launch kits remain the user-facing setup helpers.
+- Generated packs are reusable and learner-neutral; learner runtime state remains separate under `learners/active-learner/` when used.

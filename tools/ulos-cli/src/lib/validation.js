@@ -155,9 +155,7 @@ function validatePack(repoRoot, domain, profile) {
 
   checks.push(exists ? pass("directory", "exists") : fail("directory", "missing"));
 
-  const fileCountDetail = profile === "compact"
-    ? `${files.length}/<=${rule.expected}`
-    : `${files.length}/${rule.expected}`;
+  const fileCountDetail = `${files.length}/${rule.expected}`;
   checks.push(rule.passes(files.length) ? pass("file count", fileCountDetail) : fail("file count", fileCountDetail));
 
   checks.push(checkRequiredFiles(packPath, profile));
