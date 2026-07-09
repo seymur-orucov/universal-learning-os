@@ -13,16 +13,38 @@
 - Stage 21.1: App MVP Implementation Plan completed as documentation/manual acceptance only.
 - Stage 22.0: Studio MVP implementation completed as a local React/Vite UI with a Node CLI bridge.
 - Stage 22.1: Studio MVP hardening completed with practical docs, smoke scripts, bridge/server smoke checks, bridge error clarity, and UI copy polish.
-- Stage 23.0: Package distribution.
-- Future domain stages: DSA, Go, System Design, or another explicitly selected domain.
+- Stage 23.0: v0.3.0 release preparation completed as release documentation, final checklists, validation guidance, ADR coverage, and manual acceptance coverage only.
+- Stage 23.1: v0.3.0 release candidate hardening.
+- Stage 23.2: v0.3.0 tagging finalization.
+- Stage 24.0: Studio automated tests.
+- Stage 24.1: Studio UX hardening.
+- Stage 25.0: New domain planning, only if explicitly requested.
+- Stage 26.0: Optional import/export workflows.
 
 ## Recommended Priority
 
-1. Tag v0.2.0 only after validation passes and the working tree is clean.
-2. Keep Stage 18.0 as documentation-only unless a future stage explicitly adds optional learner-state tooling.
+1. Complete v0.3.0 release-candidate hardening before tagging.
+2. Tag v0.3.0 only after validation passes and the working tree is clean.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
-4. Use Stage 21.0 and Stage 21.1 app planning docs to guide any future local control panel implementation.
-5. Consider optional import-from-handoff and progress summary generation only after preserving learner-state guardrails.
+4. Keep Studio local-first, CLI-backed, and allowlisted.
+5. Consider optional import/export workflows only after preserving learner-state guardrails.
+
+## Stage 23.0 v0.3.0 Release Preparation
+
+Stage 23.0 prepares the repository for a future `v0.3.0` tag.
+
+- Adds v0.3.0 release notes, release checklist, and release-candidate status.
+- Adds ADR-0048 and manual acceptance coverage.
+- Updates the release index, roadmap, validation report, and changelog.
+- Documents final validation commands for generated packs, optional learner runtime helpers, CLI automated tests, and Studio build/smoke checks.
+- Does not tag `v0.3.0`.
+- Does not add a domain.
+- Does not change generated pack contracts.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Studio remains local-first and CLI-backed.
+- ChatGPT Projects remain the daily learning runtime.
+- Handoff and snapshot workflows remain optional and user-requested.
 
 ## Stage 22.0 Studio MVP Implementation
 

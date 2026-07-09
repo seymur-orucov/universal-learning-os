@@ -4,6 +4,10 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Adds Stage 23.0 v0.3.0 release preparation docs, including release notes, release checklist, release-candidate status, ADR-0048, and manual acceptance coverage.
+- Summarizes learner runtime strategy docs, optional handoff/snapshot templates, CLI helper behavior, and `validate-learner` as part of the v0.3.0 release baseline.
+- Summarizes automated CLI tests, app architecture planning, Studio MVP implementation, and Studio hardening for v0.3.0 readiness.
+- Clarifies that v0.3.0 preparation does not change generated pack contracts, add a domain, replace ChatGPT Projects as the daily learning runtime, or add auth/cloud/database/ChatGPT API integration.
 - Adds Stage 21.0 app architecture planning docs for a future local-first, CLI-backed Universal Learning OS Studio control panel.
 - Adds ADR-0044 and manual acceptance coverage for Stage 21.0.
 - Clarifies that Stage 21.0 does not change generated pack contracts, add app dependencies, add a domain, or replace ChatGPT Projects as the daily learning runtime.
@@ -14,6 +18,19 @@ All notable repository-level changes SHOULD be recorded here.
 - Clarifies that Stage 22.0 preserves generated pack contracts, ChatGPT Projects as the daily learning runtime, and CLI source-of-truth boundaries.
 - Hardens the Stage 22.1 Studio MVP with practical local usage docs, working smoke scripts, bridge/server smoke checks, consistent bridge rejection output, UI boundary copy, ADR-0047, and manual acceptance coverage.
 - Clarifies that Stage 22.1 does not change generated pack contracts, add a domain, replace ChatGPT Projects as the daily runtime, or add auth/cloud/database/ChatGPT API integration.
+
+## v0.3.0
+
+- Adds learner runtime strategy documentation while keeping daily learning in ChatGPT Projects and repository learner state optional, snapshot-based, and evidence-first.
+- Adds optional learner handoff and snapshot templates plus CLI helpers for `create-handoff`, `create-snapshot`, and `validate-learner`.
+- Adds automated CLI tests for generated pack contracts, generation dry-runs, learner runtime helpers, path safety, overwrite protection, and forbidden marker validation.
+- Adds app architecture and MVP implementation planning docs for Universal Learning OS Studio.
+- Adds the Studio MVP under `apps/studio/` as a local React/Vite UI with a local Node CLI bridge.
+- Hardens Studio with practical README guidance, smoke scripts, bridge/server smoke checks, consistent bridge rejection output, and clearer boundary copy.
+- Preserves generated pack contracts: standard packs remain exactly 25 files and compact packs remain exactly 5 files.
+- Preserves supported domains: `sql-postgresql`, `english`, `javascript`, and `typescript`.
+- Keeps Studio local-first and CLI-backed with allowlisted actions, argument arrays, and `shell: false`.
+- Adds no new domain, authentication, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, YAML learner-state patch generation, or full LMS runtime.
 
 ## v0.2.0
 

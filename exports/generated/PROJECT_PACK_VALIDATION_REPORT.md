@@ -234,3 +234,18 @@ Stage 22.1 hardens the local Studio MVP documentation, npm scripts, smoke checks
 - Compact packs remain exactly 5 files.
 - Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
 - No domain, authentication, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, YAML learner-state patch generation, generated pack editing, or heavy runtime learner-state system is added.
+
+## Stage 23.0 v0.3.0 Preparation Note
+
+Stage 23.0 adds release preparation documentation, final checklists, release-candidate status, ADR coverage, changelog updates, roadmap updates, and manual acceptance coverage for a future `v0.3.0` tag. It does not change generated pack contracts, generated pack file counts, compact file lists, Learner-Facing Mentor Mode, or learner-neutral generated pack behavior.
+
+- Generated pack contracts remain unchanged.
+- Supported domains remain 4: `sql-postgresql`, `english`, `javascript`, and `typescript`.
+- Generated packs remain 8 total: 4 standard packs and 4 compact packs.
+- Standard packs remain exactly 25 files.
+- Compact packs remain exactly 5 files.
+- Compact packs retain exactly `COMMANDS_CORE.md`, `DOMAIN_CORE.md`, `MENTOR_SKILLS_CORE.md`, `PROJECT_INSTRUCTIONS.md`, and `STARTUP_PROMPT.md`.
+- Learner runtime CLI helpers remain optional and user-requested.
+- Studio MVP does not change generated packs.
+- Studio remains local-first and CLI-backed.
+- No new domain, authentication, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, YAML learner-state patch generation, generated pack editing, or heavy runtime learner-state system is added.
