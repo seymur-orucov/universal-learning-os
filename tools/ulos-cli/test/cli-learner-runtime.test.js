@@ -81,12 +81,26 @@ test("create-handoff accepts dsa and cleans up with the test fixture", () => {
   assert.match(fs.readFileSync(outPath, "utf8"), /Domain id: `dsa`/);
 });
 
+test("create-handoff accepts frontend-system-design and cleans up with the test fixture", () => {
+  const outPath = path.join(handoffTestDir, "frontend-system-design-handoff.md");
+  const result = runCli(["create-handoff", "--domain", "frontend-system-design", "--out", repoRelative(outPath)]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(fs.readFileSync(outPath, "utf8"), /Domain id: `frontend-system-design`/);
+});
+
+test("create-handoff accepts nodejs and cleans up with the test fixture", () => {
+  const outPath = path.join(handoffTestDir, "nodejs-handoff.md");
+  const result = runCli(["create-handoff", "--domain", "nodejs", "--out", repoRelative(outPath)]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(fs.readFileSync(outPath, "utf8"), /Domain id: `nodejs`/);
+});
+
 test("create-handoff rejects unsupported domains and lists supported domains", () => {
   const result = runCli(["create-handoff", "--domain", "not-a-domain", "--out", repoRelative(path.join(handoffTestDir, "bad.md"))]);
 
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs/);
 });
 
 test("create-handoff rejects unsafe output paths", () => {
@@ -150,6 +164,40 @@ test("create-snapshot accepts dsa milestone and cleans up with the test fixture"
   assert.match(content, /Snapshot type: `milestone`/);
 });
 
+test("create-snapshot accepts frontend-system-design milestone and cleans up with the test fixture", () => {
+  const outPath = path.join(snapshotTestDir, "frontend-system-design-milestone.md");
+  const result = runCli([
+    "create-snapshot",
+    "--domain",
+    "frontend-system-design",
+    "--type",
+    "milestone",
+    "--out",
+    repoRelative(outPath),
+  ]);
+  assert.equal(result.status, 0, output(result));
+  const content = fs.readFileSync(outPath, "utf8");
+  assert.match(content, /Domain id: `frontend-system-design`/);
+  assert.match(content, /Snapshot type: `milestone`/);
+});
+
+test("create-snapshot accepts nodejs milestone and cleans up with the test fixture", () => {
+  const outPath = path.join(snapshotTestDir, "nodejs-milestone.md");
+  const result = runCli([
+    "create-snapshot",
+    "--domain",
+    "nodejs",
+    "--type",
+    "milestone",
+    "--out",
+    repoRelative(outPath),
+  ]);
+  assert.equal(result.status, 0, output(result));
+  const content = fs.readFileSync(outPath, "utf8");
+  assert.match(content, /Domain id: `nodejs`/);
+  assert.match(content, /Snapshot type: `milestone`/);
+});
+
 test("create-snapshot rejects unsupported domains", () => {
   const result = runCli([
     "create-snapshot",
@@ -163,7 +211,7 @@ test("create-snapshot rejects unsupported domains", () => {
 
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs/);
 });
 
 test("create-snapshot rejects unsupported types and lists allowed types", () => {

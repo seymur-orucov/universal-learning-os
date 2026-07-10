@@ -4,6 +4,14 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 27.0 by adding the canonical `nodejs` domain for experienced frontend engineers moving into runtime-first, production-aware backend and full-stack development.
+- Adds `nodejs-standard` (exactly 25 files) and `nodejs-compact` (exactly 5 files), increasing supported domains from 6 to 7 and generated packs from 12 to 14 without changing existing pack contracts.
+- Adds Node.js CLI/test coverage, launch kits, a planned real-learning pilot, ADR-0053, and manual acceptance coverage; Fastify is the practical default, PostgreSQL retains explicit SQL/transaction reasoning, and NestJS remains a later specialization.
+- Keeps Studio optional and minimally CLI-compatible, keeps ChatGPT Projects as the daily runtime, preserves Learner-Facing Mentor Mode, adds no framework learner runtime or additional domain, and creates no release tag.
+- Completes Stage 26.0 by adding the canonical `frontend-system-design` domain for requirements-first frontend architecture, trade-off reasoning, failure analysis, reviews, and interview design defense.
+- Adds `frontend-system-design-standard` (exactly 25 files) and `frontend-system-design-compact` (exactly 5 files), increasing supported domains from 5 to 6 and generated packs from 10 to 12 without changing existing pack contracts.
+- Adds CLI/test coverage, launch kits, a planned real-learning pilot, ADR-0052, and manual acceptance coverage; Studio remains optional and dynamically CLI-backed.
+- Keeps ChatGPT Projects as the daily runtime, preserves Learner-Facing Mentor Mode, adds no Node.js domain or learner runtime infrastructure, and creates no release tag.
 - Completes Stage 25.0 by adding the canonical `dsa` domain for practical, JavaScript-first Senior Front-End interview preparation, with TypeScript support when useful or requested.
 - Adds `dsa-standard` (exactly 25 files) and `dsa-compact` (exactly 5 files), increasing supported domains from 4 to 5 and generated packs from 8 to 10 without changing existing pack contracts.
 - Adds DSA CLI/test coverage, launch kits, a real-learning pilot guide, ADR-0051, and manual acceptance coverage while preserving Learner-Facing Mentor Mode.

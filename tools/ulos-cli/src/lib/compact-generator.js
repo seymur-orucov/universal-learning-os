@@ -132,6 +132,45 @@ function buildStartupPrompt(domainConfig) {
   const title = getDomainTitle(domainConfig);
   const terms = domainConfig.terms || "technical terms";
 
+  if (domainConfig.id === "nodejs") {
+    return `# Startup Prompt
+
+Simple usage:
+
+\`\`\`text
+Start lesson
+\`\`\`
+
+Explicit example:
+
+\`\`\`text
+Start Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving into backend development. Explain runtime fundamentals before frameworks and include practical TypeScript exercises.
+\`\`\`
+
+Project-based example:
+
+\`\`\`text
+Start a Node.js backend project track. Guide me from requirements and API design through PostgreSQL, validation, testing, security, and deployment.
+\`\`\`
+
+NestJS example (foundations required):
+
+\`\`\`text
+Start the NestJS specialization after verifying that I understand Node.js runtime, HTTP, backend architecture, validation, PostgreSQL, and testing fundamentals.
+\`\`\`
+
+\`\`\`text
+Use Node.js Mentor OS Compact.
+
+Instruction language: Azerbaijani. Keep Node.js and backend technical terms in English where natural. Use TypeScript for projects and JavaScript for focused runtime examples when useful.
+
+If learner state or a previous summary exists, use it. Otherwise, "Start lesson" selects Lesson 1: Node.js runtime foundations. Teach runtime and HTTP before frameworks, require practical learner reasoning, use Fastify as the default practical framework with honest Express comparisons, preserve SQL and transaction reasoning with PostgreSQL, and include validation, errors, tests, security, observability, reliability, and deployment. NestJS is a later specialization only after foundations.
+
+Keep normal learner-facing output clean. Do not show evidence blocks, proposed state updates, YAML learner state, internal skill IDs, Project Pack details, continuation prompt blocks, or audit/debug notes unless I explicitly ask for them.
+\`\`\`
+`;
+  }
+
   if (domainConfig.id === "dsa") {
     return `# Startup Prompt
 
@@ -153,6 +192,39 @@ Use Data Structures and Algorithms Mentor OS Compact.
 Instruction language: Azerbaijani. Keep DSA technical terms in English where natural. Use JavaScript by default; TypeScript is optional when requested or helpful for clarity.
 
 If learner state or a previous session summary exists, use it. Otherwise, "Start lesson" selects Lesson 1: DSA and Big O, then continue sequentially. Ask me to reason before coding, compare brute force with optimized approaches, test edge cases, and analyze final time complexity and space complexity. Do not reveal full solutions too early; use progressive hints.
+
+Keep normal learner-facing output clean. Do not show evidence blocks, proposed state updates, YAML learner state, internal skill IDs, Project Pack details, continuation prompt blocks, or audit/debug notes unless I explicitly ask for them.
+\`\`\`
+`;
+  }
+
+  if (domainConfig.id === "frontend-system-design") {
+    return `# Startup Prompt
+
+Simple usage:
+
+\`\`\`text
+Start lesson
+\`\`\`
+
+Explicit example:
+
+\`\`\`text
+Start Lesson 1 for Front-End System Design. Teach me as a Senior Front-End Engineer, ask me to clarify requirements and reason about trade-offs before showing a complete design.
+\`\`\`
+
+Interview-mode example:
+
+\`\`\`text
+Start a Front-End System Design interview simulation. Give me an ambiguous design problem, let me drive the requirements and architecture, then review my decisions.
+\`\`\`
+
+\`\`\`text
+Use Front-End System Design Mentor OS Compact.
+
+Instruction language: Azerbaijani. Keep Front-End System Design technical terms and diagram labels in English where natural.
+
+If learner state or a previous summary exists, use it. Otherwise, "Start lesson" selects Lesson 1. Ask me to clarify users, journeys, functional requirements, non-functional requirements, assumptions, and constraints before proposing architecture. Require explicit state ownership, data flow, trade-offs, failure modes, testing, deployment, and design defense. Use progressive assistance and do not reveal a complete design too early.
 
 Keep normal learner-facing output clean. Do not show evidence blocks, proposed state updates, YAML learner state, internal skill IDs, Project Pack details, continuation prompt blocks, or audit/debug notes unless I explicitly ask for them.
 \`\`\`

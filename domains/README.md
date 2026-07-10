@@ -15,6 +15,8 @@ Domain packs may be used by commands and agent skills to select tracks, lessons,
 - `domains/javascript/` is the JavaScript programming domain pack.
 - `domains/typescript/` is the TypeScript programming domain pack.
 - `domains/dsa/` is the JavaScript-first Data Structures and Algorithms interview-preparation domain pack.
+- `domains/frontend-system-design/` is the requirements-first Front-End System Design domain pack.
+- `domains/nodejs/` is the runtime-first Node.js backend and full-stack transition domain pack.
 - Future real domain packs SHOULD follow `specification/DOMAIN_PACK_SPEC.md`.
 
 ## Boundaries

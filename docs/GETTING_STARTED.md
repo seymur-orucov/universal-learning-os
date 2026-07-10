@@ -21,10 +21,16 @@ Generated packs are in `exports/generated/`. Start with one of these compact pac
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
 - `exports/generated/dsa-compact/`
+- `exports/generated/frontend-system-design-compact/`
+- `exports/generated/nodejs-compact/`
 
 For the full profile, choose the corresponding `*-standard/` directory.
 
 For DSA, use `exports/generated/dsa-compact/` or `exports/generated/dsa-standard/` in a dedicated ChatGPT Project named `DSA Mentor`. JavaScript is the default implementation language; request TypeScript when useful. Studio remains optional.
+
+For Front-End System Design, use `exports/generated/frontend-system-design-compact/` or `exports/generated/frontend-system-design-standard/` in a dedicated Project named `Front-End System Design Mentor`. Prefer one domain per Project. Studio remains optional.
+
+For Node.js, use `exports/generated/nodejs-compact/` or `exports/generated/nodejs-standard/` in a dedicated Project named `Node.js Backend Mentor`. The track is runtime-first, uses TypeScript for backend projects, preserves SQL reasoning with PostgreSQL, and treats NestJS as a later specialization. Prefer one domain per Project. Studio remains optional.
 
 ## What to type in the ChatGPT Project
 
@@ -44,6 +50,18 @@ DSA example:
 
 ```text
 Start Lesson 1 for DSA using JavaScript. Teach me step by step, let me reason before showing solutions, include coding practice, edge cases, and time/space complexity.
+```
+
+Front-End System Design example:
+
+```text
+Start Lesson 1 for Front-End System Design. Teach me as a Senior Front-End Engineer, ask me to clarify requirements and reason about trade-offs before showing a complete design.
+```
+
+Node.js example:
+
+```text
+Start Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving into backend development. Explain runtime fundamentals before frameworks and include practical TypeScript exercises.
 ```
 
 ## Which tool is for what?

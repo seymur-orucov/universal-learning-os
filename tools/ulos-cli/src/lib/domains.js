@@ -34,6 +34,20 @@ const DOMAIN_CONFIG = [
     purpose: "Build practical, interview-ready algorithmic problem-solving through reusable patterns, JavaScript-first implementation, complexity analysis, and guided-to-independent practice.",
     terms: "DSA technical terms",
   },
+  {
+    id: "frontend-system-design",
+    launchPrefix: "FRONTEND_SYSTEM_DESIGN",
+    title: "Front-End System Design",
+    purpose: "Develop requirements-first frontend architecture judgment, trade-off reasoning, failure analysis, and design defense for Senior, Lead, Staff, and Front-End Architect-level work and interviews.",
+    terms: "Front-End System Design technical terms",
+  },
+  {
+    id: "nodejs",
+    launchPrefix: "NODEJS",
+    title: "Node.js",
+    purpose: "Develop runtime-first, production-aware Node.js backend competence for experienced JavaScript/TypeScript Front-End Engineers moving toward backend or full-stack engineering.",
+    terms: "Node.js and backend technical terms",
+  },
 ];
 
 const SUPPORTED_DOMAINS = DOMAIN_CONFIG.map((domain) => domain.id);

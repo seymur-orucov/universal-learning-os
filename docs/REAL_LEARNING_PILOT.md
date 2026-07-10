@@ -40,6 +40,60 @@ Suggested first prompt:
 Start Lesson 1 for DSA using JavaScript. Teach me step by step and let me reason before showing the solution.
 ```
 
+## Front-End System Design pilot
+
+This is a planned pilot, not a claim that it has been completed.
+
+- Create a dedicated ChatGPT Project named `Front-End System Design Mentor`.
+- Upload all five files from `exports/generated/frontend-system-design-compact/`.
+- Run 3–5 lessons or design exercises.
+- Test requirement clarification, architecture boundaries, and contextual trade-off reasoning.
+- Test state ownership/data flow, performance, reliability, and failure-mode analysis.
+- Run one learner-led interview simulation.
+- Verify complete designs are not revealed too early and learner reasoning is required.
+- Verify internal metadata remains hidden and feedback is concise and role-appropriate.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Front-End System Design. Teach me at Senior Front-End Engineer level and make me reason about requirements, architecture boundaries, and trade-offs.
+```
+
+Suggested interview prompt:
+
+```text
+Start a Front-End System Design interview simulation for a real-time admin dashboard. Let me lead the requirements and design before reviewing my answer.
+```
+
+## Node.js pilot
+
+This is a planned pilot, not a claim that it has been completed.
+
+- Create a dedicated ChatGPT Project named `Node.js Backend Mentor`.
+- Upload all five files from `exports/generated/nodejs-compact/`.
+- Run 3–5 lessons.
+- Test runtime and event-loop explanation, then native HTTP or HTTP fundamentals.
+- Test one Fastify lesson and verify the underlying HTTP/runtime behavior remains explicit; use Express as a comparison where useful.
+- Test validation, structured error handling, and both success and failure tests.
+- Test one PostgreSQL-backed task or design exercise with SQL and transaction reasoning.
+- Verify NestJS is not introduced before runtime, HTTP, architecture, validation, PostgreSQL, and testing foundations.
+- Verify security and tests are integrated rather than deferred.
+- Verify complete solutions are not shown too early and learner reasoning is required.
+- Verify internal evidence/state metadata remains hidden by default.
+- Verify feedback is concise and appropriate for an experienced frontend learner.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving into backend development. Explain runtime fundamentals before frameworks.
+```
+
+Suggested project prompt:
+
+```text
+Start a practical Node.js API project using TypeScript and PostgreSQL. Guide me step by step, but let me make architecture and implementation decisions before showing full solutions.
+```
+
 ## Pilot result template
 
 ```text

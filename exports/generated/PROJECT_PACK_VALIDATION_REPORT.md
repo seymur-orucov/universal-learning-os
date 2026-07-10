@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`stage-25.0-dsa-domain`
+`stage-27.0-nodejs-domain`
 
 ## Quick Validation
 
@@ -26,7 +26,7 @@ From `tools/ulos-cli/`, run the same suite with:
 npm test
 ```
 
-These tests cover the exact five-domain listing, ten-pack validation, TypeScript and DSA standard/compact inspection, generation dry-runs, invalid inputs, path safety, unexpected-file protection, learner handoff/snapshot scaffolds, overwrite protection, and learner forbidden-marker validation.
+The Stage 27.0 suite passes 41/41 tests. These tests cover the exact seven-domain listing, fourteen-pack validation, TypeScript, DSA, Front-End System Design, and Node.js pack inspection, generation dry-runs, invalid inputs, path safety, unexpected-file protection, learner handoff/snapshot scaffolds, overwrite protection, and learner forbidden-marker validation.
 
 Packs can be regenerated before validation:
 
@@ -35,6 +35,10 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 node tools/ulos-cli/src/index.js generate --domain dsa --profile compact
 node tools/ulos-cli/src/index.js generate --domain dsa --profile standard
+node tools/ulos-cli/src/index.js generate --domain frontend-system-design --profile compact
+node tools/ulos-cli/src/index.js generate --domain frontend-system-design --profile standard
+node tools/ulos-cli/src/index.js generate --domain nodejs --profile compact
+node tools/ulos-cli/src/index.js generate --domain nodejs --profile standard
 node tools/ulos-cli/src/index.js validate
 ```
 
@@ -49,11 +53,15 @@ Validated generated Project Packs:
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
 - `exports/generated/dsa-standard/`
+- `exports/generated/frontend-system-design-standard/`
+- `exports/generated/nodejs-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
 - `exports/generated/dsa-compact/`
+- `exports/generated/frontend-system-design-compact/`
+- `exports/generated/nodejs-compact/`
 
 This report is a derived audit artifact. It is not canonical framework source and not learner state.
 
@@ -73,6 +81,8 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `javascript-standard` | exactly 25 | PASS | Generated standard pack. |
 | `typescript-standard` | exactly 25 | PASS | Generated standard pack. |
 | `dsa-standard` | exactly 25 | PASS | Generated standard pack. |
+| `frontend-system-design-standard` | exactly 25 | PASS | Generated standard pack. |
+| `nodejs-standard` | exactly 25 | PASS | Generated standard pack. |
 
 ## Compact Profile Checks
 
@@ -83,6 +93,8 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `javascript-compact` | exactly 5 | PASS | Generated compact pack. |
 | `typescript-compact` | exactly 5 | PASS | Generated compact pack. |
 | `dsa-compact` | exactly 5 | PASS | Generated compact pack. |
+| `frontend-system-design-compact` | exactly 5 | PASS | Generated compact pack. |
+| `nodejs-compact` | exactly 5 | PASS | Generated compact pack. |
 
 ## Required Compact Files
 
@@ -107,13 +119,15 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## Current Stage 25.0 Summary
+## Current Stage 27.0 Summary
 
-- All five supported domains have standard and compact generated packs.
+- All seven supported domains have standard and compact generated packs, for fourteen generated packs total.
 - All standard packs are expected to contain exactly 25 files.
 - All compact packs are expected to contain exactly 5 files.
 - Launch kits remain the user-facing setup helpers.
 - Generated packs are reusable and learner-neutral; learner runtime state remains separate under `learners/active-learner/` when used.
+
+The Node.js packs preserve runtime-before-framework and HTTP-before-framework progression, PostgreSQL with explicit SQL/transaction reasoning, production security/testing/operations expectations, and NestJS as a later specialization. Studio remains optional, ChatGPT Projects remain the daily runtime, and no release tag is created by Stage 27.0.
 
 ## v0.2.0 Release Candidate Summary
 
@@ -278,3 +292,12 @@ Stage 25.0 expands the learning stack without expanding framework or Studio feat
 - DSA preserves Learner-Facing Mentor Mode, JavaScript-first implementation, progressive hints, edge-case reasoning, and time/space complexity analysis.
 - Studio remains optional and ChatGPT Projects remain the daily learning runtime.
 - Stage 25.0 creates no release tag.
+
+## Stage 26.0 Front-End System Design Domain Note
+
+- Supported domains increase from 5 to 6 with `frontend-system-design`.
+- Generated packs increase from 10 to 12 with one 25-file standard pack and one 5-file compact pack.
+- Existing standard and compact contracts remain unchanged, including the exact compact file list.
+- The learning model is frontend-specific, requirements-first, trade-off-aware, failure-oriented, and based on learner-produced architecture evidence.
+- Learner-Facing Mentor Mode is preserved; Studio remains optional and ChatGPT Projects remain the daily runtime.
+- No Node.js domain, new learner runtime, Studio expansion, or release tag is added.

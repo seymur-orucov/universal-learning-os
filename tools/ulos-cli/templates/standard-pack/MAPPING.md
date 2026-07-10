@@ -11,6 +11,8 @@ Current prefixes:
 - `javascript` -> `JAVASCRIPT`
 - `typescript` -> `TYPESCRIPT`
 - `dsa` -> `DSA`
+- `frontend-system-design` -> `FRONTEND_SYSTEM_DESIGN`
+- `nodejs` -> `NODEJS`
 
 Future default: uppercase the domain id and replace non-alphanumeric separators with `_`, unless a domain config registers a shorter explicit prefix.
 

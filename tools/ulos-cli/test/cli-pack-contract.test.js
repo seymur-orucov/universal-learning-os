@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const { spawnSync } = require("node:child_process");
+const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
 
@@ -32,14 +33,39 @@ test("list-domains exits 0 and reports the exact supported domains", () => {
     "javascript",
     "typescript",
     "dsa",
+    "frontend-system-design",
+    "nodejs",
   ]);
 });
 
 test("validate exits 0 for generated pack contracts", () => {
   const result = runCli(["validate"]);
   assert.equal(result.status, 0, output(result));
-  assert.match(result.stdout, /Domains checked: 5/);
-  assert.match(result.stdout, /Packs checked: 10/);
+  assert.match(result.stdout, /Domains checked: 7/);
+  assert.match(result.stdout, /Packs checked: 14/);
+
+  const generatedPackDirectories = fs
+    .readdirSync(path.join(repoRoot, "exports", "generated"), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /-(standard|compact)$/.test(entry.name))
+    .map((entry) => entry.name)
+    .sort();
+  assert.equal(generatedPackDirectories.length, 14);
+  assert.deepEqual(generatedPackDirectories, [
+    "dsa-compact",
+    "dsa-standard",
+    "english-compact",
+    "english-standard",
+    "frontend-system-design-compact",
+    "frontend-system-design-standard",
+    "javascript-compact",
+    "javascript-standard",
+    "nodejs-compact",
+    "nodejs-standard",
+    "sql-postgresql-compact",
+    "sql-postgresql-standard",
+    "typescript-compact",
+    "typescript-standard",
+  ]);
 });
 
 test("dsa standard inspect preserves the exact 25-file contract", () => {
@@ -52,6 +78,65 @@ test("dsa standard inspect preserves the exact 25-file contract", () => {
 
 test("dsa compact inspect preserves the exact 5-file list", () => {
   const result = runCli(["inspect-pack", "--domain", "dsa", "--profile", "compact"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 5/);
+  assert.match(result.stdout, /Expected rule: exactly 5 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+
+  const lines = result.stdout.split(/\r?\n/);
+  const files = lines
+    .slice(lines.findIndex((line) => line === "Files:") + 1)
+    .filter((line) => line.startsWith("- "))
+    .map((line) => line.slice(2).trim());
+
+  assert.deepEqual(files, [
+    "COMMANDS_CORE.md",
+    "DOMAIN_CORE.md",
+    "MENTOR_SKILLS_CORE.md",
+    "PROJECT_INSTRUCTIONS.md",
+    "STARTUP_PROMPT.md",
+  ]);
+});
+
+test("frontend-system-design standard inspect preserves the exact 25-file contract", () => {
+  const result = runCli(["inspect-pack", "--domain", "frontend-system-design", "--profile", "standard"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 25/);
+  assert.match(result.stdout, /Expected rule: exactly 25 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+});
+
+test("frontend-system-design compact inspect preserves the exact 5-file list", () => {
+  const result = runCli(["inspect-pack", "--domain", "frontend-system-design", "--profile", "compact"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 5/);
+  assert.match(result.stdout, /Rule status: PASS/);
+
+  const lines = result.stdout.split(/\r?\n/);
+  const files = lines
+    .slice(lines.findIndex((line) => line === "Files:") + 1)
+    .filter((line) => line.startsWith("- "))
+    .map((line) => line.slice(2).trim());
+
+  assert.deepEqual(files, [
+    "COMMANDS_CORE.md",
+    "DOMAIN_CORE.md",
+    "MENTOR_SKILLS_CORE.md",
+    "PROJECT_INSTRUCTIONS.md",
+    "STARTUP_PROMPT.md",
+  ]);
+});
+
+test("nodejs standard inspect preserves the exact 25-file contract", () => {
+  const result = runCli(["inspect-pack", "--domain", "nodejs", "--profile", "standard"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 25/);
+  assert.match(result.stdout, /Expected rule: exactly 25 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+});
+
+test("nodejs compact inspect preserves the exact 5-file list", () => {
+  const result = runCli(["inspect-pack", "--domain", "nodejs", "--profile", "compact"]);
   assert.equal(result.status, 0, output(result));
   assert.match(result.stdout, /File count: 5/);
   assert.match(result.stdout, /Expected rule: exactly 5 files/);

@@ -18,14 +18,35 @@
 - Stage 23.2: v0.3.0 tagging finalization.
 - Stage 24.0: Real Learning Pilot and Framework Pause completed as learner-facing usage guides, pilot plan, pause note, ADR, and manual acceptance coverage.
 - Stage 25.0: DSA Domain completed as the first learning-stack expansion after the framework pause, adding one canonical domain and two contract-preserving generated packs.
-- Framework and Studio feature expansion remains paused; Stage 25.0 grows reusable learning content only.
+- Stage 26.0: Front-End System Design Domain completed with requirements-first architecture practice, design defense, and two contract-preserving generated packs.
+- Stage 27.0: Node.js Domain completed with runtime-first backend progression, PostgreSQL/production reasoning, and two contract-preserving generated packs.
+- Framework and Studio feature expansion remains paused; Stages 25.0 through 27.0 grow reusable learning content only.
 
 ## Recommended Priority
 
-1. Run SQL/PostgreSQL, English, and DSA real learning pilots in ChatGPT Projects.
+1. Run SQL/PostgreSQL, English, DSA, Front-End System Design, and Node.js real learning pilots in ChatGPT Projects.
 2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 27.0 Node.js Domain
+
+- Adds only `nodejs` for experienced JavaScript/TypeScript Front-End Engineers moving toward backend or full-stack work.
+- Uses a runtime-first progression through event loop, HTTP, Fastify/Express, architecture, validation/errors, PostgreSQL/transactions, identity/security, testing, performance, reliability, observability, and deployment.
+- Uses Fastify as the documented practical default, compares Express honestly, preserves raw SQL reasoning, and keeps NestJS as a later optional specialization.
+- Increases supported domains from 6 to 7 and generated packs from 12 to 14.
+- Adds `nodejs-standard` with exactly 25 files and `nodejs-compact` with exactly 5 files; every existing pack contract remains unchanged.
+- Preserves Learner-Facing Mentor Mode, optional continuity helpers, optional Studio, and ChatGPT Projects as the daily runtime.
+- Adds no learner runtime infrastructure, Studio workflow, authentication/cloud/framework database service, ChatGPT API integration, LMS, additional domain, or release tag.
+
+## Stage 26.0 Front-End System Design Domain
+
+- Adds only `frontend-system-design` for Senior/Lead/Staff frontend interviews, architecture reviews, platform design, and design defense.
+- Centers requirement clarification, frontend boundaries, state/data flow, contextual trade-offs, failure analysis, testing, delivery, and implementation-ready plans.
+- Increases supported domains from 5 to 6 and generated packs from 10 to 12.
+- Adds `frontend-system-design-standard` with exactly 25 files and `frontend-system-design-compact` with exactly 5 files; existing contracts remain unchanged.
+- Preserves Learner-Facing Mentor Mode, optional learner continuity helpers, optional Studio, and ChatGPT Projects as the daily runtime.
+- Adds no Node.js domain, learner runtime infrastructure, Studio feature, or release tag.
 
 ## Stage 25.0 DSA Domain
 
@@ -158,7 +179,7 @@ Stage 21.1 turns the Stage 21.0 app architecture into an implementation-ready pl
 
 ## OPEN QUESTION
 
-- Which domain, if any, should follow DSA after pilot evidence is reviewed?
+- Which domain, if any, should follow Front-End System Design after pilot evidence is reviewed?
 - Should optional learner snapshot tooling be a CLI command, a template workflow, or both?
 - Should import-from-handoff remain manual, become an optional CLI command, or wait for a runtime app?
 - Should optional progress summaries be Markdown-only or eventually machine-readable?

@@ -22,6 +22,34 @@ Suggested first prompt:
 Start Lesson 1 for DSA using JavaScript. Teach me step by step and let me reason before showing the solution.
 ```
 
+For Front-End System Design, create a dedicated Project named `Front-End System Design Mentor` and use either all five files from `exports/generated/frontend-system-design-compact/` or all 25 files from `exports/generated/frontend-system-design-standard/`.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Front-End System Design. Teach me at Senior Front-End Engineer level and make me reason about requirements, architecture boundaries, and trade-offs.
+```
+
+Suggested interview prompt:
+
+```text
+Start a Front-End System Design interview simulation. Give me an ambiguous design problem, let me drive the requirements and architecture, then review my decisions.
+```
+
+For Node.js, create a dedicated Project named `Node.js Backend Mentor` and use either all five files from `exports/generated/nodejs-compact/` or all 25 files from `exports/generated/nodejs-standard/`. Teach runtime and HTTP before Fastify/Express, keep PostgreSQL and SQL reasoning explicit, and use NestJS only as a later specialization.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving into backend development. Explain runtime fundamentals before frameworks.
+```
+
+Suggested project prompt:
+
+```text
+Start a practical Node.js API project using TypeScript and PostgreSQL. Guide me step by step, but let me make architecture and implementation decisions before showing full solutions.
+```
+
 ## Learn in the Project
 
 - Start a lesson: `Start lesson`

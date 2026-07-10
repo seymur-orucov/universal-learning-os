@@ -67,11 +67,39 @@ test("dsa compact dry-run generation plans exactly 5 files", () => {
   assert.match(result.stdout, /Files planned: 5/);
 });
 
+test("frontend-system-design standard dry-run generation plans exactly 25 files", () => {
+  const result = runCli(["generate", "--domain", "frontend-system-design", "--profile", "standard", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Standard pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 25/);
+});
+
+test("frontend-system-design compact dry-run generation plans exactly 5 files", () => {
+  const result = runCli(["generate", "--domain", "frontend-system-design", "--profile", "compact", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Compact pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 5/);
+});
+
+test("nodejs standard dry-run generation plans exactly 25 files", () => {
+  const result = runCli(["generate", "--domain", "nodejs", "--profile", "standard", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Standard pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 25/);
+});
+
+test("nodejs compact dry-run generation plans exactly 5 files", () => {
+  const result = runCli(["generate", "--domain", "nodejs", "--profile", "compact", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Compact pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 5/);
+});
+
 test("invalid domain exits non-zero", () => {
   const result = runCli(["generate", "--domain", "not-a-domain", "--profile", "standard", "--dry-run"]);
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs/);
 });
 
 test("invalid profile exits non-zero", () => {
