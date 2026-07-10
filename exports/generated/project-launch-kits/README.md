@@ -12,10 +12,12 @@ Canonical source remains in `core/`, `specification/`, `commands/`, `skills/`, `
 - English Mentor OS
 - JavaScript Mentor OS
 - TypeScript Mentor OS
+- DSA Mentor
 - SQL/PostgreSQL Mentor OS Compact
 - English Mentor OS Compact
 - JavaScript Mentor OS Compact
 - TypeScript Mentor OS Compact
+- DSA Mentor Compact
 
 ## File Budget Boundary
 
@@ -25,6 +27,7 @@ Individual generated pack directories MUST remain exactly 25 files:
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
+- `exports/generated/dsa-standard/`
 
 Compact generated pack directories MUST remain exactly 5 files:
 
@@ -32,6 +35,7 @@ Compact generated pack directories MUST remain exactly 5 files:
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+- `exports/generated/dsa-compact/`
 
 Launch kit files live outside those pack directories so upload-ready file counts remain stable.
 

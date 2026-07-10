@@ -53,11 +53,25 @@ test("typescript compact dry-run generation exits 0 without writing", () => {
   assert.match(result.stdout, /Files planned: 5/);
 });
 
+test("dsa standard dry-run generation plans exactly 25 files", () => {
+  const result = runCli(["generate", "--domain", "dsa", "--profile", "standard", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Standard pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 25/);
+});
+
+test("dsa compact dry-run generation plans exactly 5 files", () => {
+  const result = runCli(["generate", "--domain", "dsa", "--profile", "compact", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Compact pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 5/);
+});
+
 test("invalid domain exits non-zero", () => {
   const result = runCli(["generate", "--domain", "not-a-domain", "--profile", "standard", "--dry-run"]);
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa/);
 });
 
 test("invalid profile exits non-zero", () => {

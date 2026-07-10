@@ -8,6 +8,7 @@ const DOMAIN_PREFIX_OVERRIDES = {
   english: "ENGLISH",
   javascript: "JAVASCRIPT",
   typescript: "TYPESCRIPT",
+  dsa: "DSA",
 };
 
 const BASE_STANDARD_FILES = [
@@ -150,6 +151,10 @@ function buildProjectInstructions(domainConfig) {
 function buildStartupPrompt(domainConfig) {
   const title = domainConfig.title || domainConfig.id;
   const terms = domainConfig.terms || "technical terms";
+
+  if (domainConfig.id === "dsa") {
+    return `# Startup Prompt\n\nSimple usage:\n\n\`\`\`text\nStart lesson\n\`\`\`\n\nExplicit example:\n\n\`\`\`text\nStart Lesson 1 for DSA using JavaScript. Teach me step by step, let me reason before showing solutions, include coding practice, edge cases, and time/space complexity.\n\`\`\`\n\nRuntime guidance:\n\n\`\`\`text\nUse Data Structures and Algorithms Mentor OS Standard.\n\nInstruction language: Azerbaijani. Keep DSA technical terms in English where natural. Use JavaScript by default and TypeScript only when requested or useful for clarity.\n\nIf learner state or a previous session summary exists, use it. Otherwise, \"Start lesson\" selects Lesson 1: DSA and Big O, and later lessons continue sequentially. Ask me to reason before coding. Compare brute force and optimized approaches, test edge cases, and analyze time complexity and space complexity. Do not reveal a full solution immediately; progress from questions and hints to pseudocode or implementation only as needed.\n\nKeep normal learner-facing output clean. Do not show evidence blocks, proposed state updates, YAML learner state, internal skill IDs, Project Pack details, continuation prompt blocks, or audit/debug notes unless I explicitly ask for them.\n\`\`\`\n`;
+  }
 
   return `# Startup Prompt\n\n\`\`\`text\nUse ${title} Mentor OS Standard.\n\nInstruction language: Azerbaijani. Keep ${terms} in English where natural.\n\nStart by asking whether learner state, a previous session summary, or a current learning goal exists. If no state exists, begin with a beginner-safe diagnostic or first lesson for ${title}.\n\nKeep normal learner-facing output clean. Do not show evidence blocks, proposed state updates, YAML learner state, internal skill IDs, Project Pack details, continuation prompt blocks, or audit/debug notes unless I explicitly ask for them.\n\nIf I do not specify a command, recommend one of START_LESSON, CONTINUE_LESSON, PRACTICE, REVIEW, ASSESS, or SHOW_PROGRESS.\n\`\`\`\n`;
 }

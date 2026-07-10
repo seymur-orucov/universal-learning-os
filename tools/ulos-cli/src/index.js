@@ -8,6 +8,7 @@ const { generate } = require("./commands/generate");
 const { createHandoff } = require("./commands/create-handoff");
 const { createSnapshot } = require("./commands/create-snapshot");
 const { validateLearner } = require("./commands/validate-learner");
+const { SUPPORTED_DOMAINS } = require("./lib/domains");
 
 function parseOptions(args) {
   const options = {};
@@ -54,7 +55,7 @@ Usage:
   ulos create-handoff --domain <domain> [--out <path>] [--force]
   ulos create-snapshot --domain <domain> --type <type> [--out <path>] [--force]
 
-Supported domains: sql-postgresql, english, javascript, typescript
+Supported domains: ${SUPPORTED_DOMAINS.join(", ")}
 Supported profiles: standard, compact`);
 }
 

@@ -27,6 +27,13 @@ const DOMAIN_CONFIG = [
     purpose: "Teach TypeScript from foundations to advanced/professional fluency for frontend/backend engineering, React projects, API typing, large codebases, and interviews.",
     terms: "TypeScript technical terms",
   },
+  {
+    id: "dsa",
+    launchPrefix: "DSA",
+    title: "Data Structures and Algorithms",
+    purpose: "Build practical, interview-ready algorithmic problem-solving through reusable patterns, JavaScript-first implementation, complexity analysis, and guided-to-independent practice.",
+    terms: "DSA technical terms",
+  },
 ];
 
 const SUPPORTED_DOMAINS = DOMAIN_CONFIG.map((domain) => domain.id);

@@ -10,6 +10,7 @@ Current prefixes:
 - `english` -> `ENGLISH`
 - `javascript` -> `JAVASCRIPT`
 - `typescript` -> `TYPESCRIPT`
+- `dsa` -> `DSA`
 
 Future default: uppercase the domain id and replace non-alphanumeric separators with `_`, unless a domain config registers a shorter explicit prefix.
 

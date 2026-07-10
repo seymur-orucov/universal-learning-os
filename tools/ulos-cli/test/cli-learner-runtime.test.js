@@ -74,12 +74,19 @@ test("create-handoff creates a supported-domain scaffold with learner-facing not
   assert.match(content, /optional and user-requested/);
 });
 
+test("create-handoff accepts dsa and cleans up with the test fixture", () => {
+  const outPath = path.join(handoffTestDir, "dsa-handoff.md");
+  const result = runCli(["create-handoff", "--domain", "dsa", "--out", repoRelative(outPath)]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(fs.readFileSync(outPath, "utf8"), /Domain id: `dsa`/);
+});
+
 test("create-handoff rejects unsupported domains and lists supported domains", () => {
   const result = runCli(["create-handoff", "--domain", "not-a-domain", "--out", repoRelative(path.join(handoffTestDir, "bad.md"))]);
 
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa/);
 });
 
 test("create-handoff rejects unsafe output paths", () => {
@@ -126,6 +133,23 @@ test("create-snapshot creates a supported type scaffold with learner-facing note
   assert.match(content, /optional, periodic, and user-requested/);
 });
 
+test("create-snapshot accepts dsa milestone and cleans up with the test fixture", () => {
+  const outPath = path.join(snapshotTestDir, "dsa-milestone.md");
+  const result = runCli([
+    "create-snapshot",
+    "--domain",
+    "dsa",
+    "--type",
+    "milestone",
+    "--out",
+    repoRelative(outPath),
+  ]);
+  assert.equal(result.status, 0, output(result));
+  const content = fs.readFileSync(outPath, "utf8");
+  assert.match(content, /Domain id: `dsa`/);
+  assert.match(content, /Snapshot type: `milestone`/);
+});
+
 test("create-snapshot rejects unsupported domains", () => {
   const result = runCli([
     "create-snapshot",
@@ -139,7 +163,7 @@ test("create-snapshot rejects unsupported domains", () => {
 
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa/);
 });
 
 test("create-snapshot rejects unsupported types and lists allowed types", () => {

@@ -1,4 +1,4 @@
-const { isSupportedDomain, isSupportedProfile } = require("../lib/domains");
+const { SUPPORTED_DOMAINS, isSupportedDomain, isSupportedProfile } = require("../lib/domains");
 const { generateCompactPack } = require("../lib/compact-generator");
 const { generateStandardPack } = require("../lib/standard-generator");
 
@@ -7,7 +7,7 @@ function generate(repoRoot, options) {
 
   if (!isSupportedDomain(domain)) {
     console.error(`Unsupported domain: ${domain || "<missing>"}`);
-    console.error("Supported domains: sql-postgresql, english, javascript, typescript");
+    console.error(`Supported domains: ${SUPPORTED_DOMAINS.join(", ")}`);
     return 1;
   }
 

@@ -12,10 +12,12 @@ Generated packs MAY be committed while the framework is manually developed becau
 - `exports/generated/english-standard/`: English standard Project Pack, exactly 25 files.
 - `exports/generated/javascript-standard/`: JavaScript standard Project Pack, exactly 25 files.
 - `exports/generated/typescript-standard/`: TypeScript standard Project Pack, exactly 25 files.
+- `exports/generated/dsa-standard/`: DSA standard Project Pack, exactly 25 files.
 - `exports/generated/sql-postgresql-compact/`: SQL/PostgreSQL compact/free Project Pack, exactly 5 files.
 - `exports/generated/english-compact/`: English compact/free Project Pack, exactly 5 files.
 - `exports/generated/javascript-compact/`: JavaScript compact/free Project Pack, exactly 5 files.
 - `exports/generated/typescript-compact/`: TypeScript compact/free Project Pack, exactly 5 files.
+- `exports/generated/dsa-compact/`: DSA compact/free Project Pack, exactly 5 files.
 
 ## Profiles
 
@@ -30,7 +32,7 @@ Run from the repository root:
 node tools/ulos-cli/src/index.js validate
 ```
 
-Expected result for v0.2.0 readiness: all eight generated packs pass, launch kits exist, and file counts match the profile contracts.
+Expected Stage 25.0 result: all ten generated packs pass, launch kits exist, and file counts match the unchanged profile contracts.
 
 ## Guides and Reports
 

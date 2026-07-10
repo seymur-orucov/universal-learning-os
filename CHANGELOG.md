@@ -4,6 +4,10 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 25.0 by adding the canonical `dsa` domain for practical, JavaScript-first Senior Front-End interview preparation, with TypeScript support when useful or requested.
+- Adds `dsa-standard` (exactly 25 files) and `dsa-compact` (exactly 5 files), increasing supported domains from 4 to 5 and generated packs from 8 to 10 without changing existing pack contracts.
+- Adds DSA CLI/test coverage, launch kits, a real-learning pilot guide, ADR-0051, and manual acceptance coverage while preserving Learner-Facing Mentor Mode.
+- Keeps Studio optional and dynamically CLI-backed, keeps ChatGPT Projects as the learning runtime, adds no heavy learner-state infrastructure, and does not create a release tag.
 - Adds Stage 24.0 Getting Started and ChatGPT Project setup guides, a real learning pilot plan, framework pause note, ADR-0050, and manual acceptance coverage.
 - Clarifies the primary workflow as generated packs plus ChatGPT Projects, with Studio optional and not the learning runtime.
 - Pauses framework/app expansion after the current cycle until SQL/PostgreSQL and English real learning pilots provide evidence; does not claim those pilots are complete.

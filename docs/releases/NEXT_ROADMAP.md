@@ -17,14 +17,25 @@
 - Stage 23.1: v0.3.0 release candidate hardening.
 - Stage 23.2: v0.3.0 tagging finalization.
 - Stage 24.0: Real Learning Pilot and Framework Pause completed as learner-facing usage guides, pilot plan, pause note, ADR, and manual acceptance coverage.
-- Future framework, Studio, and new-domain work is paused until SQL/PostgreSQL and English pilots are completed, unless explicitly requested.
+- Stage 25.0: DSA Domain completed as the first learning-stack expansion after the framework pause, adding one canonical domain and two contract-preserving generated packs.
+- Framework and Studio feature expansion remains paused; Stage 25.0 grows reusable learning content only.
 
 ## Recommended Priority
 
-1. Run SQL/PostgreSQL and English real learning pilots in ChatGPT Projects.
-2. Use pilot evidence before proposing framework or Studio expansion.
+1. Run SQL/PostgreSQL, English, and DSA real learning pilots in ChatGPT Projects.
+2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 25.0 DSA Domain
+
+- Adds only the `dsa` domain for practical Senior Front-End interview preparation.
+- Uses JavaScript by default and supports TypeScript when requested or clarity-improving.
+- Adds pattern-based progression from Big O through interview simulations, progressive hints, complexity/edge-case reasoning, and learner-produced assessment evidence.
+- Increases supported domains from 4 to 5 and generated packs from 8 to 10.
+- Adds `dsa-standard` with exactly 25 files and `dsa-compact` with exactly 5 files; all existing pack contracts remain unchanged.
+- Preserves Learner-Facing Mentor Mode, optional learner continuity helpers, optional Studio, and ChatGPT Projects as the daily learning runtime.
+- Adds no new Studio feature and no release tag.
 
 ## Stage 23.0 v0.3.0 Release Preparation
 
@@ -147,7 +158,7 @@ Stage 21.1 turns the Stage 21.0 app architecture into an implementation-ready pl
 
 ## OPEN QUESTION
 
-- Which future domain should be prioritized after v0.2.0: DSA, Go, System Design, or another domain?
+- Which domain, if any, should follow DSA after pilot evidence is reviewed?
 - Should optional learner snapshot tooling be a CLI command, a template workflow, or both?
 - Should import-from-handoff remain manual, become an optional CLI command, or wait for a runtime app?
 - Should optional progress summaries be Markdown-only or eventually machine-readable?

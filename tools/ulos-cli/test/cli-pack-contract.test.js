@@ -31,12 +31,45 @@ test("list-domains exits 0 and reports the exact supported domains", () => {
     "english",
     "javascript",
     "typescript",
+    "dsa",
   ]);
 });
 
 test("validate exits 0 for generated pack contracts", () => {
   const result = runCli(["validate"]);
   assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Domains checked: 5/);
+  assert.match(result.stdout, /Packs checked: 10/);
+});
+
+test("dsa standard inspect preserves the exact 25-file contract", () => {
+  const result = runCli(["inspect-pack", "--domain", "dsa", "--profile", "standard"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 25/);
+  assert.match(result.stdout, /Expected rule: exactly 25 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+});
+
+test("dsa compact inspect preserves the exact 5-file list", () => {
+  const result = runCli(["inspect-pack", "--domain", "dsa", "--profile", "compact"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 5/);
+  assert.match(result.stdout, /Expected rule: exactly 5 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+
+  const lines = result.stdout.split(/\r?\n/);
+  const files = lines
+    .slice(lines.findIndex((line) => line === "Files:") + 1)
+    .filter((line) => line.startsWith("- "))
+    .map((line) => line.slice(2).trim());
+
+  assert.deepEqual(files, [
+    "COMMANDS_CORE.md",
+    "DOMAIN_CORE.md",
+    "MENTOR_SKILLS_CORE.md",
+    "PROJECT_INSTRUCTIONS.md",
+    "STARTUP_PROMPT.md",
+  ]);
 });
 
 test("typescript standard inspect preserves the 25-file contract", () => {

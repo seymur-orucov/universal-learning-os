@@ -14,6 +14,14 @@ Use one generated domain pack as the source material for one ChatGPT Project. Ge
 
 For example, use all five files in `exports/generated/sql-postgresql-compact/` for a focused SQL/PostgreSQL Project.
 
+For DSA, create a dedicated Project named `DSA Mentor` and use either all five files from `exports/generated/dsa-compact/` or all 25 files from `exports/generated/dsa-standard/`. JavaScript is the default language; TypeScript is supported when requested or useful for clarity.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for DSA using JavaScript. Teach me step by step and let me reason before showing the solution.
+```
+
 ## Learn in the Project
 
 - Start a lesson: `Start lesson`

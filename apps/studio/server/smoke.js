@@ -10,7 +10,7 @@ function assert(condition, message) {
 async function smokeBridge() {
   const domains = await runCliAction({ action: "list-domains" });
   assert(domains.ok, `list-domains failed: ${domains.stderr || domains.stdout}`);
-  for (const domain of ["sql-postgresql", "english", "javascript", "typescript"]) {
+  for (const domain of ["sql-postgresql", "english", "javascript", "typescript", "dsa"]) {
     assert(domains.stdout.includes(`- ${domain}`), `list-domains did not include ${domain}`);
   }
 

@@ -20,6 +20,26 @@ Stage 24.0 begins the first real validation of PLOS through actual learning. Thi
 
 This is an optional later pilot. Focus on practical coding lessons, exercises, and review quality.
 
+## DSA pilot
+
+This is a planned pilot, not a claim that it has been completed.
+
+- Create a dedicated DSA ChatGPT Project and upload `exports/generated/dsa-compact/`.
+- Run 3–5 lessons using JavaScript as the default implementation language.
+- Test at least Big O, Arrays/Hash Map, and either Two Pointers or Sliding Window.
+- Verify that the mentor asks the learner to reason before coding and does not reveal full solutions too early.
+- Verify that brute force and optimized approaches are compared.
+- Verify that edge cases, test cases, time complexity, and space complexity are discussed.
+- Verify that learner-facing feedback is concise and recommends a next action.
+- Verify that internal evidence/state metadata remains hidden in normal lessons.
+- Explicitly request a review and, when useful, a learner handoff to verify those flows without making them daily requirements.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for DSA using JavaScript. Teach me step by step and let me reason before showing the solution.
+```
+
 ## Pilot result template
 
 ```text

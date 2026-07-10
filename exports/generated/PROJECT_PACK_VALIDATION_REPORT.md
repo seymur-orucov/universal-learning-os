@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`v0.2.0-release-candidate-stage-17.1`
+`stage-25.0-dsa-domain`
 
 ## Quick Validation
 
@@ -12,7 +12,7 @@ Preferred quick quality gate:
 node tools/ulos-cli/src/index.js validate
 ```
 
-The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure and is the official generated-pack quality gate for v0.2.0 readiness.
+The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure and is the official generated-pack quality gate.
 
 Stage 20.0 also provides automated CLI regression tests:
 
@@ -26,13 +26,15 @@ From `tools/ulos-cli/`, run the same suite with:
 npm test
 ```
 
-These tests cover domain listing, generated pack validation, TypeScript standard/compact inspection, generation dry-runs, invalid inputs, path safety, unexpected-file protection, learner handoff/snapshot scaffolds, overwrite protection, and learner forbidden-marker validation.
+These tests cover the exact five-domain listing, ten-pack validation, TypeScript and DSA standard/compact inspection, generation dry-runs, invalid inputs, path safety, unexpected-file protection, learner handoff/snapshot scaffolds, overwrite protection, and learner forbidden-marker validation.
 
 Packs can be regenerated before validation:
 
 ```sh
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
+node tools/ulos-cli/src/index.js generate --domain dsa --profile compact
+node tools/ulos-cli/src/index.js generate --domain dsa --profile standard
 node tools/ulos-cli/src/index.js validate
 ```
 
@@ -46,10 +48,12 @@ Validated generated Project Packs:
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
+- `exports/generated/dsa-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+- `exports/generated/dsa-compact/`
 
 This report is a derived audit artifact. It is not canonical framework source and not learner state.
 
@@ -68,6 +72,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `english-standard` | exactly 25 | PASS | Generated standard pack. |
 | `javascript-standard` | exactly 25 | PASS | Generated standard pack. |
 | `typescript-standard` | exactly 25 | PASS | Generated standard pack. |
+| `dsa-standard` | exactly 25 | PASS | Generated standard pack. |
 
 ## Compact Profile Checks
 
@@ -77,6 +82,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `english-compact` | exactly 5 | PASS | Generated compact pack. |
 | `javascript-compact` | exactly 5 | PASS | Generated compact pack. |
 | `typescript-compact` | exactly 5 | PASS | Generated compact pack. |
+| `dsa-compact` | exactly 5 | PASS | Generated compact pack. |
 
 ## Required Compact Files
 
@@ -101,9 +107,9 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## v0.2.0 Readiness Summary
+## Current Stage 25.0 Summary
 
-- All four supported domains have standard and compact generated packs.
+- All five supported domains have standard and compact generated packs.
 - All standard packs are expected to contain exactly 25 files.
 - All compact packs are expected to contain exactly 5 files.
 - Launch kits remain the user-facing setup helpers.
@@ -260,3 +266,15 @@ Stage 24.0 adds learner-facing Getting Started and ChatGPT Project setup guides,
 - Standard packs remain exactly 25 files and compact packs remain exactly 5 files.
 - Generated packs remain learner-neutral and Learner-Facing Mentor Mode remains unchanged.
 - Daily learning does not require repository updates; handoff and snapshot remain optional and user-requested.
+
+## Stage 25.0 DSA Domain Note
+
+Stage 25.0 expands the learning stack without expanding framework or Studio features.
+
+- Supported domains increase from 4 to 5: `sql-postgresql`, `english`, `javascript`, `typescript`, and `dsa`.
+- Generated packs increase from 8 to 10 with `dsa-standard` and `dsa-compact`.
+- Every standard pack remains exactly 25 files.
+- Every compact pack remains exactly 5 files with the unchanged exact compact file list.
+- DSA preserves Learner-Facing Mentor Mode, JavaScript-first implementation, progressive hints, edge-case reasoning, and time/space complexity analysis.
+- Studio remains optional and ChatGPT Projects remain the daily learning runtime.
+- Stage 25.0 creates no release tag.

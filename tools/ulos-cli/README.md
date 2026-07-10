@@ -23,6 +23,8 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 node tools/ulos-cli/src/index.js generate --domain typescript --profile standard --out-dir tmp/typescript-standard-test
 node tools/ulos-cli/src/index.js create-handoff --domain sql-postgresql
 node tools/ulos-cli/src/index.js create-snapshot --domain sql-postgresql --type milestone
+node tools/ulos-cli/src/index.js inspect-pack --domain dsa --profile compact
+node tools/ulos-cli/src/index.js generate --domain dsa --profile standard --dry-run
 ```
 
 ## Optional Local Bin Usage
@@ -68,6 +70,7 @@ Domains:
 - `english`
 - `javascript`
 - `typescript`
+- `dsa`
 
 Profiles:
 
@@ -82,7 +85,7 @@ Generate a compact pack:
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 ```
 
-Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`.
+Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`.
 
 Generated compact packs contain exactly:
 
@@ -214,3 +217,4 @@ Use `docs/releases/V0_2_0_RELEASE_CHECKLIST.md` before tagging or publishing rel
 - `english`
 - `javascript`
 - `typescript`
+- `dsa`

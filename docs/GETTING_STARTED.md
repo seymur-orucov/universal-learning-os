@@ -20,8 +20,11 @@ Generated packs are in `exports/generated/`. Start with one of these compact pac
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+- `exports/generated/dsa-compact/`
 
 For the full profile, choose the corresponding `*-standard/` directory.
+
+For DSA, use `exports/generated/dsa-compact/` or `exports/generated/dsa-standard/` in a dedicated ChatGPT Project named `DSA Mentor`. JavaScript is the default implementation language; request TypeScript when useful. Studio remains optional.
 
 ## What to type in the ChatGPT Project
 
@@ -35,6 +38,12 @@ Or be more specific:
 
 ```text
 Start Lesson 1 for SQL/PostgreSQL. Teach me step by step, give examples, practice tasks, feedback, and homework.
+```
+
+DSA example:
+
+```text
+Start Lesson 1 for DSA using JavaScript. Teach me step by step, let me reason before showing solutions, include coding practice, edge cases, and time/space complexity.
 ```
 
 ## Which tool is for what?
