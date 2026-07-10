@@ -4,6 +4,9 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 27.1 by making Deep Teaching Mode and progressive multi-turn lesson delivery the default for `START_LESSON` across all seven domains.
+- Requires guided checks before independent practice, prerequisite-safe and technically correct exercises, explicit challenge-first exceptions, and one clear learner action per response while preserving Learner-Facing Mentor Mode.
+- Corrects SQL Lesson 1 boundaries, reserves bridge-table and many-to-many work for Lesson 14, regenerates all fourteen packs without changing file contracts, and adds ADR-0054, automated regressions, and manual acceptance coverage.
 - Completes Stage 27.0 by adding the canonical `nodejs` domain for experienced frontend engineers moving into runtime-first, production-aware backend and full-stack development.
 - Adds `nodejs-standard` (exactly 25 files) and `nodejs-compact` (exactly 5 files), increasing supported domains from 6 to 7 and generated packs from 12 to 14 without changing existing pack contracts.
 - Adds Node.js CLI/test coverage, launch kits, a planned real-learning pilot, ADR-0053, and manual acceptance coverage; Fastify is the practical default, PostgreSQL retains explicit SQL/transaction reasoning, and NestJS remains a later specialization.

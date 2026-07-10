@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`stage-27.0-nodejs-domain`
+`stage-27.1-deep-teaching-progressive-lessons`
 
 ## Quick Validation
 
@@ -26,7 +26,7 @@ From `tools/ulos-cli/`, run the same suite with:
 npm test
 ```
 
-The Stage 27.0 suite passes 41/41 tests. These tests cover the exact seven-domain listing, fourteen-pack validation, TypeScript, DSA, Front-End System Design, and Node.js pack inspection, generation dry-runs, invalid inputs, path safety, unexpected-file protection, learner handoff/snapshot scaffolds, overwrite protection, and learner forbidden-marker validation.
+The Stage 27.1 suite passes 47/47 tests. These tests cover teaching-first project instructions in every standard and compact pack, generated command and mentor-skill readiness rules, SQL Lesson 1 and many-to-many regressions, Learner-Facing Mentor Mode boundaries, the exact seven-domain and fourteen-pack contracts, pack inspection, generation dry-runs, path safety, learner helpers, and learner forbidden-marker validation.
 
 Packs can be regenerated before validation:
 
@@ -119,7 +119,7 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## Current Stage 27.0 Summary
+## Current Stage 27.1 Summary
 
 - All seven supported domains have standard and compact generated packs, for fourteen generated packs total.
 - All standard packs are expected to contain exactly 25 files.
@@ -127,7 +127,9 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Launch kits remain the user-facing setup helpers.
 - Generated packs are reusable and learner-neutral; learner runtime state remains separate under `learners/active-learner/` when used.
 
-The Node.js packs preserve runtime-before-framework and HTTP-before-framework progression, PostgreSQL with explicit SQL/transaction reasoning, production security/testing/operations expectations, and NestJS as a later specialization. Studio remains optional, ChatGPT Projects remain the daily runtime, and no release tag is created by Stage 27.0.
+Every generated standard and compact pack now states that `START_LESSON` teaches before testing by default, uses one guided initial learner action, progresses from explanation through guided work to independent work, forbids tasks that depend on untaught concepts, and requires an explicit request for challenge-first behavior. Generated commands and instructor skills carry the corresponding progressive-delivery and exercise-readiness contracts.
+
+SQL Lesson 1 is limited to prerequisite-safe relational-model reasoning. Many-to-many bridge-table work remains in Lesson 14, where students/courses uses `students`, `courses`, and `enrollments`. Studio remains optional, learner-state workflows remain evidence-based and non-daily, ChatGPT Projects remain the daily runtime, and no release tag is created by Stage 27.1.
 
 ## v0.2.0 Release Candidate Summary
 

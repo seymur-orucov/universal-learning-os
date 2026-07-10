@@ -20,7 +20,8 @@
 - Stage 25.0: DSA Domain completed as the first learning-stack expansion after the framework pause, adding one canonical domain and two contract-preserving generated packs.
 - Stage 26.0: Front-End System Design Domain completed with requirements-first architecture practice, design defense, and two contract-preserving generated packs.
 - Stage 27.0: Node.js Domain completed with runtime-first backend progression, PostgreSQL/production reasoning, and two contract-preserving generated packs.
-- Framework and Studio feature expansion remains paused; Stages 25.0 through 27.0 grow reusable learning content only.
+- Stage 27.1: Deep Teaching and Progressive Lesson Delivery completed as a targeted framework correction driven by real SQL lesson evidence.
+- Broad framework and Studio feature expansion remains paused; Stage 27.1 changes only the lesson-delivery guardrails needed to fix the pilot issue.
 
 ## Recommended Priority
 
@@ -28,6 +29,14 @@
 2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 27.1 Deep Teaching and Progressive Lesson Delivery
+
+- Makes `START_LESSON` teaching-first by default and permits lessons to span teaching, guided checks, feedback, guided practice, independent practice, and closure across multiple turns.
+- Retains one clear learner action per response and requires an explicit request for diagnostic, challenge-first, practice-only, or assessment behavior before teaching.
+- Prevents tasks from depending on untaught concepts and requires technically correct simplification across schema, architecture, coding, language, and algorithm work.
+- Corrects SQL Lesson 1 to use prerequisite-safe relational-model examples and reserves many-to-many bridge-table work for Lesson 14.
+- Keeps seven domains, fourteen generated packs, exact 25-file standard and five-file compact contracts, Learner-Facing Mentor Mode, optional learner-state workflows, Studio scope, and release/tag status unchanged.
 
 ## Stage 27.0 Node.js Domain
 

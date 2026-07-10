@@ -122,8 +122,10 @@ This file defines the learning path only. It does not contain full lesson bodies
 - Target learning skills:
   - `sql-postgresql.relational-model`
 - Objective: Explain why relational databases organize data into related tables.
-- Practice expectation: Identify table relationships from small examples.
-- Evidence expectation: Learner explains relational concepts using a simple schema.
+- Teaching boundary: Explain why related information is separated, compare one oversized table with related tables, identify candidate information groups, and preview that keys connect tables.
+- Practice expectation: From a prerequisite-safe example such as customers/orders, authors/books, or departments/employees, identify which information belongs together and explain why separating the groups is useful.
+- Evidence expectation: Learner explains the relational-model purpose without independently designing keys, normalized schemas, bridge tables, or many-to-many relationships.
+- Excluded requirements: Do not require primary/foreign key implementation details, normalization, or many-to-many modeling in this lesson.
 
 #### Lesson 2: Database, table, row, and column vocabulary
 
@@ -242,7 +244,7 @@ This file defines the learning path only. It does not contain full lesson bodies
   - `sql-postgresql.relationship-reasoning`
 - Objective: Explain relationship direction and cardinality before writing joins.
 - Practice expectation: Trace relationships from keys and table examples.
-- Evidence expectation: Learner explains one-to-many and many-to-many relationships.
+- Evidence expectation: Learner explains relationship direction and one-to-many cardinality from established key examples; independent many-to-many work remains in Lesson 14.
 
 #### Lesson 12: INNER JOIN
 
@@ -267,7 +269,8 @@ This file defines the learning path only. It does not contain full lesson bodies
   - `sql-postgresql.join-conditions-duplicates`
   - `sql-postgresql.many-to-many-relationships`
 - Objective: Diagnose duplicate rows and query many-to-many relationships.
-- Practice expectation: Repair incorrect joins and traverse bridge tables.
+- Teaching boundary: Explain bridge-table structure and cardinality before requiring independent use.
+- Practice expectation: Repair incorrect joins and traverse technically correct bridge tables. A students/courses scenario MUST use `students`, `courses`, and `enrollments`.
 - Evidence expectation: Learner explains duplicate causes and correct join paths.
 
 - Practice expectations: mixed practice combining filters and joins.
@@ -1765,6 +1768,17 @@ Practice output SHOULD follow `templates/session/PRACTICE_OUTPUT_TEMPLATE.md`.
 - Learner progress belongs in learner state, not this domain pack.
 - Practice or assessment output MAY propose state updates but MUST NOT silently apply them.
 - Domain rules MUST NOT weaken `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+- Every task MUST use only concepts taught at the current syllabus position or established prerequisites.
+- Cardinality and schema exercises MUST remain technically valid and aligned with the current syllabus position.
+- Beginner simplification MUST NOT create a false relationship or schema model.
+- If a realistic scenario needs a later concept, use a simpler prerequisite-safe scenario or teach the later concept before requiring it.
+
+## Progressive Schema and Relationship Practice
+
+- Lesson 1 relational-model practice MAY separate candidate information groups using customers/orders, authors/books, or departments/employees.
+- Lesson 1 MUST NOT require independent bridge-table design, many-to-many modeling, normalization, or primary/foreign key implementation details.
+- Relationship direction and cardinality practice MUST follow the syllabus boundaries for Lessons 3, 11, and 14.
+- Students/courses is a many-to-many scenario and MUST NOT be simplified to exactly two tables. When used at the appropriate later lesson, the technically correct model MUST include `students`, `courses`, and `enrollments`, and the bridge table MUST be explained before independent use.
 
 ## Practice Type Mapping
 
@@ -2873,6 +2887,9 @@ This review does not create lessons, exercises, Northwind tasks, learner state, 
 - Lesson outlines remain concise and do not become full lesson bodies.
 - Stage 11 remains project milestone guidance, not full project task implementation.
 - Stage 12 remains interview and explanation readiness guidance, not a full interview bank.
+- Lesson 1 remains limited to the relational-model target: separating related information, comparing grouped and oversized representations, identifying candidate information groups, and previewing that keys connect tables.
+- Lesson 1 does not require bridge tables, many-to-many design, normalization, or primary/foreign key implementation details.
+- Many-to-many modeling remains in Lesson 14; students/courses uses the technically correct `students`, `courses`, and `enrollments` structure.
 
 ## Practice and Assessment Alignment Summary
 
@@ -2881,6 +2898,7 @@ This review does not create lessons, exercises, Northwind tasks, learner state, 
 - Review triggers point to valid learning skill ids.
 - Difficulty labels D1-D5 are practice guidance and MUST NOT be treated as mastery records.
 - Mastery recommendations require evidence as defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+- Cardinality and schema exercises remain technically correct, prerequisite-safe, and aligned with the current syllabus position.
 
 ## Project Guidance Summary
 
@@ -2924,6 +2942,8 @@ This review does not create lessons, exercises, Northwind tasks, learner state, 
 - Updated `domains/sql-postgresql/README.md` to reference `domains/sql-postgresql/QUALITY_REVIEW.md` and current domain file responsibilities.
 - Added this quality review record.
 - Added `docs/decisions/ADR-0014-sql-postgresql-domain-quality-gate.md`.
+- Stage 27.1 refined Lesson 1 and relationship practice boundaries so early exercises cannot require untaught many-to-many or bridge-table knowledge.
+- Stage 27.1 added explicit technical-correctness and syllabus-readiness checks for cardinality and schema exercises.
 
 ## Remaining Open Questions
 

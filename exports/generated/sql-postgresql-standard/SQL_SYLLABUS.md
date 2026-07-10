@@ -43,8 +43,10 @@ This file defines the learning path only. It does not contain full lesson bodies
 - Target learning skills:
   - `sql-postgresql.relational-model`
 - Objective: Explain why relational databases organize data into related tables.
-- Practice expectation: Identify table relationships from small examples.
-- Evidence expectation: Learner explains relational concepts using a simple schema.
+- Teaching boundary: Explain why related information is separated, compare one oversized table with related tables, identify candidate information groups, and preview that keys connect tables.
+- Practice expectation: From a prerequisite-safe example such as customers/orders, authors/books, or departments/employees, identify which information belongs together and explain why separating the groups is useful.
+- Evidence expectation: Learner explains the relational-model purpose without independently designing keys, normalized schemas, bridge tables, or many-to-many relationships.
+- Excluded requirements: Do not require primary/foreign key implementation details, normalization, or many-to-many modeling in this lesson.
 
 #### Lesson 2: Database, table, row, and column vocabulary
 
@@ -163,7 +165,7 @@ This file defines the learning path only. It does not contain full lesson bodies
   - `sql-postgresql.relationship-reasoning`
 - Objective: Explain relationship direction and cardinality before writing joins.
 - Practice expectation: Trace relationships from keys and table examples.
-- Evidence expectation: Learner explains one-to-many and many-to-many relationships.
+- Evidence expectation: Learner explains relationship direction and one-to-many cardinality from established key examples; independent many-to-many work remains in Lesson 14.
 
 #### Lesson 12: INNER JOIN
 
@@ -188,7 +190,8 @@ This file defines the learning path only. It does not contain full lesson bodies
   - `sql-postgresql.join-conditions-duplicates`
   - `sql-postgresql.many-to-many-relationships`
 - Objective: Diagnose duplicate rows and query many-to-many relationships.
-- Practice expectation: Repair incorrect joins and traverse bridge tables.
+- Teaching boundary: Explain bridge-table structure and cardinality before requiring independent use.
+- Practice expectation: Repair incorrect joins and traverse technically correct bridge tables. A students/courses scenario MUST use `students`, `courses`, and `enrollments`.
 - Evidence expectation: Learner explains duplicate causes and correct join paths.
 
 - Practice expectations: mixed practice combining filters and joins.

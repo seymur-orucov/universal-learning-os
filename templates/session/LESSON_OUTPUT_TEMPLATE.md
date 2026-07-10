@@ -6,17 +6,13 @@ This template defines reusable output shape for lesson sessions. It is not a rea
 
 `<lesson-title>`
 
-## Target Learning Skill
-
-`<learning-skill-id-or-title>`
-
 ## Learning Objective
 
 `<learning-objective>`
 
-## Prerequisite Check
+## Connection to Previous Knowledge
 
-`<prerequisite-check>`
+`<prerequisite-connection>`
 
 ## Mental Model
 
@@ -26,6 +22,10 @@ This template defines reusable output shape for lesson sessions. It is not a rea
 
 `<concept-explanation>`
 
+## Essential Terminology
+
+- `<term>: <learner-ready meaning>`
+
 ## Minimal Example
 
 `<minimal-example>`
@@ -34,39 +34,39 @@ This template defines reusable output shape for lesson sessions. It is not a rea
 
 `<realistic-example>`
 
-## Guided Practice
-
-`<guided-practice-prompt>`
-
-## Independent Practice
-
-`<independent-practice-prompt>`
-
 ## Common Mistakes
 
-- `<common-mistake>`
+- `<common-mistake-or-misconception>`
 
-## Quick Check
+## Guided Knowledge Check
 
-`<quick-check>`
+`<one-guided-check-or-action-for-this-turn>`
 
-## Homework
+## Continuation Cue
 
-`<homework>`
+`<clear-note-that-the-lesson-continues-after-the-response>`
 
-## Session Report
+## Later-Turn Sections
 
-Use `templates/session/SESSION_REPORT_TEMPLATE.md`.
+- Feedback and misconception repair: `<feedback-after-learner-response>`
+- Guided practice: `<one-guided-practice-prompt>`
+- Independent practice: `<one-independent-practice-prompt-after-readiness>`
+- Summary and next action: `<summary-and-one-next-action>`
+- Homework: `<optional-follow-up-after-the-active-lesson-work>`
 
-## Next Action
+## Optional Internal Session Report
 
-`<next-action>`
+Use `templates/session/SESSION_REPORT_TEMPLATE.md` only when meaningful activity warrants a report. Do not expose it in normal learner-facing output.
 
 ## Normative Notes
 
 - Lesson exposure MUST NOT imply mastery.
 - Evidence requires learner activity.
 - Output SHOULD follow localization preferences from `specification/LOCALIZATION_SPEC.md`.
+- The initial response for a new concept MUST teach sufficiently before independent practice and SHOULD request one guided learner action.
+- Later-turn sections MUST NOT all be assigned in the initial response.
+- Tasks MUST use only the current concept and established prerequisites unless the learner explicitly requests an exception mode.
+- Internal phase names, learning skill ids, evidence records, state updates, and framework metadata MUST remain hidden from normal learner-facing output.
 
 ## Relationships
 
@@ -76,4 +76,3 @@ Use `templates/session/SESSION_REPORT_TEMPLATE.md`.
 ## OPEN QUESTION
 
 - Which sections should be optional for short lessons?
-

@@ -14,6 +14,17 @@ Practice output SHOULD follow `templates/session/PRACTICE_OUTPUT_TEMPLATE.md`.
 - Learner progress belongs in learner state, not this domain pack.
 - Practice or assessment output MAY propose state updates but MUST NOT silently apply them.
 - Domain rules MUST NOT weaken `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+- Every task MUST use only concepts taught at the current syllabus position or established prerequisites.
+- Cardinality and schema exercises MUST remain technically valid and aligned with the current syllabus position.
+- Beginner simplification MUST NOT create a false relationship or schema model.
+- If a realistic scenario needs a later concept, use a simpler prerequisite-safe scenario or teach the later concept before requiring it.
+
+## Progressive Schema and Relationship Practice
+
+- Lesson 1 relational-model practice MAY separate candidate information groups using customers/orders, authors/books, or departments/employees.
+- Lesson 1 MUST NOT require independent bridge-table design, many-to-many modeling, normalization, or primary/foreign key implementation details.
+- Relationship direction and cardinality practice MUST follow the syllabus boundaries for Lessons 3, 11, and 14.
+- Students/courses is a many-to-many scenario and MUST NOT be simplified to exactly two tables. When used at the appropriate later lesson, the technically correct model MUST include `students`, `courses`, and `enrollments`, and the bridge table MUST be explained before independent use.
 
 ## Practice Type Mapping
 
@@ -155,4 +166,3 @@ Common SQL/PostgreSQL error categories SHOULD map to targeted repair:
 - Which practice difficulty labels should be used first in learner-facing output?
 - Should Northwind practice be introduced before or after joins and aggregation?
 - Which error categories need domain-specific remediation templates first?
-

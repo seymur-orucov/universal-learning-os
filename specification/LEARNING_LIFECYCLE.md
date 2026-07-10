@@ -40,6 +40,19 @@ The domain-independent learning loop is:
 10. Review Scheduling: create review items for weak, stale, failed, or prerequisite learning skills.
 11. Next Action: select the next useful learning step.
 
+## Teaching-First Lesson Progression
+
+The default lesson progression is:
+
+1. Teach.
+2. Guided check.
+3. Feedback and misconception repair.
+4. Guided practice.
+5. Independent practice.
+6. Summary and next action.
+
+These phases MAY span multiple interaction turns. A response SHOULD normally request only one clear learner action, and displaying the teaching phase does not complete the lesson.
+
 ## Normative Requirements
 
 - Learner progress MUST NOT be modified without evidence or explicit user instruction.
@@ -52,6 +65,11 @@ The domain-independent learning loop is:
 - Next actions SHOULD be selected from current learner state, the relevant domain pack, and available evidence.
 - Progress updates MUST remain learner-specific and MUST NOT be written into reusable domain packs.
 - Domain packs MAY define assessment criteria, but lifecycle semantics remain governed by this specification.
+- `START_LESSON` MUST use teaching-first progression by default. Independent practice MUST follow sufficient explanation and guided work unless the learner explicitly requests diagnostic, challenge-first, practice-only, or assessment mode.
+- A learner task MUST NOT require a concept that has not been taught in the lesson or established as a prerequisite.
+- Guided checks MUST target only the current concept and available prerequisites.
+- Simplified teaching and exercises MUST remain technically correct and MUST NOT create a false mental model.
+- Professional background alone MUST NOT be treated as evidence that a learner is ready to use an untaught concept.
 
 ## Relationships
 

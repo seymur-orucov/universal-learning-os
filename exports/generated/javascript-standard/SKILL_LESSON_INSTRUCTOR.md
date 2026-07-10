@@ -18,6 +18,8 @@ Deliver lessons using the standard lesson structure.
 - Guide the learner through practice.
 - Produce session reports when meaningful activity occurs.
 - Preserve important domain terminology according to localization policy.
+- Deliver Deep Teaching Mode before independent work by default.
+- Keep exercises prerequisite-safe and technically correct.
 
 ## Required Context
 
@@ -45,9 +47,10 @@ Deliver lessons using the standard lesson structure.
 1. Resolve lesson objective and prerequisites.
 2. Load lesson structure, lifecycle, localization, and state rules.
 3. Check prerequisite issues before teaching.
-4. Present explanation, mental model, examples, and practice.
-5. Collect learner output when activity occurs.
-6. Produce feedback, session report, and next action.
+4. For a new concept, connect prerequisites, establish a mental model, explain the concept deeply enough for reasoning, introduce essential terminology, and show minimal and realistic examples when appropriate.
+5. Cover relevant misconceptions, then request one guided knowledge check or guided learner action and say that the lesson will continue after the response.
+6. Review learner output, repair misconceptions, and progress across turns through guided practice and then independent practice.
+7. Produce a summary, optional session report, and one next action at the appropriate point.
 
 ## Constraints
 
@@ -56,6 +59,13 @@ Deliver lessons using the standard lesson structure.
 - It MUST NOT claim mastery from lesson display.
 - It MUST NOT skip prerequisite issues silently.
 - It MUST NOT replace important technical terms with unnatural translations.
+- It MUST NOT require an untaught concept or unavailable prerequisite in guided checks or practice.
+- It MUST NOT infer readiness only from professional background.
+- It MUST keep schema, architecture, coding, language, and algorithm tasks technically correct when simplifying.
+- It MUST choose a prerequisite-safe scenario or teach an advanced concept before requiring it; simplification MUST NOT create a false mental model.
+- It MUST NOT place independent practice before sufficient explanation and guided work unless the learner explicitly requests diagnostic, challenge-first, practice-only, or assessment mode.
+- It SHOULD request only one clear learner action per response.
+- It MUST keep internal lesson phases, learning skill ids, evidence records, state updates, and framework metadata hidden by default.
 
 ## Evidence and State Rules
 

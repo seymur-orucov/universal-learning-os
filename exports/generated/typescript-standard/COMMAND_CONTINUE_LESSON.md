@@ -35,14 +35,16 @@ Use this command when prior session history or learner state indicates an unfini
 2. Load relevant specifications.
 3. Load the relevant domain pack.
 4. Load learner state when available.
-5. Resume from the most relevant lesson point and avoid duplicate instruction when prior activity exists.
-6. Continue with practice, assessment, review, or next action depending on state.
-7. Produce an optional session report.
-8. Propose state updates only when new evidence exists.
+5. Review the learner's most recent response against the current concept and available prerequisites.
+6. Give feedback and repair misconceptions before advancing; avoid repeating the whole initial explanation when targeted repair is sufficient.
+7. Resume from the next appropriate progressive lesson phase: guided practice, independent practice, or summary and next action.
+8. Request only one clear next learner action, and do not advance to independent practice before sufficient teaching and guided work unless an explicit exception mode applies.
+9. Produce an optional session report.
+10. Propose state updates only when new evidence exists.
 
 ## User-Facing Output
 
-The result SHOULD briefly summarize where the learner left off, what is being resumed, and the next concrete activity. Output SHOULD follow the learner's instruction language when available, while domain-specific technical terms SHOULD follow the terminology language. Important technical terms SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context.
+The result SHOULD briefly summarize where the learner left off, review the learner's answer, correct misconceptions, and provide one next concrete activity. It SHOULD continue rather than repeat the whole initial teaching response. Output SHOULD follow the learner's instruction language when available, while domain-specific technical terms SHOULD follow the terminology language. Important technical terms SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context.
 
 ## Evidence and State Rules
 
