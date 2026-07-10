@@ -6,6 +6,12 @@ Studio is not the daily learning runtime. Daily lessons, practice, review, and l
 
 The CLI remains the source of truth for domain, pack, validation, generation, handoff, snapshot, overwrite, and path-safety behavior. Studio displays CLI commands, stdout, stderr, and exit codes instead of replacing CLI rules.
 
+## Studio is optional
+
+You do not need Studio to learn with PLOS. The primary workflow is generated packs plus ChatGPT Projects: upload a selected pack, start a lesson, and continue learning in ChatGPT.
+
+Studio is useful for local validation, pack inspection, and optional helper scaffolds. It is not the learning runtime; it does not replace ChatGPT Projects or require repository updates after every lesson.
+
 ## Prerequisites
 
 - Node.js with npm.

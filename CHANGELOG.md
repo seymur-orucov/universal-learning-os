@@ -4,6 +4,9 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Adds Stage 24.0 Getting Started and ChatGPT Project setup guides, a real learning pilot plan, framework pause note, ADR-0050, and manual acceptance coverage.
+- Clarifies the primary workflow as generated packs plus ChatGPT Projects, with Studio optional and not the learning runtime.
+- Pauses framework/app expansion after the current cycle until SQL/PostgreSQL and English real learning pilots provide evidence; does not claim those pilots are complete.
 - Adds Stage 23.0 v0.3.0 release preparation docs, including release notes, release checklist, release-candidate status, ADR-0048, and manual acceptance coverage.
 - Summarizes learner runtime strategy docs, optional handoff/snapshot templates, CLI helper behavior, and `validate-learner` as part of the v0.3.0 release baseline.
 - Summarizes automated CLI tests, app architecture planning, Studio MVP implementation, and Studio hardening for v0.3.0 readiness.

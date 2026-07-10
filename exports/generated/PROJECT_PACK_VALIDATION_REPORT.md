@@ -249,3 +249,14 @@ Stage 23.0 adds release preparation documentation, final checklists, release-can
 - Studio MVP does not change generated packs.
 - Studio remains local-first and CLI-backed.
 - No new domain, authentication, cloud storage, database storage, ChatGPT API integration, transcript import, automatic mastery inference, YAML learner-state patch generation, generated pack editing, or heavy runtime learner-state system is added.
+
+## Stage 24.0 Real Learning Pilot and Framework Pause Note
+
+Stage 24.0 adds learner-facing Getting Started and ChatGPT Project setup guides, a real learning pilot plan, a framework pause note, ADR-0050, and manual acceptance coverage. It does not change generated pack contracts or claim that pilots have been completed.
+
+- The primary workflow is generated pack to ChatGPT Project to lesson to learning.
+- Studio is optional, local-first, and CLI-backed; it is not the learning runtime.
+- The next focus is actual use of the learning stack through SQL/PostgreSQL and English pilots.
+- Standard packs remain exactly 25 files and compact packs remain exactly 5 files.
+- Generated packs remain learner-neutral and Learner-Facing Mentor Mode remains unchanged.
+- Daily learning does not require repository updates; handoff and snapshot remain optional and user-requested.

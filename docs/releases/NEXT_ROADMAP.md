@@ -16,18 +16,15 @@
 - Stage 23.0: v0.3.0 release preparation completed as release documentation, final checklists, validation guidance, ADR coverage, and manual acceptance coverage only.
 - Stage 23.1: v0.3.0 release candidate hardening.
 - Stage 23.2: v0.3.0 tagging finalization.
-- Stage 24.0: Studio automated tests.
-- Stage 24.1: Studio UX hardening.
-- Stage 25.0: New domain planning, only if explicitly requested.
-- Stage 26.0: Optional import/export workflows.
+- Stage 24.0: Real Learning Pilot and Framework Pause completed as learner-facing usage guides, pilot plan, pause note, ADR, and manual acceptance coverage.
+- Future framework, Studio, and new-domain work is paused until SQL/PostgreSQL and English pilots are completed, unless explicitly requested.
 
 ## Recommended Priority
 
-1. Complete v0.3.0 release-candidate hardening before tagging.
-2. Tag v0.3.0 only after validation passes and the working tree is clean.
+1. Run SQL/PostgreSQL and English real learning pilots in ChatGPT Projects.
+2. Use pilot evidence before proposing framework or Studio expansion.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
-4. Keep Studio local-first, CLI-backed, and allowlisted.
-5. Consider optional import/export workflows only after preserving learner-state guardrails.
+4. Keep Studio local-first, CLI-backed, and optional.
 
 ## Stage 23.0 v0.3.0 Release Preparation
 
