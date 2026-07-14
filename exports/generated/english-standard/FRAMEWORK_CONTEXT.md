@@ -31,6 +31,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Learning skill: domain-specific learner competency described by a future domain skill graph.
 - Evidence: observed learner activity used to justify state changes.
 - Localization preference: configurable instruction language and terminology language behavior described by `specification/LOCALIZATION_SPEC.md`.
+- External lesson journal: an optional runtime destination for a learner-requested lesson summary; it is not learner state, evidence, mastery, or a canonical repository source.
 
 ## Normative Requirements
 
@@ -45,6 +46,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Reusable framework content and domain pack content MUST NOT contain learner-specific progress.
 - Learner progress MUST require evidence or explicit user instruction, as defined by `specification/LEARNING_LIFECYCLE.md` and `specification/STATE_SPEC.md`.
 - User-facing teaching behavior SHOULD respect localization preferences defined by `specification/LOCALIZATION_SPEC.md`.
+- Optional external journal writes MUST be explicitly requested, MUST remain separate from learner state and evidence, and MUST be reported as successful only after the connected runtime tool confirms the write.
 - Versioned artifacts SHOULD declare the framework contract version they target once versioning exists.
 - Unresolved architectural or behavioral issues MUST be marked as `OPEN QUESTION`.
 
@@ -78,6 +80,7 @@ The repository is organized around stable contracts first and implementation lat
 - Commands: user-invoked workflows in `commands/`.
 - Skills: reusable agent capabilities in `skills/`.
 - Validation: future schemas and tests in `schemas/` and `tests/`.
+- External integrations: optional runtime-tool contracts in `commands/`, `skills/`, and `docs/integrations/`; external data and credentials remain outside the repository.
 
 ## Source-of-Truth Boundaries
 
@@ -87,6 +90,11 @@ The repository is organized around stable contracts first and implementation lat
 - Skill structure is canonical in `specification/SKILL_SPEC.md`.
 - Command structure is canonical in `specification/COMMAND_SPEC.md`.
 - Learner state structure is canonical in `specification/STATE_SPEC.md`.
+- Optional Notion lesson-journal behavior is canonical in `commands/SAVE_LESSON_TO_NOTION.md` and reusable capability behavior in `skills/notion-lesson-logger/SKILL.md`.
+
+## Optional Integration Boundary
+
+ChatGPT's connected Notion tool performs lesson-journal discovery and writes. Universal Learning OS contains no Notion client, credentials, assigned target ids, or learner journal data. Journal entries are external notes and remain separate from learner state, evidence, mastery, commands, skills, and reusable domain content.
 
 ## Versioning Direction
 

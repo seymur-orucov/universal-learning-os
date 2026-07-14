@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { getDomainConfig } = require("./domains");
 const { getGeneratedPackPath } = require("./paths");
+const { getProfileSourceSelections } = require("./profile-sources");
 
 const COMPACT_FILES = [
   "PROJECT_INSTRUCTIONS.md",
@@ -32,22 +33,7 @@ const JAVASCRIPT_SUPPORT_FILES = [
   "PROJECT_PACK_SELECTION.md",
 ];
 
-const COMMAND_FILES = [
-  "START_LESSON.md",
-  "CONTINUE_LESSON.md",
-  "PRACTICE.md",
-  "REVIEW.md",
-  "ASSESS.md",
-  "SHOW_PROGRESS.md",
-];
-
-const SKILL_FILES = [
-  ["lesson-instructor", "SKILL.md"],
-  ["practice-coach", "SKILL.md"],
-  ["homework-reviewer", "SKILL.md"],
-  ["progress-manager", "SKILL.md"],
-  ["assessment-engine", "SKILL.md"],
-];
+const { commands: COMMAND_FILES, skills: SKILL_FILES } = getProfileSourceSelections("compact");
 
 function readRequiredFile(filePath, label) {
   if (!fs.existsSync(filePath)) {
@@ -131,6 +117,14 @@ Explicit metadata requests include \`SHOW_PROGRESS\`, evidence summary, state up
 - \`REVIEW\`: revisit weak or user-selected topics.
 - \`ASSESS\`: evaluate only reviewed learner evidence.
 - \`SHOW_PROGRESS\`: show progress metadata only when explicitly requested.
+- \`SAVE_LESSON_TO_NOTION\`: only when explicitly invoked, use the connected Notion tool to save a lesson journal entry at meaningful closure; otherwise provide a clean Markdown fallback.
+
+## Optional Notion Lesson Journal
+
+- At a lesson summary or meaningful stopping point only, MAY show once: \`SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla\`.
+- Never show the action during intermediate teaching or unfinished practice, and never execute it automatically.
+- The workflow depends on ChatGPT's connected Notion tool and MUST confirm \`created\` or \`updated\` only after connector-confirmed success.
+- Saving or drafting a journal entry creates no evidence, implies no mastery, and does not mutate learner state.
 `;
 }
 
@@ -308,10 +302,10 @@ ${body}`;
 }
 
 function buildCommandsCore(repoRoot) {
-  const sections = COMMAND_FILES.map((fileName) => {
-    const filePath = path.join(repoRoot, "commands", fileName);
+  const sections = COMMAND_FILES.map((sourcePath) => {
+    const filePath = path.join(repoRoot, sourcePath);
     const content = readRequiredFile(filePath, "command source file");
-    return section(fileName, `commands/${fileName}`, content);
+    return section(path.basename(sourcePath), sourcePath, content);
   });
 
   return `# Commands Core
@@ -322,10 +316,10 @@ ${sections.join("\n")}`;
 }
 
 function buildMentorSkillsCore(repoRoot) {
-  const sections = SKILL_FILES.map(([skillDir, fileName]) => {
-    const filePath = path.join(repoRoot, "skills", skillDir, fileName);
+  const sections = SKILL_FILES.map((sourcePath) => {
+    const filePath = path.join(repoRoot, sourcePath);
     const content = readRequiredFile(filePath, "skill source file");
-    return section(`${skillDir}/${fileName}`, `skills/${skillDir}/${fileName}`, content);
+    return section(sourcePath.replace(/^skills\//, ""), sourcePath, content);
   });
 
   return `# Mentor Skills Core
@@ -341,6 +335,7 @@ Generated compact mentor skills core. Agent skills are assistant capabilities, n
 - Homework reviewer behavior: review learner submissions without inventing mastery.
 - Progress manager behavior: show progress metadata only when explicitly requested.
 - Assessment behavior: evaluate reviewed evidence only.
+- Notion lesson logger behavior: act only on explicit invocation, confirm writes only after the connected tool confirms success, and return a Notion-compatible Markdown draft on failure.
 - Next-action behavior: provide one practical next step without showing continuation prompt blocks unless requested.
 
 ${sections.join("\n")}`;

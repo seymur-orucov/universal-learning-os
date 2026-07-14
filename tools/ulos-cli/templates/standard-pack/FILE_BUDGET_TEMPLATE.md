@@ -2,7 +2,7 @@
 
 Expected output file: `FILE_BUDGET.md`
 
-Purpose: Record the exact 25-file standard budget and allocation categories.
+Purpose: Record the exact 25-file standard budget, allocation categories, and the command/skill merges used to preserve the budget.
 
 Source files:
 - `exports/project-pack-spec/FILE_BUDGET.md`

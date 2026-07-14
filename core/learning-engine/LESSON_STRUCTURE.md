@@ -57,6 +57,7 @@ A lesson SHOULD include:
 - Homework: optional follow-up practice outside the session.
 - Session report: summary of activity, evidence, risks, and proposed updates.
 - Next action: recommended continuation, review, assessment, or pause.
+- Optional lesson journal action: at meaningful closure only, show `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla` once when the runtime supports or may support the optional integration.
 
 Not every section is displayed in one response. The first response for a new concept emphasizes teaching and one guided check; later turns provide feedback, guided practice, independent practice, and closure at the appropriate time.
 
@@ -82,6 +83,7 @@ Diagnostic, challenge-first, practice-only, and assessment modes MAY place a tas
 - Lesson explanations SHOULD follow the instruction language while preserving domain terminology according to `specification/LOCALIZATION_SPEC.md`.
 - Session reports SHOULD distinguish displayed content from learner-demonstrated evidence.
 - A lesson MUST NOT be treated as complete merely because its initial explanation was displayed.
+- The optional lesson journal action MUST NOT appear during intermediate teaching or unfinished learner work, MUST NOT trigger automatically, and MUST NOT be treated as evidence, mastery, or a learner-state update.
 
 ## Relationships
 

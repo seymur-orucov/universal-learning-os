@@ -63,6 +63,7 @@ Manual tests MUST NOT add files inside individual generated pack directories.
 - Compact pack tests live under `tests/manual-acceptance/compact/`.
 - CLI validation test lives at `tests/manual-acceptance/CLI_VALIDATION_TEST.md`.
 - Stage 27.1 deep teaching behavior lives at `tests/manual-acceptance/STAGE_27_1_DEEP_TEACHING_TEST.md`.
+- Stage 28.0 optional Notion lesson journal behavior lives at `tests/manual-acceptance/STAGE_28_0_NOTION_LESSON_JOURNAL_TEST.md`.
 
 ## OPEN QUESTION
 

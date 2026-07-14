@@ -53,6 +53,7 @@ This template defines reusable output shape for lesson sessions. It is not a rea
 - Independent practice: `<one-independent-practice-prompt-after-readiness>`
 - Summary and next action: `<summary-and-one-next-action>`
 - Homework: `<optional-follow-up-after-the-active-lesson-work>`
+- Optional journal action at meaningful closure only: `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla`
 
 ## Optional Internal Session Report
 
@@ -67,6 +68,8 @@ Use `templates/session/SESSION_REPORT_TEMPLATE.md` only when meaningful activity
 - Later-turn sections MUST NOT all be assigned in the initial response.
 - Tasks MUST use only the current concept and established prerequisites unless the learner explicitly requests an exception mode.
 - Internal phase names, learning skill ids, evidence records, state updates, and framework metadata MUST remain hidden from normal learner-facing output.
+- The journal action MAY appear once only with a summary or meaningful stopping point. It MUST NOT appear during intermediate teaching or unfinished practice and MUST NOT execute without explicit learner invocation.
+- Saving or drafting a journal entry MUST NOT imply evidence, mastery, or a learner-state change.
 
 ## Relationships
 

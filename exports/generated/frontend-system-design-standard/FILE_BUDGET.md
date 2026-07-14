@@ -10,7 +10,7 @@
 
 ## Selection Reason
 
-The standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command files, four agent skill files, and five domain files. This preserves inspectable runtime context while staying within the 25-file standard budget.
+The standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command output files, four agent skill output files, and five domain files. The Notion command is merged into the lesson-continuation command output, and the Notion logger skill is merged into the lesson-instructor skill output, with each canonical source separately labeled. This preserves inspectable runtime context while staying within the 25-file standard budget.
 
 ## File List
 

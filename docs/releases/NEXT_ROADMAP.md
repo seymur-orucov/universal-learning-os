@@ -21,7 +21,8 @@
 - Stage 26.0: Front-End System Design Domain completed with requirements-first architecture practice, design defense, and two contract-preserving generated packs.
 - Stage 27.0: Node.js Domain completed with runtime-first backend progression, PostgreSQL/production reasoning, and two contract-preserving generated packs.
 - Stage 27.1: Deep Teaching and Progressive Lesson Delivery completed as a targeted framework correction driven by real SQL lesson evidence.
-- Broad framework and Studio feature expansion remains paused; Stage 27.1 changes only the lesson-delivery guardrails needed to fix the pilot issue.
+- Stage 28.0: Optional Notion Lesson Journal Integration completed as an explicit connected-tool workflow across all registered packs.
+- Broad framework and Studio feature expansion remains paused; Stage 28.0 adds no framework-owned Notion client, credentials, learner database, or automatic state workflow.
 
 ## Recommended Priority
 
@@ -29,6 +30,15 @@
 2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 28.0 Optional Notion Lesson Journal Integration
+
+- Adds `SAVE_LESSON_TO_NOTION` and `notion-lesson-logger` as global runtime contracts inherited by all registered domains.
+- Shows the exact optional action once only at meaningful lesson closure and requires explicit learner invocation.
+- Uses ChatGPT's connected Notion tool, deterministic available-context titles, target discovery, duplicate-safe update behavior, confirmed-success reporting, and a clean Markdown fallback.
+- Stores no Notion client, credentials, opaque target ids, or learner journal data in Universal Learning OS.
+- Keeps journal notes separate from learner state, evidence, and mastery.
+- Preserves fourteen packs, exactly 25 standard files, exactly 5 compact files, and unchanged canonical domain content.
 
 ## Stage 27.1 Deep Teaching and Progressive Lesson Delivery
 

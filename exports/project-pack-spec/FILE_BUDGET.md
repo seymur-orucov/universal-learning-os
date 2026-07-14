@@ -76,9 +76,13 @@ This stage MUST NOT create bundled domain files.
 
 Command selection SHOULD include only commands needed by the Project Pack goal. A lesson-focused pack MAY include `commands/START_LESSON.md`, `commands/CONTINUE_LESSON.md`, and `commands/PRACTICE.md`; an interview-focused pack MAY prioritize `commands/INTERVIEW.md` and `commands/ASSESS.md`.
 
+The current standard profile preserves 25 filenames by merging `commands/SAVE_LESSON_TO_NOTION.md` into `COMMAND_CONTINUE_LESSON.md`. The compact profile includes it in `COMMANDS_CORE.md`.
+
 ## Agent Skill Files
 
 Agent skill selection SHOULD include reusable agent skills required by the selected command behavior. Agent skills MUST NOT be treated as learner competencies.
+
+The current standard profile preserves 25 filenames by merging `skills/notion-lesson-logger/SKILL.md` into `SKILL_LESSON_INSTRUCTOR.md`. The compact profile includes it in `MENTOR_SKILLS_CORE.md`.
 
 ## Templates
 

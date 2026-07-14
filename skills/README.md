@@ -16,6 +16,7 @@ Agent skills are governed by `specification/SKILL_SPEC.md`, `docs/decisions/ADR-
 - `skills/progress-manager/SKILL.md`: summarizes progress and proposes next actions.
 - `skills/project-mentor/SKILL.md`: guides realistic learning projects.
 - `skills/interviewer/SKILL.md`: runs interview-style learning sessions.
+- `skills/notion-lesson-logger/SKILL.md`: prepares and writes an explicitly requested lesson journal entry through a connected Notion tool, or returns a Markdown fallback.
 
 ## Command Orchestration
 
@@ -31,4 +32,3 @@ Commands MAY orchestrate one or more agent skills to satisfy a user-invoked work
 ## OPEN QUESTION
 
 - Should future agent skill contracts include machine-readable manifests in addition to Markdown?
-

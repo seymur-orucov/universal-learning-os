@@ -46,6 +46,8 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 - A Project Pack MUST declare when files are summarized, omitted, or merged. Standard packs SHOULD use a manifest; compact/free packs MAY declare this in merged core files when a separate manifest would exceed the file budget.
 - A Project Pack MUST declare its pack profile and file budget.
 - A compact/free Project Pack MUST contain exactly 5 files for the current generated-pack contract.
+- Global optional runtime commands and their reusable skills MUST be selected independently of domain configuration so every registered domain inherits them.
+- Optional connected-tool workflows MUST declare explicit invocation, failure fallback, confirmed-success behavior, and separation from evidence, mastery, and learner state.
 
 ## Relationships
 

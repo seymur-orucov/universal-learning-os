@@ -76,6 +76,9 @@ These phases MAY span multiple interaction turns. A response SHOULD normally req
 - Guided checks MUST target only the current concept and available prerequisites.
 - Simplified teaching and exercises MUST remain technically correct and MUST NOT create a false mental model.
 - Professional background alone MUST NOT be treated as evidence that a learner is ready to use an untaught concept.
+- At a lesson summary or another meaningful stopping point, the assistant MAY show this optional action once: `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla`.
+- The optional Notion action MUST NOT appear during intermediate teaching, an unanswered guided check, or unfinished practice, and it MUST NOT run unless the learner explicitly invokes it.
+- Saving or drafting a lesson journal entry MUST NOT create evidence, imply mastery, or mutate learner state. The command contract in `commands/SAVE_LESSON_TO_NOTION.md` is canonical for journal behavior.
 
 ## Relationships
 
@@ -180,6 +183,7 @@ A lesson SHOULD include:
 - Homework: optional follow-up practice outside the session.
 - Session report: summary of activity, evidence, risks, and proposed updates.
 - Next action: recommended continuation, review, assessment, or pause.
+- Optional lesson journal action: at meaningful closure only, show `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla` once when the runtime supports or may support the optional integration.
 
 Not every section is displayed in one response. The first response for a new concept emphasizes teaching and one guided check; later turns provide feedback, guided practice, independent practice, and closure at the appropriate time.
 
@@ -205,6 +209,7 @@ Diagnostic, challenge-first, practice-only, and assessment modes MAY place a tas
 - Lesson explanations SHOULD follow the instruction language while preserving domain terminology according to `specification/LOCALIZATION_SPEC.md`.
 - Session reports SHOULD distinguish displayed content from learner-demonstrated evidence.
 - A lesson MUST NOT be treated as complete merely because its initial explanation was displayed.
+- The optional lesson journal action MUST NOT appear during intermediate teaching or unfinished learner work, MUST NOT trigger automatically, and MUST NOT be treated as evidence, mastery, or a learner-state update.
 
 ## Relationships
 

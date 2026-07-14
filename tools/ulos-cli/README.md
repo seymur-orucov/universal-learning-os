@@ -59,7 +59,7 @@ The tests use Node's built-in test runner and temporary repo-local paths under `
 ## Commands
 
 - `list-domains`: prints supported domains and profiles.
-- `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, manifest basics, compact structure, and launch kit presence.
+- `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, optional Notion journal contracts/privacy boundaries, manifest basics, compact structure, and launch kit presence.
 - `validate-learner`: checks optional learner handoff/snapshot markdown files for obvious forbidden internal-default metadata markers and reports artifact presence, checked counts, ignored non-markdown files, violation counts, and pass/fail status.
 - `inspect-pack`: prints path, profile, count rule, validation checks, and file list for one pack.
 - `generate`: regenerates compact and standard packs from canonical domain files, selected command files, selected skill files, and framework context.
@@ -137,6 +137,8 @@ Planning docs and templates exist at:
 - `tools/ulos-cli/templates/standard-pack/`
 - `tools/ulos-cli/templates/standard-pack/MAPPING.md`
 
+Global command and skill selections are exposed by `tools/ulos-cli/src/lib/profile-sources.js`. Compact packs include `SAVE_LESSON_TO_NOTION` and `notion-lesson-logger` in their merged core files. Standard packs preserve 25 filenames by merging them, with separate canonical source labels, into `COMMAND_CONTINUE_LESSON.md` and `SKILL_LESSON_INSTRUCTOR.md`.
+
 ## Optional Learner Runtime Helpers
 
 These commands are lightweight scaffold helpers. They do not parse full ChatGPT transcripts, infer mastery, generate YAML learner-state patches, or require repository updates after every lesson.
@@ -196,6 +198,7 @@ The generated handoff and snapshot scaffolds include domain, date, optional/user
 - Compact packs must include exactly the compact core structure.
 - Every generated pack must include the `Learner-Facing Mentor Mode` marker and metadata visibility guardrails.
 - Launch kit files must exist for each supported domain/profile.
+- Every generated pack must preserve explicit-only Notion invocation, meaningful-closure placement, connector-confirmed success, Markdown fallback, evidence/mastery/state separation, and absence of assigned credentials, opaque target ids, or active learner-state content.
 
 ## Exit Codes
 

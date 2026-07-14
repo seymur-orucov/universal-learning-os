@@ -111,6 +111,53 @@ function checkCompactStructure(files, profile) {
   return pass("compact structure", "ok");
 }
 
+function readNotionRuntimeFiles(packPath, profile) {
+  const names = profile === "compact"
+    ? ["PROJECT_INSTRUCTIONS.md", "COMMANDS_CORE.md", "MENTOR_SKILLS_CORE.md"]
+    : ["PROJECT_INSTRUCTIONS.md", "COMMAND_CONTINUE_LESSON.md", "SKILL_LESSON_INSTRUCTOR.md"];
+
+  return names.map((fileName) => readFileIfExists(packPath, fileName) || "").join("\n");
+}
+
+function checkNotionLessonJournalContract(packPath, profile) {
+  const content = readNotionRuntimeFiles(packPath, profile);
+  const required = [
+    "SAVE_LESSON_TO_NOTION",
+    "Bu dərsin əsas məqamlarını Notion-a yadda saxla",
+    "explicit",
+    "meaningful stopping point",
+    "unfinished practice",
+    "Notion-compatible Markdown",
+    "created",
+    "updated",
+    "does not mutate learner state",
+  ];
+  const missing = required.filter((marker) => !content.toLowerCase().includes(marker.toLowerCase()));
+
+  if (missing.length > 0) {
+    return fail("Notion lesson journal contract", `missing marker(s): ${missing.join(", ")}`);
+  }
+
+  return pass("Notion lesson journal contract", "explicit-only, boundary, fallback, confirmation, and state separation present");
+}
+
+function checkNotionPrivacyBoundaries(packPath, profile) {
+  const content = readNotionRuntimeFiles(packPath, profile);
+  const forbidden = [
+    { label: "assigned Notion credential", pattern: /notion[_ -]?(?:api[_ -]?)?(?:token|secret|key)\s*[:=]\s*[^\s`]+/i },
+    { label: "opaque Notion target id", pattern: /(?:page|database|workspace)[_-]?id\s*[:=]\s*[a-z0-9_-]{8,}/i },
+    { label: "active learner source", pattern: /learners\/active-learner\//i },
+    { label: "active learner state field", pattern: /(?:learner_profile_ref|learning_skill_records|evidence_log)\s*:/i },
+  ];
+  const violations = forbidden.filter(({ pattern }) => pattern.test(content)).map(({ label }) => label);
+
+  if (violations.length > 0) {
+    return fail("Notion privacy boundaries", `found: ${violations.join(", ")}`);
+  }
+
+  return pass("Notion privacy boundaries", "no assigned credentials, opaque ids, or active learner-state content");
+}
+
 function expectedLaunchKitFiles(domain, profile) {
   const domainConfig = getDomainConfig(domain);
   const prefix = domainConfig.launchPrefix;
@@ -161,6 +208,8 @@ function validatePack(repoRoot, domain, profile) {
   checks.push(checkRequiredFiles(packPath, profile));
   checks.push(checkLearnerFacingMode(projectInstructions));
   checks.push(checkMetadataGuardrail(projectInstructions));
+  checks.push(checkNotionLessonJournalContract(packPath, profile));
+  checks.push(checkNotionPrivacyBoundaries(packPath, profile));
 
   if (profile === "standard") {
     checks.push(checkStandardManifest(packPath, domain, profile));

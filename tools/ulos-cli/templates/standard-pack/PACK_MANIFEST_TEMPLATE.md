@@ -2,7 +2,7 @@
 
 Expected output file: `PACK_MANIFEST.md`
 
-Purpose: Declare pack identity, profile, source files, summarized files, excluded files, and generation limitations.
+Purpose: Declare pack identity, profile, source files, summarized files, merged files, excluded files, and generation limitations.
 
 Source files:
 - `exports/project-pack-spec/PACK_MANIFEST.md`

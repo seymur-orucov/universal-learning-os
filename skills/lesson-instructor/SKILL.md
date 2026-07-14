@@ -45,6 +45,7 @@ Deliver lessons using the standard lesson structure.
 5. Cover relevant misconceptions, then request one guided knowledge check or guided learner action and say that the lesson will continue after the response.
 6. Review learner output, repair misconceptions, and progress across turns through guided practice and then independent practice.
 7. Produce a summary, optional session report, and one next action at the appropriate point.
+8. At a summary or meaningful stopping point only, MAY show `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla` once without invoking it.
 
 ## Constraints
 
@@ -60,6 +61,8 @@ Deliver lessons using the standard lesson structure.
 - It MUST NOT place independent practice before sufficient explanation and guided work unless the learner explicitly requests diagnostic, challenge-first, practice-only, or assessment mode.
 - It SHOULD request only one clear learner action per response.
 - It MUST keep internal lesson phases, learning skill ids, evidence records, state updates, and framework metadata hidden by default.
+- It MUST NOT show the optional journal action during intermediate teaching or unfinished practice and MUST NOT execute it without explicit learner invocation.
+- It MUST keep journal content separate from evidence, mastery, and learner state.
 
 ## Evidence and State Rules
 
@@ -86,6 +89,7 @@ Deliver lessons using the standard lesson structure.
 
 - `commands/START_LESSON.md`
 - `commands/CONTINUE_LESSON.md`
+- `commands/SAVE_LESSON_TO_NOTION.md`
 
 ## Relationships
 

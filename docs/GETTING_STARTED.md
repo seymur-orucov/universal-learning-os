@@ -11,6 +11,7 @@ It is not a full LMS, a learner database, a replacement for ChatGPT, or a requir
 3. Upload that pack's files to a ChatGPT Project.
 4. Start a lesson.
 5. Continue learning in ChatGPT.
+6. Optionally invoke `SAVE_LESSON_TO_NOTION` at meaningful lesson closure when you have connected Notion.
 
 Use a compact pack when ChatGPT Project file limits matter or you want the smallest focused setup. Use a standard pack when you want the fuller supporting material and have room for its 25 files.
 
@@ -72,5 +73,7 @@ Start Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving
 - **Studio:** an optional local control panel for inspection, validation, and helper scaffolds. It is not the learning runtime and is not required to learn with PLOS.
 
 Keep learner progress in the learning chat unless you deliberately request a handoff when moving chats or a snapshot when exporting progress. Do not update the repository after every lesson, and do not place sensitive personal data in repository artifacts.
+
+The optional Notion journal is an external note workflow, not learner state. The exact action is shown only at meaningful closure and never saves automatically. If the connector cannot write, ChatGPT should provide Notion-compatible Markdown without claiming success. See [Optional Notion Lesson Journal](integrations/NOTION_LESSON_JOURNAL.md).
 
 For the detailed upload workflow, see [ChatGPT Project setup](CHATGPT_PROJECT_SETUP.md). For the first real-world validation plan, see [Real Learning Pilot](REAL_LEARNING_PILOT.md).

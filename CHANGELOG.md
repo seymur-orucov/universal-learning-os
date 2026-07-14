@@ -4,6 +4,9 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 28.0 by adding the global, explicit-only `SAVE_LESSON_TO_NOTION` command and reusable `notion-lesson-logger` skill for optional connected Notion lesson journaling.
+- Shows the exact optional action only at meaningful lesson closure, requires connector-confirmed create/update wording, handles targets and duplicates safely, returns a Notion-compatible Markdown fallback, and keeps journal writes separate from evidence, mastery, and learner state.
+- Preserves all fourteen generated pack contracts by using shared registry-wide source selections, compact merged cores, and separately labeled standard command/skill merges; adds validation, automated tests, ADR-0055, integration guidance, and manual acceptance coverage without storing credentials, target ids, or learner journal data.
 - Completes Stage 27.1 by making Deep Teaching Mode and progressive multi-turn lesson delivery the default for `START_LESSON` across all seven domains.
 - Requires guided checks before independent practice, prerequisite-safe and technically correct exercises, explicit challenge-first exceptions, and one clear learner action per response while preserving Learner-Facing Mentor Mode.
 - Corrects SQL Lesson 1 boundaries, reserves bridge-table and many-to-many work for Lesson 14, regenerates all fourteen packs without changing file contracts, and adds ADR-0054, automated regressions, and manual acceptance coverage.

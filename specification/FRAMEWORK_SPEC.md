@@ -25,6 +25,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Learning skill: domain-specific learner competency described by a future domain skill graph.
 - Evidence: observed learner activity used to justify state changes.
 - Localization preference: configurable instruction language and terminology language behavior described by `specification/LOCALIZATION_SPEC.md`.
+- External lesson journal: an optional runtime destination for a learner-requested lesson summary; it is not learner state, evidence, mastery, or a canonical repository source.
 
 ## Normative Requirements
 
@@ -39,6 +40,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Reusable framework content and domain pack content MUST NOT contain learner-specific progress.
 - Learner progress MUST require evidence or explicit user instruction, as defined by `specification/LEARNING_LIFECYCLE.md` and `specification/STATE_SPEC.md`.
 - User-facing teaching behavior SHOULD respect localization preferences defined by `specification/LOCALIZATION_SPEC.md`.
+- Optional external journal writes MUST be explicitly requested, MUST remain separate from learner state and evidence, and MUST be reported as successful only after the connected runtime tool confirms the write.
 - Versioned artifacts SHOULD declare the framework contract version they target once versioning exists.
 - Unresolved architectural or behavioral issues MUST be marked as `OPEN QUESTION`.
 

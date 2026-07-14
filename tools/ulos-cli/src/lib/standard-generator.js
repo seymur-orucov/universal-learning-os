@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { getDomainConfig } = require("./domains");
 const { getGeneratedPackPath } = require("./paths");
+const { getProfileSourceSelections } = require("./profile-sources");
 
 const DOMAIN_PREFIX_OVERRIDES = {
   "sql-postgresql": "SQL",
@@ -44,21 +45,7 @@ const DOMAIN_OUTPUT_SUFFIXES = [
   "PRACTICE_ASSESSMENT_RULES.md",
 ];
 
-const COMMAND_OUTPUTS = [
-  ["COMMAND_START_LESSON.md", "commands/START_LESSON.md", "Start Lesson Command"],
-  ["COMMAND_CONTINUE_LESSON.md", "commands/CONTINUE_LESSON.md", "Continue Lesson Command"],
-  ["COMMAND_PRACTICE.md", "commands/PRACTICE.md", "Practice Command"],
-  ["COMMAND_REVIEW.md", "commands/REVIEW.md", "Review Command"],
-  ["COMMAND_ASSESS.md", "commands/ASSESS.md", "Assess Command"],
-  ["COMMAND_SHOW_PROGRESS.md", "commands/SHOW_PROGRESS.md", "Show Progress Command"],
-];
-
-const SKILL_OUTPUTS = [
-  ["SKILL_LESSON_INSTRUCTOR.md", "skills/lesson-instructor/SKILL.md", "Lesson Instructor Skill"],
-  ["SKILL_PRACTICE_COACH.md", "skills/practice-coach/SKILL.md", "Practice Coach Skill"],
-  ["SKILL_HOMEWORK_REVIEWER.md", "skills/homework-reviewer/SKILL.md", "Homework Reviewer Skill"],
-  ["SKILL_PROGRESS_MANAGER.md", "skills/progress-manager/SKILL.md", "Progress Manager Skill"],
-];
+const { commands: COMMAND_OUTPUTS, skills: SKILL_OUTPUTS } = getProfileSourceSelections("standard");
 
 function getDomainPrefix(domainId) {
   return DOMAIN_PREFIX_OVERRIDES[domainId] || domainId.toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "");
@@ -147,7 +134,69 @@ function buildProjectInstructions(domainConfig) {
   const title = domainConfig.title || domainConfig.id;
   const terms = domainConfig.terms || "technical terms";
 
-  return `# ${title} Mentor OS Standard\n\n## Project Identity\n\n- Domain id: \`${domainConfig.id}\`\n- Domain title: ${title}\n- Profile: \`standard\`\n- File contract: exactly 25 files\n\n## Purpose\n\n${domainConfig.purpose || `Teach ${title} using Universal Learning OS.`}\n\n## Localization Rules\n\n- Instruction language: Azerbaijani unless the learner requests another language.\n- Keep ${terms} in English where natural.\n- Keep code, syntax, API names, compiler messages, configuration keys, and command names in English when natural.\n\n## Deep Teaching and Lesson Progression\n\n- \`START_LESSON\` MUST teach before testing by default.\n- The initial learner action MUST be a guided knowledge check or guided action, not premature independent practice.\n- Lessons progress across turns from explanation to guided work and then independent work.\n- Learner tasks MUST NOT depend on untaught concepts or unavailable prerequisites.\n- One response SHOULD normally request only one clear learner action.\n- Diagnostic, challenge-first, practice-only, or assessment behavior before teaching requires an explicit learner request.\n\n## Command Behavior Summary\n\n- \`START_LESSON\`: teach the next appropriate concept deeply enough for reasoning, then request one guided learner action.\n- \`CONTINUE_LESSON\`: review the learner response, repair misconceptions, and continue with one appropriate next action.\n- \`PRACTICE\`: run focused practice and require learner output.\n- \`REVIEW\`: revisit weak, due, or user-selected topics.\n- \`ASSESS\`: assess only observed learner evidence.\n- \`SHOW_PROGRESS\`: show progress metadata only when explicitly requested.\n\n## Learner-Facing Mentor Mode\n\nNormal lessons, practice, review, assessment, and homework review MUST be clean learner-facing mentoring.\n\nDo NOT show these unless explicitly requested: \`Evidence Generated\`, \`Proposed State Updates\`, YAML learner state updates, internal skill IDs, mastery tables, Project Pack implementation details, learner state architecture, continuation prompt blocks, or audit/debug notes.\n\nWhen metadata is explicitly requested, separate observed evidence from recommendations and do not invent progress.\n\nExplicit metadata requests include \`SHOW_PROGRESS\`, evidence summary, state update, proposed state updates, continuation prompt, learner handoff, progress report, or debug/audit output.\n\n## Safety and Boundary Rules\n\n- Mastery MUST require evidence or explicit user instruction.\n- Lesson exposure, generated examples, copied answers, copied code, file upload, or Project setup MUST NOT imply mastery.\n- Learner progress belongs in learner state, not in this generated pack.\n- Do not silently modify learner state.\n- If learner state or evidence is missing, say so honestly.\n`;
+  return `# ${title} Mentor OS Standard
+
+## Project Identity
+
+- Domain id: \`${domainConfig.id}\`
+- Domain title: ${title}
+- Profile: \`standard\`
+- File contract: exactly 25 files
+
+## Purpose
+
+${domainConfig.purpose || `Teach ${title} using Universal Learning OS.`}
+
+## Localization Rules
+
+- Instruction language: Azerbaijani unless the learner requests another language.
+- Keep ${terms} in English where natural.
+- Keep code, syntax, API names, compiler messages, configuration keys, and command names in English when natural.
+
+## Deep Teaching and Lesson Progression
+
+- \`START_LESSON\` MUST teach before testing by default.
+- The initial learner action MUST be a guided knowledge check or guided action, not premature independent practice.
+- Lessons progress across turns from explanation to guided work and then independent work.
+- Learner tasks MUST NOT depend on untaught concepts or unavailable prerequisites.
+- One response SHOULD normally request only one clear learner action.
+- Diagnostic, challenge-first, practice-only, or assessment behavior before teaching requires an explicit learner request.
+
+## Command Behavior Summary
+
+- \`START_LESSON\`: teach the next appropriate concept deeply enough for reasoning, then request one guided learner action.
+- \`CONTINUE_LESSON\`: review the learner response, repair misconceptions, and continue with one appropriate next action.
+- \`PRACTICE\`: run focused practice and require learner output.
+- \`REVIEW\`: revisit weak, due, or user-selected topics.
+- \`ASSESS\`: assess only observed learner evidence.
+- \`SHOW_PROGRESS\`: show progress metadata only when explicitly requested.
+- \`SAVE_LESSON_TO_NOTION\`: only when explicitly invoked, save a meaningful lesson summary through the connected Notion tool or return a clean Markdown fallback.
+
+## Optional Notion Lesson Journal
+
+- At a lesson summary or meaningful stopping point only, MAY show once: \`SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla\`.
+- Never show the action during intermediate teaching or unfinished practice, and never execute it automatically.
+- The workflow depends on ChatGPT's connected Notion tool and MUST confirm \`created\` or \`updated\` only after connector-confirmed success.
+- Saving or drafting a journal entry creates no evidence, implies no mastery, and does not mutate learner state.
+
+## Learner-Facing Mentor Mode
+
+Normal lessons, practice, review, assessment, and homework review MUST be clean learner-facing mentoring.
+
+Do NOT show these unless explicitly requested: \`Evidence Generated\`, \`Proposed State Updates\`, YAML learner state updates, internal skill IDs, mastery tables, Project Pack implementation details, learner state architecture, continuation prompt blocks, or audit/debug notes.
+
+When metadata is explicitly requested, separate observed evidence from recommendations and do not invent progress.
+
+Explicit metadata requests include \`SHOW_PROGRESS\`, evidence summary, state update, proposed state updates, continuation prompt, learner handoff, progress report, or debug/audit output.
+
+## Safety and Boundary Rules
+
+- Mastery MUST require evidence or explicit user instruction.
+- Lesson exposure, generated examples, copied answers, copied code, file upload, or Project setup MUST NOT imply mastery.
+- Learner progress belongs in learner state, not in this generated pack.
+- Do not silently modify learner state.
+- If learner state or evidence is missing, say so honestly.
+`;
 }
 
 function buildStartupPrompt(domainConfig) {
@@ -176,12 +225,42 @@ function buildContinuationPrompt(domainConfig) {
 }
 
 function buildFileBudget(domainConfig, files) {
-  return `# File Budget\n\n## Profile\n\n- Domain id: \`${domainConfig.id}\`\n- Domain title: ${domainConfig.title}\n- Profile: \`standard\`\n- Required file count: exactly 25 files\n- Actual file count: ${files.length}\n\n## Selection Reason\n\nThe standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command files, four agent skill files, and five domain files. This preserves inspectable runtime context while staying within the 25-file standard budget.\n\n## File List\n\n${files.map((fileName) => `- \`${fileName}\``).join("\n")}\n`;
+  return `# File Budget\n\n## Profile\n\n- Domain id: \`${domainConfig.id}\`\n- Domain title: ${domainConfig.title}\n- Profile: \`standard\`\n- Required file count: exactly 25 files\n- Actual file count: ${files.length}\n\n## Selection Reason\n\nThe standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command output files, four agent skill output files, and five domain files. The Notion command is merged into the lesson-continuation command output, and the Notion logger skill is merged into the lesson-instructor skill output, with each canonical source separately labeled. This preserves inspectable runtime context while staying within the 25-file standard budget.\n\n## File List\n\n${files.map((fileName) => `- \`${fileName}\``).join("\n")}\n`;
 }
 
 function buildManifest(domainConfig, outputDir, files, sources) {
   const sourceList = Array.from(new Set(sources)).sort();
-  return `# Pack Manifest\n\n## Pack Identity\n\n- Domain id: \`${domainConfig.id}\`\n- Domain title: ${domainConfig.title}\n- Profile: standard\n- Generated pack path: \`${outputDir}\`\n- File count: 25\n\n## Generated Files\n\n${files.map((fileName) => `- \`${fileName}\``).join("\n")}\n\n## Source Summary\n\nThis standard pack is generated from canonical framework, command, skill, project-pack, and domain files. It is reusable Project Pack content and not learner state.\n\n${sourceList.map((source) => `- \`${source}\``).join("\n")}\n\n## Generation Limitations\n\n- Markdown is copied or summarized without deep semantic parsing.\n- Validation remains the quality gate after generation.\n- Learner progress is not generated and must come from learner activity or explicit user instruction.\n`;
+  return `# Pack Manifest
+
+## Pack Identity
+
+- Domain id: \`${domainConfig.id}\`
+- Domain title: ${domainConfig.title}
+- Profile: standard
+- Generated pack path: \`${outputDir}\`
+- File count: 25
+
+## Generated Files
+
+${files.map((fileName) => `- \`${fileName}\``).join("\n")}
+
+## Declared Merges
+
+- \`COMMAND_CONTINUE_LESSON.md\` separately labels and merges \`commands/CONTINUE_LESSON.md\` with \`commands/SAVE_LESSON_TO_NOTION.md\`.
+- \`SKILL_LESSON_INSTRUCTOR.md\` separately labels and merges \`skills/lesson-instructor/SKILL.md\` with \`skills/notion-lesson-logger/SKILL.md\`.
+
+## Source Summary
+
+This standard pack is generated from canonical framework, command, skill, project-pack, and domain files. It is reusable Project Pack content and not learner state.
+
+${sourceList.map((source) => `- \`${source}\``).join("\n")}
+
+## Generation Limitations
+
+- Markdown is copied or summarized without deep semantic parsing.
+- Validation remains the quality gate after generation.
+- Learner progress is not generated and must come from learner activity or explicit user instruction.
+`;
 }
 
 function buildDomainFiles(repoRoot, domainConfig, prefix) {
@@ -314,14 +393,20 @@ function buildStandardPack(repoRoot, domainConfig, outputDir) {
   files["LOCALIZATION_CONTEXT.md"] = renderSources("Localization Context", localizationSources);
   sources.push(...localizationSources.map((source) => source.relativePath));
 
-  for (const [outputName, sourcePath, title] of COMMAND_OUTPUTS) {
-    files[outputName] = renderSources(title, [sourceBlock(repoRoot, sourcePath)]);
-    sources.push(sourcePath);
+  for (const output of COMMAND_OUTPUTS) {
+    files[output.outputName] = renderSources(
+      output.title,
+      output.sources.map((sourcePath) => sourceBlock(repoRoot, sourcePath))
+    );
+    sources.push(...output.sources);
   }
 
-  for (const [outputName, sourcePath, title] of SKILL_OUTPUTS) {
-    files[outputName] = renderSources(title, [sourceBlock(repoRoot, sourcePath)]);
-    sources.push(sourcePath);
+  for (const output of SKILL_OUTPUTS) {
+    files[output.outputName] = renderSources(
+      output.title,
+      output.sources.map((sourcePath) => sourceBlock(repoRoot, sourcePath))
+    );
+    sources.push(...output.sources);
   }
 
   const domainResult = buildDomainFiles(repoRoot, domainConfig, prefix);

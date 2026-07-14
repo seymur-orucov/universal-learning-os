@@ -2,18 +2,11 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
+const { DOMAIN_CONFIG } = require("../src/lib/domains");
 
 const repoRoot = path.resolve(__dirname, "../../..");
 const generatedRoot = path.join(repoRoot, "exports", "generated");
-const domains = [
-  "sql-postgresql",
-  "english",
-  "javascript",
-  "typescript",
-  "dsa",
-  "frontend-system-design",
-  "nodejs",
-];
+const domains = DOMAIN_CONFIG.map(({ id }) => id);
 
 function readGenerated(domain, profile, fileName) {
   return fs.readFileSync(path.join(generatedRoot, `${domain}-${profile}`, fileName), "utf8");

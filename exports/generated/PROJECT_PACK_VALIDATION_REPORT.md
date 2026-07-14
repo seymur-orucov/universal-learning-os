@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`stage-27.1-deep-teaching-progressive-lessons`
+`stage-28.0-optional-notion-lesson-journal`
 
 ## Quick Validation
 
@@ -12,7 +12,7 @@ Preferred quick quality gate:
 node tools/ulos-cli/src/index.js validate
 ```
 
-The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure and is the official generated-pack quality gate.
+The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, optional Notion journal contracts and privacy boundaries, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure and is the official generated-pack quality gate.
 
 Stage 20.0 also provides automated CLI regression tests:
 
@@ -26,7 +26,7 @@ From `tools/ulos-cli/`, run the same suite with:
 npm test
 ```
 
-The Stage 27.1 suite passes 47/47 tests. These tests cover teaching-first project instructions in every standard and compact pack, generated command and mentor-skill readiness rules, SQL Lesson 1 and many-to-many regressions, Learner-Facing Mentor Mode boundaries, the exact seven-domain and fourteen-pack contracts, pack inspection, generation dry-runs, path safety, learner helpers, and learner forbidden-marker validation.
+The Stage 28.0 suite passes 60/60 tests. Thirteen registry-driven Notion tests cover canonical files, shared/future-domain source inheritance, all fourteen generated packs, exact 25/5 counts, explicit-only invocation, meaningful-boundary placement, deterministic titles and honest omission, target and duplicate handling, confirmed success, Markdown fallback, evidence/mastery/state separation, and credential/id/active-state exclusion. Existing deep-teaching, learner-facing, generation, path-safety, learner-helper, and pack-contract regressions also pass.
 
 Packs can be regenerated before validation:
 
@@ -119,7 +119,7 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## Current Stage 27.1 Summary
+## Current Stage 28.0 Summary
 
 - All seven supported domains have standard and compact generated packs, for fourteen generated packs total.
 - All standard packs are expected to contain exactly 25 files.
@@ -127,9 +127,9 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Launch kits remain the user-facing setup helpers.
 - Generated packs are reusable and learner-neutral; learner runtime state remains separate under `learners/active-learner/` when used.
 
-Every generated standard and compact pack now states that `START_LESSON` teaches before testing by default, uses one guided initial learner action, progresses from explanation through guided work to independent work, forbids tasks that depend on untaught concepts, and requires an explicit request for challenge-first behavior. Generated commands and instructor skills carry the corresponding progressive-delivery and exercise-readiness contracts.
+Every generated standard and compact pack includes `SAVE_LESSON_TO_NOTION` and `notion-lesson-logger`. The exact optional Azerbaijani action appears only at meaningful lesson closure, never executes automatically, and requires an explicit learner invocation. The workflow prefers a runtime-supplied target, otherwise searches for `PLOS Learning Journal`; it handles duplicate updates or ambiguity, confirms `created`/`updated` only after connector success, and returns a Notion-compatible Markdown draft without claiming a write on failure.
 
-SQL Lesson 1 is limited to prerequisite-safe relational-model reasoning. Many-to-many bridge-table work remains in Lesson 14, where students/courses uses `students`, `courses`, and `enrollments`. Studio remains optional, learner-state workflows remain evidence-based and non-daily, ChatGPT Projects remain the daily runtime, and no release tag is created by Stage 27.1.
+The journal is external learner content and creates no evidence, mastery, or learner-state update. Universal Learning OS stores no Notion client, credentials, opaque target ids, or learner journal data. Standard packs preserve 25 files through declared, separately labeled command/skill merges; compact packs preserve five files through their existing merged cores. Canonical domain content remains unchanged.
 
 ## v0.2.0 Release Candidate Summary
 
