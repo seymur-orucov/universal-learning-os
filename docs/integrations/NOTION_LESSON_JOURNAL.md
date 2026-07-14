@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Universal Learning OS can offer an optional lesson-journal action at meaningful lesson closure:
+Universal Learning OS offers one generic optional lesson-note action at meaningful lesson closure:
 
-`SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla`
+`SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz`
 
-The learner must invoke it explicitly. The repository provides behavior contracts only; ChatGPT's connected Notion tool performs any read or write.
+The learner must invoke `SAVE_LESSON NOTION` explicitly to use Notion. `SAVE_LESSON_TO_NOTION` remains a callable compatibility alias but is not shown as another suggestion. Both routes use the shared grounded summary model. The repository provides behavior contracts only; ChatGPT's connected Notion tool performs any read or write.
 
 ## Setup
 
@@ -19,7 +19,7 @@ No Notion API client, token, credential, target id, or learner journal data is s
 
 ## Runtime Behavior
 
-- The action appears at most once with a lesson summary or meaningful stopping point, not during intermediate teaching or unfinished practice.
+- The generic action appears at most once with a lesson summary or meaningful stopping point, not during intermediate teaching or unfinished practice.
 - Displaying the action never starts a write.
 - On explicit invocation, the assistant prepares a deterministic title from available date, domain, and lesson identity, omitting missing values honestly.
 - The assistant searches for a same-lesson entry where supported and updates one unambiguous match.
@@ -36,7 +36,7 @@ When the connector is unavailable, disconnected, denied, read-only, or unsupport
 
 A journal entry is a learner note. Saving or drafting it does not create evidence, mark a skill mastered, or update learner state. Existing observed evidence may be summarized, but the journal is not its canonical store.
 
-Canonical behavior is defined in `commands/SAVE_LESSON_TO_NOTION.md` and `skills/notion-lesson-logger/SKILL.md`.
+Generic routing is defined in `commands/SAVE_LESSON.md`, normalization in `skills/lesson-summary-builder/SKILL.md`, alias compatibility in `commands/SAVE_LESSON_TO_NOTION.md`, and connector behavior in `skills/notion-lesson-logger/SKILL.md`.
 
 ## Manual Verification
 

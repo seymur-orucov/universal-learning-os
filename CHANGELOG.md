@@ -4,6 +4,9 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 29.0 by adding generic explicit-only `SAVE_LESSON` routing, default downloadable Obsidian Markdown artifacts, connected Notion routing, and backward-compatible `SAVE_LESSON_TO_NOTION` alias behavior.
+- Adds the shared `lesson-summary-builder` and `obsidian-lesson-exporter` contracts with grounded omission rules, stable English filenames, valid YAML, localized domain-adaptive notes, confirmed artifact semantics, honest fallback, and no Obsidian vault access claim.
+- Regenerates all fourteen packs through shared profiles while preserving exact 25/5 file budgets and unchanged `domains/**`/`learners/**`; adds semantic validation, registry-driven fixtures/tests, ADR-0056, integration/release guidance, and Stage 29 manual acceptance coverage.
 - Completes Stage 28.0 by adding the global, explicit-only `SAVE_LESSON_TO_NOTION` command and reusable `notion-lesson-logger` skill for optional connected Notion lesson journaling.
 - Shows the exact optional action only at meaningful lesson closure, requires connector-confirmed create/update wording, handles targets and duplicates safely, returns a Notion-compatible Markdown fallback, and keeps journal writes separate from evidence, mastery, and learner state.
 - Preserves all fourteen generated pack contracts by using shared registry-wide source selections, compact merged cores, and separately labeled standard command/skill merges; adds validation, automated tests, ADR-0055, integration guidance, and manual acceptance coverage without storing credentials, target ids, or learner journal data.

@@ -32,6 +32,9 @@ The repository is ready for manual review and practical ChatGPT Project setup us
 - `english`
 - `javascript`
 - `typescript`
+- `dsa`
+- `frontend-system-design`
+- `nodejs`
 
 ## Repository Map
 
@@ -67,10 +70,16 @@ Supported generated Project Packs:
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
+- `exports/generated/dsa-standard/`
+- `exports/generated/frontend-system-design-standard/`
+- `exports/generated/nodejs-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+- `exports/generated/dsa-compact/`
+- `exports/generated/frontend-system-design-compact/`
+- `exports/generated/nodejs-compact/`
 
 ## CLI Prototype
 
@@ -99,7 +108,7 @@ The `generate` command supports `compact` and `standard` profiles. Use `--dry-ru
 2. Open the matching launch kit under `exports/generated/project-launch-kits/`.
 3. Upload the files listed in the launch kit upload list.
 4. Paste the ready startup prompt.
-5. Use commands such as `START_LESSON`, `PRACTICE`, `REVIEW`, `ASSESS`, and `SHOW_PROGRESS`.
+5. Use commands such as `START_LESSON`, `PRACTICE`, `REVIEW`, `ASSESS`, `SHOW_PROGRESS`, and explicit `SAVE_LESSON` note export.
 
 Generated packs are reusable and learner-neutral. Runtime learner state lives separately under `learners/active-learner/` when used, and ChatGPT Project learning can happen without updating repository state after every lesson. Do not store sensitive personal data in generated packs or learner state.
 

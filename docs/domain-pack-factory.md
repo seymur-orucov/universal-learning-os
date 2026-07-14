@@ -2,7 +2,7 @@
 
 This guide defines the standard manual process for adding a new learning domain to Universal Learning OS.
 
-Current supported generated domains include SQL/PostgreSQL, English, JavaScript, and TypeScript.
+Current supported generated domains include SQL/PostgreSQL, English, JavaScript, TypeScript, DSA, Front-End System Design, and Node.js.
 
 ## 1. Define Domain Purpose
 
@@ -39,7 +39,7 @@ Generated Project Packs use two profiles:
 - `standard`: exactly 25 files for Plus/Go or higher Project usage. Include instructions, manifest, budget, startup and continuation prompts, selected framework context, selected commands, selected agent skills, and selected summarized domain files.
 - `compact`: exactly 5 files for Free Project usage or other low-file-budget environments. Use `PROJECT_INSTRUCTIONS.md`, `STARTUP_PROMPT.md`, `DOMAIN_CORE.md`, `COMMANDS_CORE.md`, and `MENTOR_SKILLS_CORE.md`.
 
-Compact packs must consolidate domain overview, syllabus, glossary essentials, practice/project contexts, command behavior, mentor skills, evidence/mastery guardrails, localization, learner-state boundaries, and Learner-Facing Mentor Mode without weakening canonical framework semantics.
+Compact packs must consolidate domain overview, syllabus, glossary essentials, practice/project contexts, command behavior, mentor skills, evidence/mastery guardrails, localization, learner-state boundaries, Learner-Facing Mentor Mode, and all global lesson-note export sources without weakening canonical framework semantics.
 
 ## 9. Define Launch Kit Requirements
 
@@ -66,7 +66,7 @@ Add practical tests under `tests/manual-acceptance/<domain-id>/`. Cover startup,
 3. Add launch kit files under `exports/generated/project-launch-kits/` using the configured prefix for standard and compact profiles.
 4. Generate the compact pack with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile compact`.
 5. Generate the standard pack with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile standard`.
-6. Run `node tools/ulos-cli/src/index.js validate` and fix any file-count, required-file, guardrail, manifest, compact-structure, or launch-kit failures.
+6. Run `node tools/ulos-cli/src/index.js validate` and fix any file-count, required-file, guardrail, lesson-note routing/rendering/safety, manifest, compact-structure, or launch-kit failures.
 7. Add or update manual acceptance tests under `tests/manual-acceptance/` for startup, lesson, practice, review, progress visibility, and continuation behavior.
 8. Update root docs, export docs, release notes, changelog, and any launch kit indexes to list the new domain.
 

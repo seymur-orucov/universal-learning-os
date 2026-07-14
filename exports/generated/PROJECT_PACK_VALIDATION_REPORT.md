@@ -119,7 +119,18 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## Current Stage 28.0 Summary
+## Current Stage 29.0 Summary
+
+- All seven supported domains have one standard and one compact generated pack, for fourteen packs total.
+- CLI validation passes the lesson-note routing/closure, Obsidian contract, Notion compatibility, safety, file-budget, manifest/compact-structure, and launch-kit checks for every pack.
+- Standard packs remain exactly 25 files through the declared three-command and four-skill source merges.
+- Compact packs remain exactly five files with all canonical lesson-note sources in `COMMANDS_CORE.md` and `MENTOR_SKILLS_CORE.md`.
+- `SAVE_LESSON` defaults to a portable UTF-8 Obsidian Markdown artifact, routes `NOTION` to the connected workflow, and retains `SAVE_LESSON_TO_NOTION` as a compatibility alias.
+- Shared normalization preserves grounded omission, localization, evidence, assessment, mastery, completion, and learner-state boundaries across both exporters.
+- Validation rejects embedded credentials, opaque ids, local/vault paths, unsupported export claims, active learner-state fields, and automatic state/mastery claims.
+- Live ChatGPT attachment/download behavior, opening/importing a file in Obsidian, and connected Notion permissions remain manual checks.
+
+## Stage 28.0 Summary
 
 - All seven supported domains have standard and compact generated packs, for fourteen generated packs total.
 - All standard packs are expected to contain exactly 25 files.

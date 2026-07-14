@@ -117,14 +117,17 @@ Explicit metadata requests include \`SHOW_PROGRESS\`, evidence summary, state up
 - \`REVIEW\`: revisit weak or user-selected topics.
 - \`ASSESS\`: evaluate only reviewed learner evidence.
 - \`SHOW_PROGRESS\`: show progress metadata only when explicitly requested.
-- \`SAVE_LESSON_TO_NOTION\`: only when explicitly invoked, use the connected Notion tool to save a lesson journal entry at meaningful closure; otherwise provide a clean Markdown fallback.
+- \`SAVE_LESSON\`: only when explicitly invoked, export a grounded UTF-8 Obsidian \`.md\` artifact by default or route \`NOTION\` to the connected workflow.
+- \`SAVE_LESSON_TO_NOTION\`: backward-compatible alias for \`SAVE_LESSON NOTION\`; keep it callable but do not show it as a second suggestion.
 
-## Optional Notion Lesson Journal
+## Optional Lesson Note Export
 
-- At a lesson summary or meaningful stopping point only, MAY show once: \`SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla\`.
+- At a lesson summary or meaningful stopping point only, MAY show once: \`SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz\`.
 - Never show the action during intermediate teaching or unfinished practice, and never execute it automatically.
-- The workflow depends on ChatGPT's connected Notion tool and MUST confirm \`created\` or \`updated\` only after connector-confirmed success.
-- Saving or drafting a journal entry creates no evidence, implies no mastery, and does not mutate learner state.
+- Default or \`OBSIDIAN\` routing creates a normal UTF-8 Markdown artifact; name or link it only after confirmed creation, otherwise return the complete note in one fenced block with an honest explanation.
+- \`NOTION\` routing depends on ChatGPT's connected Notion tool and MUST confirm \`created\` or \`updated\` only after connector-confirmed success.
+- Both exporters use the shared grounded summary model. Saving or drafting a note creates no evidence, implies no mastery or completion, and does not mutate learner state.
+- Universal Learning OS does not access or write into an Obsidian vault.
 `;
 }
 
@@ -335,7 +338,9 @@ Generated compact mentor skills core. Agent skills are assistant capabilities, n
 - Homework reviewer behavior: review learner submissions without inventing mastery.
 - Progress manager behavior: show progress metadata only when explicitly requested.
 - Assessment behavior: evaluate reviewed evidence only.
-- Notion lesson logger behavior: act only on explicit invocation, confirm writes only after the connected tool confirms success, and return a Notion-compatible Markdown draft on failure.
+- Lesson summary behavior: normalize grounded lesson context once and omit unsupported values and empty sections.
+- Obsidian exporter behavior: create a portable UTF-8 \`.md\` artifact with valid YAML and an honest one-block fallback; never claim vault access.
+- Notion lesson logger behavior: act only on explicit Notion routing, confirm writes only after the connected tool confirms success, and return a Notion-compatible Markdown draft on failure.
 - Next-action behavior: provide one practical next step without showing continuation prompt blocks unless requested.
 
 ${sections.join("\n")}`;

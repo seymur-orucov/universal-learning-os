@@ -16,7 +16,7 @@ Verify learner-facing timing, explicit invocation, connected Notion behavior, fa
 
 Start a lesson and continue through explanation.
 
-- [ ] The exact `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla` line is absent.
+- [ ] The generic `SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz` line is absent.
 - [ ] No Notion tool call occurs.
 
 ### 2. Guided and Unfinished Practice
@@ -30,18 +30,20 @@ Answer a guided check and begin practice without finishing it.
 
 Reach a lesson summary or meaningful stopping point.
 
-- [ ] The exact optional line appears once.
+- [ ] The generic optional line appears once.
+- [ ] The `SAVE_LESSON_TO_NOTION` alias is not shown as a second suggestion.
 - [ ] Merely displaying it does not call Notion.
 
 ### 4. Explicit Save and Confirmed Success
 
-Invoke `SAVE_LESSON_TO_NOTION` with an accessible journal.
+Invoke `SAVE_LESSON NOTION` with an accessible journal; repeat once with the `SAVE_LESSON_TO_NOTION` compatibility alias.
 
 - [ ] The title uses available date, domain, and lesson identity deterministically.
 - [ ] Missing values are omitted rather than invented.
 - [ ] A supplied target is preferred; otherwise an exact or clear `PLOS Learning Journal` is searched.
 - [ ] `created` or `updated` is reported only after connector confirmation.
 - [ ] Tokens, connector internals, and opaque target ids are not shown.
+- [ ] Both command forms use the same shared grounded summary and Notion workflow.
 
 ### 5. Missing Journal
 

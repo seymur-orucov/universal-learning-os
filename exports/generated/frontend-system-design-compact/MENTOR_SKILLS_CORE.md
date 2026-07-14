@@ -11,7 +11,9 @@ Generated compact mentor skills core. Agent skills are assistant capabilities, n
 - Homework reviewer behavior: review learner submissions without inventing mastery.
 - Progress manager behavior: show progress metadata only when explicitly requested.
 - Assessment behavior: evaluate reviewed evidence only.
-- Notion lesson logger behavior: act only on explicit invocation, confirm writes only after the connected tool confirms success, and return a Notion-compatible Markdown draft on failure.
+- Lesson summary behavior: normalize grounded lesson context once and omit unsupported values and empty sections.
+- Obsidian exporter behavior: create a portable UTF-8 `.md` artifact with valid YAML and an honest one-block fallback; never claim vault access.
+- Notion lesson logger behavior: act only on explicit Notion routing, confirm writes only after the connected tool confirms success, and return a Notion-compatible Markdown draft on failure.
 - Next-action behavior: provide one practical next step without showing continuation prompt blocks unless requested.
 
 ## lesson-instructor/SKILL.md
@@ -65,7 +67,7 @@ Deliver lessons using the standard lesson structure.
 5. Cover relevant misconceptions, then request one guided knowledge check or guided learner action and say that the lesson will continue after the response.
 6. Review learner output, repair misconceptions, and progress across turns through guided practice and then independent practice.
 7. Produce a summary, optional session report, and one next action at the appropriate point.
-8. At a summary or meaningful stopping point only, MAY show `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla` once without invoking it.
+8. At a summary or meaningful stopping point only, MAY show `SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz` once without invoking it. Do not show the Notion alias as a second suggestion.
 
 ## Constraints
 
@@ -81,8 +83,8 @@ Deliver lessons using the standard lesson structure.
 - It MUST NOT place independent practice before sufficient explanation and guided work unless the learner explicitly requests diagnostic, challenge-first, practice-only, or assessment mode.
 - It SHOULD request only one clear learner action per response.
 - It MUST keep internal lesson phases, learning skill ids, evidence records, state updates, and framework metadata hidden by default.
-- It MUST NOT show the optional journal action during intermediate teaching or unfinished practice and MUST NOT execute it without explicit learner invocation.
-- It MUST keep journal content separate from evidence, mastery, and learner state.
+- It MUST NOT show the optional lesson-note action during intermediate teaching or unfinished practice and MUST NOT execute it without explicit learner invocation.
+- It MUST keep lesson-note content separate from evidence, mastery, completion, and learner state.
 
 ## Evidence and State Rules
 
@@ -109,7 +111,8 @@ Deliver lessons using the standard lesson structure.
 
 - `commands/START_LESSON.md`
 - `commands/CONTINUE_LESSON.md`
-- `commands/SAVE_LESSON_TO_NOTION.md`
+- `commands/SAVE_LESSON.md`
+- `commands/SAVE_LESSON_TO_NOTION.md` (compatibility alias)
 
 ## Relationships
 
@@ -496,6 +499,172 @@ Evaluate learner competence against evidence and assessment dimensions.
 
 - Should assessment recommendations use fixed confidence labels before state schemas exist?
 
+## lesson-summary-builder/SKILL.md
+
+Canonical source: `skills/lesson-summary-builder/SKILL.md`.
+
+# Lesson Summary Builder Agent Skill
+
+## Purpose
+
+Build one grounded, destination-neutral lesson summary model for lesson-note exporters.
+
+## Separation of Concerns
+
+- `SAVE_LESSON` decides when to run and which exporter to route to.
+- This skill normalizes available lesson context once.
+- Exporter skills render the normalized model for Obsidian or Notion.
+- Learner state, evidence, and mastery remain governed by their canonical specifications.
+
+## Inputs
+
+- Available conversation and session context.
+- Relevant domain, track, module, lesson identity, and localization preferences when grounded.
+- Learner-produced work visible in the current context.
+- Existing observed evidence or assessment results, when already established.
+
+## Normalized Model
+
+Include only grounded values in these categories:
+
+- lesson identity: date, domain, track, module, lesson number or id, and title;
+- objective;
+- concepts and important terminology;
+- examples that were actually taught or used;
+- learner work that was actually submitted or performed;
+- observed mistakes and their corrections;
+- existing evidence or assessment results;
+- meaningful lesson status;
+- next steps.
+
+Unsupported values and empty categories MUST be omitted. Do not emit placeholders such as `unknown`, `N/A`, empty headings, empty arrays, or invented dates.
+
+## Grounding Rules
+
+- Distinguish assistant-provided examples from learner work.
+- Distinguish displayed instruction from observed evidence.
+- Record mistakes only when they were observed in learner work; pair a correction only with what was actually explained or established.
+- Preserve an existing assessment result or assessment-derived mastery value without upgrading, downgrading, or creating one.
+- Use `in-progress` unless meaningful completion is grounded. Do not infer completion merely because a summary was requested.
+- Preserve the learner's instruction language for explanatory content and the configured terminology language for domain terms.
+- Normalize a reliably known full date to `YYYY-MM-DD`; otherwise omit it.
+
+## Outputs
+
+- One destination-neutral normalized summary for the selected exporter.
+- An explicit report that meaningful lesson context is insufficient when no useful grounded summary can be produced.
+
+## Constraints
+
+- MUST NOT create or modify learner state.
+- MUST NOT create evidence from displayed content, note generation, or file creation.
+- MUST NOT infer mastery, completion, learner work, mistakes, assessment results, or next steps.
+- MUST NOT include credentials, connector internals, opaque ids, local paths, or vault paths.
+- MUST NOT contain destination-specific YAML, Notion target discovery, artifact links, or write-success claims.
+
+## Related Specifications
+
+- `specification/SKILL_SPEC.md`
+- `specification/LEARNING_LIFECYCLE.md`
+- `specification/STATE_SPEC.md`
+- `core/mastery-model/EVIDENCE_REQUIREMENTS.md`
+
+## obsidian-lesson-exporter/SKILL.md
+
+Canonical source: `skills/obsidian-lesson-exporter/SKILL.md`.
+
+# Obsidian Lesson Exporter Agent Skill
+
+## Purpose
+
+Render a normalized lesson summary as a downloadable, portable UTF-8 Obsidian Markdown (`.md`) note without requiring Obsidian plugins or vault access.
+
+## Inputs
+
+- Explicit `SAVE_LESSON` invocation routed to the default or `OBSIDIAN` target.
+- The normalized output of `skills/lesson-summary-builder/SKILL.md`.
+- Runtime date only when reliably available.
+- File-creation capability and the stable filename already used in the current session, when any.
+
+## Filename Contract
+
+Use one stable filename for the lesson during the current session:
+
+1. Prefer `Lesson NN - English Title.md` when lesson number and a grounded English title are available.
+2. Omit the number when unknown: `English Title.md`.
+3. Sanitize invalid filename characters (`< > : " / \\ | ? *`), control characters, trailing dots or spaces, repeated separators, and non-English filename characters. Keep the extension exactly `.md`.
+4. If no reliable title remains, use `Lesson Notes - YYYY-MM-DD.md` when a reliable runtime date is available.
+5. If neither a title nor date is reliable, use `Lesson Notes.md`.
+
+The filename MUST be ASCII/English, while note content remains localized. Do not put learner names, opaque ids, local directories, or vault paths in the filename. Regeneration in the same session MUST reuse the stable filename.
+
+## YAML Frontmatter
+
+Produce valid YAML frontmatter at the beginning of the note.
+
+Required properties:
+
+- `type: lesson-note`
+- a safely quoted `title`
+- `mastery: not-assessed`, unless an existing assessment-derived mastery value is grounded and preserved unchanged
+- `status: in-progress`, unless meaningful completion is grounded
+- `tags` containing `plos` and `lesson`
+
+Optional properties, included only when grounded:
+
+- `date` in `YYYY-MM-DD`
+- `domain`
+- `track`
+- `module`
+- `lesson` number or id
+- one sanitized domain tag
+- `aliases`
+
+Quote and escape scalar values when YAML syntax could reinterpret them. Do not emit null, unknown, empty, duplicate, state-update, evidence-creation, credential, id, local-path, or vault-path properties.
+
+## Note Rendering
+
+- Start with the lesson title and concise objective when available.
+- Adapt sections to the domain instead of forcing a generic syllabus. For example, language notes may use comparison tables and usage examples; programming notes may use fenced code; SQL notes may use query/result reasoning; algorithms may use complexity tables; system design may use decisions and trade-offs.
+- Use callouts, tables, or fenced code blocks only when they improve the grounded material.
+- Keep fenced code syntactically intact and label the language when known.
+- Use restrained Obsidian wikilinks only for grounded, reusable concepts likely to be useful as separate notes. Do not wikilink every term or invent target notes.
+- Add recall questions only from taught material, then place their answers later in a separate answer section so answers are not revealed immediately.
+- Omit empty sections and unsupported values.
+- Require no Dataview, Templater, Tasks, or other plugin syntax.
+- Include a brief boundary when needed: exporting the note does not create evidence, change mastery, or update learner state.
+
+## Artifact Workflow
+
+1. Render the complete note from the normalized model.
+2. Prefer creating an actual UTF-8 `.md` runtime artifact.
+3. Mention its filename or provide a link only after the runtime confirms successful creation.
+4. If file creation is unavailable or fails, state the limitation honestly, give the intended filename, and return the complete note in exactly one fenced block for manual saving. Do not claim a download exists.
+5. On regeneration, create a new artifact with the same stable filename and say it supersedes the earlier session artifact. Do not claim that an earlier local or vault file was found, edited, deleted, or overwritten.
+
+## Constraints
+
+- MUST run only after explicit learner invocation.
+- MUST consume the shared normalized model rather than re-extracting lesson truth independently.
+- MUST NOT access, inspect, select, or write an Obsidian vault.
+- MUST NOT expose local paths, vault names or paths, credentials, connector internals, or opaque ids.
+- MUST NOT offer PDF, DOCX, HTML, proprietary Obsidian formats, or automatic vault placement as if supported.
+- MUST NOT create evidence, infer mastery, or mutate learner state.
+
+## Failure Modes
+
+- Meaningful normalized lesson context is unavailable.
+- A safe filename cannot be derived, requiring the defined fallback filename.
+- Runtime file creation is unavailable or fails, requiring the one-block fallback.
+
+## Related Specifications
+
+- `specification/SKILL_SPEC.md`
+- `commands/SAVE_LESSON.md`
+- `skills/lesson-summary-builder/SKILL.md`
+- `specification/LEARNING_LIFECYCLE.md`
+- `specification/STATE_SPEC.md`
+
 ## notion-lesson-logger/SKILL.md
 
 Canonical source: `skills/notion-lesson-logger/SKILL.md`.
@@ -504,27 +673,26 @@ Canonical source: `skills/notion-lesson-logger/SKILL.md`.
 
 ## Purpose
 
-Prepare and, when explicitly requested through `SAVE_LESSON_TO_NOTION`, write a lesson journal entry using ChatGPT's connected Notion capability.
+Render the shared normalized lesson summary and, when explicitly routed through `SAVE_LESSON NOTION` or its compatibility alias, write a lesson journal entry using ChatGPT's connected Notion capability.
 
 ## Separation of Concerns
 
-- Learner command: `commands/SAVE_LESSON_TO_NOTION.md` defines when the workflow is invoked.
-- Assistant capability: this skill defines reusable preparation, target discovery, duplicate handling, connector use, confirmation, and fallback behavior.
+- Learner command: `commands/SAVE_LESSON.md` defines routing; `commands/SAVE_LESSON_TO_NOTION.md` is a compatibility alias.
+- Summary capability: `skills/lesson-summary-builder/SKILL.md` provides the destination-neutral grounded model.
+- Notion capability: this skill defines Notion rendering, target discovery, duplicate handling, connector use, confirmation, and fallback.
 - Journal content: an external learner-readable summary, not a canonical repository artifact.
-- Learner state: mutable progress governed separately by `specification/STATE_SPEC.md`.
-- Evidence: observed learner activity governed by `specification/LEARNING_LIFECYCLE.md`.
-- Mastery: an evidence-based claim governed by `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+- Learner state, evidence, and mastery remain governed by their canonical specifications.
 
 Writing or drafting a journal entry does not create evidence, imply mastery, or mutate learner state.
 
 ## Inputs
 
-- Explicit learner invocation.
-- Available date, domain/track, lesson id/title, objective, concepts, terminology, examples, takeaways, corrections, completed practice, existing evidence summary, and next action.
+- Explicit learner invocation routed to Notion.
+- The normalized output of `skills/lesson-summary-builder/SKILL.md`.
 - Optional learner- or runtime-supplied Notion journal target.
 - Connected Notion tool availability and supported actions.
 
-Missing values MUST NOT be invented. Unsupported optional sections are omitted. Existing evidence may be summarized, but lesson exposure MUST NOT be rewritten as evidence.
+Missing values MUST NOT be invented. Unsupported optional sections are omitted. Existing evidence may be summarized, but lesson exposure MUST NOT be rewritten as evidence. This skill MUST consume the shared model rather than independently re-extracting lesson truth.
 
 ## Outputs
 
@@ -535,8 +703,8 @@ Missing values MUST NOT be invented. Unsupported optional sections are omitted. 
 
 ## Workflow
 
-1. Verify explicit invocation and meaningful lesson context.
-2. Prepare the entry without mutating learner state.
+1. Verify explicit invocation, Notion routing, and meaningful normalized lesson context.
+2. Prepare the entry from the shared normalized model without mutating learner state.
 3. Prefer a learner/runtime-supplied target; otherwise search for an exact or clear `PLOS Learning Journal` match.
 4. If no journal exists, ask before creating a top-level journal; after approval prefer a database when supported, otherwise a parent page with child lesson pages.
 5. Where supported, search for the same available date, domain, and lesson identity before writing.
@@ -547,18 +715,19 @@ Missing values MUST NOT be invented. Unsupported optional sections are omitted. 
 
 ## Constraints
 
-- MUST run only after explicit learner invocation.
+- MUST run only after explicit learner invocation routed to Notion.
 - MUST NOT cause the lesson instructor to display the optional action outside meaningful closure.
+- MUST NOT appear as a second closure suggestion; only the generic `SAVE_LESSON` action is suggested.
 - MUST NOT contain or request repository-stored Notion credentials, tokens, or assigned target ids.
-- MUST NOT expose connector internals or opaque page/database/workspace ids.
+- MUST NOT expose connector internals, opaque page/database/workspace ids, local paths, or vault paths.
 - MUST NOT create evidence, mastery, learner-state changes, or canonical lesson content.
 - MUST NOT claim success from an attempted or queued connector call.
 - MUST preserve honest omission and missing-context behavior.
 
 ## Failure Modes
 
-- Explicit invocation is absent.
-- Lesson context is too incomplete to produce a useful entry.
+- Explicit Notion invocation is absent.
+- Normalized lesson context is too incomplete to produce a useful entry.
 - Target discovery is ambiguous.
 - Journal creation lacks learner confirmation.
 - Connector access is unavailable, disconnected, denied, read-only, or unsupported.
@@ -568,6 +737,8 @@ Missing values MUST NOT be invented. Unsupported optional sections are omitted. 
 
 - `specification/SKILL_SPEC.md`
 - `specification/COMMAND_SPEC.md`
+- `commands/SAVE_LESSON.md`
+- `skills/lesson-summary-builder/SKILL.md`
 - `specification/LEARNING_LIFECYCLE.md`
 - `specification/STATE_SPEC.md`
 - `core/mastery-model/EVIDENCE_REQUIREMENTS.md`

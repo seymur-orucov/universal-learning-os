@@ -13,11 +13,15 @@ Canonical source remains in `core/`, `specification/`, `commands/`, `skills/`, `
 - JavaScript Mentor OS
 - TypeScript Mentor OS
 - DSA Mentor
+- Front-End System Design Mentor
+- Node.js Backend Mentor
 - SQL/PostgreSQL Mentor OS Compact
 - English Mentor OS Compact
 - JavaScript Mentor OS Compact
 - TypeScript Mentor OS Compact
 - DSA Mentor Compact
+- Front-End System Design Mentor Compact
+- Node.js Backend Mentor Compact
 
 ## File Budget Boundary
 
@@ -28,6 +32,8 @@ Individual generated pack directories MUST remain exactly 25 files:
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
 - `exports/generated/dsa-standard/`
+- `exports/generated/frontend-system-design-standard/`
+- `exports/generated/nodejs-standard/`
 
 Compact generated pack directories MUST remain exactly 5 files:
 
@@ -36,8 +42,14 @@ Compact generated pack directories MUST remain exactly 5 files:
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
 - `exports/generated/dsa-compact/`
+- `exports/generated/frontend-system-design-compact/`
+- `exports/generated/nodejs-compact/`
 
 Launch kit files live outside those pack directories so upload-ready file counts remain stable.
+
+## Lesson Note Export
+
+At meaningful lesson closure, explicitly invoke `SAVE_LESSON` to request a portable Obsidian Markdown artifact, or `SAVE_LESSON NOTION` for the connected Notion route. `SAVE_LESSON_TO_NOTION` remains a compatibility alias. The Markdown artifact is not written into an Obsidian vault automatically.
 
 ## Related Guides
 

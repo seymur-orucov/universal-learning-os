@@ -170,14 +170,17 @@ ${domainConfig.purpose || `Teach ${title} using Universal Learning OS.`}
 - \`REVIEW\`: revisit weak, due, or user-selected topics.
 - \`ASSESS\`: assess only observed learner evidence.
 - \`SHOW_PROGRESS\`: show progress metadata only when explicitly requested.
-- \`SAVE_LESSON_TO_NOTION\`: only when explicitly invoked, save a meaningful lesson summary through the connected Notion tool or return a clean Markdown fallback.
+- \`SAVE_LESSON\`: only when explicitly invoked, export a grounded UTF-8 Obsidian \`.md\` artifact by default or route \`NOTION\` to the connected workflow.
+- \`SAVE_LESSON_TO_NOTION\`: backward-compatible alias for \`SAVE_LESSON NOTION\`; keep it callable but do not show it as a second suggestion.
 
-## Optional Notion Lesson Journal
+## Optional Lesson Note Export
 
-- At a lesson summary or meaningful stopping point only, MAY show once: \`SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla\`.
+- At a lesson summary or meaningful stopping point only, MAY show once: \`SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz\`.
 - Never show the action during intermediate teaching or unfinished practice, and never execute it automatically.
-- The workflow depends on ChatGPT's connected Notion tool and MUST confirm \`created\` or \`updated\` only after connector-confirmed success.
-- Saving or drafting a journal entry creates no evidence, implies no mastery, and does not mutate learner state.
+- Default or \`OBSIDIAN\` routing creates a normal UTF-8 Markdown artifact; name or link it only after confirmed creation, otherwise return the complete note in one fenced block with an honest explanation.
+- \`NOTION\` routing depends on ChatGPT's connected Notion tool and MUST confirm \`created\` or \`updated\` only after connector-confirmed success.
+- Both exporters use the shared grounded summary model. Saving or drafting a note creates no evidence, implies no mastery or completion, and does not mutate learner state.
+- Universal Learning OS does not access or write into an Obsidian vault.
 
 ## Learner-Facing Mentor Mode
 
@@ -225,7 +228,7 @@ function buildContinuationPrompt(domainConfig) {
 }
 
 function buildFileBudget(domainConfig, files) {
-  return `# File Budget\n\n## Profile\n\n- Domain id: \`${domainConfig.id}\`\n- Domain title: ${domainConfig.title}\n- Profile: \`standard\`\n- Required file count: exactly 25 files\n- Actual file count: ${files.length}\n\n## Selection Reason\n\nThe standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command output files, four agent skill output files, and five domain files. The Notion command is merged into the lesson-continuation command output, and the Notion logger skill is merged into the lesson-instructor skill output, with each canonical source separately labeled. This preserves inspectable runtime context while staying within the 25-file standard budget.\n\n## File List\n\n${files.map((fileName) => `- \`${fileName}\``).join("\n")}\n`;
+  return `# File Budget\n\n## Profile\n\n- Domain id: \`${domainConfig.id}\`\n- Domain title: ${domainConfig.title}\n- Profile: \`standard\`\n- Required file count: exactly 25 files\n- Actual file count: ${files.length}\n\n## Selection Reason\n\nThe standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command output files, four agent skill output files, and five domain files. \`CONTINUE_LESSON\`, \`SAVE_LESSON\`, and the Notion alias are merged into the lesson-continuation command output. The lesson instructor, shared summary builder, Obsidian exporter, and Notion logger are merged into the lesson-instructor skill output. Every canonical source remains separately labeled, preserving inspectable runtime context within the 25-file standard budget.\n\n## File List\n\n${files.map((fileName) => `- \`${fileName}\``).join("\n")}\n`;
 }
 
 function buildManifest(domainConfig, outputDir, files, sources) {
@@ -246,8 +249,8 @@ ${files.map((fileName) => `- \`${fileName}\``).join("\n")}
 
 ## Declared Merges
 
-- \`COMMAND_CONTINUE_LESSON.md\` separately labels and merges \`commands/CONTINUE_LESSON.md\` with \`commands/SAVE_LESSON_TO_NOTION.md\`.
-- \`SKILL_LESSON_INSTRUCTOR.md\` separately labels and merges \`skills/lesson-instructor/SKILL.md\` with \`skills/notion-lesson-logger/SKILL.md\`.
+- \`COMMAND_CONTINUE_LESSON.md\` separately labels and merges \`commands/CONTINUE_LESSON.md\`, \`commands/SAVE_LESSON.md\`, and \`commands/SAVE_LESSON_TO_NOTION.md\`.
+- \`SKILL_LESSON_INSTRUCTOR.md\` separately labels and merges \`skills/lesson-instructor/SKILL.md\`, \`skills/lesson-summary-builder/SKILL.md\`, \`skills/obsidian-lesson-exporter/SKILL.md\`, and \`skills/notion-lesson-logger/SKILL.md\`.
 
 ## Source Summary
 

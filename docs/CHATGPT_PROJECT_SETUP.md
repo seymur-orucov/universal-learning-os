@@ -56,9 +56,10 @@ Start a practical Node.js API project using TypeScript and PostgreSQL. Guide me 
 - Continue: `Continue the lesson from where we stopped.`
 - Practice: `Give me practice tasks and feedback.`
 - Review: `Review my homework and explain the mistakes clearly.`
-- Save a completed lesson journal entry: `SAVE_LESSON_TO_NOTION`
+- Download a grounded Obsidian Markdown lesson note: `SAVE_LESSON`
+- Save the same grounded summary to connected Notion: `SAVE_LESSON NOTION` (legacy alias: `SAVE_LESSON_TO_NOTION`)
 
-The Notion action is optional and appears only at a lesson summary or meaningful stopping point. It requires an explicit request and a connected Notion tool. A reported create/update must be connector-confirmed; otherwise ChatGPT returns a clean Markdown draft for manual copy/paste. Saving does not create evidence, mastery, or a learner-state update. See `docs/integrations/NOTION_LESSON_JOURNAL.md`.
+The generic export action is optional, appears only at a lesson summary or meaningful stopping point, and requires an explicit request. The default route creates a normal UTF-8 `.md` artifact without accessing an Obsidian vault; if file creation fails, ChatGPT returns the intended filename and complete note in one fenced block. Notion create/update wording must be connector-confirmed; otherwise ChatGPT returns a clean Markdown draft. Neither route creates evidence, mastery, completion, or a learner-state update. See `docs/integrations/OBSIDIAN_LESSON_NOTES.md` and `docs/integrations/NOTION_LESSON_JOURNAL.md`.
 
 Ask for a handoff only when moving between chats. Ask for a snapshot only when exporting progress. These are optional, user-requested continuity aids; they are not required after every lesson.
 
@@ -68,6 +69,6 @@ Ask for a handoff only when moving between chats. Ask for a snapshot only when e
 - Do not upload unrelated packs to the same Project unless you intentionally want a mixed mentor.
 - Do not treat generated pack files as learner-progress records; they remain reusable and learner-neutral.
 - Let normal lesson, practice, review, and homework activity stay in the learning chat.
-- Do not place Notion tokens, credentials, or opaque page/database/workspace ids in Project files or repository content.
+- Do not place integration tokens, credentials, opaque ids, local paths, or Obsidian vault paths in Project files or repository content.
 
 Studio is optional: it can help inspect or validate packs locally, but it is not needed to create or use a ChatGPT Project and is not the learning runtime.

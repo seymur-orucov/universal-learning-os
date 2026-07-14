@@ -5,6 +5,7 @@ const GLOBAL_COMMAND_SOURCES = [
   "commands/REVIEW.md",
   "commands/ASSESS.md",
   "commands/SHOW_PROGRESS.md",
+  "commands/SAVE_LESSON.md",
   "commands/SAVE_LESSON_TO_NOTION.md",
 ];
 
@@ -14,6 +15,8 @@ const GLOBAL_SKILL_SOURCES = [
   "skills/homework-reviewer/SKILL.md",
   "skills/progress-manager/SKILL.md",
   "skills/assessment-engine/SKILL.md",
+  "skills/lesson-summary-builder/SKILL.md",
+  "skills/obsidian-lesson-exporter/SKILL.md",
   "skills/notion-lesson-logger/SKILL.md",
 ];
 
@@ -22,7 +25,7 @@ const STANDARD_COMMAND_OUTPUTS = [
   {
     outputName: "COMMAND_CONTINUE_LESSON.md",
     title: "Lesson Continuation Commands",
-    sources: ["commands/CONTINUE_LESSON.md", "commands/SAVE_LESSON_TO_NOTION.md"],
+    sources: ["commands/CONTINUE_LESSON.md", "commands/SAVE_LESSON.md", "commands/SAVE_LESSON_TO_NOTION.md"],
   },
   { outputName: "COMMAND_PRACTICE.md", title: "Practice Command", sources: ["commands/PRACTICE.md"] },
   { outputName: "COMMAND_REVIEW.md", title: "Review Command", sources: ["commands/REVIEW.md"] },
@@ -34,7 +37,12 @@ const STANDARD_SKILL_OUTPUTS = [
   {
     outputName: "SKILL_LESSON_INSTRUCTOR.md",
     title: "Lesson Delivery Skills",
-    sources: ["skills/lesson-instructor/SKILL.md", "skills/notion-lesson-logger/SKILL.md"],
+    sources: [
+      "skills/lesson-instructor/SKILL.md",
+      "skills/lesson-summary-builder/SKILL.md",
+      "skills/obsidian-lesson-exporter/SKILL.md",
+      "skills/notion-lesson-logger/SKILL.md",
+    ],
   },
   { outputName: "SKILL_PRACTICE_COACH.md", title: "Practice Coach Skill", sources: ["skills/practice-coach/SKILL.md"] },
   { outputName: "SKILL_HOMEWORK_REVIEWER.md", title: "Homework Reviewer Skill", sources: ["skills/homework-reviewer/SKILL.md"] },

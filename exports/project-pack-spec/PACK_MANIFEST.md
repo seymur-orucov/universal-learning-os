@@ -36,7 +36,7 @@ A Project Pack manifest SHOULD record:
 - A manifest MUST be human-readable at this stage.
 - A manifest SHOULD identify the canonical repository files used to derive the pack.
 - A manifest MUST declare files that are summarized, omitted, or merged.
-- A standard manifest containing the optional Notion journal integration MUST declare the command and skill source merges and keep each canonical source separately labeled in its output file.
+- A standard manifest containing lesson-note export behavior MUST declare the three-source command merge and four-source lesson skill merge, keeping each canonical source separately labeled in its output file.
 - A manifest MUST distinguish reusable Project Pack content from runtime learner state.
 - A manifest SHOULD document the 25-file budget and remaining spare capacity.
 - Machine-readable manifests MAY be future work.

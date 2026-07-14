@@ -22,7 +22,8 @@
 - Stage 27.0: Node.js Domain completed with runtime-first backend progression, PostgreSQL/production reasoning, and two contract-preserving generated packs.
 - Stage 27.1: Deep Teaching and Progressive Lesson Delivery completed as a targeted framework correction driven by real SQL lesson evidence.
 - Stage 28.0: Optional Notion Lesson Journal Integration completed as an explicit connected-tool workflow across all registered packs.
-- Broad framework and Studio feature expansion remains paused; Stage 28.0 adds no framework-owned Notion client, credentials, learner database, or automatic state workflow.
+- Stage 29.0: Downloadable Obsidian Lesson Notes completed with generic export routing, shared normalization, portable Markdown artifacts, and preserved Notion compatibility.
+- Broad framework and Studio feature expansion remains paused; Stage 29.0 adds no framework-owned integration client, Obsidian vault access, learner database, or automatic state workflow.
 
 ## Recommended Priority
 
@@ -30,6 +31,14 @@
 2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 29.0 Downloadable Obsidian Lesson Notes
+
+- Adds `SAVE_LESSON` with default/`OBSIDIAN` Markdown artifact routing and explicit `NOTION` routing; preserves `SAVE_LESSON_TO_NOTION` as an alias.
+- Shares grounded normalization across both exporters and omits unsupported values, empty sections, invented evidence, mastery, and completion.
+- Requires stable English `.md` filenames, valid YAML, localized domain-adaptive notes, confirmed artifact naming/linking, an honest one-block fallback, and stable session regeneration.
+- Produces a normal portable Markdown artifact without accessing or writing an Obsidian vault.
+- Preserves seven domains, fourteen packs, exact 25/5 file budgets, and unchanged canonical domain and learner content.
 
 ## Stage 28.0 Optional Notion Lesson Journal Integration
 

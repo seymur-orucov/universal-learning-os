@@ -10,7 +10,7 @@
 
 ## Selection Reason
 
-The standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command output files, four agent skill output files, and five domain files. The Notion command is merged into the lesson-continuation command output, and the Notion logger skill is merged into the lesson-instructor skill output, with each canonical source separately labeled. This preserves inspectable runtime context while staying within the 25-file standard budget.
+The standard pack keeps project instructions, manifest, file budget, startup and continuation prompts, five framework context files, six command output files, four agent skill output files, and five domain files. `CONTINUE_LESSON`, `SAVE_LESSON`, and the Notion alias are merged into the lesson-continuation command output. The lesson instructor, shared summary builder, Obsidian exporter, and Notion logger are merged into the lesson-instructor skill output. Every canonical source remains separately labeled, preserving inspectable runtime context within the 25-file standard budget.
 
 ## File List
 

@@ -7,6 +7,7 @@ Release files are documentation artifacts. They are not canonical framework spec
 ## Related Files
 
 - `CHANGELOG.md`
+- `docs/releases/STAGE_29_0_DOWNLOADABLE_OBSIDIAN_LESSON_NOTES.md`
 - `docs/releases/v0.3.0.md`
 - `docs/releases/v0.3.0-rc-status.md`
 - `docs/releases/V0_3_0_RELEASE_CHECKLIST.md`
@@ -32,10 +33,10 @@ Release files are documentation artifacts. They are not canonical framework spec
 
 ## Current Pack Status
 
-- Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`.
+- Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`, `frontend-system-design`, and `nodejs`.
 - Standard packs: exactly 25 files per supported domain.
 - Compact packs: exactly 5 files per supported domain.
-- Generated packs checked: 8.
+- Generated packs checked: 14.
 - `node tools/ulos-cli/src/index.js validate` remains the official generated-pack quality gate.
 - `node tools/ulos-cli/src/index.js validate-learner` validates optional learner runtime artifacts.
 - Automated CLI tests run with `npm test` from `tools/ulos-cli/`.

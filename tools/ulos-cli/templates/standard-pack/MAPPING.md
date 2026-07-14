@@ -97,6 +97,7 @@ Source:
 
 Source:
 - `commands/CONTINUE_LESSON.md`
+- `commands/SAVE_LESSON.md` (separately labeled merge)
 - `commands/SAVE_LESSON_TO_NOTION.md` (separately labeled merge)
 
 ### COMMAND_PRACTICE.md
@@ -123,6 +124,8 @@ Source:
 
 Source:
 - `skills/lesson-instructor/SKILL.md`
+- `skills/lesson-summary-builder/SKILL.md` (separately labeled merge)
+- `skills/obsidian-lesson-exporter/SKILL.md` (separately labeled merge)
 - `skills/notion-lesson-logger/SKILL.md` (separately labeled merge)
 
 ### SKILL_PRACTICE_COACH.md

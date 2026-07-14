@@ -28,7 +28,8 @@ These are configurable project or learner preferences, not global framework defa
 - `commands/START_PROJECT.md`: start or continue a realistic learning project.
 - `commands/INTERVIEW.md`: run an interview-style learning session.
 - `commands/SHOW_PROGRESS.md`: summarize learner state and progress.
-- `commands/SAVE_LESSON_TO_NOTION.md`: explicitly save a meaningful lesson summary through a connected Notion tool, with a Markdown fallback and no learner-state or mastery effect.
+- `commands/SAVE_LESSON.md`: explicitly export a grounded lesson note as a downloadable Obsidian Markdown file by default or route it to connected Notion.
+- `commands/SAVE_LESSON_TO_NOTION.md`: backward-compatible alias for `SAVE_LESSON NOTION`; it is callable but not shown as a second closure suggestion.
 
 ## Boundaries
 

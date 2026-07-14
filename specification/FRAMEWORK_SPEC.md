@@ -25,7 +25,7 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Learning skill: domain-specific learner competency described by a future domain skill graph.
 - Evidence: observed learner activity used to justify state changes.
 - Localization preference: configurable instruction language and terminology language behavior described by `specification/LOCALIZATION_SPEC.md`.
-- External lesson journal: an optional runtime destination for a learner-requested lesson summary; it is not learner state, evidence, mastery, or a canonical repository source.
+- External lesson note: an optional learner-requested Markdown artifact or connected Notion entry; it is not learner state, evidence, mastery, or a canonical repository source.
 
 ## Normative Requirements
 
@@ -40,7 +40,9 @@ This specification covers framework roles, canonical boundaries, versioning expe
 - Reusable framework content and domain pack content MUST NOT contain learner-specific progress.
 - Learner progress MUST require evidence or explicit user instruction, as defined by `specification/LEARNING_LIFECYCLE.md` and `specification/STATE_SPEC.md`.
 - User-facing teaching behavior SHOULD respect localization preferences defined by `specification/LOCALIZATION_SPEC.md`.
-- Optional external journal writes MUST be explicitly requested, MUST remain separate from learner state and evidence, and MUST be reported as successful only after the connected runtime tool confirms the write.
+- Optional lesson-note exports MUST be explicitly requested and MUST remain separate from learner state, evidence, and mastery.
+- File artifacts MUST be named or linked only after successful runtime creation. Connected Notion writes MUST be reported as successful only after the connector confirms the write.
+- Universal Learning OS MUST NOT claim to access or write into an Obsidian vault; its Obsidian workflow produces an ordinary portable Markdown artifact.
 - Versioned artifacts SHOULD declare the framework contract version they target once versioning exists.
 - Unresolved architectural or behavioral issues MUST be marked as `OPEN QUESTION`.
 

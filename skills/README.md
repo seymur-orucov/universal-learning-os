@@ -16,7 +16,9 @@ Agent skills are governed by `specification/SKILL_SPEC.md`, `docs/decisions/ADR-
 - `skills/progress-manager/SKILL.md`: summarizes progress and proposes next actions.
 - `skills/project-mentor/SKILL.md`: guides realistic learning projects.
 - `skills/interviewer/SKILL.md`: runs interview-style learning sessions.
-- `skills/notion-lesson-logger/SKILL.md`: prepares and writes an explicitly requested lesson journal entry through a connected Notion tool, or returns a Markdown fallback.
+- `skills/lesson-summary-builder/SKILL.md`: builds one grounded, destination-neutral summary shared by lesson-note exporters.
+- `skills/obsidian-lesson-exporter/SKILL.md`: renders and creates a portable UTF-8 Obsidian Markdown lesson-note artifact, with an honest one-block fallback.
+- `skills/notion-lesson-logger/SKILL.md`: renders and writes the shared summary through a connected Notion tool, or returns a Notion-ready Markdown fallback.
 
 ## Command Orchestration
 

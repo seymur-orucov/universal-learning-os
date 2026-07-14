@@ -53,7 +53,8 @@ This template defines reusable output shape for lesson sessions. It is not a rea
 - Independent practice: `<one-independent-practice-prompt-after-readiness>`
 - Summary and next action: `<summary-and-one-next-action>`
 - Homework: `<optional-follow-up-after-the-active-lesson-work>`
-- Optional journal action at meaningful closure only: `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla`
+- Optional lesson-note action at meaningful closure only: `SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz`
+- Do not show the `SAVE_LESSON_TO_NOTION` compatibility alias as a second suggestion.
 
 ## Optional Internal Session Report
 

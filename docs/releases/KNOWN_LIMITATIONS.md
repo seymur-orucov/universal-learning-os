@@ -14,6 +14,8 @@
 - Deleted chats cannot be reconstructed unless session summaries or learner state were saved.
 - Source drift checks and manifest checksums are future work.
 - Live Notion connector authentication, permissions, target discovery, create/update operations, and duplicate resolution cannot be verified by repository tests and require manual acceptance in a connected ChatGPT runtime.
+- ChatGPT file attachment/download behavior and opening or importing the resulting Markdown in a local Obsidian installation cannot be verified by repository tests.
+- Universal Learning OS creates a portable Markdown artifact but cannot access, choose, inspect, or write an Obsidian vault.
 
 ## Practical Impact
 
@@ -22,6 +24,7 @@
 - Learner progress must be maintained carefully and evidence-first.
 - Sensitive data should not be stored in learner state or Project Packs.
 - Optional Notion journaling requires a connected runtime; when unavailable, learners must copy the generated Markdown draft manually.
+- When runtime file creation is unavailable, learners must manually save the complete one-block Obsidian Markdown fallback using the intended filename.
 - ChatGPT Project learning can proceed without updating repository learner state after every lesson.
 
 ## OPEN QUESTION

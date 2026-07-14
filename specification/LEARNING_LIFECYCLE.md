@@ -70,9 +70,10 @@ These phases MAY span multiple interaction turns. A response SHOULD normally req
 - Guided checks MUST target only the current concept and available prerequisites.
 - Simplified teaching and exercises MUST remain technically correct and MUST NOT create a false mental model.
 - Professional background alone MUST NOT be treated as evidence that a learner is ready to use an untaught concept.
-- At a lesson summary or another meaningful stopping point, the assistant MAY show this optional action once: `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla`.
-- The optional Notion action MUST NOT appear during intermediate teaching, an unanswered guided check, or unfinished practice, and it MUST NOT run unless the learner explicitly invokes it.
-- Saving or drafting a lesson journal entry MUST NOT create evidence, imply mastery, or mutate learner state. The command contract in `commands/SAVE_LESSON_TO_NOTION.md` is canonical for journal behavior.
+- At a lesson summary or another meaningful stopping point, the assistant MAY show this optional action once: `SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz`.
+- The optional export action MUST NOT appear during intermediate teaching, an unanswered guided check, or unfinished practice, and it MUST NOT run unless the learner explicitly invokes it.
+- `SAVE_LESSON_TO_NOTION` remains callable as an alias but MUST NOT appear as a second closure suggestion.
+- Building, saving, or drafting a lesson note MUST NOT create evidence, imply mastery, infer completion, or mutate learner state. The command contract in `commands/SAVE_LESSON.md` is canonical for export routing and behavior.
 
 ## Relationships
 

@@ -11,7 +11,7 @@ It is not a full LMS, a learner database, a replacement for ChatGPT, or a requir
 3. Upload that pack's files to a ChatGPT Project.
 4. Start a lesson.
 5. Continue learning in ChatGPT.
-6. Optionally invoke `SAVE_LESSON_TO_NOTION` at meaningful lesson closure when you have connected Notion.
+6. Optionally invoke `SAVE_LESSON` at meaningful lesson closure to download an Obsidian Markdown note, or `SAVE_LESSON NOTION` when you have connected Notion.
 
 Use a compact pack when ChatGPT Project file limits matter or you want the smallest focused setup. Use a standard pack when you want the fuller supporting material and have room for its 25 files.
 
@@ -74,6 +74,6 @@ Start Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving
 
 Keep learner progress in the learning chat unless you deliberately request a handoff when moving chats or a snapshot when exporting progress. Do not update the repository after every lesson, and do not place sensitive personal data in repository artifacts.
 
-The optional Notion journal is an external note workflow, not learner state. The exact action is shown only at meaningful closure and never saves automatically. If the connector cannot write, ChatGPT should provide Notion-compatible Markdown without claiming success. See [Optional Notion Lesson Journal](integrations/NOTION_LESSON_JOURNAL.md).
+Lesson-note export is external to learner state and never runs automatically. With no target, `SAVE_LESSON` produces a normal portable Markdown artifact that you may place in Obsidian yourself; PLOS does not access your vault. If runtime file creation is unavailable, ChatGPT should return the complete note in one fenced block. `SAVE_LESSON NOTION` uses the connected workflow, while `SAVE_LESSON_TO_NOTION` remains an alias. See [Downloadable Obsidian Lesson Notes](integrations/OBSIDIAN_LESSON_NOTES.md) and [Optional Notion Lesson Journal](integrations/NOTION_LESSON_JOURNAL.md).
 
 For the detailed upload workflow, see [ChatGPT Project setup](CHATGPT_PROJECT_SETUP.md). For the first real-world validation plan, see [Real Learning Pilot](REAL_LEARNING_PILOT.md).

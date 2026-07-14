@@ -9,7 +9,10 @@ Source files:
 - `specification/FRAMEWORK_SPEC.md`
 - `specification/LEARNING_LIFECYCLE.md`
 - `specification/LOCALIZATION_SPEC.md`
-- `commands/SAVE_LESSON_TO_NOTION.md`
+- `commands/SAVE_LESSON.md`
+- `commands/SAVE_LESSON_TO_NOTION.md` (compatibility alias)
+- `skills/lesson-summary-builder/SKILL.md`
+- `skills/obsidian-lesson-exporter/SKILL.md`
 - `skills/notion-lesson-logger/SKILL.md`
 - `domains/{{DOMAIN_ID}}/DOMAIN.md`
 

@@ -38,8 +38,8 @@
 
 ## Declared Merges
 
-- `COMMAND_CONTINUE_LESSON.md` separately labels and merges `commands/CONTINUE_LESSON.md` with `commands/SAVE_LESSON_TO_NOTION.md`.
-- `SKILL_LESSON_INSTRUCTOR.md` separately labels and merges `skills/lesson-instructor/SKILL.md` with `skills/notion-lesson-logger/SKILL.md`.
+- `COMMAND_CONTINUE_LESSON.md` separately labels and merges `commands/CONTINUE_LESSON.md`, `commands/SAVE_LESSON.md`, and `commands/SAVE_LESSON_TO_NOTION.md`.
+- `SKILL_LESSON_INSTRUCTOR.md` separately labels and merges `skills/lesson-instructor/SKILL.md`, `skills/lesson-summary-builder/SKILL.md`, `skills/obsidian-lesson-exporter/SKILL.md`, and `skills/notion-lesson-logger/SKILL.md`.
 
 ## Source Summary
 
@@ -49,6 +49,7 @@ This standard pack is generated from canonical framework, command, skill, projec
 - `commands/CONTINUE_LESSON.md`
 - `commands/PRACTICE.md`
 - `commands/REVIEW.md`
+- `commands/SAVE_LESSON.md`
 - `commands/SAVE_LESSON_TO_NOTION.md`
 - `commands/SHOW_PROGRESS.md`
 - `commands/START_LESSON.md`
@@ -77,7 +78,9 @@ This standard pack is generated from canonical framework, command, skill, projec
 - `learners/_template/STATE.md`
 - `skills/homework-reviewer/SKILL.md`
 - `skills/lesson-instructor/SKILL.md`
+- `skills/lesson-summary-builder/SKILL.md`
 - `skills/notion-lesson-logger/SKILL.md`
+- `skills/obsidian-lesson-exporter/SKILL.md`
 - `skills/practice-coach/SKILL.md`
 - `skills/progress-manager/SKILL.md`
 - `specification/FRAMEWORK_SPEC.md`

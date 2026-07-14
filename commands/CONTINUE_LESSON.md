@@ -35,7 +35,7 @@ Use this command when prior session history or learner state indicates an unfini
 8. Request only one clear next learner action, and do not advance to independent practice before sufficient teaching and guided work unless an explicit exception mode applies.
 9. Produce an optional session report.
 10. Propose state updates only when new evidence exists.
-11. At summary or another meaningful stopping point, MAY show `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla` once; never show it while practice or teaching is unfinished and never invoke it automatically.
+11. At summary or another meaningful stopping point, MAY show `SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz` once; never show it while practice or teaching is unfinished, never invoke it automatically, and do not show the Notion alias as a second suggestion.
 
 ## User-Facing Output
 
@@ -46,7 +46,7 @@ The result SHOULD briefly summarize where the learner left off, review the learn
 - Prior displayed content MUST NOT be treated as evidence.
 - New learner output MAY become evidence when reviewed or assessed.
 - The command SHOULD distinguish continuation from repetition.
-- Saving a lesson journal is a separate, explicitly invoked command and MUST NOT create evidence, mastery, or a learner-state update.
+- Saving a lesson note is a separate, explicitly invoked command and MUST NOT create evidence, mastery, completion, or a learner-state update.
 
 ## Failure Modes
 
@@ -60,7 +60,7 @@ The result SHOULD briefly summarize where the learner left off, review the learn
 - Lesson structure is defined in `core/learning-engine/LESSON_STRUCTURE.md`.
 - Next action categories are defined in `core/learning-engine/NEXT_ACTION_MODEL.md`.
 - State records are governed by `specification/STATE_SPEC.md`.
-- Optional journal saving is governed by `commands/SAVE_LESSON_TO_NOTION.md`.
+- Optional lesson-note export is governed by `commands/SAVE_LESSON.md`; `commands/SAVE_LESSON_TO_NOTION.md` is a compatibility alias.
 
 ## OPEN QUESTION
 

@@ -34,14 +34,17 @@ Develop requirements-first frontend architecture judgment, trade-off reasoning, 
 - `REVIEW`: revisit weak, due, or user-selected topics.
 - `ASSESS`: assess only observed learner evidence.
 - `SHOW_PROGRESS`: show progress metadata only when explicitly requested.
-- `SAVE_LESSON_TO_NOTION`: only when explicitly invoked, save a meaningful lesson summary through the connected Notion tool or return a clean Markdown fallback.
+- `SAVE_LESSON`: only when explicitly invoked, export a grounded UTF-8 Obsidian `.md` artifact by default or route `NOTION` to the connected workflow.
+- `SAVE_LESSON_TO_NOTION`: backward-compatible alias for `SAVE_LESSON NOTION`; keep it callable but do not show it as a second suggestion.
 
-## Optional Notion Lesson Journal
+## Optional Lesson Note Export
 
-- At a lesson summary or meaningful stopping point only, MAY show once: `SAVE_LESSON_TO_NOTION — Bu dərsin əsas məqamlarını Notion-a yadda saxla`.
+- At a lesson summary or meaningful stopping point only, MAY show once: `SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz`.
 - Never show the action during intermediate teaching or unfinished practice, and never execute it automatically.
-- The workflow depends on ChatGPT's connected Notion tool and MUST confirm `created` or `updated` only after connector-confirmed success.
-- Saving or drafting a journal entry creates no evidence, implies no mastery, and does not mutate learner state.
+- Default or `OBSIDIAN` routing creates a normal UTF-8 Markdown artifact; name or link it only after confirmed creation, otherwise return the complete note in one fenced block with an honest explanation.
+- `NOTION` routing depends on ChatGPT's connected Notion tool and MUST confirm `created` or `updated` only after connector-confirmed success.
+- Both exporters use the shared grounded summary model. Saving or drafting a note creates no evidence, implies no mastery or completion, and does not mutate learner state.
+- Universal Learning OS does not access or write into an Obsidian vault.
 
 ## Learner-Facing Mentor Mode
 

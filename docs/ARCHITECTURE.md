@@ -20,11 +20,12 @@ The repository is organized around stable contracts first and implementation lat
 - Skill structure is canonical in `specification/SKILL_SPEC.md`.
 - Command structure is canonical in `specification/COMMAND_SPEC.md`.
 - Learner state structure is canonical in `specification/STATE_SPEC.md`.
-- Optional Notion lesson-journal behavior is canonical in `commands/SAVE_LESSON_TO_NOTION.md` and reusable capability behavior in `skills/notion-lesson-logger/SKILL.md`.
+- Generic lesson-note routing is canonical in `commands/SAVE_LESSON.md`; `commands/SAVE_LESSON_TO_NOTION.md` is a compatibility alias.
+- Grounded summary normalization is canonical in `skills/lesson-summary-builder/SKILL.md`; destination rendering belongs to `skills/obsidian-lesson-exporter/SKILL.md` and `skills/notion-lesson-logger/SKILL.md`.
 
 ## Optional Integration Boundary
 
-ChatGPT's connected Notion tool performs lesson-journal discovery and writes. Universal Learning OS contains no Notion client, credentials, assigned target ids, or learner journal data. Journal entries are external notes and remain separate from learner state, evidence, mastery, commands, skills, and reusable domain content.
+The runtime may create a normal downloadable Markdown artifact, but Universal Learning OS does not access or write into an Obsidian vault. ChatGPT's connected Notion tool performs Notion discovery and writes. Universal Learning OS contains no integration client, credentials, assigned target ids, local/vault paths, or learner journal data. Exported notes remain separate from learner state, evidence, mastery, commands, skills, and reusable domain content.
 
 ## Versioning Direction
 
