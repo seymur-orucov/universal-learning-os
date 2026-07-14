@@ -4,6 +4,10 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 30.0 by adding the canonical `git` domain with mental-model-first repository state and graph teaching, provider-neutral collaboration, safe destructive-operation guidance, recovery, rebase, releases, debugging, internals, scale, security, and Senior/Lead workflow governance.
+- Adds `git-standard` (exactly 25 files) and `git-compact` (exactly 5 files), increasing supported domains from 7 to 8 and generated packs from 14 to 16 without changing existing pack contracts.
+- Adds Git CLI/generator/learner-helper coverage, 106-test regression coverage, launch kits, planned pilot guidance, ADR-0057, manual acceptance, Studio fallback/smoke compatibility, and updated setup/index/validation documentation.
+- Preserves Learner-Facing Mentor Mode, optional handoff/snapshot continuity, generic Obsidian and Notion lesson exports, optional CLI-backed Studio scope, and all existing domain content; creates no release tag, commit, branch, push, or provider integration.
 - Completes Stage 29.0 by adding generic explicit-only `SAVE_LESSON` routing, default downloadable Obsidian Markdown artifacts, connected Notion routing, and backward-compatible `SAVE_LESSON_TO_NOTION` alias behavior.
 - Adds the shared `lesson-summary-builder` and `obsidian-lesson-exporter` contracts with grounded omission rules, stable English filenames, valid YAML, localized domain-adaptive notes, confirmed artifact semantics, honest fallback, and no Obsidian vault access claim.
 - Regenerates all fourteen packs through shared profiles while preserving exact 25/5 file budgets and unchanged `domains/**`/`learners/**`; adds semantic validation, registry-driven fixtures/tests, ADR-0056, integration/release guidance, and Stage 29 manual acceptance coverage.

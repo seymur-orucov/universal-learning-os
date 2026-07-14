@@ -48,6 +48,13 @@ const DOMAIN_CONFIG = [
     purpose: "Develop runtime-first, production-aware Node.js backend competence for experienced JavaScript/TypeScript Front-End Engineers moving toward backend or full-stack engineering.",
     terms: "Node.js and backend technical terms",
   },
+  {
+    id: "git",
+    launchPrefix: "GIT",
+    title: "Git",
+    purpose: "Develop mental-model-first, recovery-aware Git competence from everyday repository work to advanced collaboration, release governance, debugging, and workflow design.",
+    terms: "Git commands and version-control technical terms",
+  },
 ];
 
 const SUPPORTED_DOMAINS = DOMAIN_CONFIG.map((domain) => domain.id);

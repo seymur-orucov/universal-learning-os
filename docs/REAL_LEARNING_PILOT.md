@@ -94,6 +94,25 @@ Suggested project prompt:
 Start a practical Node.js API project using TypeScript and PostgreSQL. Guide me step by step, but let me make architecture and implementation decisions before showing full solutions.
 ```
 
+## Git pilot
+
+This is a planned pilot, not a claim that it has been completed.
+
+- Create a dedicated ChatGPT Project named `Git Mentor`.
+- Upload all five files from `exports/generated/git-compact/`.
+- Run 3–5 lessons covering the state model, commit graph, branches/merge, and one disposable recovery drill.
+- Verify that concepts precede independent tasks and the mentor normally requests one learner action.
+- Verify accurate remote-tracking, `origin`, fetch/pull, local/shared-history, and rebase-identity explanations.
+- Verify that destructive advice includes risk, safer alternatives, a disposable environment, recovery limits, and post-operation checks.
+- Verify that copied commands do not count as mastery and internal evidence/state metadata remains hidden by default.
+- Record outcomes as pilot evidence; do not claim the Git pilot complete until real sessions have occurred.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Git. Teach the distributed model, repository states, and commit graph before advanced commands, and use disposable repositories for recovery practice.
+```
+
 ## Pilot result template
 
 ```text

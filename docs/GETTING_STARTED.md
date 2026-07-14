@@ -24,6 +24,7 @@ Generated packs are in `exports/generated/`. Start with one of these compact pac
 - `exports/generated/dsa-compact/`
 - `exports/generated/frontend-system-design-compact/`
 - `exports/generated/nodejs-compact/`
+- `exports/generated/git-compact/`
 
 For the full profile, choose the corresponding `*-standard/` directory.
 
@@ -32,6 +33,8 @@ For DSA, use `exports/generated/dsa-compact/` or `exports/generated/dsa-standard
 For Front-End System Design, use `exports/generated/frontend-system-design-compact/` or `exports/generated/frontend-system-design-standard/` in a dedicated Project named `Front-End System Design Mentor`. Prefer one domain per Project. Studio remains optional.
 
 For Node.js, use `exports/generated/nodejs-compact/` or `exports/generated/nodejs-standard/` in a dedicated Project named `Node.js Backend Mentor`. The track is runtime-first, uses TypeScript for backend projects, preserves SQL reasoning with PostgreSQL, and treats NestJS as a later specialization. Prefer one domain per Project. Studio remains optional.
+
+For Git, use `exports/generated/git-compact/` or `exports/generated/git-standard/` in a dedicated Project named `Git Mentor`. The track teaches repository state and commit graphs before advanced commands, makes recovery a core skill, and uses disposable repositories for destructive practice. Prefer one domain per Project. Studio remains optional.
 
 ## What to type in the ChatGPT Project
 
@@ -63,6 +66,12 @@ Node.js example:
 
 ```text
 Start Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving into backend development. Explain runtime fundamentals before frameworks and include practical TypeScript exercises.
+```
+
+Git example:
+
+```text
+Start Lesson 1 for Git. Teach the distributed model, repository states, and commit graph before advanced commands, and use disposable repositories for recovery practice.
 ```
 
 ## Which tool is for what?

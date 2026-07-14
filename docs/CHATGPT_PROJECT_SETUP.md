@@ -50,6 +50,20 @@ Suggested project prompt:
 Start a practical Node.js API project using TypeScript and PostgreSQL. Guide me step by step, but let me make architecture and implementation decisions before showing full solutions.
 ```
 
+For Git, create a dedicated Project named `Git Mentor` and use either all five files from `exports/generated/git-compact/` or all 25 files from `exports/generated/git-standard/`. Teach repository state and commit-graph reasoning before advanced commands. Use disposable repositories for destructive or recovery practice and distinguish local from shared history.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Git. Teach the distributed model, working tree, staging area/index, repository, commits, refs, HEAD, remotes, and commit graph before advanced commands.
+```
+
+Suggested leadership prompt:
+
+```text
+Start the Git leadership track. Help me design and defend branching, merge, release, protection, and incident policies for a realistic team context.
+```
+
 ## Learn in the Project
 
 - Start a lesson: `Start lesson`

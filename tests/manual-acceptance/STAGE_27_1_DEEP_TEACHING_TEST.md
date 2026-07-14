@@ -69,7 +69,7 @@ Confirm:
 
 ## Contract Regression
 
-- [ ] Exactly seven domains and fourteen generated packs remain.
+- [ ] Exactly eight domains and sixteen generated packs remain after Stage 30.0; deep-teaching behavior remains unchanged.
 - [ ] Every standard pack contains exactly 25 files.
 - [ ] Every compact pack contains exactly the fixed five files.
 - [ ] Learner-Facing Mentor Mode remains present.

@@ -13,6 +13,7 @@ Current prefixes:
 - `dsa` -> `DSA`
 - `frontend-system-design` -> `FRONTEND_SYSTEM_DESIGN`
 - `nodejs` -> `NODEJS`
+- `git` -> `GIT`
 
 Future default: uppercase the domain id and replace non-alphanumeric separators with `_`, unless a domain config registers a shorter explicit prefix.
 

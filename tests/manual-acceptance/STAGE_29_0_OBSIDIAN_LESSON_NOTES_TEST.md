@@ -101,8 +101,8 @@ Compare recorded evidence, mastery, and learner state before and after all cases
 
 ## Repository Checks
 
-- [ ] All seven standard packs contain exactly 25 files.
-- [ ] All seven compact packs contain exactly five files.
+- [ ] All eight standard packs contain exactly 25 files.
+- [ ] All eight compact packs contain exactly five files.
 - [ ] `node --test tools/ulos-cli/test/*.test.js` passes.
 - [ ] `node tools/ulos-cli/src/index.js validate` passes.
 - [ ] `node tools/ulos-cli/src/index.js validate-learner` passes.

@@ -23,14 +23,25 @@
 - Stage 27.1: Deep Teaching and Progressive Lesson Delivery completed as a targeted framework correction driven by real SQL lesson evidence.
 - Stage 28.0: Optional Notion Lesson Journal Integration completed as an explicit connected-tool workflow across all registered packs.
 - Stage 29.0: Downloadable Obsidian Lesson Notes completed with generic export routing, shared normalization, portable Markdown artifacts, and preserved Notion compatibility.
-- Broad framework and Studio feature expansion remains paused; Stage 29.0 adds no framework-owned integration client, Obsidian vault access, learner database, or automatic state workflow.
+- Stage 30.0: Git Domain completed with mental-model-first progression, recovery and destructive-operation safety, provider-neutral collaboration, leadership workflow design, and two contract-preserving generated packs.
+- Broad framework and Studio feature expansion remains paused; Stage 30.0 adds no repository runtime, terminal, provider integration, learner database, or automatic state workflow.
 
 ## Recommended Priority
 
-1. Run SQL/PostgreSQL, English, DSA, Front-End System Design, and Node.js real learning pilots in ChatGPT Projects.
+1. Run SQL/PostgreSQL, English, DSA, Front-End System Design, Node.js, and Git real learning pilots in ChatGPT Projects.
 2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 30.0 Git Domain
+
+- Adds only `git` as the eighth canonical domain and teaches Git as distributed version control and a commit DAG rather than command memorization.
+- Progresses from repository state, commits, inspection, branches, merge, conflicts, and remotes through recovery, rebase, releases, investigation, internals, automation, scale, security, and Senior/Lead workflow governance.
+- Requires risk, local/shared-history analysis, safer alternatives, recovery limits, disposable practice, and verification for destructive operations; treats credential rotation as mandatory after secret exposure.
+- Adds five progressive projects, a reusable incident/scenario library, learner-produced evidence rules, Azerbaijani instruction with preserved English Git terminology, ADR-0057, automated coverage, manual acceptance, launch kits, and a planned pilot.
+- Increases supported domains from seven to eight and generated packs from fourteen to sixteen.
+- Adds `git-standard` with exactly 25 files and `git-compact` with exactly five files while preserving Learner-Facing Mentor Mode, optional continuity, and generic Obsidian/Notion lesson exports.
+- Keeps Studio optional and CLI-backed with only fallback/smoke compatibility; adds no Git screen, terminal, repository manipulation, provider API, dependency, learner runtime, or release tag.
 
 ## Stage 29.0 Downloadable Obsidian Lesson Notes
 

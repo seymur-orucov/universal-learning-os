@@ -29,6 +29,8 @@ node tools/ulos-cli/src/index.js inspect-pack --domain frontend-system-design --
 node tools/ulos-cli/src/index.js generate --domain frontend-system-design --profile standard --dry-run
 node tools/ulos-cli/src/index.js inspect-pack --domain nodejs --profile standard
 node tools/ulos-cli/src/index.js generate --domain nodejs --profile compact --dry-run
+node tools/ulos-cli/src/index.js inspect-pack --domain git --profile standard
+node tools/ulos-cli/src/index.js generate --domain git --profile compact --dry-run
 ```
 
 ## Optional Local Bin Usage
@@ -77,6 +79,7 @@ Domains:
 - `dsa`
 - `frontend-system-design`
 - `nodejs`
+- `git`
 
 Profiles:
 
@@ -91,7 +94,7 @@ Generate a compact pack:
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 ```
 
-Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`, `frontend-system-design`, `nodejs`.
+Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`, `frontend-system-design`, `nodejs`, `git`.
 
 Generated compact packs contain exactly:
 
@@ -229,3 +232,4 @@ Use `docs/releases/V0_2_0_RELEASE_CHECKLIST.md` before tagging or publishing rel
 - `dsa`
 - `frontend-system-design`
 - `nodejs`
+- `git`

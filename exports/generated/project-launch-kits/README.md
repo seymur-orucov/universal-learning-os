@@ -15,6 +15,7 @@ Canonical source remains in `core/`, `specification/`, `commands/`, `skills/`, `
 - DSA Mentor
 - Front-End System Design Mentor
 - Node.js Backend Mentor
+- Git Mentor
 - SQL/PostgreSQL Mentor OS Compact
 - English Mentor OS Compact
 - JavaScript Mentor OS Compact
@@ -22,6 +23,7 @@ Canonical source remains in `core/`, `specification/`, `commands/`, `skills/`, `
 - DSA Mentor Compact
 - Front-End System Design Mentor Compact
 - Node.js Backend Mentor Compact
+- Git Mentor Compact
 
 ## File Budget Boundary
 
@@ -34,6 +36,7 @@ Individual generated pack directories MUST remain exactly 25 files:
 - `exports/generated/dsa-standard/`
 - `exports/generated/frontend-system-design-standard/`
 - `exports/generated/nodejs-standard/`
+- `exports/generated/git-standard/`
 
 Compact generated pack directories MUST remain exactly 5 files:
 
@@ -44,6 +47,7 @@ Compact generated pack directories MUST remain exactly 5 files:
 - `exports/generated/dsa-compact/`
 - `exports/generated/frontend-system-design-compact/`
 - `exports/generated/nodejs-compact/`
+- `exports/generated/git-compact/`
 
 Launch kit files live outside those pack directories so upload-ready file counts remain stable.
 

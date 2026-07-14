@@ -7,7 +7,7 @@ import LearnerHandoffPanel from "./components/LearnerHandoffPanel.jsx";
 import LearnerSnapshotPanel from "./components/LearnerSnapshotPanel.jsx";
 import { runCliAction } from "./api/cliClient.js";
 
-const FALLBACK_DOMAINS = ["sql-postgresql", "english", "javascript", "typescript", "dsa", "frontend-system-design", "nodejs"];
+const FALLBACK_DOMAINS = ["sql-postgresql", "english", "javascript", "typescript", "dsa", "frontend-system-design", "nodejs", "git"];
 
 function parseDomains(output) {
   const matches = [...output.matchAll(/^- ([a-z0-9-]+)$/gm)].map((match) => match[1]);

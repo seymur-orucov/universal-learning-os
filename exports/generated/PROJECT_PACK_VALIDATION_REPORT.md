@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`stage-28.0-optional-notion-lesson-journal`
+`stage-30.0-git-domain`
 
 ## Quick Validation
 
@@ -26,7 +26,7 @@ From `tools/ulos-cli/`, run the same suite with:
 npm test
 ```
 
-The Stage 28.0 suite passes 60/60 tests. Thirteen registry-driven Notion tests cover canonical files, shared/future-domain source inheritance, all fourteen generated packs, exact 25/5 counts, explicit-only invocation, meaningful-boundary placement, deterministic titles and honest omission, target and duplicate handling, confirmed success, Markdown fallback, evidence/mastery/state separation, and credential/id/active-state exclusion. Existing deep-teaching, learner-facing, generation, path-safety, learner-helper, and pack-contract regressions also pass.
+The Stage 30.0 suite passes 106/106 tests. Registry-driven coverage checks all sixteen generated packs, exact 25/5 counts, Git canonical/registry contracts, Git filenames, standard and compact dry-runs, inspection, learner helpers, deep teaching, destructive-operation and secret safety, lesson exports, invalid-domain rejection, path safety, and learner-facing metadata boundaries.
 
 Packs can be regenerated before validation:
 
@@ -39,6 +39,8 @@ node tools/ulos-cli/src/index.js generate --domain frontend-system-design --prof
 node tools/ulos-cli/src/index.js generate --domain frontend-system-design --profile standard
 node tools/ulos-cli/src/index.js generate --domain nodejs --profile compact
 node tools/ulos-cli/src/index.js generate --domain nodejs --profile standard
+node tools/ulos-cli/src/index.js generate --domain git --profile compact
+node tools/ulos-cli/src/index.js generate --domain git --profile standard
 node tools/ulos-cli/src/index.js validate
 ```
 
@@ -55,6 +57,7 @@ Validated generated Project Packs:
 - `exports/generated/dsa-standard/`
 - `exports/generated/frontend-system-design-standard/`
 - `exports/generated/nodejs-standard/`
+- `exports/generated/git-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
@@ -62,6 +65,7 @@ Validated generated Project Packs:
 - `exports/generated/dsa-compact/`
 - `exports/generated/frontend-system-design-compact/`
 - `exports/generated/nodejs-compact/`
+- `exports/generated/git-compact/`
 
 This report is a derived audit artifact. It is not canonical framework source and not learner state.
 
@@ -83,6 +87,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `dsa-standard` | exactly 25 | PASS | Generated standard pack. |
 | `frontend-system-design-standard` | exactly 25 | PASS | Generated standard pack. |
 | `nodejs-standard` | exactly 25 | PASS | Generated standard pack. |
+| `git-standard` | exactly 25 | PASS | Generated standard pack. |
 
 ## Compact Profile Checks
 
@@ -95,6 +100,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `dsa-compact` | exactly 5 | PASS | Generated compact pack. |
 | `frontend-system-design-compact` | exactly 5 | PASS | Generated compact pack. |
 | `nodejs-compact` | exactly 5 | PASS | Generated compact pack. |
+| `git-compact` | exactly 5 | PASS | Generated compact pack. |
 
 ## Required Compact Files
 
@@ -118,6 +124,16 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Compact packs now have generation tooling.
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
+
+## Current Stage 30.0 Summary
+
+- All eight supported domains have one standard and one compact generated pack, for sixteen packs total.
+- Pack validation passes all sixteen packs; learner validation passes with zero violations.
+- Every standard pack contains exactly 25 files and every compact pack exactly five files.
+- `git-standard` contains the five required `GIT_*` domain files; `git-compact` contains the exact five compact contract files.
+- Both Git packs preserve teaching-first progression, destructive-operation safety, recovery, Azerbaijani instruction with English Git terminology, learner-produced evidence, metadata visibility, and generic Obsidian/Notion lesson exports.
+- The automated CLI suite passes 106/106 tests; Studio production build, bridge smoke, and health smoke pass.
+- No learner state, temporary test artifact, release tag, commit, branch, push, or provider integration is part of Stage 30.0.
 
 ## Current Stage 29.0 Summary
 

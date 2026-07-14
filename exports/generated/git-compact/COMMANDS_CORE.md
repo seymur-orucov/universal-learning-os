@@ -1,0 +1,566 @@
+# Commands Core
+
+Generated compact command core. Commands are user-invoked workflows, not agent skills.
+
+## START_LESSON.md
+
+Canonical source: `commands/START_LESSON.md`.
+
+# START_LESSON Command
+
+## Purpose
+
+Start the next appropriate lesson.
+
+## When to Use
+
+Use this command when the learner asks to begin learning and an active track or target learning skill can be resolved.
+
+## Required Context
+
+- `specification/COMMAND_SPEC.md`
+- `specification/LEARNING_LIFECYCLE.md`
+- `core/learning-engine/SESSION_SELECTION.md`
+- `core/learning-engine/LESSON_STRUCTURE.md`
+- `specification/LOCALIZATION_SPEC.md`
+
+## Inputs
+
+- Active track and learner goal.
+- Current learner state, when available.
+- Relevant domain pack.
+- Review queue and available evidence.
+- Optional user-selected learning skill or concept.
+- Optional explicit mode: diagnostic, challenge-first, practice-only, or assessment.
+
+## Workflow
+
+1. Resolve context from user command, active track, learner goal, and constraints.
+2. Load relevant specifications.
+3. Load the relevant domain pack.
+4. Load learner state when available.
+5. Use session selection to choose the lesson target, checking prerequisites and review queue.
+6. Unless the learner explicitly selected an exception mode, begin in Deep Teaching Mode and teach sufficiently before requesting independent work.
+7. For a new concept, provide the title and objective, prerequisite connection, mental model, deep explanation, essential terminology, minimal example, realistic example when appropriate, common misconceptions, and one guided knowledge check or guided action.
+8. State that the lesson will continue after the learner responds, without exposing internal lesson phases or framework metadata.
+9. Progress across turns from teaching to guided check, feedback and misconception repair, guided practice, independent practice, then summary and next action.
+10. Produce an optional session report when meaningful activity occurs.
+11. Propose state updates only when learner activity produces evidence.
+
+## User-Facing Output
+
+The initial response for a new concept SHOULD teach before testing and end with one guided knowledge check, not premature independent practice. It SHOULD request only one clear learner action and clearly indicate that the lesson will continue after the learner responds. Later turns introduce guided and independent practice when the learner is ready, as described in `core/learning-engine/LESSON_STRUCTURE.md`.
+
+Lesson explanations, examples, feedback, quick checks, homework, and next actions SHOULD follow localization preferences. When instruction language and terminology language differ, important domain terminology SHOULD be preserved and SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context. A project preference MAY request Azerbaijani instruction with English technical terms.
+
+## Evidence and State Rules
+
+- Displaying lesson content MUST NOT create mastery.
+- Evidence exists only if the learner performs an activity, answers a check, completes practice, or provides explicit state instruction.
+- Prerequisite gaps SHOULD influence the lesson plan or next action.
+- Tasks MUST NOT depend on concepts that have not been taught or established as prerequisites.
+- Diagnostic, challenge-first, practice-only, or assessment behavior before teaching requires an explicit learner request.
+
+## Failure Modes
+
+- No active track exists.
+- The relevant domain pack is missing.
+- Prerequisites are weak, unassessed, or contradicted by evidence.
+- The review queue indicates urgent review that should be addressed first.
+
+## Relationships
+
+- Session selection is defined in `core/learning-engine/SESSION_SELECTION.md`.
+- Lesson anatomy is defined in `core/learning-engine/LESSON_STRUCTURE.md`.
+- Evidence requirements are defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+
+## OPEN QUESTION
+
+- Should urgent review block lesson start by default or only warn the learner?
+
+## CONTINUE_LESSON.md
+
+Canonical source: `commands/CONTINUE_LESSON.md`.
+
+# CONTINUE_LESSON Command
+
+## Purpose
+
+Continue an in-progress lesson.
+
+## When to Use
+
+Use this command when prior session history or learner state indicates an unfinished lesson, practice step, assessment, or next action.
+
+## Required Context
+
+- `specification/COMMAND_SPEC.md`
+- `specification/STATE_SPEC.md`
+- `core/learning-engine/LESSON_STRUCTURE.md`
+- `core/learning-engine/NEXT_ACTION_MODEL.md`
+- `specification/LOCALIZATION_SPEC.md`
+
+## Inputs
+
+- Current learner request.
+- Learner state or session history, when available.
+- Relevant domain pack.
+- Prior lesson target, prior activity, and last next action.
+
+## Workflow
+
+1. Resolve context from current request, session history, and learner state.
+2. Load relevant specifications.
+3. Load the relevant domain pack.
+4. Load learner state when available.
+5. Review the learner's most recent response against the current concept and available prerequisites.
+6. Give feedback and repair misconceptions before advancing; avoid repeating the whole initial explanation when targeted repair is sufficient.
+7. Resume from the next appropriate progressive lesson phase: guided practice, independent practice, or summary and next action.
+8. Request only one clear next learner action, and do not advance to independent practice before sufficient teaching and guided work unless an explicit exception mode applies.
+9. Produce an optional session report.
+10. Propose state updates only when new evidence exists.
+11. At summary or another meaningful stopping point, MAY show `SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz` once; never show it while practice or teaching is unfinished, never invoke it automatically, and do not show the Notion alias as a second suggestion.
+
+## User-Facing Output
+
+The result SHOULD briefly summarize where the learner left off, review the learner's answer, correct misconceptions, and provide one next concrete activity. It SHOULD continue rather than repeat the whole initial teaching response. Output SHOULD follow the learner's instruction language when available, while domain-specific technical terms SHOULD follow the terminology language. Important technical terms SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context.
+
+## Evidence and State Rules
+
+- Prior displayed content MUST NOT be treated as evidence.
+- New learner output MAY become evidence when reviewed or assessed.
+- The command SHOULD distinguish continuation from repetition.
+- Saving a lesson note is a separate, explicitly invoked command and MUST NOT create evidence, mastery, completion, or a learner-state update.
+
+## Failure Modes
+
+- No in-progress lesson can be identified.
+- Session history is missing or ambiguous.
+- Domain pack content needed to continue is unavailable.
+- Learner asks to continue but prerequisite evidence indicates review or assessment is more appropriate.
+
+## Relationships
+
+- Lesson structure is defined in `core/learning-engine/LESSON_STRUCTURE.md`.
+- Next action categories are defined in `core/learning-engine/NEXT_ACTION_MODEL.md`.
+- State records are governed by `specification/STATE_SPEC.md`.
+- Optional lesson-note export is governed by `commands/SAVE_LESSON.md`; `commands/SAVE_LESSON_TO_NOTION.md` is a compatibility alias.
+
+## OPEN QUESTION
+
+- How long should a lesson remain resumable before it becomes a review or restart candidate?
+
+## PRACTICE.md
+
+Canonical source: `commands/PRACTICE.md`.
+
+# PRACTICE Command
+
+## Purpose
+
+Run practice without necessarily teaching a full lesson.
+
+## When to Use
+
+Use this command when the learner wants exercises, drilling, application, error repair, project work, or interview-style practice without a complete lesson flow.
+
+## Required Context
+
+- `specification/COMMAND_SPEC.md`
+- `core/learning-engine/PRACTICE_MODEL.md`
+- `core/learning-engine/ASSESSMENT_MODEL.md`
+- `specification/STATE_SPEC.md`
+- `specification/LOCALIZATION_SPEC.md`
+
+## Inputs
+
+- Requested concept, learning skill, practice type, or goal.
+- Current learner state, when available.
+- Relevant domain pack practice rules.
+- Review queue, prerequisites, and available evidence.
+
+## Workflow
+
+1. Resolve context from requested practice target, learner state, and user constraints.
+2. Load relevant specifications.
+3. Load the relevant domain pack.
+4. Load learner state when available.
+5. Select a practice type from `core/learning-engine/PRACTICE_MODEL.md`.
+6. Run practice targeting weak learning skills, user-selected concepts, or upcoming prerequisites.
+7. Produce feedback and an optional session report.
+8. Propose state updates only when learner output creates evidence.
+
+## User-Facing Output
+
+The output SHOULD include the practice target, practice type, task prompt, feedback, and next action. Task prompts and feedback SHOULD follow the learner's instruction language when available, while domain-specific technical terms SHOULD follow the terminology language. Important technical terms SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context.
+
+## Evidence and State Rules
+
+- Practice SHOULD produce evidence whenever progress or mastery may be updated.
+- Learner output MUST be preserved or summarized before it supports a state update.
+- Practice completion alone MUST NOT imply mastery.
+
+## Failure Modes
+
+- Requested practice target is not found in the domain pack.
+- Practice type is inappropriate for the learner state or prerequisite status.
+- Learner output is insufficient to assess progress.
+- Domain-specific practice rules are missing.
+
+## Relationships
+
+- Practice types are defined in `core/learning-engine/PRACTICE_MODEL.md`.
+- Assessment dimensions are defined in `core/learning-engine/ASSESSMENT_MODEL.md`.
+- Evidence requirements are defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+
+## OPEN QUESTION
+
+- Should practice commands allow difficulty labels before domain packs define difficulty models?
+
+## REVIEW.md
+
+Canonical source: `commands/REVIEW.md`.
+
+# REVIEW Command
+
+## Purpose
+
+Review weak, stale, failed, or user-selected learning skills.
+
+## When to Use
+
+Use this command when the review queue contains items, the learner asks to review, or evidence indicates weak prerequisites or repeated mistakes.
+
+## Required Context
+
+- `specification/COMMAND_SPEC.md`
+- `core/learning-engine/REVIEW_MODEL.md`
+- `core/learning-engine/PRACTICE_MODEL.md`
+- `specification/STATE_SPEC.md`
+- `specification/LOCALIZATION_SPEC.md`
+
+## Inputs
+
+- Review queue, when available.
+- User-requested review target, when provided.
+- Current learner state and evidence.
+- Relevant domain pack.
+
+## Workflow
+
+1. Resolve context from user request, review queue, and learner state.
+2. Load relevant specifications.
+3. Load the relevant domain pack.
+4. Load learner state when available.
+5. Select review targets using triggers from `core/learning-engine/REVIEW_MODEL.md`.
+6. Run targeted review through explanation, practice, or assessment as appropriate.
+7. Produce feedback and an optional session report.
+8. Propose state updates only when review produces evidence.
+
+## User-Facing Output
+
+The output SHOULD state the review target, reason for review, suggested review type, learner task, feedback, and next action. Review explanation, tasks, and feedback SHOULD follow the learner's instruction language when available, while domain-specific technical terms SHOULD follow the terminology language. Important technical terms SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context.
+
+## Evidence and State Rules
+
+- Review completion MUST NOT be treated as mastery without evidence.
+- User-requested review MAY run even without failure evidence.
+- Review items SHOULD retain evidence references when available.
+
+## Failure Modes
+
+- Review queue is missing or empty and no target is provided.
+- Review target is not found in the domain pack.
+- Evidence does not identify the weakness clearly enough for targeted review.
+- Learner asks for advancement while failed prerequisites remain unresolved.
+
+## Relationships
+
+- Review triggers are defined in `core/learning-engine/REVIEW_MODEL.md`.
+- Practice types are defined in `core/learning-engine/PRACTICE_MODEL.md`.
+- Learner state review storage is governed by `specification/STATE_SPEC.md`.
+
+## OPEN QUESTION
+
+- Should review priority be recalculated during the command or only proposed for future state?
+
+## ASSESS.md
+
+Canonical source: `commands/ASSESS.md`.
+
+# ASSESS Command
+
+## Purpose
+
+Evaluate learner competence.
+
+## When to Use
+
+Use this command when the learner requests evaluation, a learning skill requires evidence, or the system needs to determine readiness to advance.
+
+## Required Context
+
+- `specification/COMMAND_SPEC.md`
+- `core/learning-engine/ASSESSMENT_MODEL.md`
+- `core/mastery-model/MASTERY_LEVELS.md`
+- `core/mastery-model/EVIDENCE_REQUIREMENTS.md`
+- `specification/LOCALIZATION_SPEC.md`
+
+## Inputs
+
+- Target learning skill, concept, project artifact, or track segment.
+- Relevant domain pack assessment criteria.
+- Learner state and prior evidence, when available.
+- Learner output collected during the assessment.
+
+## Workflow
+
+1. Resolve context from requested assessment target and learner state.
+2. Load relevant specifications.
+3. Load the relevant domain pack.
+4. Load learner state when available.
+5. Collect evidence through tasks, questions, artifact review, or responses.
+6. Evaluate using dimensions from `core/learning-engine/ASSESSMENT_MODEL.md`.
+7. Produce an assessment result, feedback, and next action.
+8. Recommend mastery or state changes only when evidence requirements are satisfied.
+
+## User-Facing Output
+
+The output SHOULD include assessment target, evidence collected, evaluation by relevant dimensions, result, weak areas, and next action. Feedback and evaluation output SHOULD follow the learner's instruction language when available, while domain-specific technical terms SHOULD follow the terminology language. Important technical terms SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context.
+
+## Evidence and State Rules
+
+- Assessment MUST be based on evidence.
+- Mastery changes MUST NOT be recommended unless `core/mastery-model/EVIDENCE_REQUIREMENTS.md` is satisfied.
+- Assessment may identify review needs without changing mastery.
+
+## Failure Modes
+
+- Target learning skill or criteria are missing from the domain pack.
+- Learner output is absent or insufficient.
+- Assessment criteria are ambiguous.
+- Evidence conflicts with existing mastery records.
+
+## Relationships
+
+- Assessment dimensions are defined in `core/learning-engine/ASSESSMENT_MODEL.md`.
+- Mastery levels are defined in `core/mastery-model/MASTERY_LEVELS.md`.
+- Next action categories are defined in `core/learning-engine/NEXT_ACTION_MODEL.md`.
+
+## OPEN QUESTION
+
+- Should assessment results use fixed labels before machine-readable schemas exist?
+
+## SHOW_PROGRESS.md
+
+Canonical source: `commands/SHOW_PROGRESS.md`.
+
+# SHOW_PROGRESS Command
+
+## Purpose
+
+Summarize learner state and progress.
+
+## When to Use
+
+Use this command when the learner asks what has been completed, what is weak, what evidence exists, or what should happen next.
+
+## Required Context
+
+- `specification/COMMAND_SPEC.md`
+- `specification/STATE_SPEC.md`
+- `core/mastery-model/MASTERY_LEVELS.md`
+- `core/learning-engine/NEXT_ACTION_MODEL.md`
+- `specification/LOCALIZATION_SPEC.md`
+
+## Inputs
+
+- Learner state, when available.
+- Optional requested track, learning skill, date range, or summary depth.
+- Relevant domain pack for labels or track context, when available.
+
+## Workflow
+
+1. Resolve context from the requested progress scope.
+2. Load relevant specifications.
+3. Load the relevant domain pack when needed for labels or track structure.
+4. Load learner state when available.
+5. Summarize active tracks, learning skill records, evidence, review queue, session history, and next actions.
+6. Produce a user-facing progress summary.
+7. Produce an optional session report only if the command itself performs meaningful analysis.
+8. Do not propose state updates unless evidence gaps or explicit user corrections require a proposal.
+
+## User-Facing Output
+
+The output SHOULD clearly report known progress, weak areas, evidence coverage, pending reviews, recent sessions, next actions, and missing or incomplete state. Progress summaries SHOULD follow the learner's instruction language when available, while domain-specific technical terms SHOULD follow the terminology language. Important technical terms SHOULD NOT be replaced with unnatural translations. If preferences are missing, use project or user-provided language context.
+
+## Evidence and State Rules
+
+- The command MUST NOT modify learner state by default.
+- Missing learner state MUST be reported honestly.
+- Progress summaries MUST distinguish evidence-backed mastery from assumptions, planned work, or displayed lessons.
+- Localization preferences MUST NOT change evidence, mastery, or state semantics.
+
+## Failure Modes
+
+- Learner state is missing.
+- Learner state is incomplete, inconsistent, or unsupported by domain pack context.
+- Requested progress scope cannot be resolved.
+- Evidence references are missing for claimed mastery.
+
+## Relationships
+
+- Learner state structure is defined in `specification/STATE_SPEC.md`.
+- Mastery levels are defined in `core/mastery-model/MASTERY_LEVELS.md`.
+- Next action categories are defined in `core/learning-engine/NEXT_ACTION_MODEL.md`.
+
+## OPEN QUESTION
+
+- Should progress summaries include confidence levels before the state schema defines them?
+
+## SAVE_LESSON.md
+
+Canonical source: `commands/SAVE_LESSON.md`.
+
+# SAVE_LESSON Command
+
+## Purpose
+
+Export a grounded lesson note only after the learner explicitly invokes `SAVE_LESSON` or clearly asks to save the current lesson.
+
+The optional learner-facing action is:
+
+`SAVE_LESSON — Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz`
+
+## Routing
+
+- `SAVE_LESSON`, with no target, routes to `OBSIDIAN`.
+- `SAVE_LESSON OBSIDIAN` routes to a downloadable UTF-8 Obsidian Markdown (`.md`) artifact.
+- `SAVE_LESSON NOTION` routes to the connected Notion workflow.
+- `SAVE_LESSON_TO_NOTION` remains a backward-compatible alias for `SAVE_LESSON NOTION`.
+- A target MUST NOT be guessed when the learner explicitly names an unsupported format or destination. Explain the supported targets instead.
+
+The command is explicit-only. Displaying the optional action MUST NOT invoke either exporter.
+
+## Required Context
+
+- Available lesson conversation and session context.
+- Relevant domain pack and localization preferences, when available.
+- Existing evidence or assessment results, when they already exist.
+- `skills/lesson-summary-builder/SKILL.md`.
+- The exporter skill selected by the routing rules.
+
+## Normalized Summary
+
+First use `skills/lesson-summary-builder/SKILL.md` to produce one normalized summary shared by both exporters. Include only grounded lesson identity, objective, concepts, examples, learner work, observed mistakes and corrections, existing evidence or assessment results, status, and next steps. Omit unsupported values and empty sections.
+
+Building or exporting the summary MUST NOT create evidence, infer completion, change mastery, or mutate learner state.
+
+## Obsidian Workflow
+
+For the default or `OBSIDIAN` target, use `skills/obsidian-lesson-exporter/SKILL.md`.
+
+1. Build the normalized summary.
+2. Determine the stable session filename from grounded context.
+3. Create a normal UTF-8 `.md` artifact when the runtime supports file creation.
+4. Name or link the artifact only after creation succeeds.
+5. If file creation is unavailable or fails, explain that honestly and return the complete note in one fenced block together with its intended filename.
+6. On regeneration in the same session, reuse the filename and describe the new artifact as superseding the earlier export. Never claim to access, locate, or overwrite a file in an Obsidian vault.
+
+## Notion Workflow
+
+For the `NOTION` target or the compatibility alias, use `skills/notion-lesson-logger/SKILL.md` after building the same normalized summary. Preserve runtime-supplied target preference, journal discovery, duplicate handling, confirmation before new top-level journal creation, connector-confirmed success wording, and the Notion-ready Markdown fallback.
+
+## Effects and Boundaries
+
+- An Obsidian export is an ordinary Markdown artifact. Universal Learning OS does not access or write into an Obsidian vault.
+- A Notion export is an external learner note written through the connected runtime tool.
+- Neither export is canonical framework content, learner state, evidence, or a mastery record.
+- Existing evidence and assessment results MAY be summarized without being changed.
+- Success MUST be claimed only for the destination action actually confirmed by the runtime.
+- Credentials, connector internals, opaque ids, local filesystem paths, and vault paths MUST NOT appear in the note or learner-facing result.
+
+## Failure Modes
+
+- No meaningful lesson context is available.
+- The requested target is unsupported.
+- Runtime file creation is unavailable or fails.
+- The Notion connector is unavailable, denied, read-only, ambiguous, or lacks the required operation.
+
+## Relationships
+
+- Command behavior is governed by `specification/COMMAND_SPEC.md`.
+- Summary normalization is defined by `skills/lesson-summary-builder/SKILL.md`.
+- Obsidian rendering is defined by `skills/obsidian-lesson-exporter/SKILL.md`.
+- Notion behavior is defined by `skills/notion-lesson-logger/SKILL.md`.
+- Evidence, mastery, and state boundaries are governed by `specification/LEARNING_LIFECYCLE.md` and `specification/STATE_SPEC.md`.
+
+## SAVE_LESSON_TO_NOTION.md
+
+Canonical source: `commands/SAVE_LESSON_TO_NOTION.md`.
+
+# SAVE_LESSON_TO_NOTION Command (Compatibility Alias)
+
+## Purpose
+
+Preserve backward compatibility for learners who explicitly invoke `SAVE_LESSON_TO_NOTION`. This alias routes to `SAVE_LESSON NOTION` and does not define a second export workflow.
+
+The normal lesson-closure suggestion is defined in `commands/SAVE_LESSON.md`. This alias remains callable but MUST NOT be shown as a second suggestion.
+
+## Routing
+
+1. Treat explicit `SAVE_LESSON_TO_NOTION` invocation as `SAVE_LESSON NOTION`.
+2. Build the shared normalized summary through `skills/lesson-summary-builder/SKILL.md`.
+3. Use `skills/notion-lesson-logger/SKILL.md` for target discovery, duplicate handling, connector writes, confirmation, and fallback.
+
+## Invocation Boundary
+
+- This alias is explicit-only.
+- A runtime MUST NOT save automatically at lesson start, after every response, or merely because a lesson appears complete.
+- Displaying the generic `SAVE_LESSON` action MUST NOT invoke this alias or any connector.
+
+## Entry Format
+
+Create clean Notion-compatible Markdown with a deterministic title assembled in this order from available normalized values:
+
+`<date> — <domain> — <lesson-id-or-title>`
+
+Normalize a reliably known full date to `YYYY-MM-DD`. Omit unavailable components rather than inserting false placeholders. If none is available, use `Lesson Journal Entry`. Include only sections supported by the shared normalized summary. Add this boundary when evidence or mastery could be misunderstood:
+
+`Journal note only — saving this entry does not create evidence, mark mastery, or update learner state.`
+
+## Connector Workflow
+
+1. Prepare the title and entry from the shared normalized summary before any write.
+2. Use a learner- or runtime-supplied target when available.
+3. Otherwise, search through the connected Notion tool for an exact or clear `PLOS Learning Journal` match.
+4. If no journal exists, show the prepared entry and ask before creating a new top-level journal. After confirmation, prefer a database when supported; otherwise create a parent page with child lesson pages.
+5. Before writing, search for the same available date, domain, and lesson identity when search is supported.
+6. Update one unambiguous match. If multiple matches are plausible, ask the learner which entry to update. If updating is unsupported, ask before creating a duplicate.
+7. Perform the create or update through ChatGPT's connected Notion tool.
+8. Say `created` or `updated` only after the connector confirms success.
+
+## Failure and Fallback
+
+If Notion is unavailable, disconnected, denied, read-only, or does not support the required action:
+
+- explain the failure in learner-facing language;
+- do not claim that anything was created, updated, or saved;
+- return the complete prepared entry as clean Notion-compatible Markdown for manual copy/paste;
+- omit missing fields rather than fabricating content.
+
+## Privacy and State Boundaries
+
+- Universal Learning OS contains no Notion API client, credentials, tokens, or assigned target ids.
+- Never expose tokens, connector internals, opaque page/database/workspace ids, local paths, or implementation metadata.
+- A journal entry is an external learner note, not canonical content, learner state, evidence, or a mastery record.
+- A successful write MUST NOT mutate learner state or create evidence by itself.
+- Existing evidence or assessment results MAY be summarized only when already grounded.
+
+## Relationships
+
+- Generic export routing is governed by `commands/SAVE_LESSON.md`.
+- Summary normalization is governed by `skills/lesson-summary-builder/SKILL.md`.
+- Notion connector behavior is governed by `skills/notion-lesson-logger/SKILL.md`.
+- Command behavior is governed by `specification/COMMAND_SPEC.md`.
+- Learner state is governed by `specification/STATE_SPEC.md`.

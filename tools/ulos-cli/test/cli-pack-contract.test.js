@@ -35,21 +35,23 @@ test("list-domains exits 0 and reports the exact supported domains", () => {
     "dsa",
     "frontend-system-design",
     "nodejs",
+    "git",
   ]);
+  assert.equal(domains.filter((domain) => domain === "git").length, 1);
 });
 
 test("validate exits 0 for generated pack contracts", () => {
   const result = runCli(["validate"]);
   assert.equal(result.status, 0, output(result));
-  assert.match(result.stdout, /Domains checked: 7/);
-  assert.match(result.stdout, /Packs checked: 14/);
+  assert.match(result.stdout, /Domains checked: 8/);
+  assert.match(result.stdout, /Packs checked: 16/);
 
   const generatedPackDirectories = fs
     .readdirSync(path.join(repoRoot, "exports", "generated"), { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && /-(standard|compact)$/.test(entry.name))
     .map((entry) => entry.name)
     .sort();
-  assert.equal(generatedPackDirectories.length, 14);
+  assert.equal(generatedPackDirectories.length, 16);
   assert.deepEqual(generatedPackDirectories, [
     "dsa-compact",
     "dsa-standard",
@@ -57,6 +59,8 @@ test("validate exits 0 for generated pack contracts", () => {
     "english-standard",
     "frontend-system-design-compact",
     "frontend-system-design-standard",
+    "git-compact",
+    "git-standard",
     "javascript-compact",
     "javascript-standard",
     "nodejs-compact",
@@ -65,6 +69,41 @@ test("validate exits 0 for generated pack contracts", () => {
     "sql-postgresql-standard",
     "typescript-compact",
     "typescript-standard",
+  ]);
+});
+
+test("git standard inspect preserves the exact 25-file contract and GIT filenames", () => {
+  const result = runCli(["inspect-pack", "--domain", "git", "--profile", "standard"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 25/);
+  assert.match(result.stdout, /Expected rule: exactly 25 files/);
+  assert.match(result.stdout, /Rule status: PASS/);
+  for (const fileName of [
+    "GIT_DOMAIN_CONTEXT.md",
+    "GIT_SYLLABUS.md",
+    "GIT_SKILL_GRAPH.md",
+    "GIT_GLOSSARY_PROJECTS.md",
+    "GIT_PRACTICE_ASSESSMENT_RULES.md",
+  ]) assert.match(result.stdout, new RegExp(fileName.replace(".", "\\.")));
+});
+
+test("git compact inspect preserves the exact 5-file list", () => {
+  const result = runCli(["inspect-pack", "--domain", "git", "--profile", "compact"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /File count: 5/);
+  assert.match(result.stdout, /Rule status: PASS/);
+
+  const lines = result.stdout.split(/\r?\n/);
+  const files = lines
+    .slice(lines.findIndex((line) => line === "Files:") + 1)
+    .filter((line) => line.startsWith("- "))
+    .map((line) => line.slice(2).trim());
+  assert.deepEqual(files, [
+    "COMMANDS_CORE.md",
+    "DOMAIN_CORE.md",
+    "MENTOR_SKILLS_CORE.md",
+    "PROJECT_INSTRUCTIONS.md",
+    "STARTUP_PROMPT.md",
   ]);
 });
 

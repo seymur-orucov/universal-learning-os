@@ -12,6 +12,7 @@ const DOMAIN_PREFIX_OVERRIDES = {
   dsa: "DSA",
   "frontend-system-design": "FRONTEND_SYSTEM_DESIGN",
   nodejs: "NODEJS",
+  git: "GIT",
 };
 
 const BASE_STANDARD_FILES = [
@@ -206,6 +207,10 @@ function buildStartupPrompt(domainConfig) {
   const title = domainConfig.title || domainConfig.id;
   const terms = domainConfig.terms || "technical terms";
 
+  if (domainConfig.id === "git") {
+    return `# Startup Prompt\n\nSimple usage:\n\n\`\`\`text\nStart lesson\n\`\`\`\n\nRecovery-focused example:\n\n\`\`\`text\nStart a Git recovery lesson. Teach the graph and state model first, then use a disposable repository for guided recovery practice.\n\`\`\`\n\nLeadership example:\n\n\`\`\`text\nStart the Git leadership track. Help me compare branching, merge, release, protection, and incident policies for a real team context.\n\`\`\`\n\nRuntime guidance:\n\n\`\`\`text\nUse Git Mentor OS Standard.\n\nInstruction language: Azerbaijani. Keep Git commands, flags, refs, object names, file names, and established version-control terms in English where natural.\n\nIf learner state or a previous summary exists, use it. Otherwise, \"Start lesson\" selects Lesson 1: why version control exists and how distributed Git differs from a centralized model. Teach working tree, staging area/index, local repository, commits, refs, HEAD, remotes, remote-tracking branches, and the commit DAG before advanced commands. Require state and graph predictions, then guided execution, feedback, and later independent practice. Before reset --hard, clean, force push, interactive rebase, ref deletion, or shared-history rewrite, explain risk, local versus shared history, safer alternatives, recovery, and verification; use only disposable repositories for destructive practice. Treat recovery as a core skill, Git hosting providers as collaboration contexts, and credential rotation as mandatory after secret exposure.\n\nKeep normal learner-facing output clean. Do not show evidence blocks, proposed state updates, YAML learner state, internal skill IDs, Project Pack details, continuation prompt blocks, or audit/debug notes unless I explicitly ask for them.\n\`\`\`\n`;
+  }
+
   if (domainConfig.id === "nodejs") {
     return `# Startup Prompt\n\nSimple usage:\n\n\`\`\`text\nStart lesson\n\`\`\`\n\nExplicit example:\n\n\`\`\`text\nStart Lesson 1 for Node.js. Teach me as an experienced Front-End Engineer moving into backend development. Explain runtime fundamentals before frameworks and include practical TypeScript exercises.\n\`\`\`\n\nProject-based example:\n\n\`\`\`text\nStart a Node.js backend project track. Guide me from requirements and API design through PostgreSQL, validation, testing, security, and deployment.\n\`\`\`\n\nNestJS example (foundations required):\n\n\`\`\`text\nStart the NestJS specialization after verifying that I understand Node.js runtime, HTTP, backend architecture, validation, PostgreSQL, and testing fundamentals.\n\`\`\`\n\nRuntime guidance:\n\n\`\`\`text\nUse Node.js Mentor OS Standard.\n\nInstruction language: Azerbaijani. Keep Node.js and backend technical terms in English where natural. Use TypeScript for backend projects and JavaScript for runtime examples when types distract.\n\nIf learner state or a previous summary exists, use it. Otherwise, "Start lesson" selects Lesson 1: Node.js runtime foundations. Connect frontend JavaScript knowledge to server execution, explain runtime and HTTP behavior before framework abstractions, require learner reasoning and practical work, and progress from hints to complete solutions only when needed. Fastify is the default practical framework; compare Express honestly. Teach PostgreSQL with SQL and transaction reasoning. Treat validation, errors, security, tests, observability, reliability, and deployment as required production concerns. Do not introduce NestJS until runtime, HTTP, architecture, validation, PostgreSQL, and testing foundations are established.\n\nKeep normal learner-facing output clean. Do not show evidence blocks, proposed state updates, YAML learner state, internal skill IDs, Project Pack details, continuation prompt blocks, or audit/debug notes unless I explicitly ask for them.\n\`\`\`\n`;
   }
@@ -295,8 +300,8 @@ function buildDomainFiles(repoRoot, domainConfig, prefix) {
 
   const domainContextSources = collectSourcesFromFiles(repoRoot, [
     `${domainBase}/DOMAIN.md`,
-    `${domainBase}/README.md`,
   ]).concat(collectSourcesFromFiles(repoRoot, [
+    `${domainBase}/README.md`,
     `${domainBase}/DOMAIN_OVERVIEW.md`,
     `${domainBase}/MENTOR_BEHAVIOR.md`,
     `${domainBase}/PROJECT_PACK_SELECTION.md`,
