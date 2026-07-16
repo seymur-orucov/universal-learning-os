@@ -64,6 +64,20 @@ Suggested leadership prompt:
 Start the Git leadership track. Help me design and defend branching, merge, release, protection, and incident policies for a realistic team context.
 ```
 
+For Go, create one dedicated Project named `Go Mentor` and use either all five files from `exports/generated/go-compact/` or all 25 files from `exports/generated/go-standard/`. Never upload both profiles together. The compact profile is intended for the five-file Project limit. Teach Go and its standard library before frameworks, and require explicit error, concurrency lifecycle, HTTP, SQL, security, testing, observability, and shutdown reasoning.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Go. Teach me as an experienced JavaScript/TypeScript engineer, beginning with Go's compiled model, toolchain, packages, and first program before independent tasks.
+```
+
+Suggested project prompt:
+
+```text
+Start a Go backend project track using net/http and PostgreSQL. Keep SQL explicit, frameworks optional and late, and make me own errors, cancellation, resource cleanup, bounded concurrency, tests, and graceful shutdown.
+```
+
 ## Learn in the Project
 
 - Start a lesson: `Start lesson`

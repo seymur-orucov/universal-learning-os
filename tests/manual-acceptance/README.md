@@ -22,6 +22,7 @@ node tools/ulos-cli/src/index.js validate
 - `exports/generated/frontend-system-design-standard/`
 - `exports/generated/nodejs-standard/`
 - `exports/generated/git-standard/`
+- `exports/generated/go-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
@@ -30,6 +31,7 @@ node tools/ulos-cli/src/index.js validate
 - `exports/generated/frontend-system-design-compact/`
 - `exports/generated/nodejs-compact/`
 - `exports/generated/git-compact/`
+- `exports/generated/go-compact/`
 - `exports/generated/project-launch-kits/`
 - `learners/active-learner/`
 - `tools/ulos-cli/`
@@ -45,6 +47,8 @@ Generated pack directories must remain exactly 25 files each:
 - DSA generated pack: 25 files.
 - Front-End System Design generated pack: 25 files.
 - Node.js generated pack: 25 files.
+- Git generated pack: 25 files.
+- Go generated pack: 25 files.
 
 Compact/free generated pack directories must remain exactly 5 files each:
 
@@ -55,6 +59,8 @@ Compact/free generated pack directories must remain exactly 5 files each:
 - DSA compact pack: exactly 5 files.
 - Front-End System Design compact pack: exactly 5 files.
 - Node.js compact pack: exactly 5 files.
+- Git compact pack: exactly 5 files.
+- Go compact pack: exactly 5 files.
 
 Manual tests MUST NOT add files inside individual generated pack directories.
 
@@ -68,6 +74,7 @@ Manual tests MUST NOT add files inside individual generated pack directories.
 - Stage 28.0 optional Notion lesson journal behavior lives at `tests/manual-acceptance/STAGE_28_0_NOTION_LESSON_JOURNAL_TEST.md`.
 - Stage 29.0 downloadable Obsidian lesson-note and generic routing behavior lives at `tests/manual-acceptance/STAGE_29_0_OBSIDIAN_LESSON_NOTES_TEST.md`.
 - Stage 30.0 Git domain coverage lives at `tests/manual-acceptance/STAGE_30_0_GIT_DOMAIN_TEST.md`.
+- Stage 31.0 Go domain coverage lives at `tests/manual-acceptance/STAGE_31_0_GO_DOMAIN_TEST.md`.
 
 ## OPEN QUESTION
 

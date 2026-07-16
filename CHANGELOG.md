@@ -4,6 +4,10 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 31.0 by adding the canonical `go` domain for experienced JavaScript/TypeScript engineers moving toward backend, systems, platform, infrastructure, or full-stack work.
+- Adds language-first and standard-library-first progression through Go values, errors, testing, safe concurrency, `net/http`, explicit PostgreSQL SQL, security, reliability, observability, profiling, deployment, and seven production-oriented projects; frameworks and ORMs remain later contextual choices.
+- Adds `go-standard` (exactly 25 files) and `go-compact` (exactly 5 files), increasing supported domains from 8 to 9 and generated packs from 16 to 18 without changing any profile contract.
+- Adds Go registry/generator/learner-helper coverage, launch kits, planned pilot guidance, ADR-0058, Stage 31.0 manual acceptance, 120-test regression coverage, and Studio fallback/smoke compatibility while preserving learner-facing metadata, lesson exports, optional learner state, and all existing domains.
 - Completes Stage 30.0 by adding the canonical `git` domain with mental-model-first repository state and graph teaching, provider-neutral collaboration, safe destructive-operation guidance, recovery, rebase, releases, debugging, internals, scale, security, and Senior/Lead workflow governance.
 - Adds `git-standard` (exactly 25 files) and `git-compact` (exactly 5 files), increasing supported domains from 7 to 8 and generated packs from 14 to 16 without changing existing pack contracts.
 - Adds Git CLI/generator/learner-helper coverage, 106-test regression coverage, launch kits, planned pilot guidance, ADR-0057, manual acceptance, Studio fallback/smoke compatibility, and updated setup/index/validation documentation.

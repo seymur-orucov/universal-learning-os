@@ -14,6 +14,7 @@ Current prefixes:
 - `frontend-system-design` -> `FRONTEND_SYSTEM_DESIGN`
 - `nodejs` -> `NODEJS`
 - `git` -> `GIT`
+- `go` -> `GO`
 
 Future default: uppercase the domain id and replace non-alphanumeric separators with `_`, unless a domain config registers a shorter explicit prefix.
 

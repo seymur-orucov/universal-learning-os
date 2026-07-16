@@ -107,7 +107,7 @@ test("create-handoff rejects unsupported domains and lists supported domains", (
 
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs, git/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs, git, go/);
 });
 
 test("create-handoff rejects unsafe output paths", () => {
@@ -235,7 +235,7 @@ test("create-snapshot rejects unsupported domains", () => {
 
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs, git/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs, git, go/);
 });
 
 test("create-snapshot rejects unsupported types and lists allowed types", () => {

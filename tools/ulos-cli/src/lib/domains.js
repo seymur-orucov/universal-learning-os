@@ -55,6 +55,14 @@ const DOMAIN_CONFIG = [
     purpose: "Develop mental-model-first, recovery-aware Git competence from everyday repository work to advanced collaboration, release governance, debugging, and workflow design.",
     terms: "Git commands and version-control technical terms",
   },
+  {
+    id: "go",
+    launchPrefix: "GO",
+    title: "Go",
+    purpose:
+      "Develop language-first, concurrency-aware, production-ready Go competence for experienced JavaScript/TypeScript engineers moving toward backend, systems, platform, or full-stack engineering.",
+    terms: "Go, backend, concurrency, systems, and production engineering technical terms",
+  },
 ];
 
 const SUPPORTED_DOMAINS = DOMAIN_CONFIG.map((domain) => domain.id);

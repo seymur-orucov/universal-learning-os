@@ -24,14 +24,26 @@
 - Stage 28.0: Optional Notion Lesson Journal Integration completed as an explicit connected-tool workflow across all registered packs.
 - Stage 29.0: Downloadable Obsidian Lesson Notes completed with generic export routing, shared normalization, portable Markdown artifacts, and preserved Notion compatibility.
 - Stage 30.0: Git Domain completed with mental-model-first progression, recovery and destructive-operation safety, provider-neutral collaboration, leadership workflow design, and two contract-preserving generated packs.
-- Broad framework and Studio feature expansion remains paused; Stage 30.0 adds no repository runtime, terminal, provider integration, learner database, or automatic state workflow.
+- Stage 31.0: Go Domain completed with language-first and standard-library-first progression, explicit errors, safe concurrency, HTTP/PostgreSQL/production engineering, and two contract-preserving generated packs.
+- Broad framework and Studio feature expansion remains paused; Stage 31.0 adds no code runner, compiler integration, hosted service, learner database, or automatic state workflow.
 
 ## Recommended Priority
 
-1. Run SQL/PostgreSQL, English, DSA, Front-End System Design, Node.js, and Git real learning pilots in ChatGPT Projects.
+1. Run SQL/PostgreSQL, English, DSA, Front-End System Design, Node.js, Git, and Go real learning pilots in ChatGPT Projects.
 2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 31.0 Go Domain
+
+- Adds only `go` as the ninth canonical domain for experienced JavaScript/TypeScript engineers moving toward backend, systems, platform, infrastructure, or full-stack engineering.
+- Progresses from Go's compiled model, toolchain, types, values, methods, interfaces, errors, generics, I/O, and testing through safe concurrency, `net/http`, application design, PostgreSQL, security, reliability, observability, profiling, performance, deployment, and later optional specialization.
+- Uses the standard library as the conceptual foundation: `net/http` before frameworks, `database/sql` and explicit SQL before ORM convenience, `testing` before optional test frameworks, and direct `context`/`sync`/channel ownership reasoning.
+- Requires every goroutine design to identify ownership, stopping, errors, resource release, bounds, backpressure, waiting, and shutdown; race, deadlock, leak, cancellation, overload, and graceful-shutdown evidence are explicit.
+- Adds seven progressive projects, learner-produced evidence rules, Azerbaijani instruction with preserved English terminology, ADR-0058, automated coverage, manual acceptance, launch kits, and a planned pilot.
+- Increases supported domains from eight to nine and generated packs from sixteen to eighteen.
+- Adds `go-standard` with exactly 25 files and `go-compact` with exactly five files while preserving teaching-first delivery, learner-facing metadata boundaries, optional continuity, and generic Obsidian/Notion lesson exports.
+- Keeps Studio optional and generic with only fallback/smoke compatibility; adds no Go screen, compiler, code runner, dependency, hosted backend, learner runtime, release, or tag.
 
 ## Stage 30.0 Git Domain
 

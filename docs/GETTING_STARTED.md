@@ -25,6 +25,7 @@ Generated packs are in `exports/generated/`. Start with one of these compact pac
 - `exports/generated/frontend-system-design-compact/`
 - `exports/generated/nodejs-compact/`
 - `exports/generated/git-compact/`
+- `exports/generated/go-compact/`
 
 For the full profile, choose the corresponding `*-standard/` directory.
 
@@ -35,6 +36,8 @@ For Front-End System Design, use `exports/generated/frontend-system-design-compa
 For Node.js, use `exports/generated/nodejs-compact/` or `exports/generated/nodejs-standard/` in a dedicated Project named `Node.js Backend Mentor`. The track is runtime-first, uses TypeScript for backend projects, preserves SQL reasoning with PostgreSQL, and treats NestJS as a later specialization. Prefer one domain per Project. Studio remains optional.
 
 For Git, use `exports/generated/git-compact/` or `exports/generated/git-standard/` in a dedicated Project named `Git Mentor`. The track teaches repository state and commit graphs before advanced commands, makes recovery a core skill, and uses disposable repositories for destructive practice. Prefer one domain per Project. Studio remains optional.
+
+For Go, use `exports/generated/go-compact/` or `exports/generated/go-standard/` in one dedicated Project named `Go Mentor`; never mix the profiles. Compact is designed for the five-file Project limit. The track teaches the language and standard library before frameworks, explicit SQL before ORM convenience, and concurrency as an ownership/lifecycle problem. `Start lesson` is sufficient. Use generated files directly; run the generator only after canonical-source changes. Studio remains optional.
 
 ## What to type in the ChatGPT Project
 
@@ -72,6 +75,12 @@ Git example:
 
 ```text
 Start Lesson 1 for Git. Teach the distributed model, repository states, and commit graph before advanced commands, and use disposable repositories for recovery practice.
+```
+
+Go example:
+
+```text
+Start Lesson 1 for Go. Teach the compiled model, toolchain, packages, and first program before independent work, and connect my JavaScript/TypeScript knowledge without treating Go as TypeScript with different syntax.
 ```
 
 ## Which tool is for what?

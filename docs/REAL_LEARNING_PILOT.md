@@ -113,6 +113,26 @@ Suggested first prompt:
 Start Lesson 1 for Git. Teach the distributed model, repository states, and commit graph before advanced commands, and use disposable repositories for recovery practice.
 ```
 
+## Go pilot
+
+This is a planned pilot, not a claim that it has been completed.
+
+- Create one dedicated ChatGPT Project named `Go Mentor`.
+- Upload all five files from `exports/generated/go-compact/`; do not mix profiles.
+- Run 3–5 lessons covering toolchain/language, values/slices, explicit errors/tests, concurrency ownership, and `net/http`.
+- Verify teaching and guided reasoning precede independent implementation.
+- Verify JavaScript/TypeScript comparisons name where the analogy breaks.
+- Verify goroutines always include ownership, cancellation, error, bounds, resource, wait, and shutdown reasoning.
+- Verify HTTP uses validation, limits, timeouts, failure tests, and graceful shutdown, and PostgreSQL work keeps SQL/transactions explicit before ORM discussion.
+- Verify frameworks remain late, production/security/observability concerns are present, and learner-facing metadata remains hidden by default.
+- Record real session outcomes before claiming the Go pilot complete.
+
+Suggested first prompt:
+
+```text
+Start Lesson 1 for Go. Teach me as an experienced JavaScript/TypeScript engineer and use the standard library before frameworks.
+```
+
 ## Pilot result template
 
 ```text

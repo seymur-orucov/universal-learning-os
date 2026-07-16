@@ -18,6 +18,7 @@ The repository currently implements:
 - Stage 16.1: standard Project Pack generation for all supported domains.
 - Stage 17.0: v0.2.0 release hardening and readiness documentation.
 - Stage 30.0: production Git domain with mental-model-first learning, recovery and safety, provider-neutral collaboration, leadership workflow design, generated standard/compact packs, and full CLI/Studio validation coverage.
+- Stage 31.0: production Go domain with language-first and standard-library-first progression, safe concurrency, explicit errors, HTTP/PostgreSQL/production engineering, generated standard/compact packs, and full CLI/Studio validation coverage.
 
 It does not yet include generated lessons, learner applications, machine-readable schemas, or an app/dashboard runtime. CLI validation and pack generation live under `tools/ulos-cli/`.
 
@@ -37,6 +38,7 @@ The repository is ready for manual review and practical ChatGPT Project setup us
 - `frontend-system-design`
 - `nodejs`
 - `git`
+- `go`
 
 ## Repository Map
 
@@ -76,6 +78,7 @@ Supported generated Project Packs:
 - `exports/generated/frontend-system-design-standard/`
 - `exports/generated/nodejs-standard/`
 - `exports/generated/git-standard/`
+- `exports/generated/go-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
@@ -84,6 +87,7 @@ Supported generated Project Packs:
 - `exports/generated/frontend-system-design-compact/`
 - `exports/generated/nodejs-compact/`
 - `exports/generated/git-compact/`
+- `exports/generated/go-compact/`
 
 ## CLI Prototype
 

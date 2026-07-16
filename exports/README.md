@@ -14,10 +14,20 @@ Generated Project Packs live under `exports/generated/` and can be regenerated b
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
+- `exports/generated/dsa-standard/`
+- `exports/generated/frontend-system-design-standard/`
+- `exports/generated/nodejs-standard/`
+- `exports/generated/git-standard/`
+- `exports/generated/go-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+- `exports/generated/dsa-compact/`
+- `exports/generated/frontend-system-design-compact/`
+- `exports/generated/nodejs-compact/`
+- `exports/generated/git-compact/`
+- `exports/generated/go-compact/`
 
 Standard packs contain exactly 25 files. Compact packs contain exactly 5 files.
 

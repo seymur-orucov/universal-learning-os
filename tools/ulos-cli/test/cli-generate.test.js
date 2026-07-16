@@ -110,11 +110,26 @@ test("git compact dry-run generation plans exactly 5 files", () => {
   assert.match(result.stdout, /Files planned: 5/);
 });
 
+test("go standard dry-run generation plans exactly 25 files", () => {
+  const result = runCli(["generate", "--domain", "go", "--profile", "standard", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Standard pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 25/);
+  assert.match(result.stdout, /GO_DOMAIN_CONTEXT\.md/);
+});
+
+test("go compact dry-run generation plans exactly 5 files", () => {
+  const result = runCli(["generate", "--domain", "go", "--profile", "compact", "--dry-run"]);
+  assert.equal(result.status, 0, output(result));
+  assert.match(result.stdout, /Compact pack generation dry run/);
+  assert.match(result.stdout, /Files planned: 5/);
+});
+
 test("invalid domain exits non-zero", () => {
   const result = runCli(["generate", "--domain", "not-a-domain", "--profile", "standard", "--dry-run"]);
   assert.notEqual(result.status, 0, output(result));
   assert.match(result.stderr, /Unsupported domain: not-a-domain/);
-  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs, git/);
+  assert.match(result.stderr, /Supported domains: sql-postgresql, english, javascript, typescript, dsa, frontend-system-design, nodejs, git, go/);
 });
 
 test("invalid profile exits non-zero", () => {

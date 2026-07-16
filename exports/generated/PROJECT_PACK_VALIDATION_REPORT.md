@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`stage-30.0-git-domain`
+`stage-31.0-go-domain`
 
 ## Quick Validation
 
@@ -26,7 +26,7 @@ From `tools/ulos-cli/`, run the same suite with:
 npm test
 ```
 
-The Stage 30.0 suite passes 106/106 tests. Registry-driven coverage checks all sixteen generated packs, exact 25/5 counts, Git canonical/registry contracts, Git filenames, standard and compact dry-runs, inspection, learner helpers, deep teaching, destructive-operation and secret safety, lesson exports, invalid-domain rejection, path safety, and learner-facing metadata boundaries.
+The Stage 31.0 suite passes 120/120 tests. Registry-driven coverage checks all eighteen generated packs, exact 25/5 counts, Go canonical/registry contracts, Go filenames, standard and compact dry-runs, inspection, learner helpers, teaching-first delivery, concurrency/error/SQL/framework guidance, lesson exports, invalid-domain rejection, path safety, and learner-facing metadata boundaries.
 
 Packs can be regenerated before validation:
 
@@ -41,6 +41,8 @@ node tools/ulos-cli/src/index.js generate --domain nodejs --profile compact
 node tools/ulos-cli/src/index.js generate --domain nodejs --profile standard
 node tools/ulos-cli/src/index.js generate --domain git --profile compact
 node tools/ulos-cli/src/index.js generate --domain git --profile standard
+node tools/ulos-cli/src/index.js generate --domain go --profile compact
+node tools/ulos-cli/src/index.js generate --domain go --profile standard
 node tools/ulos-cli/src/index.js validate
 ```
 
@@ -58,6 +60,7 @@ Validated generated Project Packs:
 - `exports/generated/frontend-system-design-standard/`
 - `exports/generated/nodejs-standard/`
 - `exports/generated/git-standard/`
+- `exports/generated/go-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
@@ -66,6 +69,7 @@ Validated generated Project Packs:
 - `exports/generated/frontend-system-design-compact/`
 - `exports/generated/nodejs-compact/`
 - `exports/generated/git-compact/`
+- `exports/generated/go-compact/`
 
 This report is a derived audit artifact. It is not canonical framework source and not learner state.
 
@@ -88,6 +92,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `frontend-system-design-standard` | exactly 25 | PASS | Generated standard pack. |
 | `nodejs-standard` | exactly 25 | PASS | Generated standard pack. |
 | `git-standard` | exactly 25 | PASS | Generated standard pack. |
+| `go-standard` | exactly 25 | PASS | Generated standard pack. |
 
 ## Compact Profile Checks
 
@@ -101,6 +106,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `frontend-system-design-compact` | exactly 5 | PASS | Generated compact pack. |
 | `nodejs-compact` | exactly 5 | PASS | Generated compact pack. |
 | `git-compact` | exactly 5 | PASS | Generated compact pack. |
+| `go-compact` | exactly 5 | PASS | Generated compact pack. |
 
 ## Required Compact Files
 
@@ -125,7 +131,17 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## Current Stage 30.0 Summary
+## Current Stage 31.0 Summary
+
+- All nine supported domains have one standard and one compact generated pack, for eighteen packs total.
+- Pack validation passes all eighteen packs; learner validation passes with zero violations.
+- Every standard pack contains exactly 25 files and every compact pack exactly five files.
+- `go-standard` contains the five required `GO_*` files; `go-compact` contains the exact five compact contract files.
+- Both Go packs preserve teaching-first, language-first and standard-library-first progression, explicit errors/failure paths, safe bounded concurrency, Azerbaijani instruction with English terminology, HTTP/SQL/security/production scope, learner-produced evidence, metadata visibility, and generic Obsidian/Notion lesson exports.
+- The automated CLI suite passes 120/120 tests; Studio dependency install/audit, production build, bridge smoke, and health smoke pass.
+- No learner state, code runner, compiler integration, release tag, commit, branch, push, hosted service, or Studio screen is part of Stage 31.0.
+
+## Historical Stage 30.0 Summary
 
 - All eight supported domains have one standard and one compact generated pack, for sixteen packs total.
 - Pack validation passes all sixteen packs; learner validation passes with zero violations.
@@ -135,7 +151,7 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - The automated CLI suite passes 106/106 tests; Studio production build, bridge smoke, and health smoke pass.
 - No learner state, temporary test artifact, release tag, commit, branch, push, or provider integration is part of Stage 30.0.
 
-## Current Stage 29.0 Summary
+## Historical Stage 29.0 Summary
 
 - All seven supported domains have one standard and one compact generated pack, for fourteen packs total.
 - CLI validation passes the lesson-note routing/closure, Obsidian contract, Notion compatibility, safety, file-budget, manifest/compact-structure, and launch-kit checks for every pack.

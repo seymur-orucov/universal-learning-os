@@ -53,6 +53,8 @@ Current generated packs use these domain prefixes:
 - `DSA` for `dsa`.
 - `FRONTEND_SYSTEM_DESIGN` for `frontend-system-design`.
 - `NODEJS` for `nodejs`.
+- `GIT` for `git`.
+- `GO` for `go`.
 
 Future domains MUST use a deterministic uppercase domain prefix. The default rule is to uppercase the domain id, replace non-alphanumeric separators with `_`, then allow a domain config override only when a shorter human-readable prefix is necessary.
 
