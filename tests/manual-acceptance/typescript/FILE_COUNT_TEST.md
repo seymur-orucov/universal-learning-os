@@ -20,12 +20,12 @@ find exports/generated/javascript-compact -maxdepth 1 -type f | wc -l
 ## Expected Results
 
 - TypeScript standard pack: exactly 25 files.
-- TypeScript compact pack: maximum 5 files.
+- TypeScript compact pack: exactly 5 files.
 - Existing standard packs: exactly 25 files.
-- Existing compact packs: maximum 5 files.
+- Existing compact packs: exactly 5 files.
 
 ## Pass/Fail Checklist
 
 - [ ] `typescript-standard` count is 25.
-- [ ] `typescript-compact` count is no more than 5.
+- [ ] `typescript-compact` count is exactly 5.
 - [ ] Existing generated packs retain their required counts.

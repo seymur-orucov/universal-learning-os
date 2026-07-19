@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Verify JavaScript compact pack behavior in a max-5-file Free Project setup.
+Verify JavaScript compact pack behavior in a 5-file Free Project setup.
 
 ## Preconditions
 
-- `exports/generated/javascript-compact/` has no more than 5 files.
+- `exports/generated/javascript-compact/` has exactly 5 files.
 - Standard pack `exports/generated/javascript-standard/` still has exactly 25 files.
 
 ## Startup

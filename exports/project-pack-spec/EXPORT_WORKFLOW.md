@@ -6,7 +6,7 @@ Define the manual workflow for assembling a Project Pack.
 
 ## Scope
 
-This workflow is a human-readable process. It is not executable automation.
+This workflow is a human-readable process. Compact and standard pack generation are executable through `tools/ulos-cli`.
 
 ## Workflow
 
@@ -19,7 +19,7 @@ This workflow is a human-readable process. It is not executable automation.
 7. Choose learner templates.
 8. Choose session templates.
 9. Create manifest.
-10. Check the selected profile budget: 25 files for `standard`, max 5 files for `compact/free`.
+10. Check the selected profile budget: 25 files for `standard`, 5 files for `compact/free`.
 11. Document summarized files.
 12. Document excluded files.
 13. Prepare startup prompt.
@@ -28,6 +28,13 @@ This workflow is a human-readable process. It is not executable automation.
 16. Verify learner state separation.
 17. Verify privacy constraints if the domain involves language, audio, transcripts, or workplace content.
 18. Final review.
+
+## Generation Status
+
+- Compact packs can be regenerated with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile compact`.
+- Standard packs can be regenerated with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile standard`.
+- Use `--dry-run` and repository-local `--out-dir` for safer standard generation testing.
+- The standard generation contract and templates are documented in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md` and `tools/ulos-cli/templates/standard-pack/`.
 
 ## Manual Checks
 
@@ -43,7 +50,7 @@ This workflow is a human-readable process. It is not executable automation.
 
 - Export workflow MUST NOT silently modify learner state.
 - Export workflow MUST NOT create mastery claims.
-- Export workflow MUST NOT generate actual project packs during this stage.
+- Export workflow MUST NOT generate project packs outside the selected safe output directory.
 - Export workflow SHOULD document limitations and open questions before use.
 - Privacy constraints SHOULD be reviewed before including learner-provided audio, transcripts, workplace examples, or sensitive profile details.
 

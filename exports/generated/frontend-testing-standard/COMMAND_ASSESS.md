@@ -1,4 +1,8 @@
-Canonical source: `commands/ASSESS.md`.
+# Assess Command
+
+This generated standard pack file is derived from canonical repository sources. It is reusable project context and does not contain learner-specific progress.
+
+## Source: commands/ASSESS.md
 
 # ASSESS Command
 

@@ -16,7 +16,7 @@ Generated Project Packs are reusable context. They are not learner state, not ca
 
 Use the `standard` profile for Plus/Go or higher Project usage when 25 files are available. Use the `compact` profile for Free Project usage or other low-file-budget usage when only 5 files are available.
 
-Standard packs must remain exactly 25 files. Supported generated compact packs must contain exactly the 5 required compact files.
+Standard packs must remain exactly 25 files. Compact packs must remain exactly 5 files.
 
 ## Learner State Boundary
 

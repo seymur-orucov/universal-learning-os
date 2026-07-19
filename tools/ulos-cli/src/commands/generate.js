@@ -1,4 +1,4 @@
-const { isSupportedDomain, isSupportedProfile } = require("../lib/domains");
+const { SUPPORTED_DOMAINS, isSupportedDomain, isSupportedProfile } = require("../lib/domains");
 const { generateCompactPack } = require("../lib/compact-generator");
 const { generateStandardPack } = require("../lib/standard-generator");
 
@@ -7,7 +7,7 @@ function generate(repoRoot, options) {
 
   if (!isSupportedDomain(domain)) {
     console.error(`Unsupported domain: ${domain || "<missing>"}`);
-    console.error("Run `ulos list-domains` to see supported domains.");
+    console.error(`Supported domains: ${SUPPORTED_DOMAINS.join(", ")}`);
     return 1;
   }
 
@@ -20,9 +20,10 @@ function generate(repoRoot, options) {
   try {
     const result = profile === "compact"
       ? generateCompactPack(repoRoot, domain, { dryRun: options.dryRun })
-      : generateStandardPack(repoRoot, domain, { dryRun: options.dryRun });
+      : generateStandardPack(repoRoot, domain, { dryRun: options.dryRun, outDir: options.outDir });
 
-    console.log(options.dryRun ? `${profile} pack generation dry run` : `Generated ${profile} pack`);
+    const profileLabel = profile === "compact" ? "compact" : "standard";
+    console.log(options.dryRun ? `${profileLabel[0].toUpperCase()}${profileLabel.slice(1)} pack generation dry run` : `Generated ${profileLabel} pack`);
     console.log("");
     console.log(`Domain: ${domain}`);
     console.log(`Profile: ${profile}`);
@@ -32,6 +33,13 @@ function generate(repoRoot, options) {
     console.log("Files:");
     for (const fileName of result.files) {
       console.log(`- ${fileName}`);
+    }
+    if (options.dryRun && result.sources) {
+      console.log("");
+      console.log("Sources:");
+      for (const source of result.sources) {
+        console.log(`- ${source}`);
+      }
     }
     console.log("");
     console.log("Next:");

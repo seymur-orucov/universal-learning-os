@@ -6,11 +6,11 @@ Define the contract for Project Packs: curated, ChatGPT Project-ready subsets of
 
 ## Scope
 
-This specification covers Project Pack concepts, boundaries, required metadata, file budget behavior, and runtime separation. It does not generate packs or define executable tooling.
+This specification covers Project Pack concepts, boundaries, required metadata, file budget behavior, and runtime separation. Compact and standard generation are implemented by `tools/ulos-cli`.
 
 ## Non-Goals
 
-- It does not create SQL/PostgreSQL or English Project Packs.
+- It does not define domain-specific lesson content.
 - It does not create compiled bundle files.
 - It does not create scripts, schemas, or learner state.
 - It does not replace canonical repository specifications.
@@ -21,7 +21,7 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 - Pack Profile: a target file-count and selection model such as `standard` or `compact/free`.
 - Project Pack Source: canonical repository files used to derive the pack.
 - Project Pack Manifest: a human-readable record of included, summarized, and excluded files.
-- File Budget: the maximum number of source files allowed for the target environment.
+- File Budget: the required or allowed source-file count for the target profile.
 - Required Files: files that MUST be included for the selected pack profile.
 - Optional Files: files that MAY be included if budget remains.
 - Summarized Files: canonical files represented by a shorter derived summary.
@@ -45,7 +45,9 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 - A Project Pack MAY include summarized files when file limits require it.
 - A Project Pack MUST declare when files are summarized, omitted, or merged. Standard packs SHOULD use a manifest; compact/free packs MAY declare this in merged core files when a separate manifest would exceed the file budget.
 - A Project Pack MUST declare its pack profile and file budget.
-- A supported generated compact/free Project Pack MUST contain exactly the 5 named compact core files. Other future compact environments MUST NOT exceed 5 files.
+- A compact/free Project Pack MUST contain exactly 5 files for the current generated-pack contract.
+- Global optional runtime commands and their reusable skills MUST be selected independently of domain configuration so every registered domain inherits them.
+- Optional connected-tool workflows MUST declare explicit invocation, failure fallback, confirmed-success behavior, and separation from evidence, mastery, and learner state.
 
 ## Relationships
 
@@ -53,7 +55,15 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 - Manifest requirements are defined in `exports/project-pack-spec/PACK_MANIFEST.md`.
 - Selection rules are defined in `exports/project-pack-spec/SELECTION_RULES.md`.
 - Manual export workflow is defined in `exports/project-pack-spec/EXPORT_WORKFLOW.md`.
+- Standard generation planning is defined in `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`.
 - Project Pack templates are stored in `templates/project-pack/`.
+
+## Generation Status
+
+- Compact generation is implemented for supported domains and writes the 5-file compact profile.
+- Standard generation is implemented for supported domains and writes the exact 25-file standard profile.
+- Use `--dry-run` and repository-local `--out-dir` for safer standard generation testing.
+- Standard generation follows `exports/project-pack-spec/STANDARD_GENERATION_PLAN.md`.
 
 ## OPEN QUESTION
 

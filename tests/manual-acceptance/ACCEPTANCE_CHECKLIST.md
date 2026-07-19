@@ -8,17 +8,23 @@
 
 ## Pack File Budget Checks
 
-- [ ] SQL/PostgreSQL generated pack has exactly 25 files.
-- [ ] English generated pack has exactly 25 files.
+- [ ] SQL/PostgreSQL standard pack has exactly 25 files.
+- [ ] English standard pack has exactly 25 files.
+- [ ] JavaScript standard pack has exactly 25 files.
+- [ ] TypeScript standard pack has exactly 25 files.
+- [ ] SQL/PostgreSQL compact pack has exactly 5 files.
+- [ ] English compact pack has exactly 5 files.
+- [ ] JavaScript compact pack has exactly 5 files.
+- [ ] TypeScript compact pack has exactly 5 files.
 - [ ] No launch kit files are inside generated pack directories.
 - [ ] No learner state files are inside generated pack directories.
 
 ## Launch Kit Checks
 
-- [ ] SQL setup guide exists.
-- [ ] English setup guide exists.
-- [ ] SQL upload file list has 25 files.
-- [ ] English upload file list has 25 files.
+- [ ] Standard and compact launch kit files exist for SQL/PostgreSQL.
+- [ ] Standard and compact launch kit files exist for English.
+- [ ] Standard and compact launch kit files exist for JavaScript.
+- [ ] Standard and compact launch kit files exist for TypeScript.
 - [ ] Startup prompts are ready to paste.
 - [ ] Continuation prompts contain required placeholders.
 
@@ -77,10 +83,11 @@
 
 `<ready | blocked | needs follow-up>`
 
-## Release Candidate Readiness
+## v0.2.0 Release Readiness
 
-- [ ] `docs/releases/v0.1.0-rc1.md` exists.
+- [ ] `docs/releases/v0.2.0.md` exists.
+- [ ] `docs/releases/V0_2_0_RELEASE_CHECKLIST.md` exists.
 - [ ] `docs/releases/RELEASE_CHECKLIST.md` exists.
 - [ ] `docs/releases/KNOWN_LIMITATIONS.md` exists.
 - [ ] `docs/releases/NEXT_ROADMAP.md` exists.
-- [ ] Release status is marked as release candidate, not stable.
+- [ ] `node tools/ulos-cli/src/index.js validate` passes.

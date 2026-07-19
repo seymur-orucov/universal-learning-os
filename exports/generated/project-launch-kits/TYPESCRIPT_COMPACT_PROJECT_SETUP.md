@@ -6,7 +6,7 @@ TypeScript Mentor OS Compact
 
 ## Project Purpose
 
-Teach TypeScript in a Free-plan ChatGPT Project using a max-5-file compact pack.
+Teach TypeScript in a Free-plan ChatGPT Project using a 5-file compact pack.
 
 ## Profile
 

@@ -1,4 +1,8 @@
-Canonical source: `domains/frontend-testing/DOMAIN.md`.
+# Front-End Testing Domain Context
+
+This generated standard pack file is derived from canonical repository sources. It is reusable project context and does not contain learner-specific progress.
+
+## Source: domains/frontend-testing/DOMAIN.md
 
 # Front-End Testing Domain
 
@@ -60,3 +64,51 @@ Test level code ölçüsünə görə deyil, riskin yerləşdiyi boundary-yə gö
 - Universal coverage faizi quality tərifi sayılmır.
 - Domain learner state saxlamır, daily repository state update tələb etmir və lesson göstərməklə mastery yaratmır.
 - Framework lifecycle və mastery qaydalarını kopyalamır; canonical specifications-a istinad edir.
+
+## Source: domains/frontend-testing/README.md
+
+# Front-End Testing Domain Pack
+
+Bu canonical domain pack TypeScript və React tətbiqləri üçün test səviyyəsi seçimi, Vitest, React Testing Library, `user-event`, MSW və Playwright vasitəsilə production-oriented testing bacarıqlarını öyrədir.
+
+Reusable domain məzmunudur; learner progress və mastery qeydləri saxlamır.
+
+## Fayllar
+
+- `DOMAIN.md`: identity, scope, nəticələr və localization.
+- `SYLLABUS.md`: dependency-ordered learning path və lesson-depth contract.
+- `SKILL_GRAPH.md`: learner competencies və prerequisites.
+- `PRACTICE_RULES.md`: müxtəlif evidence-producing practice formaları və progressive hints.
+- `ASSESSMENT_RULES.md`: mastery evidence, checkpoints və capstone rubric.
+- `PROJECTS.md`: inkişaf edən case studies və integrated capstone.
+- `GLOSSARY.md`: Azerbaijani izahlarla English testing terminology.
+- `QUALITY_REVIEW.md`: domain-specific quality gate.
+
+Framework contract-ları `specification/DOMAIN_PACK_SPEC.md`, evidence semantics isə `specification/LEARNING_LIFECYCLE.md` və `core/mastery-model/EVIDENCE_REQUIREMENTS.md` sənədlərində canonical olaraq qalır.
+
+## Source: domains/frontend-testing/QUALITY_REVIEW.md
+
+# Front-End Testing Domain Quality Review
+
+## Stage 32.0 Checklist
+
+- [x] Canonical id `frontend-testing` və nine-file domain convention qorunur.
+- [x] Azerbaijani instruction və English technical terminology qaydası açıqdır.
+- [x] TypeScript, React, Vitest, React Testing Library, `user-event`, MSW, Playwright və Vite primary stack-dır.
+- [x] Unit, component, integration və E2E boundaries dəqiq ayrılır.
+- [x] Lesson explanation exercises-dən əvvəl gəlir və realistic code examples mövcuddur.
+- [x] MSW dependency internals deyil, network boundary üçün istifadə olunur.
+- [x] Playwright resilient locators, auto-waiting və `waitForTimeout` anti-pattern-i əhatə edir.
+- [x] Required conceptual foundations, coverage guidance, CI, performance, legacy tests və strategy design var.
+- [x] Practice writing-from-scratch, completion, debugging, refactor, flake diagnosis, MR review və trade-off defense formalarını əhatə edir.
+- [x] 12 coherent case study və integrated capstone learner decisions-i qiymətləndirir.
+- [x] Mastery observable evidence tələb edir; lesson completion və coverage percentage kifayət deyil.
+- [x] Learner-Facing Mentor Mode və learner-state boundary qorunur.
+
+## Anti-Pattern Gate
+
+Internal state assertions, excessive mocks/snapshots/`data-testid`, brittle CSS selectors, fixed sleeps, shared mutable state, order dependence, library-internal tests, unrealistic data, mock-call-only assertions, E2E overuse, cross-layer duplication, ignored flakes və excessive retries həm teaching, həm practice materialında repair targets kimi mövcuddur.
+
+## Manual Review Notes
+
+Compact generation canonical files-i tam birləşdirdiyi üçün depth saxlanılır, lakin navigate etmək standard profile-dan çətindir. Bu file-budget trade-off-dur; semantic content zəiflədilməyib.

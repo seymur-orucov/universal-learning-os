@@ -557,7 +557,7 @@ Canonical source: `domains/frontend-testing/QUALITY_REVIEW.md`.
 
 # Front-End Testing Domain Quality Review
 
-## Stage 16.0 Checklist
+## Stage 32.0 Checklist
 
 - [x] Canonical id `frontend-testing` və nine-file domain convention qorunur.
 - [x] Azerbaijani instruction və English technical terminology qaydası açıqdır.

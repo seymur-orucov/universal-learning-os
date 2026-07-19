@@ -1,5 +1,7 @@
 # Release Checklist
 
+For `v0.2.0`, use `docs/releases/V0_2_0_RELEASE_CHECKLIST.md` as the focused release checklist. This file remains the general repository release checklist.
+
 ## Repository Structure
 
 - [ ] `specification/` exists.
@@ -28,19 +30,22 @@
 
 ## Domain Packs
 
-- [ ] SQL/PostgreSQL domain pack is quality-reviewed.
-- [ ] English domain pack is quality-reviewed.
+- [ ] SQL/PostgreSQL domain pack is present.
+- [ ] English domain pack is present.
+- [ ] JavaScript domain pack is present.
+- [ ] TypeScript domain pack is present.
 
 ## Generated Packs
 
-- [ ] SQL/PostgreSQL generated pack exists.
-- [ ] English generated pack exists.
+- [ ] Standard generated packs exist for all supported domains.
+- [ ] Compact generated packs exist for all supported domains.
+- [ ] Standard packs have exactly 25 files.
+- [ ] Compact packs have exactly 5 files.
 - [ ] No launch kit files are inside generated pack directories.
 
 ## Launch Kits
 
-- [ ] SQL/PostgreSQL setup guide exists.
-- [ ] English setup guide exists.
+- [ ] Standard and compact setup guides exist for all supported domains.
 - [ ] Startup prompts are ready to paste.
 - [ ] Continuation prompts contain required placeholders.
 
@@ -54,7 +59,7 @@
 
 ## Manual Acceptance Tests
 
-- [ ] `tests/manual-acceptance/` contains 11 manual test files.
+- [ ] `tests/manual-acceptance/` contains current manual test files.
 - [ ] Acceptance checklist exists.
 
 ## Evidence/Mastery Guardrails
@@ -77,25 +82,25 @@
 
 ## File Budget Checks
 
-Run:
+Run the official quality gate:
 
 ```sh
-find exports/generated/sql-postgresql-standard -maxdepth 1 -type f | wc -l
-find exports/generated/english-standard -maxdepth 1 -type f | wc -l
+node tools/ulos-cli/src/index.js validate
 ```
 
 Expected result:
 
-- SQL/PostgreSQL: 25
-- English: 25
+- All standard packs: exactly 25 files.
+- All compact packs: exactly 5 files.
+- All launch kit checks pass.
 
 ## Changelog
 
-- [ ] `CHANGELOG.md` includes Stage 10.7.
+- [ ] `CHANGELOG.md` includes `v0.2.0`.
 
 ## ADR Coverage
 
-- [ ] ADR-0028 exists for release readiness documents.
+- [ ] ADR-0039 exists for v0.2.0 release hardening.
 
 ## Final Approval Placeholder
 

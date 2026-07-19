@@ -111,6 +111,121 @@ function checkCompactStructure(files, profile) {
   return pass("compact structure", "ok");
 }
 
+function readLessonNoteRuntimeFiles(packPath, profile) {
+  const names = profile === "compact"
+    ? ["PROJECT_INSTRUCTIONS.md", "COMMANDS_CORE.md", "MENTOR_SKILLS_CORE.md"]
+    : ["PROJECT_INSTRUCTIONS.md", "COMMAND_CONTINUE_LESSON.md", "SKILL_LESSON_INSTRUCTOR.md"];
+
+  return names.map((fileName) => readFileIfExists(packPath, fileName) || "").join("\n");
+}
+
+function checkLessonNoteRoutingAndClosure(packPath, profile) {
+  const content = readLessonNoteRuntimeFiles(packPath, profile);
+  const required = [
+    "SAVE_LESSON",
+    "with no target, routes to `OBSIDIAN`",
+    "SAVE_LESSON OBSIDIAN",
+    "SAVE_LESSON NOTION",
+    "SAVE_LESSON_TO_NOTION",
+    "backward-compatible alias",
+    "Dərsi Obsidian Markdown faylı kimi yüklə və ya Notion-a yaz",
+    "explicit",
+    "meaningful stopping point",
+    "unfinished practice",
+    "do not show the Notion alias as a second suggestion",
+  ];
+  const missing = required.filter((marker) => !content.toLowerCase().includes(marker.toLowerCase()));
+
+  if (missing.length > 0) {
+    return fail("lesson-note routing and closure", `missing marker(s): ${missing.join(", ")}`);
+  }
+
+  return pass("lesson-note routing and closure", "default Obsidian, explicit targets, alias, and generic closure boundary present");
+}
+
+function checkObsidianLessonNoteContract(packPath, profile) {
+  const content = readLessonNoteRuntimeFiles(packPath, profile);
+  const required = [
+    "Lesson Summary Builder Agent Skill",
+    "Unsupported values and empty categories MUST be omitted",
+    "Obsidian Lesson Exporter Agent Skill",
+    "Lesson NN - English Title.md",
+    "Lesson Notes - YYYY-MM-DD.md",
+    "Lesson Notes.md",
+    "type: lesson-note",
+    "mastery: not-assessed",
+    "status: in-progress",
+    "plos",
+    "lesson",
+    "ASCII/English",
+    "Adapt sections to the domain",
+    "recall questions",
+    "place their answers later",
+    "exactly one fenced block",
+    "only after the runtime confirms successful creation",
+    "supersedes the earlier session artifact",
+    "does not access or write into an Obsidian vault",
+  ];
+  const missing = required.filter((marker) => !content.toLowerCase().includes(marker.toLowerCase()));
+
+  if (missing.length > 0) {
+    return fail("Obsidian lesson-note contract", `missing marker(s): ${missing.join(", ")}`);
+  }
+
+  return pass("Obsidian lesson-note contract", "shared summary, filename, YAML, adaptive note, artifact, fallback, and regeneration semantics present");
+}
+
+function checkNotionCompatibilityContract(packPath, profile) {
+  const content = readLessonNoteRuntimeFiles(packPath, profile);
+  const required = [
+    "PLOS Learning Journal",
+    "unambiguous match",
+    "ask before creating a duplicate",
+    "only after confirmed connector success",
+    "Notion-compatible Markdown",
+    "without claiming a write",
+  ];
+  const missing = required.filter((marker) => !content.toLowerCase().includes(marker.toLowerCase()));
+
+  if (missing.length > 0) {
+    return fail("Notion compatibility contract", `missing marker(s): ${missing.join(", ")}`);
+  }
+
+  return pass("Notion compatibility contract", "target discovery, duplicates, confirmed success, and fallback present");
+}
+
+function checkLessonNoteSafetyBoundaries(packPath, profile) {
+  const content = readLessonNoteRuntimeFiles(packPath, profile);
+  const required = [
+    "does not create evidence",
+    "does not mutate learner state",
+    "MUST NOT infer mastery",
+  ];
+  const missing = required.filter((marker) => !content.toLowerCase().includes(marker.toLowerCase()));
+  const forbidden = [
+    { label: "embedded credential", pattern: /(?:notion|obsidian)?[_ -]?(?:api[_ -]?)?(?:token|secret|key)\s*[:=]\s*[^\s`]+/i },
+    { label: "opaque target id", pattern: /(?:page|database|workspace|vault)[_-]?id\s*[:=]\s*[a-z0-9_-]{8,}/i },
+    { label: "active learner source", pattern: /learners\/active-learner\//i },
+    { label: "active learner state field", pattern: /(?:learner_profile_ref|learning_skill_records|evidence_log)\s*:/i },
+    { label: "Windows local path", pattern: /[a-z]:\\(?:users|documents|desktop|obsidian|vault)\\/i },
+    { label: "POSIX local path", pattern: /\/(?:users|home)\/[^\s`]+/i },
+    { label: "Obsidian internal path", pattern: /(?:^|[\s`])\.obsidian\//im },
+    { label: "unsupported export claim", pattern: /(?:create|export|download)(?:s|ed|ing)?\s+(?:an?\s+)?(?:pdf|docx|html)\b/i },
+    { label: "automatic mastery claim", pattern: /automatically\s+(?:mark|set|change|upgrade)[^\n.]{0,40}mastery/i },
+    { label: "automatic state claim", pattern: /automatically\s+(?:mutate|update|write)[^\n.]{0,40}(?:learner\s+)?state/i },
+  ];
+  const violations = forbidden.filter(({ pattern }) => pattern.test(content)).map(({ label }) => label);
+
+  if (missing.length > 0 || violations.length > 0) {
+    const details = [];
+    if (missing.length > 0) details.push(`missing marker(s): ${missing.join(", ")}`);
+    if (violations.length > 0) details.push(`found: ${violations.join(", ")}`);
+    return fail("lesson-note safety boundaries", details.join("; "));
+  }
+
+  return pass("lesson-note safety boundaries", "evidence, mastery, state, credential, id, path, and format boundaries present");
+}
+
 function expectedLaunchKitFiles(domain, profile) {
   const domainConfig = getDomainConfig(domain);
   const prefix = domainConfig.launchPrefix;
@@ -155,14 +270,16 @@ function validatePack(repoRoot, domain, profile) {
 
   checks.push(exists ? pass("directory", "exists") : fail("directory", "missing"));
 
-  const fileCountDetail = profile === "compact"
-    ? `${files.length}/${rule.expected}`
-    : `${files.length}/${rule.expected}`;
+  const fileCountDetail = `${files.length}/${rule.expected}`;
   checks.push(rule.passes(files.length) ? pass("file count", fileCountDetail) : fail("file count", fileCountDetail));
 
   checks.push(checkRequiredFiles(packPath, profile));
   checks.push(checkLearnerFacingMode(projectInstructions));
   checks.push(checkMetadataGuardrail(projectInstructions));
+  checks.push(checkLessonNoteRoutingAndClosure(packPath, profile));
+  checks.push(checkObsidianLessonNoteContract(packPath, profile));
+  checks.push(checkNotionCompatibilityContract(packPath, profile));
+  checks.push(checkLessonNoteSafetyBoundaries(packPath, profile));
 
   if (profile === "standard") {
     checks.push(checkStandardManifest(packPath, domain, profile));

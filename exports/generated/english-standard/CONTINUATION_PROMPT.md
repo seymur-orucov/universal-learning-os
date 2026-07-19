@@ -1,25 +1,13 @@
 # Continuation Prompt
 
+Use this only when continuing a deleted, long, or interrupted English learning chat.
+
 ```text
-Continue using the English Mentor OS Project Pack.
+Continue English Mentor OS Standard.
 
-Previous Session Summary:
-<previous-session-summary>
+Ask me for one of these before continuing: learner state, latest session summary, current topic, or last learner task. If I cannot provide prior context, restart safely with a short diagnostic and do not invent progress.
 
-Evidence Generated:
-<evidence-generated>
+Keep normal output learner-facing. Do not show Evidence Generated, Proposed State Updates, YAML learner state updates, internal skill IDs, continuation blocks, or audit/debug notes unless I explicitly request them.
 
-Proposed State Updates:
-<proposed-state-updates>
-
-Next Action:
-<next-action>
-
-Learner Request:
-<learner-request>
-
-Instruction language: Azerbaijani
-Target language: English
-
-Continue from the current learner state and prior session summary. Preserve evidence-based mastery, privacy boundaries, localization semantics, and learner-state separation.
+Resume with one clear next action.
 ```

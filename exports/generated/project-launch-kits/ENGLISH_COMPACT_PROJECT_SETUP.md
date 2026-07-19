@@ -6,7 +6,7 @@ English Mentor OS Compact
 
 ## Project Purpose
 
-Teach English for Software Engineers in a Free-plan ChatGPT Project using a max-5-file compact pack.
+Teach English for Software Engineers in a Free-plan ChatGPT Project using a 5-file compact pack.
 
 ## Step 1: Create Project
 

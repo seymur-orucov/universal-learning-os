@@ -1,4 +1,8 @@
-Canonical source: `domains/frontend-testing/GLOSSARY.md`.
+# Front-End Testing Glossary and Projects
+
+This generated standard pack file is derived from canonical repository sources. It is reusable project context and does not contain learner-specific progress.
+
+## Source: domains/frontend-testing/GLOSSARY.md
 
 # Front-End Testing Glossary
 
@@ -30,7 +34,7 @@ Canonical source: `domains/frontend-testing/GLOSSARY.md`.
 | visual regression | Controlled screenshot baseline ilə gözlənilməz vizual fərqi aşkarlamaq. |
 | accessibility smoke check | Əsas automated accessibility risklərini tez aşkarlayan, manual audit-i əvəz etməyən check. |
 
-Canonical source: `domains/frontend-testing/PROJECTS.md`.
+## Source: domains/frontend-testing/PROJECTS.md
 
 # Front-End Testing Case Studies və Capstone
 

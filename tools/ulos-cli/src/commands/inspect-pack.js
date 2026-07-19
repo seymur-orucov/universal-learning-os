@@ -1,4 +1,4 @@
-const { isSupportedDomain, isSupportedProfile } = require("../lib/domains");
+const { SUPPORTED_DOMAINS, isSupportedDomain, isSupportedProfile } = require("../lib/domains");
 const { validatePack } = require("../lib/validation");
 
 function inspectPack(repoRoot, options) {
@@ -6,7 +6,7 @@ function inspectPack(repoRoot, options) {
 
   if (!isSupportedDomain(domain)) {
     console.error(`Unsupported domain: ${domain || "<missing>"}`);
-    console.error("Run `ulos list-domains` to see supported domains.");
+    console.error(`Supported domains: ${SUPPORTED_DOMAINS.join(", ")}`);
     return 1;
   }
 

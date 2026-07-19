@@ -36,7 +36,7 @@ Expected:
 
 - Reports PASS for all eight generated packs.
 - Standard packs have exactly 25 files.
-- Compact packs have exactly the 5 required files.
+- Compact packs have exactly 5 files.
 - Checks required files for each profile.
 - Checks Learner-Facing Mentor Mode marker.
 - Checks metadata visibility guardrails.
@@ -75,7 +75,7 @@ node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile comp
 Expected:
 
 - Prints compact pack path and 5-file list.
-- Reports expected rule: exactly 5 files.
+- Reports expected rule for the compact profile and shows the 5-file compact list.
 - Reports `PROJECT_INSTRUCTIONS.md` present.
 - Reports `STARTUP_PROMPT.md` present.
 - Reports Learner-Facing Mentor Mode present.
@@ -127,7 +127,7 @@ Expected:
 - Recommends running validation.
 - Exits with code 0.
 
-## Test 7b: Standard Generate Rejection
+## Test 7b: Standard Generate
 
 Command:
 
@@ -137,9 +137,10 @@ node tools/ulos-cli/src/index.js generate --domain typescript --profile standard
 
 Expected:
 
-- Says standard generation is planned for a future stage.
-- Does not modify standard pack files.
-- Exits non-zero.
+- Generates `exports/generated/typescript-standard/` from canonical framework, domain, command, and skill files.
+- Writes exactly 25 standard files.
+- Recommends running validation.
+- Exits with code 0.
 
 ## Test 8: Missing Required File Behavior
 

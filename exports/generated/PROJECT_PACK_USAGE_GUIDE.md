@@ -12,7 +12,8 @@
 ## Pack Profiles
 
 - Use `standard` packs when the Project can support 25 files.
-- Use `compact` packs for Free Project usage or other max-5-file environments.
+- Use `compact` packs for Free Project usage or other 5-file environments.
+- Current compact generated packs contain exactly 5 files.
 - Compact packs have fewer files but preserve learner-facing output mode, evidence-based mastery, localization, and learner-state separation.
 
 ## Continuing Between Chats

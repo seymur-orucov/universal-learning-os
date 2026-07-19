@@ -37,6 +37,9 @@ This review does not create lessons, exercises, Northwind tasks, learner state, 
 - Lesson outlines remain concise and do not become full lesson bodies.
 - Stage 11 remains project milestone guidance, not full project task implementation.
 - Stage 12 remains interview and explanation readiness guidance, not a full interview bank.
+- Lesson 1 remains limited to the relational-model target: separating related information, comparing grouped and oversized representations, identifying candidate information groups, and previewing that keys connect tables.
+- Lesson 1 does not require bridge tables, many-to-many design, normalization, or primary/foreign key implementation details.
+- Many-to-many modeling remains in Lesson 14; students/courses uses the technically correct `students`, `courses`, and `enrollments` structure.
 
 ## Practice and Assessment Alignment Summary
 
@@ -45,6 +48,7 @@ This review does not create lessons, exercises, Northwind tasks, learner state, 
 - Review triggers point to valid learning skill ids.
 - Difficulty labels D1-D5 are practice guidance and MUST NOT be treated as mastery records.
 - Mastery recommendations require evidence as defined in `core/mastery-model/EVIDENCE_REQUIREMENTS.md`.
+- Cardinality and schema exercises remain technically correct, prerequisite-safe, and aligned with the current syllabus position.
 
 ## Project Guidance Summary
 
@@ -88,6 +92,8 @@ This review does not create lessons, exercises, Northwind tasks, learner state, 
 - Updated `domains/sql-postgresql/README.md` to reference `domains/sql-postgresql/QUALITY_REVIEW.md` and current domain file responsibilities.
 - Added this quality review record.
 - Added `docs/decisions/ADR-0014-sql-postgresql-domain-quality-gate.md`.
+- Stage 27.1 refined Lesson 1 and relationship practice boundaries so early exercises cannot require untaught many-to-many or bridge-table knowledge.
+- Stage 27.1 added explicit technical-correctness and syllabus-readiness checks for cardinality and schema exercises.
 
 ## Remaining Open Questions
 

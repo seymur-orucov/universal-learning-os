@@ -14,7 +14,12 @@ Domain packs may be used by commands and agent skills to select tracks, lessons,
 - `domains/english/` is the second pilot domain pack for English for Software Engineers.
 - `domains/javascript/` is the JavaScript programming domain pack.
 - `domains/typescript/` is the TypeScript programming domain pack.
-- `domains/frontend-testing/` is the production Front-End Testing domain for TypeScript/React applications.
+- `domains/dsa/` is the JavaScript-first Data Structures and Algorithms interview-preparation domain pack.
+- `domains/frontend-system-design/` is the requirements-first Front-End System Design domain pack.
+- `domains/nodejs/` is the runtime-first Node.js backend and full-stack transition domain pack.
+- `domains/git/` is the mental-model-first, recovery-aware Git domain pack for beginner through engineering-lead workflows.
+- `domains/go/` is the language-first, standard-library-first Go domain pack for experienced engineers moving into backend, systems, platform, or full-stack work.
+- `domains/frontend-testing/` is the production Front-End Testing domain for TypeScript and React engineers.
 - Future real domain packs SHOULD follow `specification/DOMAIN_PACK_SPEC.md`.
 
 ## Boundaries

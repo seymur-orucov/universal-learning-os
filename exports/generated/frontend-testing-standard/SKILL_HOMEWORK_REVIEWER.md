@@ -1,4 +1,8 @@
-Canonical source: `skills/homework-reviewer/SKILL.md`.
+# Homework Reviewer Skill
+
+This generated standard pack file is derived from canonical repository sources. It is reusable project context and does not contain learner-specific progress.
+
+## Source: skills/homework-reviewer/SKILL.md
 
 # Homework Reviewer Agent Skill
 

@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Verify SQL/PostgreSQL compact pack behavior in a max-5-file Free Project setup.
+Verify SQL/PostgreSQL compact pack behavior in a 5-file Free Project setup.
 
 ## Preconditions
 
-- `exports/generated/sql-postgresql-compact/` has no more than 5 files.
+- `exports/generated/sql-postgresql-compact/` has exactly 5 files.
 - Standard pack `exports/generated/sql-postgresql-standard/` still has exactly 25 files.
 
 ## Startup

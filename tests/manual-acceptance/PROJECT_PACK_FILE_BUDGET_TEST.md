@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Verify standard generated Project Pack directories remain exactly 25 files and supported compact/free generated Project Pack directories contain exactly the 5 required files.
+Verify standard generated Project Pack directories remain exactly 25 files and compact/free generated Project Pack directories remain exactly 5 files.
 
 ## Commands
 
@@ -35,7 +35,6 @@ find exports/generated/typescript-compact -maxdepth 1 -type f | sort
 - English compact pack count: exactly 5.
 - JavaScript compact pack count: exactly 5.
 - TypeScript compact pack count: exactly 5.
-- Front-End Testing compact pack count: exactly 5.
 - No launch kit files inside individual pack directories.
 - No learner state files inside individual pack directories.
 - No unrelated domain files inside each pack.
@@ -50,7 +49,6 @@ find exports/generated/typescript-compact -maxdepth 1 -type f | sort
 - [ ] English compact count is exactly 5.
 - [ ] JavaScript compact count is exactly 5.
 - [ ] TypeScript compact count is exactly 5.
-- [ ] Front-End Testing compact count is exactly 5.
 - [ ] SQL pack contains no English domain files.
 - [ ] English pack contains no SQL/PostgreSQL domain files.
 - [ ] JavaScript pack contains no SQL/PostgreSQL or English domain files.

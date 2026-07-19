@@ -1,4 +1,8 @@
-Canonical source: `commands/PRACTICE.md`.
+# Practice Command
+
+This generated standard pack file is derived from canonical repository sources. It is reusable project context and does not contain learner-specific progress.
+
+## Source: commands/PRACTICE.md
 
 # PRACTICE Command
 

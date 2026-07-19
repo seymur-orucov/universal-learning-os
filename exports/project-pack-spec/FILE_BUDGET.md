@@ -76,9 +76,13 @@ This stage MUST NOT create bundled domain files.
 
 Command selection SHOULD include only commands needed by the Project Pack goal. A lesson-focused pack MAY include `commands/START_LESSON.md`, `commands/CONTINUE_LESSON.md`, and `commands/PRACTICE.md`; an interview-focused pack MAY prioritize `commands/INTERVIEW.md` and `commands/ASSESS.md`.
 
+The current standard profile preserves 25 filenames by merging `CONTINUE_LESSON`, `SAVE_LESSON`, and the Notion compatibility alias into `COMMAND_CONTINUE_LESSON.md`. The compact profile includes all three canonical command sources in `COMMANDS_CORE.md`.
+
 ## Agent Skill Files
 
 Agent skill selection SHOULD include reusable agent skills required by the selected command behavior. Agent skills MUST NOT be treated as learner competencies.
+
+The current standard profile preserves 25 filenames by merging the lesson instructor, lesson summary builder, Obsidian exporter, and Notion logger into `SKILL_LESSON_INSTRUCTOR.md`. The compact profile includes all four canonical skill sources in `MENTOR_SKILLS_CORE.md`.
 
 ## Templates
 
@@ -115,8 +119,8 @@ Files SHOULD be excluded when:
 
 ## Pack Profiles
 
-- `standard`: exactly or up to 25 files for one domain and a normal learning workflow. Current generated standard packs use exactly 25 files.
-- `compact/free`: exactly 5 files for supported generated packs on Free-plan ChatGPT Projects. It uses the named merged core files and must preserve learner-facing behavior and evidence guardrails.
+- `standard`: exactly 25 files for one domain and a normal learning workflow in the current generated-pack contract.
+- `compact/free`: exactly 5 files for Free-plan ChatGPT Projects in the current generated-pack contract. It uses merged core files and must preserve learner-facing behavior and evidence guardrails.
 - Minimal Pack: 12-15 files for one focused workflow or lesson track when the target environment allows more than 5 files but less than the standard profile.
 - Standard Pack: legacy name for the `standard` profile.
 - Full Pack: not recommended unless the target environment allows more than 25 files.

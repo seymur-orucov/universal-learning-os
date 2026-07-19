@@ -1,4 +1,8 @@
-Canonical source: `domains/frontend-testing/SKILL_GRAPH.md`.
+# Front-End Testing Skill Graph
+
+This generated standard pack file is derived from canonical repository sources. It is reusable project context and does not contain learner-specific progress.
+
+## Source: domains/frontend-testing/SKILL_GRAPH.md
 
 # Front-End Testing Skill Graph
 
