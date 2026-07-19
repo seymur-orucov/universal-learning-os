@@ -6,7 +6,7 @@ function inspectPack(repoRoot, options) {
 
   if (!isSupportedDomain(domain)) {
     console.error(`Unsupported domain: ${domain || "<missing>"}`);
-    console.error("Supported domains: sql-postgresql, english, javascript, typescript");
+    console.error("Run `ulos list-domains` to see supported domains.");
     return 1;
   }
 

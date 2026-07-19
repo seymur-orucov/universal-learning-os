@@ -14,6 +14,7 @@ Domain packs may be used by commands and agent skills to select tracks, lessons,
 - `domains/english/` is the second pilot domain pack for English for Software Engineers.
 - `domains/javascript/` is the JavaScript programming domain pack.
 - `domains/typescript/` is the TypeScript programming domain pack.
+- `domains/frontend-testing/` is the production Front-End Testing domain for TypeScript/React applications.
 - Future real domain packs SHOULD follow `specification/DOMAIN_PACK_SPEC.md`.
 
 ## Boundaries

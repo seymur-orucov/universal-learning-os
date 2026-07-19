@@ -35,9 +35,9 @@ Usage:
   ulos list-domains
   ulos validate
   ulos inspect-pack --domain <domain> --profile <profile>
-  ulos generate --domain <domain> --profile compact [--dry-run]
+  ulos generate --domain <domain> --profile <standard|compact> [--dry-run]
 
-Supported domains: sql-postgresql, english, javascript, typescript
+Supported domains: sql-postgresql, english, javascript, typescript, frontend-testing
 Supported profiles: standard, compact`);
 }
 

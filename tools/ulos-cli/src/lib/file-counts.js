@@ -28,9 +28,9 @@ function expectedRule(profile) {
 
   if (profile === "compact") {
     return {
-      label: "maximum 5 files",
+      label: "exactly 5 files",
       expected: 5,
-      passes: (count) => count <= 5,
+      passes: (count) => count === 5,
     };
   }
 

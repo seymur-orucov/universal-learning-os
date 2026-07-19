@@ -24,7 +24,16 @@ function getGeneratedPackPath(repoRoot, domain, profile) {
   return path.join(repoRoot, "exports", "generated", `${domain}-${profile}`);
 }
 
+function assertGeneratedPackPath(repoRoot, outputDir) {
+  const generatedRoot = path.resolve(repoRoot, "exports", "generated");
+  const resolvedOutput = path.resolve(outputDir);
+  if (!resolvedOutput.startsWith(`${generatedRoot}${path.sep}`)) {
+    throw new Error(`Refusing to write outside exports/generated: ${resolvedOutput}`);
+  }
+}
+
 module.exports = {
+  assertGeneratedPackPath,
   findRepoRoot,
   getGeneratedPackPath,
 };

@@ -35,12 +35,13 @@ Generated pack directories must remain exactly 25 files each:
 - JavaScript generated pack: 25 files.
 - TypeScript generated pack: 25 files.
 
-Compact/free generated pack directories must remain no more than 5 files each:
+Compact/free generated pack directories must contain exactly the 5 required files:
 
-- SQL/PostgreSQL compact pack: max 5 files.
-- English compact pack: max 5 files.
-- JavaScript compact pack: max 5 files.
-- TypeScript compact pack: max 5 files.
+- SQL/PostgreSQL compact pack: exactly 5 files.
+- English compact pack: exactly 5 files.
+- JavaScript compact pack: exactly 5 files.
+- TypeScript compact pack: exactly 5 files.
+- Front-End Testing compact pack: exactly 5 files.
 
 Manual tests MUST NOT add files inside individual generated pack directories.
 

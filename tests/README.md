@@ -6,9 +6,9 @@ Tests SHOULD verify schemas, examples, migrations, and specification consistency
 
 ## Current Status
 
-- No automated tests exist yet.
-- There is no validation command yet.
-- `tests/manual-acceptance/` contains human-readable manual acceptance tests for generated Project Packs, launch kits, active learner state, continuation, deleted-chat recovery, localization, and evidence/mastery guardrails.
+- `tools/ulos-cli/test/` contains dependency-free Node contract tests.
+- `node tools/ulos-cli/src/index.js validate` validates all supported generated packs.
+- `tests/manual-acceptance/` contains human-readable behavioral checks, including the Front-End Testing acceptance checklist and real-learning pilot.
 
 ## OPEN QUESTION
 

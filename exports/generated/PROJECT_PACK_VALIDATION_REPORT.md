@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`repository-working-tree-stage-15.0`
+`repository-working-tree-stage-16.0`
 
 ## Quick Validation
 
@@ -14,14 +14,13 @@ node tools/ulos-cli/src/index.js validate
 
 The CLI validates generated pack directories, profile file counts, required files, Learner-Facing Mentor Mode markers, metadata guardrails, standard manifest basics, compact structure, and launch kit presence. It exits non-zero on failure.
 
-Compact packs can be regenerated before validation:
+Both profiles can be regenerated or dry-run before validation:
 
 ```sh
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
+node tools/ulos-cli/src/index.js generate --domain frontend-testing --profile standard --dry-run
 node tools/ulos-cli/src/index.js validate
 ```
-
-Standard pack generation remains future work.
 
 ## Scope
 
@@ -35,13 +34,15 @@ Validated generated Project Packs:
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+- `exports/generated/frontend-testing-standard/`
+- `exports/generated/frontend-testing-compact/`
 
 This report is a derived audit artifact. It is not canonical framework source and not learner state.
 
 ## Profile Rules
 
 - Standard profile: exactly 25 files.
-- Compact profile: maximum 5 files.
+- Compact profile: exactly 5 files.
 
 ## Standard Profile Checks
 
@@ -51,15 +52,17 @@ This report is a derived audit artifact. It is not canonical framework source an
 | `english-standard` | 25 | PASS | Existing standard pack preserved. |
 | `javascript-standard` | 25 | PASS | Standard JavaScript pack preserved. |
 | `typescript-standard` | 25 | PASS | TypeScript standard pack added. |
+| `frontend-testing-standard` | 25 | PASS | Front-End Testing standard pack generated from canonical sources. |
 
 ## Compact Profile Checks
 
 | Pack | Expected count | Status | Notes |
 | --- | --- | --- | --- |
-| `sql-postgresql-compact` | max 5 | PASS | Contains the required 5 compact files. |
-| `english-compact` | max 5 | PASS | Contains the required 5 compact files. |
-| `javascript-compact` | max 5 | PASS | Contains the required 5 compact files. |
-| `typescript-compact` | max 5 | PASS | Contains the required 5 compact files. |
+| `sql-postgresql-compact` | exactly 5 | PASS | Contains the required 5 compact files. |
+| `english-compact` | exactly 5 | PASS | Contains the required 5 compact files. |
+| `javascript-compact` | exactly 5 | PASS | Contains the required 5 compact files. |
+| `typescript-compact` | exactly 5 | PASS | Contains the required 5 compact files. |
+| `frontend-testing-compact` | exactly 5 | PASS | Contains the required 5 compact files. |
 
 ## Required Compact Files
 
@@ -80,8 +83,8 @@ Compact packs preserve Learner-Facing Mentor Mode. Normal lessons, practice, rev
 - Validation is still partly human-readable, but `tools/ulos-cli` now provides the preferred quick generated-pack quality gate.
 - Compact packs summarize aggressively to satisfy the Free Project 5-file limit.
 - Generated packs may drift from canonical sources until regeneration tooling exists.
-- Compact packs now have generation tooling; standard packs remain manually maintained.
+- Standard and compact packs now have generation tooling; source checksum/drift reporting remains future work.
 
 ## OPEN QUESTION
 
-- Which standard and compact validation checks should become executable first?
+- Should source drift use checksums, semantic section comparison, or both?

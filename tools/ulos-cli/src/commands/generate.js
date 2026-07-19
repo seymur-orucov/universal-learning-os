@@ -1,12 +1,13 @@
 const { isSupportedDomain, isSupportedProfile } = require("../lib/domains");
 const { generateCompactPack } = require("../lib/compact-generator");
+const { generateStandardPack } = require("../lib/standard-generator");
 
 function generate(repoRoot, options) {
   const { domain, profile } = options;
 
   if (!isSupportedDomain(domain)) {
     console.error(`Unsupported domain: ${domain || "<missing>"}`);
-    console.error("Supported domains: sql-postgresql, english, javascript, typescript");
+    console.error("Run `ulos list-domains` to see supported domains.");
     return 1;
   }
 
@@ -16,20 +17,15 @@ function generate(repoRoot, options) {
     return 1;
   }
 
-  if (profile !== "compact") {
-    console.log("Standard pack generation is planned for a future stage.");
-    console.log("Current standard packs remain manually maintained repository files.");
-    console.log(`Requested pack: ${domain}-${profile}`);
-    return 1;
-  }
-
   try {
-    const result = generateCompactPack(repoRoot, domain, { dryRun: options.dryRun });
+    const result = profile === "compact"
+      ? generateCompactPack(repoRoot, domain, { dryRun: options.dryRun })
+      : generateStandardPack(repoRoot, domain, { dryRun: options.dryRun });
 
-    console.log(options.dryRun ? "Compact pack generation dry run" : "Generated compact pack");
+    console.log(options.dryRun ? `${profile} pack generation dry run` : `Generated ${profile} pack`);
     console.log("");
     console.log(`Domain: ${domain}`);
-    console.log("Profile: compact");
+    console.log(`Profile: ${profile}`);
     console.log(`Output: ${result.outputDir}`);
     console.log(`Files ${options.dryRun ? "planned" : "written"}: ${result.filesWritten}`);
     console.log("");

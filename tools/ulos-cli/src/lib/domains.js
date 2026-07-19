@@ -27,6 +27,13 @@ const DOMAIN_CONFIG = [
     purpose: "Teach TypeScript from foundations to advanced/professional fluency for frontend/backend engineering, React projects, API typing, large codebases, and interviews.",
     terms: "TypeScript technical terms",
   },
+  {
+    id: "frontend-testing",
+    launchPrefix: "FRONTEND_TESTING",
+    title: "Front-End Testing",
+    purpose: "Teach production-oriented testing strategy and implementation for TypeScript, React, Vitest, React Testing Library, MSW, and Playwright.",
+    terms: "testing, TypeScript, React, Vitest, React Testing Library, MSW, and Playwright terminology",
+  },
 ];
 
 const SUPPORTED_DOMAINS = DOMAIN_CONFIG.map((domain) => domain.id);

@@ -45,7 +45,7 @@ This specification covers Project Pack concepts, boundaries, required metadata, 
 - A Project Pack MAY include summarized files when file limits require it.
 - A Project Pack MUST declare when files are summarized, omitted, or merged. Standard packs SHOULD use a manifest; compact/free packs MAY declare this in merged core files when a separate manifest would exceed the file budget.
 - A Project Pack MUST declare its pack profile and file budget.
-- A compact/free Project Pack MUST contain no more than 5 files.
+- A supported generated compact/free Project Pack MUST contain exactly the 5 named compact core files. Other future compact environments MUST NOT exceed 5 files.
 
 ## Relationships
 

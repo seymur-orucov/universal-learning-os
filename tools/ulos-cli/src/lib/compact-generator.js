@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { getDomainConfig } = require("./domains");
-const { getGeneratedPackPath } = require("./paths");
+const { assertGeneratedPackPath, getGeneratedPackPath } = require("./paths");
 
 const COMPACT_FILES = [
   "PROJECT_INSTRUCTIONS.md",
@@ -85,7 +85,7 @@ function buildProjectInstructions(domainConfig) {
 ## Pack Profile
 
 - Profile: \`compact/free\`
-- File budget: max 5 files
+- File budget: exactly 5 files
 - Target environment: ChatGPT Projects Free plan
 - Canonical sources summarized: \`specification/\`, \`core/\`, \`commands/\`, \`skills/\`, and \`domains/${domainConfig.id}/\`
 
@@ -107,6 +107,10 @@ ${purpose}
 - Do not silently modify learner state.
 - If learner state or evidence is missing, say so honestly.
 
+## Lesson Depth
+
+\`START_LESSON\` normally includes lesson title, clear objective, why the topic matters, conceptual explanation, mental model, test-level or architectural boundary, a realistic code example and why it works, common mistakes, guided practice, independent practice, and a concise homework or next action. Exercises come after sufficient explanation. Adapt depth only from learner evidence; unfamiliar topics receive full explanation before assessment.
+
 ## Learner-Facing Mentor Mode
 
 Normal lessons, practice, review, and homework review MUST be clean learner-facing mentoring.
@@ -119,7 +123,7 @@ Explicit metadata requests include \`SHOW_PROGRESS\`, evidence summary, state up
 
 ## Command Behavior Summary
 
-- \`START_LESSON\`: teach the next appropriate ${title} concept with one learner task.
+- \`START_LESSON\`: explain the next appropriate ${title} concept fully before guided and independent learner tasks.
 - \`CONTINUE_LESSON\`: continue the current lesson without showing continuation prompt blocks unless requested.
 - \`PRACTICE\`: run focused domain practice and review learner output.
 - \`REVIEW\`: revisit weak or user-selected topics.
@@ -240,14 +244,7 @@ ${sections.join("\n")}`;
 }
 
 function ensureSafeTargetDirectory(repoRoot, outputDir) {
-  const generatedRoot = path.join(repoRoot, "exports", "generated");
-  const resolvedGeneratedRoot = path.resolve(generatedRoot);
-  const resolvedOutputDir = path.resolve(outputDir);
-
-  if (!resolvedOutputDir.startsWith(resolvedGeneratedRoot + path.sep)) {
-    throw new Error(`Refusing to write outside exports/generated: ${resolvedOutputDir}`);
-  }
-
+  assertGeneratedPackPath(repoRoot, outputDir);
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
@@ -300,5 +297,6 @@ function generateCompactPack(repoRoot, domain, options = {}) {
 
 module.exports = {
   COMPACT_FILES,
+  cleanUnexpectedFiles,
   generateCompactPack,
 };

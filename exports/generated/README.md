@@ -12,15 +12,17 @@ Generated packs MAY be committed while the framework is manually developed becau
 - `exports/generated/english-standard/`: English standard Project Pack, exactly 25 files.
 - `exports/generated/javascript-standard/`: JavaScript standard Project Pack, exactly 25 files.
 - `exports/generated/typescript-standard/`: TypeScript standard Project Pack, exactly 25 files.
-- `exports/generated/sql-postgresql-compact/`: SQL/PostgreSQL compact/free Project Pack, maximum 5 files.
-- `exports/generated/english-compact/`: English compact/free Project Pack, maximum 5 files.
-- `exports/generated/javascript-compact/`: JavaScript compact/free Project Pack, maximum 5 files.
-- `exports/generated/typescript-compact/`: TypeScript compact/free Project Pack, maximum 5 files.
+- `exports/generated/frontend-testing-standard/`: Front-End Testing standard Project Pack, exactly 25 files.
+- `exports/generated/sql-postgresql-compact/`: SQL/PostgreSQL compact/free Project Pack, exactly 5 files.
+- `exports/generated/english-compact/`: English compact/free Project Pack, exactly 5 files.
+- `exports/generated/javascript-compact/`: JavaScript compact/free Project Pack, exactly 5 files.
+- `exports/generated/typescript-compact/`: TypeScript compact/free Project Pack, exactly 5 files.
+- `exports/generated/frontend-testing-compact/`: Front-End Testing compact/free Project Pack, exactly 5 files.
 
 ## Profiles
 
 - `standard`: exactly 25 files for Plus/Go or higher Project usage.
-- `compact`: maximum 5 files for Free Project usage or other low-file-budget usage.
+- `compact`: exactly 5 files for supported generated Free Project packs.
 
 ## Guides and Reports
 

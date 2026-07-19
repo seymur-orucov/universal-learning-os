@@ -14,14 +14,15 @@ The repository currently implements:
 - Stage 13: minimal CLI/generator prototype for listing domains, validating generated pack file counts, and inspecting generated packs.
 - Stage 14: generated pack validation automation for required files, metadata guardrails, manifests, compact structure, and launch kits.
 - Stage 15: compact Project Pack generation for all supported domains.
+- Stage 16: Front-End Testing canonical domain, standard/compact generation, and executable CLI contract tests.
 
-It does not yet include generated lessons, learner applications, schemas, or full export automation. A minimal CLI validation prototype exists under `tools/ulos-cli/`.
+It does not yet include generated lesson bodies, a learner application, schemas, or source-drift automation. CLI generation, inspection, validation, and contract tests exist under `tools/ulos-cli/`.
 
 ## Current Status
 
 v0.1.0-rc1 release readiness documentation is available in `docs/releases/`.
 
-The repository is ready for manual review and practical ChatGPT Project setup using generated Project Packs, but it is not a stable release and does not include executable automation.
+The repository is ready for manual review and practical ChatGPT Project setup using generated Project Packs, but it is not a stable release. Executable automation currently covers pack generation, inspection, validation, and CLI contract tests.
 
 ## Repository Map
 
@@ -50,10 +51,12 @@ Supported generated Project Packs:
 - `exports/generated/english-standard/`
 - `exports/generated/javascript-standard/`
 - `exports/generated/typescript-standard/`
+- `exports/generated/frontend-testing-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
 - `exports/generated/typescript-compact/`
+- `exports/generated/frontend-testing-compact/`
 
 ## CLI Prototype
 
@@ -69,9 +72,10 @@ node tools/ulos-cli/src/index.js validate
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile standard
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
+node tools/ulos-cli/src/index.js generate --domain frontend-testing --profile standard --dry-run
 ```
 
-The `generate` command supports the `compact` profile. Standard 25-file generation remains future work. Run `node tools/ulos-cli/src/index.js validate` after generation.
+The `generate` command supports both `standard` and `compact` profiles. Run `node tools/ulos-cli/src/index.js validate` after generation.
 
 ## Current Constraints
 

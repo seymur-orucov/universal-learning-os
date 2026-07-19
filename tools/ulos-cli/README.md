@@ -1,8 +1,8 @@
 # ULOS CLI Prototype
 
-`tools/ulos-cli` is a minimal Node.js CLI prototype for Universal Learning OS generated Project Packs.
+`tools/ulos-cli` is a dependency-free Node.js CLI for Universal Learning OS generated Project Packs.
 
-It validates and inspects existing repository files and can regenerate compact packs. It does not generate standard 25-file packs yet.
+It validates and inspects existing repository files and generates both standard and compact packs.
 
 `validate` is the preferred quick quality gate for generated pack checks.
 
@@ -15,6 +15,7 @@ node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile stan
 node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact --dry-run
+node tools/ulos-cli/src/index.js generate --domain frontend-testing --profile standard --dry-run
 ```
 
 ## Optional Local Bin Usage
@@ -31,17 +32,20 @@ npx ulos list-domains
 - `list-domains`: prints supported domains and profiles.
 - `validate`: checks all generated packs for directory presence, file counts, required files, Learner-Facing Mentor Mode, metadata guardrails, manifest basics, compact structure, and launch kit presence.
 - `inspect-pack`: prints path, profile, count rule, validation checks, and file list for one pack.
-- `generate`: regenerates compact packs from canonical domain files, selected command files, and selected skill files. Standard pack generation is planned for a future stage.
+- `generate`: creates standard 25-file or compact 5-file packs from canonical framework, domain, command, and skill files.
 
-## Compact Generation
+Run `npm test` in this directory for executable registry, count, dry-run, validation, content, unexpected-file, and path-safety assertions.
 
-Generate a compact pack:
+## Pack Generation
+
+Generate either profile:
 
 ```sh
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
+node tools/ulos-cli/src/index.js generate --domain frontend-testing --profile standard
 ```
 
-Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`.
+Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `frontend-testing`.
 
 Generated compact packs contain exactly:
 
@@ -57,12 +61,10 @@ Run validation after generation:
 node tools/ulos-cli/src/index.js validate
 ```
 
-Standard generation is intentionally rejected until a future stage.
-
 ## Validation Rules
 
 - Standard packs must contain exactly 25 files.
-- Compact packs must contain no more than 5 files.
+- Compact packs must contain exactly the 5 required files.
 - Every generated pack must include `PROJECT_INSTRUCTIONS.md` and `STARTUP_PROMPT.md`.
 - Standard packs must include `PACK_MANIFEST.md`, `FILE_BUDGET.md`, and `CONTINUATION_PROMPT.md`.
 - Compact packs must include exactly the compact core structure.
@@ -75,3 +77,4 @@ Standard generation is intentionally rejected until a future stage.
 - `english`
 - `javascript`
 - `typescript`
+- `frontend-testing`

@@ -10,16 +10,17 @@
 - Stage 15.0: Compact Pack Generator.
 - Stage 15.1: Manifest validator expansion.
 - Stage 15.2: Standard pack generation planning.
-- Stage 16.0: Learner state update workflow.
-- Stage 17.0: English speaking/audio privacy policy.
-- Stage 18.0: Executable acceptance tests.
+- Stage 16.0: Front-End Testing Domain. Completed.
+- Stage 16.1: Source drift/checksum reporting for generated packs.
+- Stage 17.0: Learner state update workflow.
+- Stage 18.0: English speaking/audio privacy policy.
+- Stage 19.0: Broader executable behavioral acceptance tests.
 
 ## Recommended Priority
 
-1. Expand compact generation with source traceability checks and drift reporting.
-2. Add standard pack generation only after manifest behavior is reliable.
-3. Define learner state update workflow before real multi-session use expands.
-4. Add English audio/privacy policy before storing audio, transcripts, or pronunciation artifacts.
+1. Add source drift/checksum reporting for both generated profiles.
+2. Define learner state update workflow before real multi-session use expands.
+3. Add English audio/privacy policy before storing audio, transcripts, or pronunciation artifacts.
 
 ## OPEN QUESTION
 

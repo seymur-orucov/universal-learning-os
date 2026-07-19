@@ -4,6 +4,7 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Added Stage 16.0 Front-End Testing domain with canonical Azerbaijani curriculum, 25-file standard and 5-file compact generated packs, launch kits, acceptance/pilot documents, standard generator support, and executable CLI contract tests.
 - Added Stage 10.7 v0.1.0-rc1 release readiness documentation under `docs/releases/`.
 - Added ADR-0028 for release readiness documentation scope.
 - Added Stage 10.6 manual acceptance tests under `tests/manual-acceptance/`.

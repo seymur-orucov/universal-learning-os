@@ -36,7 +36,7 @@ Expected:
 
 - Reports PASS for all eight generated packs.
 - Standard packs have exactly 25 files.
-- Compact packs have no more than 5 files.
+- Compact packs have exactly the 5 required files.
 - Checks required files for each profile.
 - Checks Learner-Facing Mentor Mode marker.
 - Checks metadata visibility guardrails.
@@ -75,7 +75,7 @@ node tools/ulos-cli/src/index.js inspect-pack --domain typescript --profile comp
 Expected:
 
 - Prints compact pack path and 5-file list.
-- Reports expected rule: maximum 5 files.
+- Reports expected rule: exactly 5 files.
 - Reports `PROJECT_INSTRUCTIONS.md` present.
 - Reports `STARTUP_PROMPT.md` present.
 - Reports Learner-Facing Mentor Mode present.

@@ -1,14 +1,15 @@
 {
   "name": "ulos-cli",
-  "version": "0.1.0-stage-13.0",
+  "version": "0.1.0-stage-16.0",
   "private": true,
-  "description": "Minimal Universal Learning OS CLI prototype for generated Project Pack inspection and validation.",
+  "description": "Universal Learning OS CLI for generated Project Pack generation, inspection, validation, and contract tests.",
   "bin": {
     "ulos": "src/index.js"
   },
   "scripts": {
     "list-domains": "node src/index.js list-domains",
-    "validate": "node src/index.js validate"
+    "validate": "node src/index.js validate",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=18"
