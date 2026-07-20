@@ -57,7 +57,7 @@ test.after(() => {
 
 test("go registry identity is exact and appears once", () => {
   const entries = DOMAIN_CONFIG.filter(({ id }) => id === "go");
-  assert.equal(DOMAIN_CONFIG.length, 10);
+  assert.equal(DOMAIN_CONFIG.length, 11);
   assert.equal(entries.length, 1);
   assert.deepEqual(entries[0], {
     id: "go",
@@ -176,7 +176,7 @@ test("go handoff and snapshot helpers accept the domain and leave no artifact", 
   fs.rmSync(snapshot);
 });
 
-test("all ten domains retain exact generated pack budgets", () => {
+test("all eleven domains retain exact generated pack budgets", () => {
   for (const { id } of DOMAIN_CONFIG) {
     const standard = fs.readdirSync(path.join(generatedRoot, `${id}-standard`), { withFileTypes: true }).filter((entry) => entry.isFile());
     const compact = fs.readdirSync(path.join(generatedRoot, `${id}-compact`), { withFileTypes: true }).filter((entry) => entry.isFile());

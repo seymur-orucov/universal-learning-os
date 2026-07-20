@@ -20,6 +20,7 @@ Domain packs may be used by commands and agent skills to select tracks, lessons,
 - `domains/git/` is the mental-model-first, recovery-aware Git domain pack for beginner through engineering-lead workflows.
 - `domains/go/` is the language-first, standard-library-first Go domain pack for experienced engineers moving into backend, systems, platform, or full-stack work.
 - `domains/frontend-testing/` is the production Front-End Testing domain for TypeScript and React engineers.
+- `domains/gof-react-patterns/` is the TypeScript-first GoF and React patterns domain for selection, refactoring, testing, architecture judgment, and pattern rejection.
 - Future real domain packs SHOULD follow `specification/DOMAIN_PACK_SPEC.md`.
 
 ## Boundaries

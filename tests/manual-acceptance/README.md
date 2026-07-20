@@ -23,6 +23,8 @@ node tools/ulos-cli/src/index.js validate
 - `exports/generated/nodejs-standard/`
 - `exports/generated/git-standard/`
 - `exports/generated/go-standard/`
+- `exports/generated/frontend-testing-standard/`
+- `exports/generated/gof-react-patterns-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
@@ -32,6 +34,8 @@ node tools/ulos-cli/src/index.js validate
 - `exports/generated/nodejs-compact/`
 - `exports/generated/git-compact/`
 - `exports/generated/go-compact/`
+- `exports/generated/frontend-testing-compact/`
+- `exports/generated/gof-react-patterns-compact/`
 - `exports/generated/project-launch-kits/`
 - `learners/active-learner/`
 - `tools/ulos-cli/`
@@ -49,6 +53,8 @@ Generated pack directories must remain exactly 25 files each:
 - Node.js generated pack: 25 files.
 - Git generated pack: 25 files.
 - Go generated pack: 25 files.
+- Front-End Testing generated pack: 25 files.
+- GoF and React Design Patterns generated pack: 25 files.
 
 Compact/free generated pack directories must remain exactly 5 files each:
 
@@ -61,6 +67,8 @@ Compact/free generated pack directories must remain exactly 5 files each:
 - Node.js compact pack: exactly 5 files.
 - Git compact pack: exactly 5 files.
 - Go compact pack: exactly 5 files.
+- Front-End Testing compact pack: exactly 5 files.
+- GoF and React Design Patterns compact pack: exactly 5 files.
 
 Manual tests MUST NOT add files inside individual generated pack directories.
 
@@ -75,6 +83,8 @@ Manual tests MUST NOT add files inside individual generated pack directories.
 - Stage 29.0 downloadable Obsidian lesson-note and generic routing behavior lives at `tests/manual-acceptance/STAGE_29_0_OBSIDIAN_LESSON_NOTES_TEST.md`.
 - Stage 30.0 Git domain coverage lives at `tests/manual-acceptance/STAGE_30_0_GIT_DOMAIN_TEST.md`.
 - Stage 31.0 Go domain coverage lives at `tests/manual-acceptance/STAGE_31_0_GO_DOMAIN_TEST.md`.
+- Stage 32.0 Front-End Testing domain coverage lives at `tests/manual-acceptance/STAGE_32_0_FRONTEND_TESTING_DOMAIN_TEST.md`.
+- Stage 33.0 GoF and React Design Patterns coverage lives at `tests/manual-acceptance/STAGE_33_0_GOF_REACT_PATTERNS_DOMAIN_TEST.md`.
 
 ## OPEN QUESTION
 

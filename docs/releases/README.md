@@ -12,6 +12,10 @@ Release files are documentation artifacts. They are not canonical framework spec
 - `tests/manual-acceptance/STAGE_30_0_GIT_DOMAIN_TEST.md`
 - `docs/decisions/ADR-0058-go-domain.md`
 - `tests/manual-acceptance/STAGE_31_0_GO_DOMAIN_TEST.md`
+- `docs/decisions/ADR-0059-frontend-testing-domain.md`
+- `tests/manual-acceptance/STAGE_32_0_FRONTEND_TESTING_DOMAIN_TEST.md`
+- `docs/decisions/ADR-0060-gof-react-patterns-domain.md`
+- `tests/manual-acceptance/STAGE_33_0_GOF_REACT_PATTERNS_DOMAIN_TEST.md`
 - `docs/releases/v0.3.0.md`
 - `docs/releases/v0.3.0-rc-status.md`
 - `docs/releases/V0_3_0_RELEASE_CHECKLIST.md`
@@ -37,10 +41,10 @@ Release files are documentation artifacts. They are not canonical framework spec
 
 ## Current Pack Status
 
-- Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`, `frontend-system-design`, `nodejs`, `git`, and `go`.
+- Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`, `frontend-system-design`, `nodejs`, `git`, `go`, `frontend-testing`, and `gof-react-patterns`.
 - Standard packs: exactly 25 files per supported domain.
 - Compact packs: exactly 5 files per supported domain.
-- Generated packs checked: 18.
+- Generated packs checked: 22.
 - `node tools/ulos-cli/src/index.js validate` remains the official generated-pack quality gate.
 - `node tools/ulos-cli/src/index.js validate-learner` validates optional learner runtime artifacts.
 - Automated CLI tests run with `npm test` from `tools/ulos-cli/`.

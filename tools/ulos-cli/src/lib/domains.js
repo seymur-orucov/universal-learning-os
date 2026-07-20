@@ -71,6 +71,14 @@ const DOMAIN_CONFIG = [
       "Develop production-oriented testing judgment and implementation skills for TypeScript, React, Vitest, React Testing Library, MSW, and Playwright.",
     terms: "testing, TypeScript, React, Vitest, React Testing Library, MSW, and Playwright terminology",
   },
+  {
+    id: "gof-react-patterns",
+    launchPrefix: "GOF_REACT_PATTERNS",
+    title: "GoF and React Design Patterns",
+    purpose:
+      "Develop pattern-selection, refactoring, and architecture judgment across GoF and React patterns without overengineering or false one-to-one mappings.",
+    terms: "GoF, TypeScript, JavaScript, React, Vitest, and React Testing Library terminology",
+  },
 ];
 
 const SUPPORTED_DOMAINS = DOMAIN_CONFIG.map((domain) => domain.id);

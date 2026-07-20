@@ -78,6 +78,20 @@ Suggested project prompt:
 Start a Go backend project track using net/http and PostgreSQL. Keep SQL explicit, frameworks optional and late, and make me own errors, cancellation, resource cleanup, bounded concurrency, tests, and graceful shutdown.
 ```
 
+For GoF and React Design Patterns, create one dedicated Project and use either all five files from `exports/generated/gof-react-patterns-compact/` or all 25 files from `exports/generated/gof-react-patterns-standard/`. Start from design foundations; do not treat pattern names or pattern count as the goal.
+
+Suggested first prompt:
+
+```text
+START_LESSON. Teach the problem, naive design, forces and simplest alternative before naming a pattern. Use TypeScript-first implementation and meaningful tests.
+```
+
+Suggested practice prompt:
+
+```text
+PRACTICE. Give me a realistic design that may or may not need a pattern. Let me derive, test, compare and possibly reject or remove the abstraction before showing a complete solution.
+```
+
 ## Learn in the Project
 
 - Start a lesson: `Start lesson`

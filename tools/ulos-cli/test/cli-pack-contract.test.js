@@ -38,6 +38,7 @@ test("list-domains exits 0 and reports the exact supported domains", () => {
     "git",
     "go",
     "frontend-testing",
+    "gof-react-patterns",
   ]);
   assert.equal(domains.filter((domain) => domain === "git").length, 1);
 });
@@ -45,15 +46,15 @@ test("list-domains exits 0 and reports the exact supported domains", () => {
 test("validate exits 0 for generated pack contracts", () => {
   const result = runCli(["validate"]);
   assert.equal(result.status, 0, output(result));
-  assert.match(result.stdout, /Domains checked: 10/);
-  assert.match(result.stdout, /Packs checked: 20/);
+  assert.match(result.stdout, /Domains checked: 11/);
+  assert.match(result.stdout, /Packs checked: 22/);
 
   const generatedPackDirectories = fs
     .readdirSync(path.join(repoRoot, "exports", "generated"), { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && /-(standard|compact)$/.test(entry.name))
     .map((entry) => entry.name)
     .sort();
-  assert.equal(generatedPackDirectories.length, 20);
+  assert.equal(generatedPackDirectories.length, 22);
   assert.deepEqual(generatedPackDirectories, [
     "dsa-compact",
     "dsa-standard",
@@ -67,6 +68,8 @@ test("validate exits 0 for generated pack contracts", () => {
     "git-standard",
     "go-compact",
     "go-standard",
+    "gof-react-patterns-compact",
+    "gof-react-patterns-standard",
     "javascript-compact",
     "javascript-standard",
     "nodejs-compact",

@@ -18,6 +18,7 @@ Generated packs MAY be committed while the framework is manually developed becau
 - `exports/generated/git-standard/`: Git standard Project Pack, exactly 25 files.
 - `exports/generated/go-standard/`: Go standard Project Pack, exactly 25 files.
 - `exports/generated/frontend-testing-standard/`: Front-End Testing standard Project Pack, exactly 25 files.
+- `exports/generated/gof-react-patterns-standard/`: GoF and React Design Patterns standard Project Pack, exactly 25 files.
 - `exports/generated/sql-postgresql-compact/`: SQL/PostgreSQL compact/free Project Pack, exactly 5 files.
 - `exports/generated/english-compact/`: English compact/free Project Pack, exactly 5 files.
 - `exports/generated/javascript-compact/`: JavaScript compact/free Project Pack, exactly 5 files.
@@ -28,6 +29,7 @@ Generated packs MAY be committed while the framework is manually developed becau
 - `exports/generated/git-compact/`: Git compact/free Project Pack, exactly 5 files.
 - `exports/generated/go-compact/`: Go compact/free Project Pack, exactly 5 files.
 - `exports/generated/frontend-testing-compact/`: Front-End Testing compact/free Project Pack, exactly 5 files.
+- `exports/generated/gof-react-patterns-compact/`: GoF and React Design Patterns compact/free Project Pack, exactly 5 files.
 
 ## Profiles
 
@@ -42,7 +44,7 @@ Run from the repository root:
 node tools/ulos-cli/src/index.js validate
 ```
 
-Expected Stage 32.0 result: all twenty generated packs pass, launch kits exist, and file counts match the unchanged profile contracts.
+Expected Stage 33.0 result: all twenty-two generated packs pass, launch kits exist, and file counts match the unchanged profile contracts.
 
 ## Guides and Reports
 

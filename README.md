@@ -20,6 +20,7 @@ The repository currently implements:
 - Stage 30.0: production Git domain with mental-model-first learning, recovery and safety, provider-neutral collaboration, leadership workflow design, generated standard/compact packs, and full CLI/Studio validation coverage.
 - Stage 31.0: production Go domain with language-first and standard-library-first progression, safe concurrency, explicit errors, HTTP/PostgreSQL/production engineering, generated standard/compact packs, and full CLI/Studio validation coverage.
 - Stage 32.0: production Front-End Testing domain with risk-based test-level selection, Vitest, React Testing Library, MSW, Playwright, flaky-test diagnosis, strategy design, and contract-preserving generated packs.
+- Stage 33.0: canonical GoF and React Design Patterns domain with 23 GoF patterns, 20 React patterns, TypeScript-first implementations, functional/no-pattern alternatives, refactoring, pattern removal, and contract-preserving generated packs.
 
 It does not yet include generated lessons, learner applications, machine-readable schemas, or an app/dashboard runtime. CLI validation and pack generation live under `tools/ulos-cli/`.
 
@@ -41,6 +42,7 @@ The repository is ready for manual review and practical ChatGPT Project setup us
 - `git`
 - `go`
 - `frontend-testing`
+- `gof-react-patterns`
 
 ## Repository Map
 
@@ -82,6 +84,7 @@ Supported generated Project Packs:
 - `exports/generated/git-standard/`
 - `exports/generated/go-standard/`
 - `exports/generated/frontend-testing-standard/`
+- `exports/generated/gof-react-patterns-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
@@ -92,6 +95,7 @@ Supported generated Project Packs:
 - `exports/generated/git-compact/`
 - `exports/generated/go-compact/`
 - `exports/generated/frontend-testing-compact/`
+- `exports/generated/gof-react-patterns-compact/`
 
 ## CLI Prototype
 

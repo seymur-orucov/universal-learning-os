@@ -26,14 +26,25 @@
 - Stage 30.0: Git Domain completed with mental-model-first progression, recovery and destructive-operation safety, provider-neutral collaboration, leadership workflow design, and two contract-preserving generated packs.
 - Stage 31.0: Go Domain completed with language-first and standard-library-first progression, explicit errors, safe concurrency, HTTP/PostgreSQL/production engineering, and two contract-preserving generated packs.
 - Stage 32.0: Front-End Testing Domain completed with risk-based test-level selection, Vitest, React Testing Library, MSW, Playwright reliability, suite review, and two contract-preserving generated packs.
-- Broad framework and Studio feature expansion remains paused; Stage 32.0 adds no code runner, browser runner integration, hosted service, learner database, automatic state workflow, or testing-specific Studio feature.
+- Stage 33.0: GoF and React Design Patterns Domain completed with pattern-selection, TypeScript-first implementation, functional alternatives, refactoring/removal, architecture judgment, and two contract-preserving generated packs.
+- Broad framework and Studio feature expansion remains paused; Stage 33.0 adds no code runner, React/Vitest dependency, hosted service, learner database, automatic state workflow, or domain-specific Studio feature.
 
 ## Recommended Priority
 
-1. Run SQL/PostgreSQL, English, DSA, Front-End System Design, Node.js, Git, Go, and Front-End Testing real learning pilots in ChatGPT Projects.
+1. Run SQL/PostgreSQL, English, DSA, Front-End System Design, Node.js, Git, Go, Front-End Testing, and GoF/React Patterns real learning pilots in ChatGPT Projects.
 2. Use pilot evidence before proposing framework or Studio expansion or another domain.
 3. Keep learner runtime helpers optional and scaffold-oriented; do not require daily repository updates.
 4. Keep Studio local-first, CLI-backed, and optional.
+
+## Stage 33.0 GoF and React Design Patterns Domain
+
+- Adds only `gof-react-patterns` as the eleventh canonical domain.
+- Covers all 23 GoF and 20 React patterns in 15 modules, with a 28-part teaching contract that starts from problem, naive design and forces before derivation.
+- Uses TypeScript as complete primary implementation, JavaScript as purposeful runtime comparison, Vitest for public behavior, and React Testing Library only for rendered behavior.
+- Requires functional/data-driven and no-pattern alternatives, testing implications, misuse, overengineering, pattern rejection/removal, 12 refactoring labs, 12 case studies, three capstones, and four interview levels.
+- Adds `gof-react-patterns-standard` with exactly 25 files and `gof-react-patterns-compact` with exactly five files, increasing generated packs from twenty to twenty-two.
+- Adds ADR-0060, launch kits, automated assertions, manual acceptance, and a planned pilot while preserving learner-state and mastery evidence boundaries.
+- Keeps Studio optional, generic and registry-driven; adds no GoF/React-specific screen, bridge action, dependency, runnable app, learner runtime, release, or tag.
 
 ## Stage 32.0 Front-End Testing Domain
 

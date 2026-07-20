@@ -2,7 +2,7 @@
 
 This guide defines the standard manual process for adding a new learning domain to Universal Learning OS.
 
-Current supported generated domains include SQL/PostgreSQL, English, JavaScript, TypeScript, DSA, Front-End System Design, Node.js, Git, Go, and Front-End Testing.
+Current supported generated domains include SQL/PostgreSQL, English, JavaScript, TypeScript, DSA, Front-End System Design, Node.js, Git, Go, Front-End Testing, and GoF and React Design Patterns.
 
 ## 1. Define Domain Purpose
 
@@ -61,7 +61,7 @@ Add practical tests under `tests/manual-acceptance/<domain-id>/`. Cover startup,
 
 ## How to add a new domain after v0.2.0
 
-1. Create the canonical domain pack under `domains/<domain>/` with `DOMAIN.md`, `SYLLABUS.md`, `SKILL_GRAPH.md`, `GLOSSARY.md`, `PROJECTS.md`, `PRACTICE_RULES.md`, and `ASSESSMENT_RULES.md`.
+1. Create the canonical domain pack under `domains/<domain>/` with exactly `README.md`, `DOMAIN.md`, `SYLLABUS.md`, `SKILL_GRAPH.md`, `GLOSSARY.md`, `PROJECTS.md`, `PRACTICE_RULES.md`, `ASSESSMENT_RULES.md`, and `QUALITY_REVIEW.md`.
 2. Add the domain config to `tools/ulos-cli/src/lib/domains.js`, including domain id, title, purpose, terminology guidance, and launch kit prefix.
 3. Add launch kit files under `exports/generated/project-launch-kits/` using the configured prefix for standard and compact profiles.
 4. Generate the compact pack with `node tools/ulos-cli/src/index.js generate --domain <domain> --profile compact`.

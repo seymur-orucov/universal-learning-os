@@ -2,7 +2,7 @@
 
 ## Validation Marker
 
-`stage-32.0-frontend-testing-domain`
+`stage-33.0-gof-react-patterns-domain`
 
 ## Quick Validation
 
@@ -26,7 +26,7 @@ From `tools/ulos-cli/`, run the same suite with:
 npm test
 ```
 
-The Stage 32.0 suite passes 126/126 tests. Registry-driven coverage checks all twenty generated packs, exact 25/5 counts, Front-End Testing canonical/registry contracts, standard and compact dry-runs, inspection, learner helpers, teaching-first delivery, testing-level boundaries, Vitest, React Testing Library, MSW, Playwright reliability, lesson exports, invalid-domain rejection, path safety, and learner-facing metadata boundaries.
+The Stage 33.0 suite passes 135/135 tests. Registry-driven coverage checks all twenty-two generated packs, exact 25/5 counts, GoF/React canonical and registry contracts, all 15 modules, 23 GoF patterns, 20 React patterns, practice/assessment/project markers, standard and compact dry-runs, inspection, learner helpers, launch kits, teaching-first delivery, lesson exports, invalid-domain rejection, path safety, cleanup, and learner-facing metadata boundaries.
 
 Packs can be regenerated before validation:
 
@@ -45,6 +45,8 @@ node tools/ulos-cli/src/index.js generate --domain go --profile compact
 node tools/ulos-cli/src/index.js generate --domain go --profile standard
 node tools/ulos-cli/src/index.js generate --domain frontend-testing --profile compact
 node tools/ulos-cli/src/index.js generate --domain frontend-testing --profile standard
+node tools/ulos-cli/src/index.js generate --domain gof-react-patterns --profile compact
+node tools/ulos-cli/src/index.js generate --domain gof-react-patterns --profile standard
 node tools/ulos-cli/src/index.js validate
 ```
 
@@ -64,6 +66,7 @@ Validated generated Project Packs:
 - `exports/generated/git-standard/`
 - `exports/generated/go-standard/`
 - `exports/generated/frontend-testing-standard/`
+- `exports/generated/gof-react-patterns-standard/`
 - `exports/generated/sql-postgresql-compact/`
 - `exports/generated/english-compact/`
 - `exports/generated/javascript-compact/`
@@ -74,6 +77,7 @@ Validated generated Project Packs:
 - `exports/generated/git-compact/`
 - `exports/generated/go-compact/`
 - `exports/generated/frontend-testing-compact/`
+- `exports/generated/gof-react-patterns-compact/`
 
 This report is a derived audit artifact. It is not canonical framework source and not learner state.
 
@@ -98,6 +102,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `git-standard` | exactly 25 | PASS | Generated standard pack. |
 | `go-standard` | exactly 25 | PASS | Generated standard pack. |
 | `frontend-testing-standard` | exactly 25 | PASS | Generated standard pack. |
+| `gof-react-patterns-standard` | exactly 25 | PASS | Generated standard pack. |
 
 ## Compact Profile Checks
 
@@ -113,6 +118,7 @@ Standard generation writes exactly 25 files. Compact generation writes exactly 5
 | `git-compact` | exactly 5 | PASS | Generated compact pack. |
 | `go-compact` | exactly 5 | PASS | Generated compact pack. |
 | `frontend-testing-compact` | exactly 5 | PASS | Generated compact pack. |
+| `gof-react-patterns-compact` | exactly 5 | PASS | Generated compact pack. |
 
 ## Required Compact Files
 
@@ -137,7 +143,17 @@ Standard and compact packs preserve Learner-Facing Mentor Mode. Normal lessons, 
 - Standard packs now have generation tooling.
 - `--dry-run` and `--out-dir` support safer standard generation testing.
 
-## Current Stage 32.0 Summary
+## Current Stage 33.0 Summary
+
+- All eleven supported domains have one standard and one compact generated pack, for twenty-two packs total.
+- Pack validation passes all twenty-two packs; learner validation passes with zero violations.
+- Every standard pack contains exactly 25 files and every compact pack exactly five files.
+- `gof-react-patterns-standard` contains the five required `GOF_REACT_PATTERNS_*` files; `gof-react-patterns-compact` contains the exact five compact contract files.
+- Both GoF/React packs preserve teaching-first problem/forces derivation, TypeScript-first implementation, purposeful JavaScript comparison, Vitest/React Testing Library boundaries, functional/no-pattern alternatives, anti-overengineering controls, pattern removal, learner-produced mastery evidence, metadata visibility, and generic Obsidian/Notion lesson exports.
+- The automated CLI suite passes 135/135 tests; Studio production build, bridge smoke, and health smoke pass.
+- No learner-state mutation, React/Vitest dependency, runnable application, release tag, domain-specific Studio screen, hosted service, or automatic state workflow is part of Stage 33.0.
+
+## Historical Stage 32.0 Summary
 
 - All ten supported domains have one standard and one compact generated pack, for twenty packs total.
 - Pack validation passes all twenty packs; learner validation passes with zero violations.

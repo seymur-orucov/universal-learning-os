@@ -35,7 +35,7 @@ function packContent(profile) {
 
 test("git registry identity is exact and appears once", () => {
   const entries = DOMAIN_CONFIG.filter(({ id }) => id === "git");
-  assert.equal(DOMAIN_CONFIG.length, 10);
+  assert.equal(DOMAIN_CONFIG.length, 11);
   assert.equal(entries.length, 1);
   assert.deepEqual(entries[0], {
     id: "git",

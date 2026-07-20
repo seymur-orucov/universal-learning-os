@@ -35,6 +35,8 @@ node tools/ulos-cli/src/index.js inspect-pack --domain go --profile standard
 node tools/ulos-cli/src/index.js generate --domain go --profile compact --dry-run
 node tools/ulos-cli/src/index.js inspect-pack --domain frontend-testing --profile standard
 node tools/ulos-cli/src/index.js generate --domain frontend-testing --profile compact --dry-run
+node tools/ulos-cli/src/index.js inspect-pack --domain gof-react-patterns --profile standard
+node tools/ulos-cli/src/index.js generate --domain gof-react-patterns --profile compact --dry-run
 ```
 
 ## Optional Local Bin Usage
@@ -86,6 +88,7 @@ Domains:
 - `git`
 - `go`
 - `frontend-testing`
+- `gof-react-patterns`
 
 Profiles:
 
@@ -100,7 +103,7 @@ Generate a compact pack:
 node tools/ulos-cli/src/index.js generate --domain typescript --profile compact
 ```
 
-Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`, `frontend-system-design`, `nodejs`, `git`, `go`, `frontend-testing`.
+Supported domains: `sql-postgresql`, `english`, `javascript`, `typescript`, `dsa`, `frontend-system-design`, `nodejs`, `git`, `go`, `frontend-testing`, `gof-react-patterns`.
 
 Generated compact packs contain exactly:
 

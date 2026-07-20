@@ -4,6 +4,9 @@ All notable repository-level changes SHOULD be recorded here.
 
 ## Unreleased
 
+- Completes Stage 33.0 by adding the canonical `gof-react-patterns` domain with a 15-module curriculum, all 23 GoF patterns, 20 React patterns, TypeScript-first implementations, purposeful JavaScript comparisons, Vitest/React Testing Library examples, functional alternatives, pattern rejection, refactoring, removal, architecture, case studies, capstones, and interviews.
+- Adds `gof-react-patterns-standard` (exactly 25 files) and `gof-react-patterns-compact` (exactly 5 files), increasing supported domains from 10 to 11 and generated packs from 20 to 22 without changing profile contracts or existing domain content.
+- Adds registry/generator guidance, eight launch kits, ADR-0060, dedicated automated coverage, manual acceptance, a planned real-learning pilot, setup/index updates, and generic CLI-backed Studio compatibility without React/Vitest dependencies, learner-state mutation, or a domain-specific Studio feature.
 - Completes Stage 32.0 by adding the canonical `frontend-testing` domain with testing economics, level selection, Vitest unit tests, React Testing Library component tests, MSW integration tests, reliable Playwright E2E architecture, flaky-test diagnosis, legacy safety nets, suite review, and production strategy design.
 - Adds `frontend-testing-standard` (exactly 25 files) and `frontend-testing-compact` (exactly 5 files), increasing supported domains from 9 to 10 and generated packs from 18 to 20 without changing profile contracts.
 - Adds Front-End Testing registry/generator coverage, launch kits, ADR-0059, manual acceptance, a planned real-learning pilot, and generic Studio compatibility without adding testing-specific Studio features.
